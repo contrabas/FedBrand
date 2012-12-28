@@ -7,6 +7,10 @@
       .alert.alert-success=flash[:notice]
     - if flash[:alert]
       .alert.alert-error=flash[:alert]
+    #nav
+      = link_to_unless I18n.locale == :ru, "Рус", locale: nil
+      |
+      = link_to_unless I18n.locale == :en, "Eng", locale: "en"
 
   = yield
   = javascript_include_tag 'application'

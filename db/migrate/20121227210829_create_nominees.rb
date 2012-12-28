@@ -1,5 +1,5 @@
 class CreateNominees < ActiveRecord::Migration
-  def change
+  def up
     create_table :nominees do |t|
       t.integer :region_id
       t.integer :nomination_id
@@ -8,5 +8,10 @@ class CreateNominees < ActiveRecord::Migration
 
       t.timestamps
     end
+    Nominee.create_translation_table! description: :text
+  end
+  def down
+    drop_table :nominees
+    Nominee.drop_translation_table!
   end
 end

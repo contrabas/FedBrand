@@ -1,5 +1,6 @@
 class Region < ActiveRecord::Base
   attr_accessible :emblem, :name
+  translates :name
 
   mount_uploader :emblem, RegionUploader
 

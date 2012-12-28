@@ -1,5 +1,6 @@
 class Expert < ActiveRecord::Base
   attr_accessible :category_id, :description, :name, :photo, :position, :post, :workplace
+  translates :name, :description, :position, :post, :workplace
 
   belongs_to :category
   belongs_to :partner

@@ -79,6 +79,10 @@ GEM
     formtastic (2.2.1)
       actionpack (>= 3.0)
     fssm (0.2.9)
+    globalize3 (0.3.0)
+      activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      paper_trail (~> 2)
     haml (3.1.7)
     has_scope (0.5.1)
     hike (1.2.1)
@@ -108,6 +112,9 @@ GEM
       subexec (~> 0.2.1)
     multi_json (1.5.0)
     orm_adapter (0.4.0)
+    paper_trail (2.7.0)
+      activerecord (~> 3.0)
+      railties (~> 3.0)
     pg (0.14.1)
     polyamorous (0.5.0)
       activerecord (~> 3.0)
@@ -177,6 +184,7 @@ DEPENDENCIES
   coffee-rails
   compass-rails
   devise
+  globalize3
   haml
   jquery-rails
   mini_magick
