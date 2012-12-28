@@ -1,0 +1,12 @@
+%html
+  %head
+    = title
+    = stylesheet_link_tag 'application'
+  %body
+    - if flash[:notice]
+      .alert.alert-success=flash[:notice]
+    - if flash[:alert]
+      .alert.alert-error=flash[:alert]
+
+  = yield
+  = javascript_include_tag 'application'
