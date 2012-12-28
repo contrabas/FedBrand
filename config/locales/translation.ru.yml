@@ -1,0 +1,151 @@
+ru:
+  activerecord:
+    models:
+      nomination: Премии  #g
+      opinion: Мнения  #g
+      partner: Партнеры  #g
+      gallery: Галлереи  #g
+      news: Новости  #g
+      category: Категории  #g
+      user: Пользователи  #g
+      region: Регионы  #g
+      expert: Эксперты  #g
+      image: Изображения  #g
+      juror: Жюри  #g
+      nominee: Номинанты  #g
+
+    attributes:
+      active_admin/comment:
+        resource_type: resource_type  #g
+        author_type: author_type  #g
+        body: body  #g
+        namespace: namespace  #g
+        resource: resource  #g
+        author: author  #g
+
+      nomination:
+        year: год  #g
+        jury: жюри  #g
+        experts: эксперты  #g
+        nominees: номинанты  #g
+        regions: регионы  #g
+
+      opinion:
+        content: содержание  #g
+        translations: переводы  #g
+        expert: эксперт  #g
+
+      opinion/translation:
+        locale: язык  #g
+        content: содержание  #g
+        opinion: мнение  #g
+
+      news/translation:
+        locale: язык  #g
+        content: содержание  #g
+        title: заголовок  #g
+        news: новости  #g
+
+      category/translation:
+        locale: язык  #g
+        name: название  #g
+        category: категория  #g
+
+      region/translation:
+        locale: язык  #g
+        name: название  #g
+        region: регион  #g
+
+      expert/translation:
+        locale: язык  #g
+        name: название  #g
+        description: описание  #g
+        position: положение  #g
+        post: должность  #g
+        workplace: место работы  #g
+        expert: эксперт  #g
+
+      image/translation:
+        locale: язык  #g
+        title: заголовок  #g
+        description: описание  #g
+        image: изображение  #g
+
+      nominee/translation:
+        locale: язык  #g
+        description: описание  #g
+        nominee: номинант  #g
+
+      partner:
+        logo: логотип  #g
+        url: ссылка  #g
+        experts: эксперты  #g
+
+      gallery:
+        images: изображения  #g
+        nomination: номинация  #g
+
+      news:
+        logo: логотип  #g
+        title: заголовок  #g
+        content: содержание  #g
+        preview: превью  #g
+        published_by: published_by  #g
+        publish_url: publish_url  #g
+        translations: переводы  #g
+        category: категория  #g
+        region: регион  #g
+
+      category:
+        name: название  #g
+        translations: переводы  #g
+        experts: эксперты  #g
+        news: новости  #g
+
+      user:
+        email: Электронная почта  #g
+        encrypted_password: encrypted_password  #g
+        reset_password_token: reset_password_token  #g
+        reset_password_sent_at: reset_password_sent_at  #g
+        remember_created_at: Запомнить меня  #g
+        current_sign_in_at: Текущий вход  #g
+        last_sign_in_at: Последний вход  #g
+        current_sign_in_ip: Текущий айпи  #g
+        last_sign_in_ip: Последний айпи  #g
+        admin: Админ  #g
+
+      region:
+        name: Регион  #g
+        emblem: герб  #g
+        translations: переводы  #g
+        news: новости  #g
+
+      expert:
+        photo: фото  #g
+        name: название  #g
+        description: описание  #g
+        position: позиция  #g
+        post: титул  #g
+        workplace: место работы  #g
+        translations: переводы  #g
+        category: категория  #g
+        partner: партнер  #g
+        opinions: мнения  #g
+
+      image:
+        file: файл  #g
+        title: заголовок  #g
+        description: описание  #g
+        translations: переводы  #g
+        gallery: галлерея  #g
+
+      juror:
+        expert: эксперт  #g
+        nomination: номинация  #g
+
+      nominee:
+        date: дата  #g
+        description: описание  #g
+        translations: переводы  #g
+        region: регион  #g
+        nomination: номинация  #g

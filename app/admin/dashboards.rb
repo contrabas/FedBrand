@@ -1,4 +1,12 @@
+#coding: utf-8
 ActiveAdmin.register_page "Dashboard" do
+  action_item do
+    if I18n.locale == :en
+      link_to "Rus version", locale: nil
+    else
+      link_to "Англ версия", locale: 'en'
+    end
+  end
 
   menu :priority => 1, :label => proc{ I18n.t("active_admin.dashboard") }
 

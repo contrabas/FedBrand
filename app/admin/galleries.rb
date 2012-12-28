@@ -1,5 +1,13 @@
 #coding: utf-8
 ActiveAdmin.register Gallery do
+  action_item do
+    if I18n.locale == :en
+      link_to "Rus version", locale: nil
+    else
+      link_to "Англ версия", locale: 'en'
+    end
+  end
+  
   index do
     column :id
     column "Nomination year" do |g|
@@ -35,7 +43,7 @@ ActiveAdmin.register Gallery do
 
     f.has_many :images, multipart: true do |g|
       unless g.object.new_record?
-        g.input :_destroy, as: :boolean, required: false, label: 'Удалить?'
+        g.input :_destroy, as: :boolean, required: false, label: 'Delete?'
       end
 
       g.input :file, hint: g.object.file.url ? 
@@ -47,5 +55,19 @@ ActiveAdmin.register Gallery do
     end
 
     f.actions
+  end
+
+  controller do
+    def create
+      create! do |format|
+        format.html { redirect_to admin_galleries_url }
+      end
+    end
+
+    def update
+      update! do |format|
+        format.html { redirect_to admin_galleries_url }
+      end
+    end
   end
 end

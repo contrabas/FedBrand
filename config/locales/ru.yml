@@ -44,32 +44,6 @@ ru:
     few: ! '%{count} слова'
     many: ! '%{count} слов'
     other: ! '%{count} слов'
-  words_for_review:
-    one: ! '%{count} слово ожидает'
-    few: ! '%{count} слова ожидают'
-    many: ! '%{count} слов ожидают'
-    other: ! '%{count} слов ожидают'
-  mail:
-    video_title:
-      one: Вышла %{count} новая серия
-      few: Вышло %{count} новые серии
-      many: Вышло %{count} новых серий
-      other: Вышло %{count} новых серий
-    video_title_misc:
-      one: вашего любимого сериала
-      few: ваших любимых сериалов
-      many: ваших любимых сериалов
-      other: ваших любимых сериалов
-    video_body:
-      one: вышла %{count} новая серия
-      few: вышли %{count} новые серии
-      many: вышли %{count} новых серий
-      other: вышли %{count} новых серий
-    video_body_num:
-      one: ! '%{count} новая серия'
-      few: ! '%{count} новые серии'
-      many: ! '%{count} новых серий'
-      other: ! '%{count} новых серий'
   date:
     x_months:
       one: ! '%{count} месяц'
@@ -329,15 +303,5 @@ ru:
     errors:
       <<: *errors
   activerecord:
-    models:
-      user: Пользователь
-    attributes:
-      user:
-        password: Пароль
-        email: Электронная почта
-        password_confirmation: Повторите пароль
-        current_password: Текущий пароль
-      region:
-        name: Регион
     errors:
       <<: *errors
