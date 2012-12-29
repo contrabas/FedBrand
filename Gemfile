@@ -8,6 +8,7 @@ gem 'devise'
 gem 'mini_magick'
 gem 'activeadmin', '0.5.0.pre1'
 gem 'globalize3'
+gem 'gon'
 
 group :production do
   gem 'pg'

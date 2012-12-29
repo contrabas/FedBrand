@@ -13,7 +13,7 @@ ru:
       image: Изображения  #g
       juror: Жюри  #g
       nominee: Номинанты  #g
-
+      rating: Рейтинги
     attributes:
       active_admin/comment:
         resource_type: resource_type  #g

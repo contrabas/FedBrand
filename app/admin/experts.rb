@@ -1,6 +1,6 @@
 #coding: utf-8
 ActiveAdmin.register Expert do
-  action_item do
+  action_item except: [:show] do
     if I18n.locale == :en
       link_to "Rus version", locale: nil
     else
@@ -9,10 +9,6 @@ ActiveAdmin.register Expert do
   end
   
   controller do
-    def scoped_collection
-      Expert.with_translations I18n.locale
-    end
-
     def create
       create! do |format|
         format.html { redirect_to admin_experts_url }

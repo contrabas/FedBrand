@@ -83,6 +83,9 @@ GEM
       activemodel (>= 3.0.0)
       activerecord (>= 3.0.0)
       paper_trail (~> 2)
+    gon (4.0.0)
+      actionpack (>= 2.3.0)
+      json
     haml (3.1.7)
     has_scope (0.5.1)
     hike (1.2.1)
@@ -185,6 +188,7 @@ DEPENDENCIES
   compass-rails
   devise
   globalize3
+  gon
   haml
   jquery-rails
   mini_magick

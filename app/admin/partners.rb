@@ -1,6 +1,6 @@
 #coding: utf-8
 ActiveAdmin.register Partner do
-  action_item do
+  action_item except: [:show] do
     if I18n.locale == :en
       link_to "Rus version", locale: nil
     else

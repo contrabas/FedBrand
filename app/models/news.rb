@@ -3,6 +3,8 @@ class News < ActiveRecord::Base
                   :published_by, :region_id, :title
   translates :content, :title
 
+  default_scope { with_translations(I18n.locale) }
+
   belongs_to :category
   belongs_to :region
 end
