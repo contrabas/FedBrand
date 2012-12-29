@@ -55,7 +55,7 @@ loadChart = ->
     callback: drawRatingChart
 
 $ ->
-  return unless $('#rating_chart')
+  return unless $('#rating_chart').length
 
   loadChart()
 
