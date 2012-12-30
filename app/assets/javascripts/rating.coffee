@@ -9,10 +9,12 @@ drawRatingChart = ->
 
   addRows data
 
+  title = if gon.locale == 'en' then "Rating" else "Рейтинг"
   options = 
-    title: "Рейтинг"
+    title: title
     pointSize: 5
     vAxis: {viewWindow: {min: 0, max: 850}}
+    hAxis: {viewWindow: { max: 11.5, min: 0.5 }}
     chartArea: {width: "75%", height: "75%"}
 
   chart = new google.visualization.LineChart(document.getElementById("rating_chart"))

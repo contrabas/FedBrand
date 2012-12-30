@@ -12,3 +12,7 @@ en:
     - :day
     - :month
     - :year
+    formats:
+      default: ! '%d.%m.%Y'
+      long: ! '%d %B %Y'
+      short: ! '%d %b'
