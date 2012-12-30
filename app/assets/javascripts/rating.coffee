@@ -4,7 +4,7 @@ found = false
 drawRatingChart = ->
   data = new google.visualization.DataTable()
   data.addColumn 'date', 'Дата'
-  $.each gon.regions, (key, value) ->
+  $.each gon.data.regions, (key, value) ->
     data.addColumn 'number', value
 
   addRows data
@@ -16,8 +16,7 @@ drawRatingChart = ->
     vAxis: {viewWindow: {min: 0, max: 850}}
     hAxis:
       format: "MMM yyy"
-      viewWindowMode: 'explicit'
-      viewWindow: {max: new Date(2013, 5, 11)}
+      viewWindow: {max: maxDate()}
     chartArea:
       left: 50
 
@@ -28,7 +27,7 @@ drawRatingChart = ->
   chart.draw data, options
 
 addRows = (data) ->
-  $.each gon.ratings, (key, value) ->
+  $.each gon.data.ratings, (key, value) ->
     values = []
     $.each value, (key, value) ->
       date = $.datepicker.parseDate "dd.mm.yy", key
@@ -39,7 +38,7 @@ addRows = (data) ->
     data.addRow values
 
 addValues = (value) ->
-  regions(region, value) for region in gon.regions
+  regions(region, value) for region in gon.data.regions
 
 regions = (region, supplied) ->
   found = false
@@ -74,9 +73,20 @@ monthNamesShort = ['Янв','Фев','Мар','Апр','Май','Июн','Июл
 
 replaceMonths = ->
   $.each monthNamesTarget, (key, value) ->
-    $("#rating_chart text[text-anchor='middle']:contains(#{value})").text(
-      monthNamesShort[key]
-    )
+    $("text[text-anchor='middle']:contains(#{value})").text (i, text) ->
+      return text.replace value, monthNamesShort[key]
+
+maxDate = ->
+  interval = gon.data.interval
+  
+  toAdd = 4 - interval if interval < 4
+  toAdd = 1 if interval == 8
+
+  date = $.datepicker.parseDate "dd.mm.yy", gon.data.last_date
+  month = date.getMonth()
+  date.setMonth month + toAdd, 1
+
+  return date
 
 $ ->
   return unless $('#rating_chart').length
