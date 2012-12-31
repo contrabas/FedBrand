@@ -1,13 +1,24 @@
 #rating_chart
 %table#rating_dashboard
   %tr
-    %td 
+    %td
+    %td #
     %td Субъект РФ
     %td
     %td Рейтинг
-  - Region.all.each do |region|
+    %td Изменения за месяц
+
+  - last_month = Rating.order('date DESC').first.date.at_beginning_of_month
+  - last_month_ratings = Rating.sum('ratings.value', conditions: ['date < ?', last_month], group: 'regions.id', order: 'SUM(value) DESC').map(&:first)
+
+  - Rating.sum('ratings.value', group: 'regions.id', order: 'SUM(value) DESC').each_with_index do |(region_id, rating), i|
+    - region = Region.find region_id
+    - change = last_month_ratings.index(region_id) - i
+
     %tr.region
       %td= check_box_tag 'region', region.id
+      %td= i+1
       %td.name= region.name
       %td= image_tag region.emblem.url(:icon)
-      %td= region.ratings.sum(:value)
+      %td= rating
+      %td= change > 0 ? "+#{change}" : "#{change}"

@@ -4,7 +4,7 @@ class Rating < ActiveRecord::Base
   belongs_to :region
 
   default_scope { 
-    joins(region: :translations).order('date ASC')
+    joins(region: :translations)
       .where(region_translations: {locale: I18n.locale}).readonly(false)
   }
 
