@@ -1,1 +1,6 @@
 #rating_chart
+#rating_dashboard
+  - Region.all.each do |region|
+    .region
+      = check_box_tag 'region', region.id
+      .name= region.name

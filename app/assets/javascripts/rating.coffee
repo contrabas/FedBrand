@@ -1,5 +1,13 @@
 values = []
 found = false
+startDate = new Date(2100, 0, 1)
+endDate = null
+
+monthNamesTarget = ['янв.','февр.','марта','апр.','мая','июня',
+    'июля','авг.','сент.','окт.','нояб.','дек.']
+
+monthNamesShort = ['Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг',
+    'Сен','Окт','Ноя','Дек']
 
 drawRatingChart = ->
   data = new google.visualization.DataTable()
@@ -26,15 +34,26 @@ drawRatingChart = ->
   
   chart.draw data, options
 
+loadChart = ->
+  google.load "visualization", "1",
+    packages: ["corechart"]
+    language: gon.locale
+    callback: drawRatingChart
+
 addRows = (data) ->
-  $.each gon.data.ratings, (key, value) ->
+  $.each gon.data.ratings, (i, value) ->
     values = []
-    $.each value, (key, value) ->
+
+    $.each value, (key, ratings) ->
       date = $.datepicker.parseDate "dd.mm.yy", key
+      startDate = date if i == 0
+      endDate = date if i == gon.data.ratings.length-1
+
       $.datepicker.setDefaults($.datepicker.regional['en-GB']) unless gon.locale == 'ru'
       values.push { "v": date, "f": $.datepicker.formatDate('MM yy', date) }
-      addValues value, data
-        
+      
+      addValues ratings, data
+    
     data.addRow values
 
 addValues = (value) ->
@@ -55,21 +74,6 @@ sumValues = (data) ->
   found = true
   sum += num.value for num in data
   values.push sum
- 
-setGraphSize = ->
-  # $('#rating_chart').width($('#container').width())
-
-loadChart = ->
-  google.load "visualization", "1",
-    packages: ["corechart"]
-    language: gon.locale
-    callback: drawRatingChart
-
-monthNamesTarget = ['янв.','февр.','марта','апр.','мая','июня',
-    'июля','авг.','сент.','окт.','нояб.','дек.']
-
-monthNamesShort = ['Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг',
-    'Сен','Окт','Ноя','Дек']
 
 replaceMonths = ->
   $.each monthNamesTarget, (key, value) ->
@@ -77,21 +81,49 @@ replaceMonths = ->
       return text.replace value, monthNamesShort[key]
 
 maxDate = ->
-  interval = gon.data.interval
+  interval = Math.abs((endDate.getFullYear()*12 + endDate.getMonth()) - 
+    (startDate.getFullYear()*12 + startDate.getMonth())) + 1
   
   toAdd = 4 - interval if interval < 4
   toAdd = 1 if interval == 8
 
-  date = $.datepicker.parseDate "dd.mm.yy", gon.data.last_date
-  month = date.getMonth()
-  date.setMonth month + toAdd, 1
+  date = new Date endDate
+  date.setMonth endDate.getMonth() + toAdd, 1
 
   return date
+
+regionSelect = ->
+  ids = []
+  startDate = new Date(2100, 0, 1)
+  endDate = null
+
+  $.each $('.region input[type="checkbox"]:checked'), (key, region) ->
+    ids.push region.value
+
+  gon.watch 'data', url: "/rating?ids=#{ids}", updateChart
+
+updateChart = (data) ->
+  gon.data = {
+    regions: data.regions,
+    ratings: data.ratings
+  }
+
+  loadChart()
+
+setGraphSize = ->
+  # $('#rating_chart').width($('#container').width())
 
 $ ->
   return unless $('#rating_chart').length
 
   loadChart()
+
+  $.each $('.region .name'), (key, value) ->
+    if $.inArray($(value).text(), gon.data.regions) >= 0
+      $(value).parent().find('input').attr 'checked', true
+
+  $('body').on "click", '.region input[type="checkbox"]', ->
+    regionSelect()
 
   $(window).bind "resize", (e) ->
     setGraphSize()
