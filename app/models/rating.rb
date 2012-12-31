@@ -4,8 +4,12 @@ class Rating < ActiveRecord::Base
   belongs_to :region
 
   default_scope { 
-    joins(region: :translations)
+    joins(region: :translations).order('date ASC')
       .where(region_translations: {locale: I18n.locale}).readonly(false)
+  }
+
+  scope :by_regions, lambda {|regions_id| 
+    includes(:region).where(regions: {id: regions_id})
   }
 
   validates_presence_of :region, :value, :date

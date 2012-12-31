@@ -64,16 +64,14 @@ regions = (region, supplied) ->
   checkRegion(info, region, supplied) for info in supplied when found is false
 
 checkRegion = (info, region, supplied) ->
-  if info[0] == region then sumValues(info[1]) else missing(info, supplied)
+  if info[0] == region then addValue(info[1]) else missValue(info, supplied)
 
-missing = (info, supplied) ->
-  values.push(0) if $.inArray(info, supplied)+1 == supplied.length
-
-sumValues = (data) ->
-  sum = 0
+addValue = (value) ->
+  values.push value
   found = true
-  sum += num.value for num in data
-  values.push sum
+
+missValue = (info, supplied) ->
+  values.push(0) if $.inArray(info, supplied)+1 == supplied.length
 
 replaceMonths = ->
   $.each monthNamesTarget, (key, value) ->
@@ -86,6 +84,7 @@ maxDate = ->
   
   toAdd = 4 - interval if interval < 4
   toAdd = 1 if interval == 8
+  return unless toAdd
 
   date = new Date endDate
   date.setMonth endDate.getMonth() + toAdd, 1
@@ -103,10 +102,7 @@ regionSelect = ->
   gon.watch 'data', url: "/rating?ids=#{ids}", updateChart
 
 updateChart = (data) ->
-  gon.data = {
-    regions: data.regions,
-    ratings: data.ratings
-  }
+  gon.data = data
 
   loadChart()
 

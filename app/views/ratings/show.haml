@@ -1,6 +1,13 @@
 #rating_chart
-#rating_dashboard
+%table#rating_dashboard
+  %tr
+    %td 
+    %td Субъект РФ
+    %td
+    %td Рейтинг
   - Region.all.each do |region|
-    .region
-      = check_box_tag 'region', region.id
-      .name= region.name
+    %tr.region
+      %td= check_box_tag 'region', region.id
+      %td.name= region.name
+      %td= image_tag region.emblem.url(:icon)
+      %td= region.ratings.sum(:value)
