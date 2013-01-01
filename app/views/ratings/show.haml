@@ -1,12 +1,13 @@
 #rating_chart
-%table#rating_dashboard
-  %tr
-    %td
-    %td #
-    %td Субъект РФ
-    %td
-    %td Рейтинг
-    %td Изменения за месяц
+
+#rating_dashboard
+  %ul
+    %li.checkbox &nbsp
+    %li.position #
+    %li.name Субъект РФ
+    %li.emblem &nbsp
+    %li.rating Рейтинг
+    %li.change Изменения за месяц
 
   - last_month = Rating.order('date DESC').first.date.at_beginning_of_month
   - last_month_ratings = Rating.sum('ratings.value', conditions: ['date < ?', last_month], group: 'regions.id', order: 'SUM(value) DESC').map(&:first)
@@ -15,10 +16,10 @@
     - region = Region.find region_id
     - change = last_month_ratings.index(region_id) - i
 
-    %tr.region
-      %td= check_box_tag 'region', region.id
-      %td= i+1
-      %td.name= region.name
-      %td= image_tag region.emblem.url(:icon)
-      %td= rating
-      %td= change > 0 ? "+#{change}" : "#{change}"
+    %ul.region
+      %li.checkbox= check_box_tag 'region', region.id
+      %li.position= i+1
+      %li.name= region.name
+      %li.emblem= image_tag region.emblem.url(:icon)
+      %li.rating= rating
+      %li.change= change > 0 ? "+#{change}" : "#{change}"

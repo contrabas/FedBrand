@@ -1,7 +1,47 @@
+@import 'base'
+
 #rating_chart
-  width: 850px
+  width: $content-width
   height: 400px
 
 #rating_dashboard
-  .name
-    display: inline
+  width: 700px
+
+  .background
+    +background-image(linear-gradient(#fff, #f7f7f7))
+
+  ul
+    padding-left: 10px
+    list-style: none
+    height: 30px
+    margin: auto
+    border-bottom: 1px solid #e6e6e6
+
+    &:last-child
+      border-bottom: none
+
+    &:first-child
+      border-bottom: 1px solid #cdcdcd
+      margin-bottom: 5px
+
+    li
+      float: left
+      display: block
+      padding-top: 5px
+
+    .checkbox
+      width: 25px
+
+    .position
+      width: 70px
+      text-align: center
+
+    .name
+      width: 200px
+
+    .emblem
+      width: 100px
+      text-align: center
+
+    .rating
+      width: 100px

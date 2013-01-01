@@ -8,11 +8,23 @@
       .alert.alert-success=flash[:notice]
     - if flash[:alert]
       .alert.alert-error=flash[:alert]
-    #nav
-      = link_to_unless I18n.locale == :ru, "Рус", locale: nil
-      |
-      = link_to_unless I18n.locale == :en, "Eng", locale: "en"
-    #container
-      = yield
+    #header-with-content
+      #header
+        #locale
+          = link_to_unless I18n.locale == :ru, "Рус", locale: nil
+          |
+          = link_to_unless I18n.locale == :en, "Eng", locale: "en"
+      #nav
+        %ul
+          %li= link_to 'Рейтинг', rating_path
+          %li= link_to 'О премии', '#'
+          %li= link_to 'Новости', '#'
+          %li= link_to 'Пресс-центр', '#'
+          %li= link_to 'Контакты', '#'
+
+      #content
+        = yield
+    #footer
+
   = javascript_include_tag 'application'
   %script{ type: 'text/javascript', src: 'http://www.google.com/jsapi' }

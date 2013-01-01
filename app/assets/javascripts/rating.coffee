@@ -27,6 +27,9 @@ drawRatingChart = ->
       viewWindow: {max: maxDate()}
     chartArea:
       left: 50
+      top: 50
+      height: '75%'
+      width: '65%'
 
   chart = new google.visualization.LineChart(document.getElementById("rating_chart"))
   google.visualization.events.addListener chart, "ready", (event) ->
@@ -83,7 +86,7 @@ maxDate = ->
     (startDate.getFullYear()*12 + startDate.getMonth())) + 1
   
   toAdd = 4 - interval if interval < 4
-  toAdd = 1 if interval == 8
+  toAdd = 1 if interval == 9
   return unless toAdd
 
   date = new Date endDate
@@ -117,10 +120,18 @@ $ ->
   $.each $('.region .name'), (key, value) ->
     if $.inArray($(value).text(), gon.data.regions) >= 0
       $(value).parent().find('input').attr 'checked', true
+      $(value).parent().addClass 'background'
 
   $('body').on "click", '.region input[type="checkbox"]', ->
+    console.log $(@).attr('checked'), $(@).parent().parent()
+    if $(@).attr('checked') == undefined
+      $(@).parent().parent().removeClass 'background'
+    else
+      $(@).parent().parent().addClass 'background'
+      
     regionSelect()
 
   $(window).bind "resize", (e) ->
+    # doTimeout ...
     setGraphSize()
     loadChart()
