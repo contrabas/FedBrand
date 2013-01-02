@@ -1,6 +1,14 @@
 ru:
-  rating:
-    self: Рейтинг
+  nav:
+    home: Главная
+    rating: Рейтинг
+    award: Премия
+    news: Новости
+    contacts: Контакты
+  pages:
+    home:
+      top_rating: ТОП-10 ФЕДБРЕНД
+      rating_link: ПЕРЕЙТИ К ПОЛНОМУ РЕЙТИНГУ
   seconds: 
     one: секунда
     few: секунды

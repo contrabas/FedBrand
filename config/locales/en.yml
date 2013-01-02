@@ -2,11 +2,16 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
-  activerecord:
-    attributes:
-      region:
-        name: Region
+  nav:
+    home: Home
+    rating: Rating
+    award: Award
+    news: News
+    contacts: Contacts
+  pages:
+    home:
+      top_rating: TOP-10 FEDBRAND
+      rating_link: GO TO FULL RATINGS
   date:
     order:
     - :day

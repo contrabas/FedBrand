@@ -1,0 +1,4 @@
+#locale
+  = link_to_unless I18n.locale == :ru, "Рус", locale: nil
+  |
+  = link_to_unless I18n.locale == :en, "Eng", locale: "en"

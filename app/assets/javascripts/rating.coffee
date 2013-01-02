@@ -27,7 +27,6 @@ drawRatingChart = ->
       viewWindow: {max: maxDate()}
     chartArea:
       left: 50
-      top: 50
       height: '75%'
       width: '65%'
 

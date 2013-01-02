@@ -10,18 +10,9 @@
       .alert.alert-error=flash[:alert]
     #header-with-content
       #header
-        #locale
-          = link_to_unless I18n.locale == :ru, "Рус", locale: nil
-          |
-          = link_to_unless I18n.locale == :en, "Eng", locale: "en"
+        = render 'shared/locale'
       #nav
-        %ul
-          %li= link_to 'Рейтинг', rating_path
-          %li= link_to 'О премии', '#'
-          %li= link_to 'Новости', '#'
-          %li= link_to 'Пресс-центр', '#'
-          %li= link_to 'Контакты', '#'
-
+        = render 'shared/navbar'
       #content
         = yield
     #footer
