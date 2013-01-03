@@ -1,16 +1,9 @@
 #coding: utf-8
 ActiveAdmin.register Region do
-  action_item except: [:show] do
-    if I18n.locale == :en
-      link_to "Rus version", locale: nil
-    else
-      link_to "Англ версия", locale: 'en'
-    end
-  end
-
   index do
     column :id
-    column :name
+    column :name_ru
+    column :name_en
     column "Emblem" do |region|
       link_to image_tag(region.emblem.url(:icon)), region.emblem.url, target: '_blank'
     end
@@ -20,7 +13,8 @@ ActiveAdmin.register Region do
   show do |r|
     attributes_table do
       row :id
-      row :name
+      row :name_ru
+      row :name_en
       row :emblem do
         link_to image_tag(r.emblem.url(:thumb)), r.emblem.url, target: '_blank'
       end
@@ -32,7 +26,8 @@ ActiveAdmin.register Region do
 
   form multipart: true do |f|
     f.inputs do
-      f.input :name
+      f.input :name_ru
+      f.input :name_en
 
       f.input :emblem, hint: f.object.emblem.url ? 
         f.template.image_tag(f.object.emblem.url(:thumb)) :
@@ -41,6 +36,14 @@ ActiveAdmin.register Region do
     end
 
     f.actions
+  end
+
+  action_item except: [:show] do
+    if I18n.locale == :en
+      link_to "Rus version", locale: nil
+    else
+      link_to "Англ версия", locale: 'en'
+    end
   end
 
   controller do

@@ -24,86 +24,77 @@ ru:
         author: author  #g
 
       award:
-        year: год  #g
-        jury: жюри  #g
-        experts: эксперты  #g
-        nominees: номинанты  #g
-        regions: регионы  #g
+        year: Год  #g
+        jury: Жюри  #g
+        experts: Эксперты  #g
+        nominees: Номинанты  #g
+        regions: Регионы  #g
 
       opinion:
-        content: содержание  #g
-        translations: переводы  #g
-        expert: эксперт  #g
+        content: Содержание  #g
+        translations: Переводы  #g
+        expert: Эксперт  #g
 
       opinion/translation:
-        locale: язык  #g
-        content: содержание  #g
-        opinion: мнение  #g
+        locale: Язык  #g
+        content: Содержание  #g
+        opinion: Мнение  #g
 
       news/translation:
-        locale: язык  #g
-        content: содержание  #g
-        title: заголовок  #g
-        news: новости  #g
-
-      category/translation:
-        locale: язык  #g
-        name: название  #g
-        category: категория  #g
-
-      region/translation:
-        locale: язык  #g
-        name: название  #g
-        region: регион  #g
+        locale: Язык  #g
+        content: Содержание  #g
+        title: Заголовок  #g
+        news: Новости  #g
 
       expert/translation:
-        locale: язык  #g
-        name: название  #g
-        description: описание  #g
-        position: положение  #g
-        post: должность  #g
-        workplace: место работы  #g
-        expert: эксперт  #g
+        locale: Язык  #g
+        name: Название  #g
+        description: Описание  #g
+        position: Положение  #g
+        post: Должность  #g
+        workplace: Место работы  #g
+        expert: Эксперт  #g
 
       image/translation:
-        locale: язык  #g
-        title: заголовок  #g
-        description: описание  #g
-        image: изображение  #g
+        locale: Язык  #g
+        title: Заголовок  #g
+        description: Описание  #g
+        image: Изображение  #g
 
       nominee/translation:
-        locale: язык  #g
-        description: описание  #g
-        nominee: номинант  #g
+        locale: Язык  #g
+        description: Описание  #g
+        nominee: Номинант  #g
 
       partner:
-        name: название
-        logo: логотип  #g
+        name: Название
+        logo: Логотип  #g
         remote_logo_url: либо урл
-        url: ссылка  #g
-        experts: эксперты  #g
+        url: Ссылка  #g
+        experts: Эксперты  #g
 
       gallery:
-        images: изображения  #g
-        award: номинация  #g
+        images: Изображения  #g
+        award: Номинация  #g
 
       news:
-        logo: логотип  #g
+        logo: Логотип  #g
         remote_logo_url: либо урл
-        title: заголовок  #g
-        content: содержание  #g
-        preview: превью  #g
+        title: Заголовок  #g
+        content: Содержание  #g
+        preview: Превью  #g
         published_by: published_by  #g
         publish_url: publish_url  #g
-        translations: переводы  #g
-        category: категория  #g
-        region: регион  #g
+        translations: Переводы  #g
+        category: Категория  #g
+        region: Регион  #g
 
       category:
-        name: название  #g
-        translations: переводы  #g
-        experts: эксперты  #g
-        news: новости  #g
+        name_ru: Название(рус.)  #g
+        name_en: Название(англ.)
+        translations: Переводы  #g
+        experts: Эксперты  #g
+        news: Новости  #g
 
       user:
         email: Электронная почта  #g
@@ -118,40 +109,43 @@ ru:
         admin: Админ  #g
 
       region:
-        name: Регион  #g
-        emblem: герб  #g
+        name_ru: Название(рус.)
+        name_en: Название(англ.)  #g
+        emblem: Герб  #g
         remote_emblem_url: либо урл
-        translations: переводы  #g
-        news: новости  #g
+        translations: Переводы  #g
+        news: Новости  #g
 
       expert:
-        photo: фото  #g
+        first_name: Имя  #g
+        last_name: Фамилия  #g
+        middle_name: Отчество  #g
+        photo: Фото  #g
         remote_photo_url: либо урл
-        name: ФИО  #g
-        description: описание  #g
-        position: позиция  #g
-        post: титул  #g
-        workplace: место работы  #g
-        translations: переводы  #g
-        category: категория  #g
-        partner: партнер  #g
-        opinions: мнения  #g
+        description: Описание  #g
+        position: Позиция  #g
+        post: Титул  #g
+        workplace: Место работы  #g
+        translations: Переводы  #g
+        category: Категория  #g
+        partner: Партнер  #g
+        opinions: Мнения  #g
 
       image:
-        file: файл  #g
+        file: Файл  #g
         remote_file_url: либо урл
-        title: заголовок  #g
-        description: описание  #g
-        translations: переводы  #g
-        gallery: галлерея  #g
+        title: Заголовок  #g
+        description: Описание  #g
+        translations: Переводы  #g
+        gallery: Галлерея  #g
 
       juror:
-        expert: эксперт  #g
-        award: номинация  #g
+        expert: Эксперт  #g
+        award: Номинация  #g
 
       nominee:
-        date: дата  #g
-        description: описание  #g
-        translations: переводы  #g
-        region: регион  #g
-        award: номинация  #g
+        date: Дата  #g
+        description: Описание  #g
+        translations: Переводы  #g
+        region: Регион  #g
+        award: Номинация  #g

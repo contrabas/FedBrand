@@ -35,26 +35,18 @@ ActiveRecord::Schema.define(:version => 20130102221633) do
   end
 
   create_table "categories", :force => true do |t|
-    t.string   "name"
+    t.string   "name_ru"
+    t.string   "name_en"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  create_table "category_translations", :force => true do |t|
-    t.integer  "category_id"
-    t.string   "locale"
-    t.string   "name"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
-  add_index "category_translations", ["category_id"], :name => "index_category_translations_on_category_id"
-  add_index "category_translations", ["locale"], :name => "index_category_translations_on_locale"
-
   create_table "expert_translations", :force => true do |t|
     t.integer  "expert_id"
     t.string   "locale"
-    t.string   "name"
+    t.string   "first_name"
+    t.string   "middle_name"
+    t.string   "last_name"
     t.text     "description"
     t.text     "position"
     t.string   "post"
@@ -67,10 +59,12 @@ ActiveRecord::Schema.define(:version => 20130102221633) do
   add_index "expert_translations", ["locale"], :name => "index_expert_translations_on_locale"
 
   create_table "experts", :force => true do |t|
+    t.string   "first_name"
+    t.string   "middle_name"
+    t.string   "last_name"
+    t.string   "photo"
     t.integer  "category_id"
     t.integer  "partner_id"
-    t.string   "photo"
-    t.string   "name"
     t.text     "description"
     t.text     "position"
     t.string   "post"
@@ -192,19 +186,9 @@ ActiveRecord::Schema.define(:version => 20130102221633) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "region_translations", :force => true do |t|
-    t.integer  "region_id"
-    t.string   "locale"
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "region_translations", ["locale"], :name => "index_region_translations_on_locale"
-  add_index "region_translations", ["region_id"], :name => "index_region_translations_on_region_id"
-
   create_table "regions", :force => true do |t|
-    t.string   "name"
+    t.string   "name_ru"
+    t.string   "name_en"
     t.string   "emblem"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

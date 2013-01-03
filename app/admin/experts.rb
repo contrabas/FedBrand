@@ -2,9 +2,11 @@
 ActiveAdmin.register Expert do
   form do |f|
     f.inputs do
+      f.input :last_name
+      f.input :first_name
+      f.input :middle_name
       f.input :category
       f.input :partner
-      f.input :name
       f.input :photo, hint: f.object.photo.url ? 
         f.template.image_tag(f.object.photo.url(:thumb)) :
         f.template.content_tag(:span, "")
@@ -20,11 +22,15 @@ ActiveAdmin.register Expert do
 
   index do
     column :id
-    column :name
+    column :last_name
+    column :first_name
+    column :middle_name
     column "Photo" do |expert|
       link_to image_tag(expert.photo.url(:thumb)), expert.photo.url, target: '_blank'
     end
-    column :description
+    column :description do |expert|
+      truncate expert.description, length: 125, separator: ' '
+    end
     column :position
     column :post
     column :workplace

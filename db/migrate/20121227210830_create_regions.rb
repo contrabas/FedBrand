@@ -1,16 +1,11 @@
 class CreateRegions < ActiveRecord::Migration
-  def up
+  def change
     create_table :regions do |t|
-      t.string :name
+      t.string :name_ru
+      t.string :name_en
       t.string :emblem
 
       t.timestamps
     end
-    Region.create_translation_table! name: :string
-  end
-
-  def down
-    drop_table :regions
-    Region.drop_translation_table!
   end
 end

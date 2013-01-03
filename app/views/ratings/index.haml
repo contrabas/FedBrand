@@ -7,15 +7,15 @@
   %ul
     %li.checkbox &nbsp
     %li.position #
-    %li.name Субъект РФ
+    %li.name= t 'pages.ratings.name'
     %li.emblem &nbsp
-    %li.rating Рейтинг
-    %li.change Изменения за месяц
+    %li.rating= t 'pages.ratings.rating'
+    %li.change= t 'pages.ratings.change'
 
   - last_month = Rating.order('date DESC').first.date.at_beginning_of_month
-  - last_month_ratings = Rating.sum('ratings.value', conditions: ['date < ?', last_month], group: 'regions.id', order: 'SUM(value) DESC').map(&:first)
+  - last_month_ratings = Rating.sum('value', include: 'region', conditions: ['date < ?', last_month], group: 'regions.id', order: 'SUM(value) DESC').map(&:first)
 
-  - Rating.sum('ratings.value', group: 'regions.id', order: 'SUM(value) DESC').each_with_index do |(region_id, rating), i|
+  - Rating.top.each_with_index do |(region_id, rating), i|
     - region = Region.find region_id
     - change = last_month_ratings.index(region_id) - i
 

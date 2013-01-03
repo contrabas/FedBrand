@@ -3,7 +3,7 @@ FedBrand::Application.routes.draw do
     ActiveAdmin.routes(self)
     devise_for :users, ActiveAdmin::Devise.config
     
-    resources :news, only: %w(index)
+    resources :news, only: %w(index show)
     resources :ratings, only: %w(index)
     resources :awards, only: %w(index) do
       collection do

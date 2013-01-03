@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class PartnerUploader < CarrierWave::Uploader::Base
-  include CarrierWave::MiniMagick
+  include CarrierWave::RMagick
 
   storage :file
 
@@ -10,7 +10,7 @@ class PartnerUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb do
-    process resize_to_fit: [250, 75]
+    process resize_to_fit: [250, 90]
   end
 
   def extension_white_list

@@ -1,7 +1,9 @@
 class Expert < ActiveRecord::Base
-  attr_accessible :category_id, :description, :name, :photo, :position, :post, 
-    :workplace, :partner_id, :remote_photo_url
-  translates :name, :description, :position, :post, :workplace
+  attr_accessible :category_id, :description, :first_name, :middle_name,
+  :last_name, :photo, :position, :post, :workplace, :partner_id, :remote_photo_url
+  
+  translates :first_name, :last_name, :middle_name, :description, :position, 
+    :post, :workplace
 
   default_scope { with_translations(I18n.locale) }
 

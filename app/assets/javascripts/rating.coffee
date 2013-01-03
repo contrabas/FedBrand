@@ -101,7 +101,8 @@ regionSelect = ->
   $.each $('.region input[type="checkbox"]:checked'), (key, region) ->
     ids.push region.value
 
-  gon.watch 'data', url: "/ratings?ids=#{ids}", updateChart
+  prefix = if gon.locale == 'en' then "/en" else ""
+  gon.watch 'data', url: "#{prefix}/ratings?ids=#{ids}", updateChart
 
 updateChart = (data) ->
   gon.data = data
@@ -121,7 +122,7 @@ $ ->
       $(value).parent().find('input').attr 'checked', true
       $(value).parent().addClass 'background'
 
-  $('body').on "click", '.region input[type="checkbox"]', ->
+  $('body').on "click", '.region input', ->
     if $(@).attr('checked') == undefined
       $(@).parent().parent().removeClass 'background'
     else

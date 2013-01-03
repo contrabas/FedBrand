@@ -12,6 +12,13 @@ ru:
       minimize: СВЕРНУТЬ РЕЙТИНГ
       maximize: РАЗВЕРНУТЬ РЕЙТИНГ
   pages:
+    news:
+      region_link: Рейтинг региона
+      shareholder: Собрание Акционеров
+    ratings:
+      name: Субъект РФ
+      rating: Рейтинг
+      change: Изменения за месяц
     contacts:
       title: СХЕМА ПРОЕЗДА
     awards:

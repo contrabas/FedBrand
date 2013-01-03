@@ -3,11 +3,6 @@ class Rating < ActiveRecord::Base
 
   belongs_to :region
 
-  default_scope { 
-    joins(region: :translations)
-      .where(region_translations: {locale: I18n.locale}).readonly(false)
-  }
-
   scope :by_regions, lambda {|regions_id| 
     includes(:region).where(regions: {id: regions_id})
   }
@@ -15,6 +10,15 @@ class Rating < ActiveRecord::Base
   validates_presence_of :region, :value, :date
 
   after_initialize :set_default_date
+
+  def self.top limit=nil
+    sum 'value', include: :region, group: 'regions.id',
+      order: 'SUM(value) DESC', limit: limit
+  end
+
+  def self.sum_by_region
+    sum :value, include: :region, group: "regions.name_#{I18n.locale}"
+  end
 
   protected
 

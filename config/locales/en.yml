@@ -15,6 +15,13 @@ en:
       minimize: HIDE RATINGS
       maximize: SHOW RATINGS
   pages:
+    news:
+      region_link: Region's Rating
+      shareholder: Shareholder's meeting
+    ratings:
+      name: Subject
+      rating: Rating
+      change: Monthly change
     contacts:
       title: MAP ROUTE
     awards:
