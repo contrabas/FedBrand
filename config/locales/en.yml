@@ -4,14 +4,35 @@
 en:
   nav:
     home: Home
-    rating: Rating
-    award: Award
+    rating: Ratings
+    award: Awards
     news: News
     contacts: Contacts
+  layout:
+    top_ratings:
+      title: TOP-10 FEDBRAND
+      links: GO TO FULL RATINGS
+      minimize: HIDE RATINGS
+      maximize: SHOW RATINGS
   pages:
+    contacts:
+      title: MAP ROUTE
+    awards:
+      title: ABOUT AWARD
+      links:
+        organizers: ORGANIZERS
+        nominees: NOMINEES
+        archive: ARCHIVE
     home:
-      top_rating: TOP-10 FEDBRAND
-      rating_link: GO TO FULL RATINGS
+      news:
+        title: NEWS
+        link: READ MORE
+      videos:
+        title: VIDEO
+      partners:
+        title: PARTNERS
+      opinions:
+        link: ALL EXPERTS OPINIONS
   date:
     order:
     - :day

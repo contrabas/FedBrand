@@ -1,5 +1,5 @@
 #coding: utf-8
-ActiveAdmin.register Nomination do
+ActiveAdmin.register Award do
   action_item except: [:show] do
     if I18n.locale == :en
       link_to "Rus version", locale: nil
@@ -11,13 +11,13 @@ ActiveAdmin.register Nomination do
   controller do
     def create
       create! do |format|
-        format.html { redirect_to admin_nominations_url }
+        format.html { redirect_to admin_awards_url }
       end
     end
 
     def update
       update! do |format|
-        format.html { redirect_to admin_nominations_url }
+        format.html { redirect_to admin_awards_url }
       end
     end
   end

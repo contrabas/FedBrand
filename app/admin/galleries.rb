@@ -10,8 +10,8 @@ ActiveAdmin.register Gallery do
   
   index do
     column :id
-    column "Nomination year" do |g|
-      link_to g.nomination.year, admin_nomination_path(g.nomination)
+    column "Award year" do |g|
+      link_to g.award.year, admin_award_path(g.award)
     end
     column "Image count" do |g|
       "#{g.images.count}"
@@ -22,8 +22,8 @@ ActiveAdmin.register Gallery do
   show do |g|
     attributes_table do
       row :id
-      row :nomination do
-        link_to g.nomination.year, admin_nomination_path(g.nomination)
+      row :award do
+        link_to g.award.year, admin_award_path(g.award)
       end
       g.images.each do |image|
         row :image do
@@ -38,7 +38,7 @@ ActiveAdmin.register Gallery do
 
   form do |f|
     f.inputs do
-      f.input :nomination, collection: Hash[Nomination.all.map{|n| [n.year,n.id]}]
+      f.input :award, collection: Hash[Award.all.map{|n| [n.year,n.id]}]
     end
 
     f.has_many :images, multipart: true do |g|
@@ -49,6 +49,7 @@ ActiveAdmin.register Gallery do
       g.input :file, hint: g.object.file.url ? 
         g.template.image_tag(g.object.file.url(:thumb)) :
         g.template.content_tag(:span, "")
+      g.input :remote_file_url
 
       g.input :title
       g.input :description

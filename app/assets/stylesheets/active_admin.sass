@@ -1,6 +1,16 @@
 @import "active_admin/mixins"
 @import "active_admin/base"
 
+.action_items
+  width: 220px
+  float: right
+
+  .action_item:first-child
+    float: left
+
+  .action_item:last-child
+    float: right
+
 form.gallery
   textarea
     height: 60px
@@ -14,12 +24,13 @@ form.gallery
     width: 100px
     height: 12px
 
-.action_items
-  width: 220px
-  float: right
+form.expert
+  #expert_description
+    height: 40px
+    
+  #expert_position
+    height: 40px
 
-  .action_item:first-child
-    float: left
-
-  .action_item:last-child
-    float: right
+form.news
+  #news_content
+    height: 120px

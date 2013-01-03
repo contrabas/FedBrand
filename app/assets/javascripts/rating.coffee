@@ -17,7 +17,7 @@ drawRatingChart = ->
 
   addRows data
 
-  title = if gon.locale == 'en' then "RATING «FEDERAL BRAND»" else "РЕЙТИНГ «ФЕДЕРАЛЬНЫЙ БРЕНД»"
+  title = if gon.locale == 'en' then "«FEDERAL BRAND» RATINGS" else "РЕЙТИНГ «ФЕДЕРАЛЬНЫЙ БРЕНД»"
   options = 
     title: title
     pointSize: 5
@@ -101,7 +101,7 @@ regionSelect = ->
   $.each $('.region input[type="checkbox"]:checked'), (key, region) ->
     ids.push region.value
 
-  gon.watch 'data', url: "/rating?ids=#{ids}", updateChart
+  gon.watch 'data', url: "/ratings?ids=#{ids}", updateChart
 
 updateChart = (data) ->
   gon.data = data
@@ -122,7 +122,6 @@ $ ->
       $(value).parent().addClass 'background'
 
   $('body').on "click", '.region input[type="checkbox"]', ->
-    console.log $(@).attr('checked'), $(@).parent().parent()
     if $(@).attr('checked') == undefined
       $(@).parent().parent().removeClass 'background'
     else

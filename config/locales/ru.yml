@@ -5,10 +5,31 @@ ru:
     award: Премия
     news: Новости
     contacts: Контакты
+  layout:
+    top_ratings:
+      title: ТОП-10 ФЕДБРЕНД
+      links: ПЕРЕЙТИ К ПОЛНОМУ РЕЙТИНГУ
+      minimize: СВЕРНУТЬ РЕЙТИНГ
+      maximize: РАЗВЕРНУТЬ РЕЙТИНГ
   pages:
+    contacts:
+      title: СХЕМА ПРОЕЗДА
+    awards:
+      title: О ПРЕМИИ
+      links:
+        organizers: ОРГАНИЗАТОРЫ
+        nominees: НОМИНАНТЫ
+        archive: АРХИВ
     home:
-      top_rating: ТОП-10 ФЕДБРЕНД
-      rating_link: ПЕРЕЙТИ К ПОЛНОМУ РЕЙТИНГУ
+      news:
+        title: НОВОСТИ
+        link: ЧИТАТЬ ПОЛНОСТЬЮ
+      videos:
+        title: ВИДЕО
+      partners:
+        title: ПАРТНЕРЫ
+      opinions:
+        link: ВСЕ ЭКСПЕРТНЫЕ МНЕНИЯ
   seconds: 
     one: секунда
     few: секунды

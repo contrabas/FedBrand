@@ -1,5 +1,5 @@
 class RatingsController < ApplicationController
-  def show
+  def index
     ids = params[:ids] ? params[:ids].split(',') : Region.first(4).map(&:id)
 
     gon.watch.data = {

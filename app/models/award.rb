@@ -1,4 +1,4 @@
-class Nomination < ActiveRecord::Base
+class Award < ActiveRecord::Base
   attr_accessible :year
 
   has_many :jury

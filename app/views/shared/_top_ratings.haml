@@ -1,0 +1,21 @@
+#minimize
+  = link_to t('layout.top_ratings.minimize'), '#'
+#maximize
+  = link_to t('layout.top_ratings.maximize'), '#'
+
+#title
+  = t 'layout.top_ratings.title'
+  = link_to l(Rating.order('date DESC').first.date, format: '%B').mb_chars.upcase.to_s, '#'
+
+#ratings
+  #rating_columns
+    - i = 0
+    - Rating.sum('ratings.value', group: 'regions.id', order: 'SUM(value) DESC', limit: 10).to_a.in_groups_of(5).each do |ratings|
+      %ul.rating
+        - ratings.each do |region_id, rating|
+          - break unless region_id
+          - i += 1
+          = ratings_row i, Region.find(region_id).name, rating
+
+  #links= link_to t('layout.top_ratings.links'), ratings_path
+        

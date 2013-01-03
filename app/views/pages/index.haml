@@ -1,1 +1,28 @@
-#top_rating= render 'shared/top_rating'
+#news
+  = t 'pages.home.news.title'
+  %ul
+    - News.all.last(4).each do |news|
+      %li
+        .title= link_to news.title, '#'
+        .content= h truncate news.content, length: 220, separator: ' '
+        .link= link_to t('pages.home.news.link'), '#'
+
+#videos
+  = t 'pages.home.videos.title'
+
+#partners
+  = t 'pages.home.partners.title'
+  - Partner.all.each do |partner|
+    .logo= link_to image_tag(partner.logo.url(:thumb)), partner.url
+
+#opinions_wrapper
+  #opinions
+    - Opinion.all.last(3).each do |opinion|
+      .opinion
+        .photo= image_tag opinion.expert.photo.url(:thumb)
+        .content
+          .title= h truncate opinion.content, length: 180, separator: ' '
+          .name
+            = opinion.expert.name + ", "
+            = opinion.expert.position
+  .link= link_to t('pages.home.opinions.link'), '#'

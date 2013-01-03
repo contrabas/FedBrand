@@ -2,6 +2,7 @@ class CreateExperts < ActiveRecord::Migration
   def up
     create_table :experts do |t|
       t.integer :category_id
+      t.integer :partner_id
       t.string :photo
       t.string :name
       t.text :description

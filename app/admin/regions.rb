@@ -37,6 +37,7 @@ ActiveAdmin.register Region do
       f.input :emblem, hint: f.object.emblem.url ? 
         f.template.image_tag(f.object.emblem.url(:thumb)) :
         f.template.content_tag(:span, "")
+      f.input :remote_emblem_url
     end
 
     f.actions

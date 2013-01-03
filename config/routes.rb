@@ -3,7 +3,17 @@ FedBrand::Application.routes.draw do
     ActiveAdmin.routes(self)
     devise_for :users, ActiveAdmin::Devise.config
     
-    resource :rating
+    resources :news, only: %w(index)
+    resources :ratings, only: %w(index)
+    resources :awards, only: %w(index) do
+      collection do
+        get "organizers"
+        get "nominees"
+        get "archive"
+      end
+    end
     root to: 'pages#index'
+
+    get "contacts" => "pages#contacts"
   end
 end

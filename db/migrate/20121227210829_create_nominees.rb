@@ -2,7 +2,7 @@ class CreateNominees < ActiveRecord::Migration
   def up
     create_table :nominees do |t|
       t.integer :region_id
-      t.integer :nomination_id
+      t.integer :award_id
       t.date :date
       t.text :description
 

@@ -1,7 +1,7 @@
 ru:
   activerecord:
     models:
-      nomination: Премии  #g
+      award: Премии  #g
       opinion: Мнения  #g
       partner: Партнеры  #g
       gallery: Галлереи  #g
@@ -23,7 +23,7 @@ ru:
         resource: resource  #g
         author: author  #g
 
-      nomination:
+      award:
         year: год  #g
         jury: жюри  #g
         experts: эксперты  #g
@@ -77,16 +77,19 @@ ru:
         nominee: номинант  #g
 
       partner:
+        name: название
         logo: логотип  #g
+        remote_logo_url: либо урл
         url: ссылка  #g
         experts: эксперты  #g
 
       gallery:
         images: изображения  #g
-        nomination: номинация  #g
+        award: номинация  #g
 
       news:
         logo: логотип  #g
+        remote_logo_url: либо урл
         title: заголовок  #g
         content: содержание  #g
         preview: превью  #g
@@ -117,12 +120,14 @@ ru:
       region:
         name: Регион  #g
         emblem: герб  #g
+        remote_emblem_url: либо урл
         translations: переводы  #g
         news: новости  #g
 
       expert:
         photo: фото  #g
-        name: название  #g
+        remote_photo_url: либо урл
+        name: ФИО  #g
         description: описание  #g
         position: позиция  #g
         post: титул  #g
@@ -134,6 +139,7 @@ ru:
 
       image:
         file: файл  #g
+        remote_file_url: либо урл
         title: заголовок  #g
         description: описание  #g
         translations: переводы  #g
@@ -141,11 +147,11 @@ ru:
 
       juror:
         expert: эксперт  #g
-        nomination: номинация  #g
+        award: номинация  #g
 
       nominee:
         date: дата  #g
         description: описание  #g
         translations: переводы  #g
         region: регион  #g
-        nomination: номинация  #g
+        award: номинация  #g

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121228220701) do
+ActiveRecord::Schema.define(:version => 20130102221633) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -27,6 +27,12 @@ ActiveRecord::Schema.define(:version => 20121228220701) do
   add_index "active_admin_comments", ["author_type", "author_id"], :name => "index_active_admin_comments_on_author_type_and_author_id"
   add_index "active_admin_comments", ["namespace"], :name => "index_active_admin_comments_on_namespace"
   add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_admin_notes_on_resource_type_and_resource_id"
+
+  create_table "awards", :force => true do |t|
+    t.integer  "year"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -62,6 +68,7 @@ ActiveRecord::Schema.define(:version => 20121228220701) do
 
   create_table "experts", :force => true do |t|
     t.integer  "category_id"
+    t.integer  "partner_id"
     t.string   "photo"
     t.string   "name"
     t.text     "description"
@@ -73,9 +80,9 @@ ActiveRecord::Schema.define(:version => 20121228220701) do
   end
 
   create_table "galleries", :force => true do |t|
-    t.integer  "nomination_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.integer  "award_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "image_translations", :force => true do |t|
@@ -101,9 +108,9 @@ ActiveRecord::Schema.define(:version => 20121228220701) do
 
   create_table "jurors", :force => true do |t|
     t.integer  "expert_id"
-    t.integer  "nomination_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.integer  "award_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "news", :force => true do |t|
@@ -131,12 +138,6 @@ ActiveRecord::Schema.define(:version => 20121228220701) do
   add_index "news_translations", ["locale"], :name => "index_news_translations_on_locale"
   add_index "news_translations", ["news_id"], :name => "index_news_translations_on_news_id"
 
-  create_table "nominations", :force => true do |t|
-    t.integer  "year"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "nominee_translations", :force => true do |t|
     t.integer  "nominee_id"
     t.string   "locale"
@@ -150,11 +151,11 @@ ActiveRecord::Schema.define(:version => 20121228220701) do
 
   create_table "nominees", :force => true do |t|
     t.integer  "region_id"
-    t.integer  "nomination_id"
+    t.integer  "award_id"
     t.date     "date"
     t.text     "description"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "opinion_translations", :force => true do |t|
@@ -178,9 +179,9 @@ ActiveRecord::Schema.define(:version => 20121228220701) do
   create_table "partners", :force => true do |t|
     t.string   "logo"
     t.string   "url"
-    t.integer  "expert_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "name"
   end
 
   create_table "ratings", :force => true do |t|

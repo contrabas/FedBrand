@@ -2,7 +2,7 @@
   %head
     = title
     = stylesheet_link_tag 'application'
-    = include_gon watch: true
+    %style{ type: "text/css" }= yield :stylesheets
   %body
     - if flash[:notice]
       .alert.alert-success=flash[:notice]
@@ -14,8 +14,10 @@
       #nav
         = render 'shared/navbar'
       #content
+        #top_ratings= render 'shared/top_ratings'
         = yield
     #footer
 
   = javascript_include_tag 'application'
+  = include_gon watch: true
   %script{ type: 'text/javascript', src: 'http://www.google.com/jsapi' }
