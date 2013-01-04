@@ -18,6 +18,22 @@ ActiveAdmin.register News do
     f.actions
   end
 
+  index do
+    column :id
+    column "Logo" do |news|
+      link_to image_tag(news.logo.url(:thumb)), news.logo.url, target: '_blank'
+    end
+    column :title
+    column :content do |news|
+      truncate news.content, length: 350, separator: ' '
+    end
+    column :preview
+    column :published_by
+    column :publish_url
+    
+    default_actions
+  end
+
   action_item except: [:show] do
     if I18n.locale == :en
       link_to "Rus version", locale: nil

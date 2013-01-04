@@ -73,6 +73,16 @@ en_opinions.each do |opinion|
   Opinion.create! content: opinion[:content], expert_id: expert.id
 end
 
+en_videos = [
+  { title: "Financialization and the World Economy", thumb: "http://i2.ytimg.com/vi/MID0CVgXpVM/mqdefault.jpg", tag: "<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/MID0CVgXpVM?rel=0\" frameborder=\"0\" allowfullscreen></iframe>" },
+  { title: "Egypt's economy spluttering", thumb: "http://i2.ytimg.com/vi/1CFG7kJvwuc/mqdefault.jpg", tag: "<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/1CFG7kJvwuc?rel=0\" frameborder=\"0\" allowfullscreen></iframe>" },
+  { title: "PM rebuffs Argentina over Falklands", thumb: "http://i3.ytimg.com/vi/jkfnwT3T7BY/mqdefault.jpg", tag: "<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/jkfnwT3T7BY?rel=0\" frameborder=\"0\" allowfullscreen></iframe>" }
+]
+
+en_videos.each do |video|
+  Video.create! title: video[:title], remote_thumb_url: video[:thumb], tag: video[:tag]
+end
+
 
 I18n.locale = :ru
 ru_news = [
@@ -130,4 +140,14 @@ years = [2010, 2011, 2012]
 
 years.each do |year|
   Award.create! year: year, ended: true
+end
+
+ru_videos = [
+  { title: "Крушение самолета во Внуково. Первые кадры с места ЧП", thumb: "http://i4.ytimg.com/vi/c2brROQMQe0/mqdefault.jpg", tag: "<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/c2brROQMQe0?rel=0\" frameborder=\"0\" allowfullscreen></iframe>" },
+  { title: "Экономика Британии переживает вторую волну кризиса", thumb: "http://i1.ytimg.com/vi/hirNcR_87eY/mqdefault.jpg", tag: "<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/hirNcR_87eY?rel=0\" frameborder=\"0\" allowfullscreen></iframe>" },
+  { title: "Экономический кризис: выживем ли мы?", thumb: "http://i2.ytimg.com/vi/A5j930jIGw4/mqdefault.jpg", tag: "<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/A5j930jIGw4?rel=0\" frameborder=\"0\" allowfullscreen></iframe>" }
+]
+
+ru_videos.each do |video|
+  Video.create! title: video[:title], remote_thumb_url: video[:thumb], tag: video[:tag]
 end

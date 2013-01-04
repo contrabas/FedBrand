@@ -1,4 +1,4 @@
-#news_short
+#news_home
   = t 'pages.home.news.title'
   %ul
     - News.all.last(4).each do |news|
@@ -8,17 +8,23 @@
         .link= link_to t('pages.home.news.link'), news
 
 #videos
-  = t 'pages.home.videos.title'
+  = I18n.t('pages.home.videos.title')
+
+  - Video.all.last(3).each do |video|
+    .video
+      .thumb= link_to image_tag(video.thumb), '#'
+      .title= link_to video.title, '#'
 
 = render 'shared/partners'
 
-#opinions
-  - Opinion.all.last(3).each do |opinion|
-    .opinion
-      .photo= image_tag opinion.expert.photo.url(:thumb)
-      .content
-        .title= h truncate opinion.content, length: 175, separator: ' '
-        .name
-          = opinion.expert.first_name + ' ' + opinion.expert.last_name + ", "
-          = opinion.expert.position
+#opinions_wrapper
+  #opinions
+    - Opinion.all.last(3).each do |opinion|
+      .opinion
+        .photo= image_tag opinion.expert.photo.url(:thumb)
+        .content
+          .title= h truncate opinion.content, length: 175, separator: ' '
+          .name
+            = opinion.expert.first_name + ' ' + opinion.expert.last_name + ", "
+            = opinion.expert.position
   .link= link_to t('pages.home.opinions.link'), '#'

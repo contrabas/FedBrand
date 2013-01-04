@@ -1,8 +1,9 @@
 @import 'base'
 
-#news_short
-  width: 500px
+#news_home
+  width: 435px
   float: left
+  margin-right: 32px
 
   ul
     list-style: none
@@ -11,8 +12,11 @@
 
     li
       float: left
-      width: 225px
+      width: 205px
       margin: 20px 25px 0 0
+
+      &:nth-child(even)
+        margin-right: 0
 
       .content
         margin: 10px 0
@@ -26,31 +30,40 @@
 #videos
   width: 250px
   float: left
+  margin-right: 32px
 
-#opinions
+  .video
+    margin-top: 20px
+
+    .title
+      margin-top: 5px
+
+#opinions_wrapper
   width: $content-width
-  float: left
   margin-top: 35px
-  padding-bottom: 5px
-  height: 213px
-  border-bottom: 1px solid #e6e6e6
+  float: left
 
-  .opinion
-    margin-left: 10px
-    max-height: 200px
-    width: 320px
+  #opinions
     float: left
+    padding-bottom: 10px
+    border-bottom: 1px solid #e6e6e6
 
-    .photo
+    .opinion
+      margin-left: 10px
+      max-height: 200px
+      width: 320px
       float: left
-      margin-right: 10px
 
-    .content
-      .title
-        font-weight: bold
-        margin-bottom: 10px
+      .photo
+        float: left
+        margin-right: 10px
+
+      .content
+        .title
+          font-weight: bold
+          margin-bottom: 10px
 
   .link
     font-size: 14px
-    margin-top: 30px
+    margin-top: 10px
     float: left

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130103224830) do
+ActiveRecord::Schema.define(:version => 20130104110636) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -213,5 +213,24 @@ ActiveRecord::Schema.define(:version => 20130103224830) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "video_translations", :force => true do |t|
+    t.integer  "video_id"
+    t.string   "locale"
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "video_translations", ["locale"], :name => "index_video_translations_on_locale"
+  add_index "video_translations", ["video_id"], :name => "index_video_translations_on_video_id"
+
+  create_table "videos", :force => true do |t|
+    t.string   "title"
+    t.string   "thumb"
+    t.text     "tag"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end
