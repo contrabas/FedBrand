@@ -1,0 +1,4 @@
+#partners_block
+  = t 'pages.home.partners.title'
+  - Partner.all.each do |partner|
+    .logo= link_to image_tag(partner.logo.url(:thumb)), partner.url

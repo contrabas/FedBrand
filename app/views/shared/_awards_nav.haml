@@ -1,0 +1,6 @@
+#awards_links
+  = link_to_unless_current t('pages.awards.links.organizers'), organizers_awards_path
+  |
+  = link_to_unless_current t('pages.awards.links.nominees'), nominees_awards_path
+  |
+  = link_to_unless request.fullpath.include?('archive'), t('pages.awards.links.archive'), Award.where(ended: true).last || archive_awards_path

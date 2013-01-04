@@ -1,0 +1,14 @@
+#awards_archive
+  = link_to t('pages.awards.back'), awards_path
+
+  = render 'shared/awards_nav'
+
+  #years
+    - last_award = Award.where(ended: true).last
+    - Award.where(ended: true).each do |award|
+      = link_to_unless_current award.year, award
+      = "|" unless award == last_award
+
+  - if @award
+    .content
+      = @award.year

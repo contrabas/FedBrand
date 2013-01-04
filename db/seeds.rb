@@ -125,3 +125,9 @@ partners.each do |partner|
   Partner.create! name: partner[:name], remote_logo_url: partner[:logo], 
     url: partner[:url]
 end
+
+years = [2010, 2011, 2012]
+
+years.each do |year|
+  Award.create! year: year, ended: true
+end

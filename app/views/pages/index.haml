@@ -10,10 +10,7 @@
 #videos
   = t 'pages.home.videos.title'
 
-#partners
-  = t 'pages.home.partners.title'
-  - Partner.all.each do |partner|
-    .logo= link_to image_tag(partner.logo.url(:thumb)), partner.url
+= render 'shared/partners'
 
 #opinions
   - Opinion.all.last(3).each do |opinion|
