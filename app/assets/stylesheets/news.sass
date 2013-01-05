@@ -1,6 +1,9 @@
 @import 'base'
 
-#news_single
+.news_links
+  float: right
+
+#news_show_page
   h2
     text-align: center
 
@@ -17,5 +20,74 @@
       padding-bottom: 10px
       border-bottom: 1px solid #e6e6e6
 
-    .links
-      float: right
+#news_index
+  width: 730px
+  display: inline-block
+
+  .latest
+    .block
+      margin-bottom: 35px
+      display: inline-block
+
+      .content
+        padding-bottom: 10px
+        border-bottom: 1px solid #e6e6e6
+        float: left
+
+        p
+          margin-top: 5px
+
+        img
+          float: left
+          margin-right: 10px
+
+      .footer
+        margin-top: 10px
+        display: inline-block
+        width: 730px
+
+        .read_more
+          font-size: 14px
+          float: left
+
+  .by_category
+    .block
+      width: 230px
+      display: inline-block
+      vertical-align: top
+      margin-right: 20px
+
+      &:last-child
+        margin-right: 0
+
+      .content
+        padding-bottom: 10px
+        border-bottom: 1px solid #e6e6e6
+
+      .footer
+        margin-top: 10px
+
+        .read_more
+          display: inline-block
+          margin-top: 5px
+          font-size: 13px
+
+#news_side_block
+  width: 250px
+  float: right
+
+  #rubrics
+    width: 250px
+    display: inline-block
+
+    h4
+      margin-bottom: 15px
+
+    .title
+      padding: 0 0 5px 10px
+      border-bottom: 1px solid #e6e6e6
+      margin-top: 10px
+
+      a
+        text-decoration: none
+    

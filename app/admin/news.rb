@@ -25,13 +25,36 @@ ActiveAdmin.register News do
     end
     column :title
     column :content do |news|
-      truncate news.content, length: 350, separator: ' '
+      truncate news.content, length: 150, separator: ' '
     end
+    column :category
+    column :region
+    column :award
     column :preview
     column :published_by
     column :publish_url
     
     default_actions
+  end
+
+  show do |g|
+    attributes_table do
+      row :id
+      row :logo do
+        link_to image_tag(g.logo.url(:thumb)), g.logo.url, target: '_blank'
+      end
+      row :title
+      row :content
+      row :region
+      row :category
+      row :award
+      row :preview
+      row :published_by
+      row :publish_url
+      row :created_at
+      row :updated_at
+    end
+    active_admin_comments
   end
 
   action_item except: [:show] do

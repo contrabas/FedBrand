@@ -13,12 +13,26 @@ ru:
       maximize: РАЗВЕРНУТЬ РЕЙТИНГ
   pages:
     news:
+      title: НОВОСТИ
       region_link: Рейтинг региона
       shareholder: Собрание Акционеров
+      read_more: ЧИТАТЬ ПОЛНОСТЬЮ
+      latest: АКТУАЛЬНО
+      rubrics: РУБРИКИ
+      tags: ТЕГИ
+      press_centre: ПРЕСС-ЦЕНТР
+      preview: АНОНСЫ
+      press: ПУБЛИКАЦИИ В ПРЕССЕ
     ratings:
       name: Субъект РФ
       rating: Рейтинг
       change: Изменения за месяц
+      back: НАЗАД К РЕЙТИНГУ
+      experts: ЭКСПЕРТЫ
+      post: ! 'Должность:'
+      workplace: ! 'Место работы:'
+      expert_opinions: ПУБЛИКАЦИИ ЭКСПЕРТА
+      all_experts: ВСЕ ЭКСПЕРТЫ
     contacts:
       map:
         title: СХЕМА ПРОЕЗДА
@@ -36,16 +50,17 @@ ru:
         organizers: ОРГАНИЗАТОРЫ
         nominees: НОМИНАНТЫ
         archive: АРХИВ
+    videos:
+      title: ВИДЕО
+    opinions:
+      title: МНЕНИЯ ЭКСПЕРТОВ
+      link: ВСЕ ЭКСПЕРТНЫЕ МНЕНИЯ
     home:
       news:
         title: НОВОСТИ
         link: ЧИТАТЬ ПОЛНОСТЬЮ
-      videos:
-        title: ВИДЕО
       partners:
         title: ПАРТНЕРЫ
-      opinions:
-        link: ВСЕ ЭКСПЕРТНЫЕ МНЕНИЯ
   delete: Удалить?
   seconds: 
     one: секунда

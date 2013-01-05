@@ -21,10 +21,11 @@
       .jury
         .title= t 'pages.awards.jury'
         - @award.jurors.each do |juror|
+          - next unless juror.expert
           .content
             .image= link_to image_tag(juror.expert.photo.url(:thumb)), '#'
             .info
-              = link_to juror.expert.try(:name), '#'
+              = link_to juror.expert.name, '#'
               %p= juror.expert.position
 
   .published

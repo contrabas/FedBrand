@@ -12,8 +12,7 @@
     %li.rating= t 'pages.ratings.rating'
     %li.change= t 'pages.ratings.change'
 
-  - last_month = Rating.order('date DESC').first.date.at_beginning_of_month
-  - last_month_ratings = Rating.sum('value', include: 'region', conditions: ['date < ?', last_month], group: 'regions.id', order: 'SUM(value) DESC').map(&:first)
+  - last_month_ratings = Rating.sum('value', include: 'region', conditions: ['date < ?', Rating.last_month], group: 'regions.id', order: 'SUM(value) DESC').map(&:first)
 
   - Rating.top.each_with_index do |(region_id, rating), i|
     - region = Region.find region_id

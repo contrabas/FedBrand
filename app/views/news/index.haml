@@ -1,0 +1,48 @@
+#news_side_block
+  = render 'shared/videos'
+
+  #rubrics
+    %h4= t 'pages.news.rubrics'
+    .title= link_to t('pages.news.latest'), '#'
+    - News.all[0..-4].map(&:category).each do |category|
+      .title= link_to category.name.mb_chars.upcase.to_s, '#'
+
+  #tags
+    %h4= t 'pages.news.tags'
+
+#news_index
+  %h3= t 'pages.news.title'
+
+  .latest
+    %h4= t 'pages.news.latest'
+    - News.all.last(3).each do |news|
+      .block
+        .content
+          = image_tag news.logo.url(:thumb)
+          %p= link_to news.title, news
+          = h truncate news.content, length: 250, separator: ' '
+        .footer
+          .read_more= link_to t('pages.news.read_more'), news
+          = render partial: 'shared/news_links', locals: { news: news }
+
+  .by_category
+    - News.all[0..-4].group_by(&:category).each do |category, news_by_category|
+      %h4= category.name.mb_chars.upcase.to_s
+      - news_by_category.last(3).each do |news|
+        .block
+          .content
+            %p= link_to news.title, news
+            = h truncate news.content, length: 150, separator: ' '
+          .footer
+            = render partial: 'shared/news_links', locals: { news: news }
+            .read_more= link_to t('pages.news.read_more'), news
+
+  .press_centre
+    %h4= t 'pages.news.press_centre'
+    = link_to t('pages.news.preview'), '#'
+    |
+    = link_to "ON-LINE", '#'
+    |
+    = link_to t('pages.news.press'), '#'
+
+= render 'shared/opinions'

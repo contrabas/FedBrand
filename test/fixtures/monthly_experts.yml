@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  expert_id: 1
+  month_id: 1
+
+two:
+  expert_id: 1
+  month_id: 1

@@ -5,7 +5,7 @@
 
 #title
   = t 'layout.top_ratings.title'
-  = link_to l(Rating.order('date DESC').first.date, format: '%B').mb_chars.upcase.to_s, ratings_path
+  = link_to Date.today.month_i18n, monthly_ratings_path(Date.today.month_path)
 
 #ratings
   #rating_columns

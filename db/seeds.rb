@@ -17,13 +17,6 @@ regions.each do |region|
     remote_emblem_url: region[:url]
 end
 
-6.times do |i|
-  Region.all.each do |region|
-    num = i == 0 ? 300+Random.rand(250) : Random.rand(-75..75)
-    Rating.create! region_id: region.id, value: num, date: i.months.from_now
-  end
-end
-
 categories = [
   { name_ru: "Экономика", name_en: "Economy" },
   { name_ru: "Политика", name_en: "Politics" },
@@ -49,8 +42,9 @@ en_news = [
 
 en_news.each do |news|
   category = Category.find_by_name_en news[:category]
-  rand_id = rand Region.count
-  News.create! category_id: category.id, title: news[:title], 
+  rand_id = rand(Region.count)+1
+  a = Award.find_by_year 2012
+  News.create! category_id: category.id, title: news[:title], award_id: a.id, 
     content: news[:content], remote_logo_url: news[:url], region_id: rand_id
 end
 
@@ -89,6 +83,9 @@ en_videos.each do |video|
   Video.create! title: video[:title], remote_thumb_url: video[:thumb], tag: video[:tag]
 end
 
+AwardCategory.create! title: 'Business-Project of the Year'
+expert = Expert.find_by_last_name 'Biden'
+
 
 I18n.locale = :ru
 ru_news = [
@@ -100,16 +97,18 @@ ru_news = [
 
 ru_news.each do |news|
   category = Category.find_by_name_ru news[:category]
-  rand_id = rand Region.count
+  rand_id = rand(Region.count)+1
   a = Award.find_by_year 2012
   News.create! category_id: category.id, title: news[:title], award_id: a.id,
     content: news[:content], remote_logo_url: news[:url], region_id: rand_id
 end
 
+expert.update_attributes last_name: "Байден", first_name: "Джозеф", 
+  middle_name: "Робинетт", description: "Американский политик, член демократической партии, 47-й вице-президент США. Вступил в должность одновременно с Бараком Обамой 20 января 2009 года. До избрания вице-президентом был сенатором США от штата Делавэр (с 1973 года).", position: "Вице-президент США", post: "Вице-президент", workplace: "Правительство США"
+
 ru_experts = [
   { last_name: "Гайдар", first_name: "Егор", middle_name: "Тимурович", category: 'Экономика', url: "http://lihoi.ru/images/539.jpg", description: "Авторитетный экономист способный убеждать и следовать своим убеждениям. Созданный по его идее Стабфонд защитил Россию в последний кризис. Его идеями нынешнее правительство руководствуется в попытках привести в адекватность и равновесие пенсионную систему.", position: "Экс-премьер-министр РФ", post: "Экс-премьер-министр", workplace: "Правительство Российской Федерации" },
-  { last_name: "Кудрин", first_name: "Алексей", middle_name: "Леонидович", category: 'Экономика', url: "http://img.newsinfo.ru/image/article/4/3/9/2439.jpeg", description: "Российский государственный деятель, бывший министр финансов в российском правительстве с 18 мая 2000 года по 26 сентября 2011 года, что является самым длительным сроком нахождения в данной должности в современной России.", position: "Экс-Министр Финансов РФ", post: "Экс Министр Финансов", workplace: "Министерство финансов РФ" },
-  { last_name: "Байден", first_name: "Джозеф", middle_name: "Робинетт", category: 'Политика', url: "http://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Joe_Biden_official_portrait_crop.jpg/280px-Joe_Biden_official_portrait_crop.jpg", description: "Американский политик, член демократической партии, 47-й вице-президент США. Вступил в должность одновременно с Бараком Обамой 20 января 2009 года. До избрания вице-президентом был сенатором США от штата Делавэр (с 1973 года).", position: "Вице-президент США", post: "Вице-президент", workplace: "Правительство США" }
+  { last_name: "Кудрин", first_name: "Алексей", middle_name: "Леонидович", category: 'Экономика', url: "http://img.newsinfo.ru/image/article/4/3/9/2439.jpeg", description: "Российский государственный деятель, бывший министр финансов в российском правительстве с 18 мая 2000 года по 26 сентября 2011 года, что является самым длительным сроком нахождения в данной должности в современной России.", position: "Экс-Министр Финансов РФ", post: "Экс Министр Финансов", workplace: "Министерство финансов РФ" }
 ]
 
 ru_experts.each do |expert|
@@ -118,6 +117,19 @@ ru_experts.each do |expert|
     middle_name: expert[:middle_name], remote_photo_url: expert[:url],
     description: expert[:description], position: expert[:position],
     category_id: category.id, post: expert[:post], workplace: expert[:workplace]
+end
+
+6.times do |i|
+  Region.all.each do |region|
+    num = i == 0 ? 300+Random.rand(250) : Random.rand(-75..75)
+    Rating.create! region_id: region.id, value: num, date: (5-i).months.ago
+  end
+  month = Month.create! month: i.months.ago
+  rand_num = Random.rand 1..6
+  rand_num.times do |j|
+    id = rand(Expert.count)+1
+    MonthlyExpert.create! month_id: month.id, expert_id: id
+  end
 end
 
 ru_opinions = [
@@ -158,7 +170,7 @@ Expert.all.each do |expert|
   Juror.create! award_id: award.id, expert_id: expert.id
 end
 
-AwardCategory.create! title: 'Бизнес-проект года'
+AwardCategory.first.update_attribute :title, 'Бизнес-проект года'
 
 Nominee.create! award_id: award.id, date: '2012.12.12'.to_date, region_id: 2,
   award_category_id: 1, winner: true, title: "Проект возрождения Амуро-Сибирской магистрали"

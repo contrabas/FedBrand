@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130104210732) do
+ActiveRecord::Schema.define(:version => 20130105114354) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -125,6 +125,19 @@ ActiveRecord::Schema.define(:version => 20130104210732) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "monthly_experts", :force => true do |t|
+    t.integer  "expert_id"
+    t.integer  "month_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "months", :force => true do |t|
+    t.date     "month"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "news", :force => true do |t|
     t.string   "logo"
     t.string   "title"
@@ -132,9 +145,10 @@ ActiveRecord::Schema.define(:version => 20130104210732) do
     t.integer  "region_id"
     t.integer  "category_id"
     t.integer  "award_id"
-    t.boolean  "preview"
+    t.boolean  "announcement"
     t.string   "published_by"
     t.string   "publish_url"
+    t.string   "tags"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
@@ -145,6 +159,7 @@ ActiveRecord::Schema.define(:version => 20130104210732) do
     t.text     "content"
     t.string   "title"
     t.string   "published_by"
+    t.string   "tags"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end

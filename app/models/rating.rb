@@ -20,9 +20,13 @@ class Rating < ActiveRecord::Base
     sum :value, include: :region, group: "regions.name_#{I18n.locale}"
   end
 
-  protected
+  def last_month
+    order('date DESC').first.date.at_beginning_of_month
+  end
+
+  private
 
   def set_default_date
-    self.date = Date.today if self.date.blank?
+    self.date = Date.today.at_beginning_of_month if self.date.blank?
   end
 end

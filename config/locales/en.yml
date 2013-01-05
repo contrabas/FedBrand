@@ -13,12 +13,26 @@ en:
       maximize: SHOW RATINGS
   pages:
     news:
+      title: NEWS
       region_link: Region's Rating
       shareholder: Shareholder's meeting
+      read_more: READ MORE
+      latest: LATEST
+      rubrics: RUBRICS
+      tags: TAGS
+      press_centre: PRESS-CENTRE
+      preview: ANNOUNCEMENTS
+      press: PUBLICATIONS IN PRESS
     ratings:
       name: Subject
       rating: Rating
       change: Monthly change
+      back: BACK TO RATINGS
+      experts: EXPERTS OF
+      post: ! 'POST:'
+      workplace: ! 'WORKPLACE:'
+      expert_opinions: EXPERT'S PUBLICATIONS
+      all_experts: ALL EXPERTS
     contacts:
       map:
         title: MAP ROUTE
@@ -36,16 +50,17 @@ en:
         organizers: ORGANIZERS
         nominees: NOMINEES
         archive: ARCHIVE
+    videos:
+      title: VIDEO
+    opinions:
+      title: EXPERT'S OPINIONS
+      link: ALL EXPERTS OPINIONS
     home:
       news:
         title: NEWS
         link: READ MORE
-      videos:
-        title: VIDEO
       partners:
         title: PARTNERS
-      opinions:
-        link: ALL EXPERTS OPINIONS
   delete: Delete?
   date:
     order:

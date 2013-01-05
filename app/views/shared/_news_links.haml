@@ -1,0 +1,6 @@
+.news_links
+  = link_to t('pages.news.region_link'), ratings_path
+  |
+  = link_to news.region.name, ratings_path if news.region
+  |
+  = link_to t('pages.news.shareholder'), '#'

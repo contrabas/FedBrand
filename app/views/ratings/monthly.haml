@@ -1,0 +1,26 @@
+= link_to t('pages.ratings.back'), ratings_path
+%p
+  = t 'pages.ratings.experts'
+  = @date.month_i18n
+
+#monthly_experts
+  - @experts.group_by(&:category).each do |category, experts|
+    .category
+      %h2= category.name
+      - experts.each do |expert|
+        .content
+          = image_tag expert.photo.url(:big)
+          %p= link_to expert.full_name, '#'
+          %p= expert.description
+          .workplace
+            %b.title= t 'pages.ratings.workplace'
+            = expert.workplace
+          .post
+            %b.title= t 'pages.ratings.post'
+            = expert.post
+          .expert_opinions= link_to t('pages.ratings.expert_opinions'), '#'
+
+  .links
+    = link_to t('pages.ratings.experts')+' '+I18n.l(@date.prev_month, format: '%B').mb_chars.upcase.to_s, monthly_ratings_path(@date.prev_month.month_path)
+    |
+    = link_to t('pages.ratings.all_experts'), '#'

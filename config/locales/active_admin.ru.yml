@@ -79,3 +79,12 @@ ru:
       links:
         sign_in: "Войти"
         forgot_your_password: "Забыли пароль?"
+  formtastic:
+    :yes: 'Да'
+    :no: 'Нет'
+    :create: 'Создать %{model}'
+    :update: 'Обновить %{model}'
+    :submit: 'Отправить %{model}'
+    :cancel: 'Отменить %{model}'
+    :reset: 'Reset %{model}'
+    :required: 'required'

@@ -16,6 +16,8 @@ ru:
       nominee: Номинанты  #g
       rating: Рейтинги
       video: Видео
+      month: Месяцы
+      monthly_expert: Эксперт месяца
     attributes:
       active_admin/comment:
         resource_type: resource_type  #g
@@ -24,6 +26,12 @@ ru:
         namespace: namespace  #g
         resource: resource  #g
         author: author  #g
+
+      month:
+        month: Месяц
+        monthly_expert: Эксперт месяца
+        expert: Эксперт
+        expert_count: Экспертов
 
       video:
         title: Заголовок
@@ -100,12 +108,14 @@ ru:
         remote_logo_url: либо урл
         title: Заголовок  #g
         content: Содержание  #g
-        preview: Превью  #g
-        published_by: published_by  #g
-        publish_url: publish_url  #g
+        announcement: Анонс  #g
+        published_by: Опубликован  #g
+        publish_url: Ссылка публикации  #g
         translations: Переводы  #g
         category: Категория  #g
         region: Регион  #g
+        award: Премия
+        tags: Теги
 
       category:
         name_ru: Название(рус.)  #g
