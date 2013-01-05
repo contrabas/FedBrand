@@ -9,7 +9,7 @@ FedBrand::Application.routes.draw do
       collection do
         get "organizers"
         get "nominees"
-        match 'archive(/:id)' => 'awards#show'
+        match 'archive(/:id)' => 'awards#archive', as: :archive
       end
     end
     root to: 'pages#index'

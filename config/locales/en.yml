@@ -20,8 +20,16 @@ en:
       rating: Rating
       change: Monthly change
     contacts:
-      title: MAP ROUTE
+      map:
+        title: MAP ROUTE
+        address: ! 'Address: Moscow, Tverskaya Street 9/17 c7'
+      contact_us:
+        title: CONTACT US
+        phone: PHONE NUMBER
     awards:
+      published: PUBLICATIONS IN MEDIA
+      winners: ! 'WINNERS:'
+      jury: ! 'JURY:'
       title: ABOUT AWARD
       back: BACK TO AWARDS
       links:
@@ -38,6 +46,7 @@ en:
         title: PARTNERS
       opinions:
         link: ALL EXPERTS OPINIONS
+  delete: Delete?
   date:
     order:
     - :day

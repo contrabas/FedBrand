@@ -12,4 +12,12 @@ class Expert < ActiveRecord::Base
   belongs_to :category
   belongs_to :partner
   has_many :opinions
+  has_many :jurors
+  has_many :awards, through: :jurors
+
+  validates_presence_of :first_name, :last_name
+
+  def name 
+    "#{first_name} #{last_name}" 
+  end
 end

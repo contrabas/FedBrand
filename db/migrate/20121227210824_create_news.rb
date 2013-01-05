@@ -6,13 +6,15 @@ class CreateNews < ActiveRecord::Migration
       t.text :content
       t.integer :region_id
       t.integer :category_id
+      t.integer :award_id
       t.boolean :preview
       t.string :published_by
       t.string :publish_url
 
       t.timestamps
     end
-    News.create_translation_table! content: :text, title: :string
+    News.create_translation_table! content: :text, title: :string, 
+      published_by: :string
   end
 
   def down

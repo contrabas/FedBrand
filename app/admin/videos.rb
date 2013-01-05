@@ -33,6 +33,14 @@ ActiveAdmin.register Video do
   end
   
   controller do
+    def scoped_collection
+      Video.unscoped
+    end
+
+    def resource
+      Video.unscoped { super }
+    end
+
     def create
       create! do |format|
         format.html { redirect_to admin_videos_url }

@@ -34,6 +34,12 @@ categories.each do |category|
   Category.create! name_ru: category[:name_ru], name_en: category[:name_en]
 end
 
+years = [2010, 2011, 2012]
+
+years.each do |year|
+  Award.create! year: year, ended: true
+end
+
 en_news = [
   { title: "Gerard Depardieu 'granted Russian citizenship'", category: 'Culture', url: "http://news.bbcimg.co.uk/media/images/65058000/jpg/_65058151_f29da479-90bc-4725-9414-c9ad0de563e6.jpg", content: "French actor Gerard Depardieu has obtained Russian citizenship, according to a brief statement posted on the Kremlin website.\n\"Vladimir Putin has signed a decree granting Russian citizenship to Gerard Depardieu,\" the message read.\nMr Depardieu recently announced he would give up his French passport after the government criticised his decision to move abroad to avoid higher taxes.\nIn December, Mr Putin said he would be happy to welcome the actor in Russia." },
   { title: "Obese who refuse to exercise 'could face benefits cut'", category: 'Culture', url: "http://news.bbcimg.co.uk/media/images/65056000/jpg/_65056227_65056226.jpg", content: "Overweight or unhealthy people who refuse to attend exercise sessions could have their benefits slashed, in a move proposed by Westminster Council.\nGPs would also be allowed to prescribe leisure activities such as swimming and fitness classes under the idea." },
@@ -95,7 +101,8 @@ ru_news = [
 ru_news.each do |news|
   category = Category.find_by_name_ru news[:category]
   rand_id = rand Region.count
-  News.create! category_id: category.id, title: news[:title], 
+  a = Award.find_by_year 2012
+  News.create! category_id: category.id, title: news[:title], award_id: a.id,
     content: news[:content], remote_logo_url: news[:url], region_id: rand_id
 end
 
@@ -136,12 +143,6 @@ partners.each do |partner|
     url: partner[:url]
 end
 
-years = [2010, 2011, 2012]
-
-years.each do |year|
-  Award.create! year: year, ended: true
-end
-
 ru_videos = [
   { title: "Крушение самолета во Внуково. Первые кадры с места ЧП", thumb: "http://i4.ytimg.com/vi/c2brROQMQe0/mqdefault.jpg", tag: "<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/c2brROQMQe0?rel=0\" frameborder=\"0\" allowfullscreen></iframe>" },
   { title: "Экономика Британии переживает вторую волну кризиса", thumb: "http://i1.ytimg.com/vi/hirNcR_87eY/mqdefault.jpg", tag: "<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/hirNcR_87eY?rel=0\" frameborder=\"0\" allowfullscreen></iframe>" },
@@ -151,3 +152,13 @@ ru_videos = [
 ru_videos.each do |video|
   Video.create! title: video[:title], remote_thumb_url: video[:thumb], tag: video[:tag]
 end
+
+award = Award.find_by_year 2012
+Expert.all.each do |expert|
+  Juror.create! award_id: award.id, expert_id: expert.id
+end
+
+AwardCategory.create! title: 'Бизнес-проект года'
+
+Nominee.create! award_id: award.id, date: '2012.12.12'.to_date, region_id: 2,
+  award_category_id: 1, winner: true, title: "Проект возрождения Амуро-Сибирской магистрали"

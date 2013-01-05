@@ -10,8 +10,16 @@ class ExpertUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb do
+    process resize_to_fit: [150, 85]
+  end
+
+  version :bw do
     process resize_to_fit: [125, 175]
     process :black_and_white
+  end
+
+  version :big do
+    process resize_to_fit: [250, 250]
   end
 
   def black_and_white

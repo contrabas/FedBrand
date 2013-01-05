@@ -2,7 +2,7 @@ class AwardsController < ApplicationController
   def index
   end
 
-  def show
+  def archive
     @award = Award.find_by_year params[:id]
   end
 

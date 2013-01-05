@@ -1,8 +1,11 @@
 @import "active_admin/mixins"
 @import "active_admin/base"
 
+#utility_nav
+  display: none !important
+
 .action_items
-  width: 220px
+  width: 250px
   float: right
 
   .action_item:first-child
@@ -38,3 +41,10 @@ form.news
 form.video
   #video_tag
     height: 60px
+
+form.award
+  .jurors
+    margin-bottom: 20px
+
+  textarea
+    height: 80px

@@ -48,6 +48,14 @@ ActiveAdmin.register Expert do
   end
   
   controller do
+    def scoped_collection
+      Expert.unscoped
+    end
+
+    def resource
+      Expert.unscoped { super }
+    end
+
     def create
       create! do |format|
         format.html { redirect_to admin_experts_url }

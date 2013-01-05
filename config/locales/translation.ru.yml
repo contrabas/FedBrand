@@ -2,6 +2,7 @@ ru:
   activerecord:
     models:
       award: Премии  #g
+      award_category: Категории Премий
       opinion: Мнения  #g
       partner: Партнеры  #g
       gallery: Галлереи  #g
@@ -32,10 +33,17 @@ ru:
 
       award:
         year: Год  #g
-        jury: Жюри  #g
+        ended: Закончился?
+        jury_count: Членов жюри
+        nominees_count: Номинантов
+        juror: Член Жюри  #g
+        nominee: Номинант
         experts: Эксперты  #g
         nominees: Номинанты  #g
         regions: Регионы  #g
+
+      award_category:
+        title: Название
 
       opinion:
         content: Содержание  #g
@@ -81,8 +89,11 @@ ru:
         experts: Эксперты  #g
 
       gallery:
-        images: Изображения  #g
+        image: Фотография
+        images: Фотографии  #g
         award: Номинация  #g
+        award_year: Год номинации
+        image_count: Фотографий
 
       news:
         logo: Логотип  #g
@@ -153,6 +164,9 @@ ru:
       nominee:
         date: Дата  #g
         description: Описание  #g
+        title: Название
         translations: Переводы  #g
         region: Регион  #g
         award: Номинация  #g
+        winner: Победитель?
+        award_category: Категория

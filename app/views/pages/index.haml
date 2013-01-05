@@ -21,7 +21,7 @@
   #opinions
     - Opinion.all.last(3).each do |opinion|
       .opinion
-        .photo= image_tag opinion.expert.photo.url(:thumb)
+        .photo= image_tag opinion.expert.photo.url(:bw)
         .content
           .title= h truncate opinion.content, length: 175, separator: ' '
           .name

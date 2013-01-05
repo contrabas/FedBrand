@@ -1,0 +1,37 @@
+#awards_archive
+  = link_to t('pages.awards.back'), awards_path
+
+  = render 'shared/awards_nav'
+
+  #years
+    - last_award = Award.where(ended: true).last
+    - Award.where(ended: true).each do |award|
+      = link_to_unless_current award.year, archive_awards_path(award.year)
+      = "|" unless award == last_award
+
+  - if @award and @award.ended
+    .block
+      .winners
+        .title= t 'pages.awards.winners'
+        - @award.nominees.where(winner: true).each do |winner|
+          .content
+            %p= link_to winner.award_category.title, '#'
+            = winner.title
+
+      .jury
+        .title= t 'pages.awards.jury'
+        - @award.jurors.each do |juror|
+          .content
+            .image= link_to image_tag(juror.expert.photo.url(:thumb)), '#'
+            .info
+              = link_to juror.expert.try(:name), '#'
+              %p= juror.expert.position
+
+  .published
+    = t 'pages.awards.published'
+    .news_block
+      - @award.news.limit(4).each do |news|
+        .news_single
+          .title= link_to news.title, news
+          .content= h truncate news.content, length: 100, separator: ' '
+          .link= link_to t('pages.home.news.link'), news

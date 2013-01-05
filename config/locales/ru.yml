@@ -20,8 +20,16 @@ ru:
       rating: Рейтинг
       change: Изменения за месяц
     contacts:
-      title: СХЕМА ПРОЕЗДА
+      map:
+        title: СХЕМА ПРОЕЗДА
+        address: ! 'Адрес: г. Москва, Тверская 9/17, стр. 7'
+      contact_us:
+        title: СВЯЗАТЬСЯ С НАМИ
+        phone: ТЕЛЕФОН
     awards:
+      published: ПУБЛИКАЦИИ В СМИ
+      winners: ! 'ПОБЕДИТЕЛИ:'
+      jury: ! 'ЭКСПЕРТНОЕ ЖЮРИ:'
       title: О ПРЕМИИ
       back: НАЗАД К ПРЕМИИ
       links:
@@ -38,6 +46,7 @@ ru:
         title: ПАРТНЕРЫ
       opinions:
         link: ВСЕ ЭКСПЕРТНЫЕ МНЕНИЯ
+  delete: Удалить?
   seconds: 
     one: секунда
     few: секунды

@@ -10,10 +10,10 @@ ActiveAdmin.register Gallery do
   
   index do
     column :id
-    column "Award year" do |g|
+    column :award_year do |g|
       link_to g.award.year, admin_award_path(g.award)
     end
-    column "Image count" do |g|
+    column :image_count do |g|
       "#{g.images.count}"
     end
     default_actions
@@ -43,7 +43,7 @@ ActiveAdmin.register Gallery do
 
     f.has_many :images, multipart: true do |g|
       unless g.object.new_record?
-        g.input :_destroy, as: :boolean, required: false, label: 'Delete?'
+        g.input :_destroy, as: :boolean, required: false, label: t('delete')
       end
 
       g.input :file, hint: g.object.file.url ? 

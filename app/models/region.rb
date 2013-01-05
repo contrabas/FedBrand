@@ -5,6 +5,8 @@ class Region < ActiveRecord::Base
 
   has_many :news
   has_many :ratings
+  has_many :nominees
+  has_many :awards, through: :nominees
 
   validates_presence_of :name_ru, :name_en
   validates_uniqueness_of :name_ru, :name_en

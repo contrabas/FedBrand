@@ -43,6 +43,14 @@ ActiveAdmin.register News do
   end
   
   controller do
+    def scoped_collection
+      News.unscoped
+    end
+
+    def resource
+      News.unscoped { super }
+    end
+
     def create
       create! do |format|
         format.html { redirect_to admin_news_index_url }
