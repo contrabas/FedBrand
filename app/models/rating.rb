@@ -20,7 +20,7 @@ class Rating < ActiveRecord::Base
     sum :value, include: :region, group: "regions.name_#{I18n.locale}"
   end
 
-  def last_month
+  def self.last_month
     order('date DESC').first.date.at_beginning_of_month
   end
 

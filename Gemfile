@@ -3,16 +3,13 @@ source 'https://rubygems.org'
 gem 'rails'
 gem 'carrierwave'
 gem 'haml'
-gem 'sqlite3'
+gem 'pg'
 gem 'devise'
 gem 'rmagick'
 gem 'activeadmin', '0.5.0.pre1'
 gem 'globalize3'
 gem 'gon'
-
-group :production do
-  gem 'pg'
-end
+gem 'acts-as-taggable-on'
 
 group :development do
   gem 'quiet_assets'

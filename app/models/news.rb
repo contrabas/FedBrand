@@ -1,7 +1,7 @@
 class News < ActiveRecord::Base
   attr_accessible :category_id, :content, :logo, :announcement, :publish_url, 
-          :published_by, :region_id, :title, :remote_logo_url, :award_id, :tags
-  translates :content, :title, :published_by, :tags
+              :published_by, :region_id, :title, :remote_logo_url, :award_id
+  translates :content, :title, :published_by
 
   default_scope { with_translations(I18n.locale) }
 
