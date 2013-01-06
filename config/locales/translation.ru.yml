@@ -115,7 +115,7 @@ ru:
         category: Категория  #g
         region: Регион  #g
         award: Премия
-        tags: Теги
+        tag_list: Теги
 
       category:
         name_ru: Название(рус.)  #g

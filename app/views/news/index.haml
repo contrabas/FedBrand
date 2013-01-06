@@ -9,6 +9,9 @@
 
   #tags
     %h4= t 'pages.news.tags'
+    #tag_cloud
+      - tag_cloud News.tag_counts, %w[s m l] do |tag, css_class|
+        = link_to tag.name, '#', class: css_class
 
 #news_index
   %h3= t 'pages.news.title'

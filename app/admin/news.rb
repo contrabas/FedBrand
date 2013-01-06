@@ -8,9 +8,10 @@ ActiveAdmin.register News do
         f.template.image_tag(f.object.logo.url(:thumb)) :
         f.template.content_tag(:span, "")
       f.input :remote_logo_url
+      f.input :tag_list
       f.input :region
       f.input :category
-      f.input :preview
+      f.input :announcement
       f.input :published_by
       f.input :publish_url
     end
@@ -24,15 +25,13 @@ ActiveAdmin.register News do
       link_to image_tag(news.logo.url(:thumb)), news.logo.url, target: '_blank'
     end
     column :title
-    column :content do |news|
-      truncate news.content, length: 150, separator: ' '
-    end
+    column :tag_list
     column :category
     column :region
     column :award
-    column :preview
+    column :announcement
     column :published_by
-    column :publish_url
+    column :online
     
     default_actions
   end
@@ -48,7 +47,7 @@ ActiveAdmin.register News do
       row :region
       row :category
       row :award
-      row :preview
+      row :announcement
       row :published_by
       row :publish_url
       row :created_at
