@@ -11,5 +11,7 @@ class Month < ActiveRecord::Base
 
   def set_default_date
     self.month = Date.today.at_beginning_of_month if self.month.blank?
+  rescue ActiveModel::MissingAttributeError
+    
   end
 end

@@ -2,3 +2,17 @@
   = link_to t('pages.awards.back'), awards_path
 
   = render 'shared/awards_nav'
+
+  .partners
+    %h2= t 'pages.home.partners.title'
+    - Partner.all.each do |partner|
+      .partner_block
+        .logo= link_to image_tag(partner.logo.url(:thumb)), partner.url
+        - expert = partner.experts.first
+        - if expert
+          .photo= link_to image_tag(expert.photo.url(:medium)), expert.photo.url
+          .info
+            .name= link_to expert.name+',', '#'
+            .post= expert.position
+            .desc= h truncate expert.description, length: 150, separator: ' '
+            .link= link_to t('pages.news.read_more'), '#'

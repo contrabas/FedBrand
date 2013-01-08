@@ -3,6 +3,8 @@ class Nominee < ActiveRecord::Base
     :winner, :title
   translates :description, :title
 
+  default_scope { with_translations(I18n.locale) }
+
   belongs_to :region
   belongs_to :award
   belongs_to :award_category
@@ -13,5 +15,7 @@ class Nominee < ActiveRecord::Base
   
   def set_default_date
     self.date = Date.today if self.date.blank?
+  rescue ActiveModel::MissingAttributeError
+    
   end
 end

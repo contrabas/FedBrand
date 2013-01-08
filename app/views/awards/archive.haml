@@ -11,28 +11,34 @@
 
   - if @award and @award.ended
     .block
-      .winners
-        .title= t 'pages.awards.winners'
-        - @award.nominees.where(winner: true).each do |winner|
-          .content
-            %p= link_to winner.award_category.title, '#'
-            = winner.title
+      - nominee_winners = @award.nominees.where winner: true
+      - unless nominee_winners.blank?
+        .winners
+          .title= t 'pages.awards.winners'
+          - nominee_winners.each do |winner|
+            .content
+              %p= link_to winner.award_category.title, '#'
+              = winner.title
 
       .jury
-        .title= t 'pages.awards.jury'
-        - @award.jurors.each do |juror|
-          - next unless juror.expert
-          .content
-            .image= link_to image_tag(juror.expert.photo.url(:thumb)), '#'
-            .info
-              = link_to juror.expert.name, '#'
-              %p= juror.expert.position
+        - jurors = @award.jurors
+        - unless jurors.blank?
+          .title= t 'pages.awards.jury'
+          - jurors.each do |juror|
+            - next unless juror.expert
+            .content
+              .image= link_to image_tag(juror.expert.photo.url(:thumb)), '#'
+              .info
+                = link_to juror.expert.name, '#'
+                %p= juror.expert.position
 
   .published
-    = t 'pages.awards.published'
-    .news_block
-      - @award.news.limit(4).each do |news|
-        .news_single
-          .title= link_to news.title, news
-          .content= h truncate news.content, length: 100, separator: ' '
-          .link= link_to t('pages.home.news.link'), news
+    - all_news = @award.news.limit(4)
+    - unless all_news.blank?
+      = t 'pages.awards.published'
+      .news_block
+        - all_news.each do |news|
+          .news_single
+            .title= link_to news.title, news
+            .content= h truncate news.content, length: 100, separator: ' '
+            .link= link_to t('pages.home.news.link'), news

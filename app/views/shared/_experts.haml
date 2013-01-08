@@ -1,0 +1,12 @@
+- experts.each do |expert|
+  #expert_content
+    = image_tag expert.photo.url(:big)
+    %p= link_to expert.full_name, '#'
+    %p= expert.description
+    .workplace
+      %b.title= t 'pages.ratings.workplace'
+      = expert.workplace
+    .post
+      %b.title= t 'pages.ratings.post'
+      = expert.post
+    .expert_opinions= link_to t('pages.ratings.expert_opinions'), '#'

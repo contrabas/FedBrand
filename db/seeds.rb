@@ -33,6 +33,8 @@ years.each do |year|
   Award.create! year: year, ended: true
 end
 
+Award.create! year: 2013
+
 en_news = [
   { title: "Gerard Depardieu 'granted Russian citizenship'", category: 'Culture', url: "http://news.bbcimg.co.uk/media/images/65058000/jpg/_65058151_f29da479-90bc-4725-9414-c9ad0de563e6.jpg", content: "French actor Gerard Depardieu has obtained Russian citizenship, according to a brief statement posted on the Kremlin website.\n\"Vladimir Putin has signed a decree granting Russian citizenship to Gerard Depardieu,\" the message read.\nMr Depardieu recently announced he would give up his French passport after the government criticised his decision to move abroad to avoid higher taxes.\nIn December, Mr Putin said he would be happy to welcome the actor in Russia." },
   { title: "Obese who refuse to exercise 'could face benefits cut'", category: 'Culture', url: "http://news.bbcimg.co.uk/media/images/65056000/jpg/_65056227_65056226.jpg", content: "Overweight or unhealthy people who refuse to attend exercise sessions could have their benefits slashed, in a move proposed by Westminster Council.\nGPs would also be allowed to prescribe leisure activities such as swimming and fitness classes under the idea." },
@@ -48,17 +50,29 @@ en_news.each do |news|
     content: news[:content], remote_logo_url: news[:url], region_id: rand_id
 end
 
+partners = [
+  { name: 'Совет Федерации', logo: "http://www.eurasium.com/images/logo_sovetfeder.gif", url: "http://www.council.gov.ru/" },
+  { name: 'ВТБ', logo: "http://newslab.ru/images/2011/aug/10/pqkmficq.jpg", url: "http://www.vtb.ru/" },
+  { name: 'Эхо Москвы', logo: "http://corelline.ru/uploads/posts/2011-07/1310154827_eho-moskvy.jpg", url: "http://www.echo.msk.ru/" },
+  { name: 'Ведомости', logo: "http://www.legalstudies.ru/events/spb-2010/images/logo-vedomosti.jpg", url: "http://www.vedomosti.ru/" }
+]
+
+partners.each do |partner|
+  Partner.create! name: partner[:name], remote_logo_url: partner[:logo], 
+    url: partner[:url]
+end
+
 en_experts = [
   { last_name: "Biden", first_name: "Joseph", middle_name: "Robinette", category: 'Politics', url: "http://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Joe_Biden_official_portrait_crop.jpg/280px-Joe_Biden_official_portrait_crop.jpg", description: "Joe Biden is the 47th and current Vice President of the United States, jointly elected with President Barack Obama. He is a member of the Democratic Party and was a United States Senator from Delaware from January 3, 1973 until his resignation on January 15, 2009, following his election to the Vice Presidency. In 2012, Biden was elected to a second term alongside Obama.", position: "Vice President of the US", post: "Vice President", workplace: "US Government" },
   { last_name: "Kennedy", first_name: "John", middle_name: "Fitzgerald", category: 'Politics', url: "http://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/JohnFK.png/220px-JohnFK.png", description: "Often referred to by his initials JFK, was the 35th President of the United States, serving from 1961 until his death in 1963.", position: "President of the US", post: "President", workplace: "US Government" },
   { last_name: "Churchill", first_name: "Winston", middle_name: "Leonard", category: 'Politics', url: "http://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Sir_Winston_S_Churchill.jpg/245px-Sir_Winston_S_Churchill.jpg", description: "A British politician, best known for his leadership of the United Kingdom during the Second World War. Widely regarded as one of the greatest wartime leaders of the 20th century, he served as Prime Minister twice (1940–45 and 1951–55). A noted statesman and orator, Churchill was also an officer in the British Army, a historian, a writer, and an artist. He is the only British prime minister to have received the Nobel Prize in Literature and was the first person to be made an Honorary Citizen of the United States.", position: "Prime Minister of the UK", post: "Prime Minister", workplace: "UK Government" }
 ]
 
-en_experts.each do |expert|
+en_experts.each_with_index do |expert, i|
   category = Category.find_by_name_en expert[:category]
   Expert.create! last_name: expert[:last_name], first_name: expert[:first_name], 
     middle_name: expert[:middle_name], remote_photo_url: expert[:url],
-    description: expert[:description], position: expert[:position],
+    description: expert[:description], position: expert[:position], partner_id: i+1,
     category_id: category.id, post: expert[:post], workplace: expert[:workplace]
 end
 
@@ -111,11 +125,11 @@ ru_experts = [
   { last_name: "Кудрин", first_name: "Алексей", middle_name: "Леонидович", category: 'Экономика', url: "http://img.newsinfo.ru/image/article/4/3/9/2439.jpeg", description: "Российский государственный деятель, бывший министр финансов в российском правительстве с 18 мая 2000 года по 26 сентября 2011 года, что является самым длительным сроком нахождения в данной должности в современной России.", position: "Экс-Министр Финансов РФ", post: "Экс Министр Финансов", workplace: "Министерство финансов РФ" }
 ]
 
-ru_experts.each do |expert|
+ru_experts.each_with_index do |expert, i|
   category = Category.find_by_name_ru expert[:category]
   Expert.create! last_name: expert[:last_name], first_name: expert[:first_name], 
     middle_name: expert[:middle_name], remote_photo_url: expert[:url],
-    description: expert[:description], position: expert[:position],
+    description: expert[:description], position: expert[:position], partner_id: i+1,
     category_id: category.id, post: expert[:post], workplace: expert[:workplace]
 end
 
@@ -143,18 +157,6 @@ ru_opinions.each do |opinion|
   Opinion.create! content: opinion[:content], expert_id: expert.id
 end
 
-partners = [
-  { name: 'Совет Федерации', logo: "http://www.eurasium.com/images/logo_sovetfeder.gif", url: "http://www.council.gov.ru/" },
-  { name: 'ВТБ', logo: "http://newslab.ru/images/2011/aug/10/pqkmficq.jpg", url: "http://www.vtb.ru/" },
-  { name: 'Эхо Москвы', logo: "http://corelline.ru/uploads/posts/2011-07/1310154827_eho-moskvy.jpg", url: "http://www.echo.msk.ru/" },
-  { name: 'Ведомости', logo: "http://www.legalstudies.ru/events/spb-2010/images/logo-vedomosti.jpg", url: "http://www.vedomosti.ru/" }
-]
-
-partners.each do |partner|
-  Partner.create! name: partner[:name], remote_logo_url: partner[:logo], 
-    url: partner[:url]
-end
-
 ru_videos = [
   { title: "Крушение самолета во Внуково. Первые кадры с места ЧП", thumb: "http://i4.ytimg.com/vi/c2brROQMQe0/mqdefault.jpg", tag: "<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/c2brROQMQe0?rel=0\" frameborder=\"0\" allowfullscreen></iframe>" },
   { title: "Экономика Британии переживает вторую волну кризиса", thumb: "http://i1.ytimg.com/vi/hirNcR_87eY/mqdefault.jpg", tag: "<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/hirNcR_87eY?rel=0\" frameborder=\"0\" allowfullscreen></iframe>" },
@@ -165,12 +167,14 @@ ru_videos.each do |video|
   Video.create! title: video[:title], remote_thumb_url: video[:thumb], tag: video[:tag]
 end
 
-award = Award.find_by_year 2012
-Expert.all.each do |expert|
-  Juror.create! award_id: award.id, expert_id: expert.id
-end
-
 AwardCategory.first.update_attribute :title, 'Бизнес-проект года'
 
-Nominee.create! award_id: award.id, date: '2012.12.12'.to_date, region_id: 2,
-  award_category_id: 1, winner: true, title: "Проект возрождения Амуро-Сибирской магистрали"
+years = [2012, 2013]
+years.each do |year|
+  award = Award.find_by_year year
+  Nominee.create! award_id: award.id, date: '2012.12.12'.to_date, region_id: 2,
+    award_category_id: 1, winner: true, title: "Проект возрождения Амуро-Сибирской магистрали"
+  Expert.all.each do |expert|
+    Juror.create! award_id: award.id, expert_id: expert.id
+  end
+end
