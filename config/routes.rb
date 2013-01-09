@@ -3,13 +3,13 @@ FedBrand::Application.routes.draw do
     ActiveAdmin.routes(self)
     devise_for :users, ActiveAdmin::Devise.config
     
-    resources :experts, only: %w()
-    resources :news, only: %w(index show)
-    resources :ratings, only: %w(index) do
+    resources :experts, only: %w(index) do
       collection do
-        match '/:year/:month' => 'ratings#monthly', as: :monthly
+        match '/:year/:month' => 'experts#monthly', as: :monthly
       end
     end
+    resources :news, only: %w(index show)
+    resources :ratings, only: %w(index)
     resources :awards, only: %w(index) do
       collection do
         get "organizers"

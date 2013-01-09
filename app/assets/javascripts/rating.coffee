@@ -21,7 +21,7 @@ drawRatingChart = ->
   options = 
     title: title
     pointSize: 5
-    vAxis: {viewWindow: {min: 150, max: 700}}
+    vAxis: {viewWindow: {min: 150, max: 750}}
     hAxis:
       format: "MMM yyy"
       viewWindow: {max: maxDate()}

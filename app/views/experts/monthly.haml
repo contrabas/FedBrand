@@ -10,6 +10,6 @@
       = render partial: 'shared/experts', locals: { experts: experts }
 
   .links
-    = link_to t('pages.ratings.experts')+' '+I18n.l(@date.prev_month, format: '%B').mb_chars.upcase.to_s, monthly_ratings_path(@date.prev_month.month_path)
+    = link_to t('pages.ratings.experts')+' '+I18n.l(@date.prev_month, format: '%B').mb_chars.upcase.to_s, monthly_experts_path(@date.prev_month.month_path)
     |
     = link_to t('pages.ratings.all_experts'), '#'
