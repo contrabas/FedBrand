@@ -1,6 +1,9 @@
 class ExpertsController < ApplicationController
   def index
-    
+  end
+
+  def show
+    @expert = Expert.find_by_slug! params[:id]
   end
   
   def monthly

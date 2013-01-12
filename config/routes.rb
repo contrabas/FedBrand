@@ -3,7 +3,7 @@ FedBrand::Application.routes.draw do
     ActiveAdmin.routes(self)
     devise_for :users, ActiveAdmin::Devise.config
     
-    resources :experts, only: %w(index) do
+    resources :experts, only: %w(index show) do
       collection do
         match '/:year/:month' => 'experts#monthly', as: :monthly
       end

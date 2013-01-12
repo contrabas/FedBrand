@@ -1,7 +1,7 @@
 - experts.each do |expert|
   #expert_content
     = image_tag expert.photo.url(:big)
-    %p= link_to expert.full_name, '#'
+    %p= link_to expert.full_name, expert_path(expert)
     %p= expert.description
     .workplace
       %b.title= t 'pages.ratings.workplace'
@@ -9,4 +9,4 @@
     .post
       %b.title= t 'pages.ratings.post'
       = expert.post
-    .expert_opinions= link_to t('pages.ratings.expert_opinions'), '#'
+    .expert_opinions= link_to t('pages.ratings.expert_opinions'), expert_path(expert)

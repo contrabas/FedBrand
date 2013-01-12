@@ -1,7 +1,5 @@
 class Expert < ActiveRecord::Base
-  attr_accessible :category_id, :description, :first_name, :middle_name,
-  :last_name, :photo, :position, :post, :workplace, :partner_id, :remote_photo_url
-  
+  attr_protected
   translates :first_name, :last_name, :middle_name, :description, :position, 
     :post, :workplace
 
@@ -18,6 +16,10 @@ class Expert < ActiveRecord::Base
   has_many :months, through: :monthly_experts
 
   validates_presence_of :first_name, :last_name
+
+  def to_param
+    "#{id}-#{name.parameterize}"
+  end
 
   def name 
     "#{first_name} #{last_name}" 

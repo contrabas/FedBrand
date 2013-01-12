@@ -10,10 +10,11 @@ class News < ActiveRecord::Base
   belongs_to :category
   belongs_to :award
 
-  validates_presence_of :title
+  validates_presence_of :title, :slug
+  validates_uniqueness_of :slug
 
   def to_param
-    "#{id}-#{slug}"
+    slug
   end
 
   def tags
