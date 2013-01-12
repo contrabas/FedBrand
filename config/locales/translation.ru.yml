@@ -104,6 +104,7 @@ ru:
         image_count: Фотографий
 
       news:
+        slug: Название Урл
         logo: Логотип  #g
         remote_logo_url: либо урл
         title: Заголовок  #g

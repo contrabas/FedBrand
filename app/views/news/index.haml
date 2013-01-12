@@ -11,22 +11,14 @@
     %h4= t 'pages.news.tags'
     #tag_cloud
       - tag_cloud News.tag_counts, %w[s m l] do |tag, css_class|
-        = link_to tag.name, '#', class: css_class
+        = link_to tag.name, tag_news_index_path(tag), class: css_class
 
 #news_index
   %h3= t 'pages.news.title'
 
   .latest
     %h4= t 'pages.news.latest'
-    - News.all.last(3).each do |news|
-      .block
-        .content
-          = image_tag news.logo.url(:thumb)
-          %p= link_to news.title, news
-          = h truncate news.content, length: 250, separator: ' '
-        .footer
-          .read_more= link_to t('pages.news.read_more'), news
-          = render partial: 'shared/news_links', locals: { news: news }
+    = render partial: 'shared/news', locals: { collection: News.all.last(3) }
 
   .by_category
     - News.all[0..-4].group_by(&:category).each do |category, news_by_category|
@@ -37,7 +29,7 @@
             %p= link_to news.title, news
             = h truncate news.content, length: 150, separator: ' '
           .footer
-            = render partial: 'shared/news_links', locals: { news: news }
+            = render partial: 'shared/tag_links', locals: { news: news }
             .read_more= link_to t('pages.news.read_more'), news
 
   .press_centre

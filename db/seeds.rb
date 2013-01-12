@@ -36,18 +36,17 @@ end
 Award.create! year: 2013
 
 en_news = [
-  { title: "Gerard Depardieu 'granted Russian citizenship'", category: 'Culture', tag_list: "Gerard Depardieu, overweight", url: "http://news.bbcimg.co.uk/media/images/65058000/jpg/_65058151_f29da479-90bc-4725-9414-c9ad0de563e6.jpg", content: "French actor Gerard Depardieu has obtained Russian citizenship, according to a brief statement posted on the Kremlin website.\n\"Vladimir Putin has signed a decree granting Russian citizenship to Gerard Depardieu,\" the message read.\nMr Depardieu recently announced he would give up his French passport after the government criticised his decision to move abroad to avoid higher taxes.\nIn December, Mr Putin said he would be happy to welcome the actor in Russia." },
-  { title: "Obese who refuse to exercise 'could face benefits cut'", category: 'Culture', tag_list: "obese, overweight", url: "http://news.bbcimg.co.uk/media/images/65056000/jpg/_65056227_65056226.jpg", content: "Overweight or unhealthy people who refuse to attend exercise sessions could have their benefits slashed, in a move proposed by Westminster Council.\nGPs would also be allowed to prescribe leisure activities such as swimming and fitness classes under the idea." },
-  { title: "Google's Eric Schmidt plans visit to North Korea", category: "Politics", tag_list: "google, North Korea", url: "http://news.bbcimg.co.uk/media/images/65054000/jpg/_65054642_schmidt.jpg", content: "The chairman of Google, Eric Schmidt, is planning a visit to North Korea, South Korean officials say.\nThe reason for the trip has not yet been revealed, but news agencies say it is part of a humanitarian mission led by US politician Bill Richardson.\nThe former New Mexico governor has been involved in ad-hoc negotiations with the North Koreans in the last 20 years.\nInternet use is highly restricted there although leader Kim Jong-un has called for a push in technology and science.\nThe South Korean government told news agency AFP that it is aware of the planned visit, adding that the trip is personal.\nGoogle has refused to comment so far." },
-  { title: "Pakistan militant Mullah Nazir 'killed in drone attack'", category: "Politics", tag_list: "Pakistan", url: "http://news.bbcimg.co.uk/media/images/65052000/jpg/_65052037_65052036.jpg", content: "Senior Pakistani militant leader Mullah Nazir has been killed by a US drone strike, security officials say.\nHe died with at least five fighters when two missiles struck his vehicle in the north-west tribal district of South Waziristan, they said.\nHe was the leader of one of four major militant factions in Pakistan, accused of sending fighters to back the Afghan Taliban and fight foreign troops there." }
+  { title: "Gerard Depardieu 'granted Russian citizenship'", slug: 'depardieu-russian-citizenship', category: 'Culture', tag_list: "Gerard Depardieu, overweight", url: "http://news.bbcimg.co.uk/media/images/65058000/jpg/_65058151_f29da479-90bc-4725-9414-c9ad0de563e6.jpg", content: "French actor Gerard Depardieu has obtained Russian citizenship, according to a brief statement posted on the Kremlin website.\n\"Vladimir Putin has signed a decree granting Russian citizenship to Gerard Depardieu,\" the message read.\nMr Depardieu recently announced he would give up his French passport after the government criticised his decision to move abroad to avoid higher taxes.\nIn December, Mr Putin said he would be happy to welcome the actor in Russia." },
+  { title: "Obese who refuse to exercise 'could face benefits cut'", slug: 'obese-benefits-cut', category: 'Culture', tag_list: "obese, overweight", url: "http://news.bbcimg.co.uk/media/images/65056000/jpg/_65056227_65056226.jpg", content: "Overweight or unhealthy people who refuse to attend exercise sessions could have their benefits slashed, in a move proposed by Westminster Council.\nGPs would also be allowed to prescribe leisure activities such as swimming and fitness classes under the idea." },
+  { title: "Google's Eric Schmidt plans visit to North Korea", slug: 'eric-schmidt-visit', category: "Politics", tag_list: "google, North Korea", url: "http://news.bbcimg.co.uk/media/images/65054000/jpg/_65054642_schmidt.jpg", content: "The chairman of Google, Eric Schmidt, is planning a visit to North Korea, South Korean officials say.\nThe reason for the trip has not yet been revealed, but news agencies say it is part of a humanitarian mission led by US politician Bill Richardson.\nThe former New Mexico governor has been involved in ad-hoc negotiations with the North Koreans in the last 20 years.\nInternet use is highly restricted there although leader Kim Jong-un has called for a push in technology and science.\nThe South Korean government told news agency AFP that it is aware of the planned visit, adding that the trip is personal.\nGoogle has refused to comment so far." },
+  { title: "Pakistan militant Mullah Nazir 'killed in drone attack'", slug: 'mullah-nazir-killed', category: "Politics", tag_list: "Pakistan", url: "http://news.bbcimg.co.uk/media/images/65052000/jpg/_65052037_65052036.jpg", content: "Senior Pakistani militant leader Mullah Nazir has been killed by a US drone strike, security officials say.\nHe died with at least five fighters when two missiles struck his vehicle in the north-west tribal district of South Waziristan, they said.\nHe was the leader of one of four major militant factions in Pakistan, accused of sending fighters to back the Afghan Taliban and fight foreign troops there." }
 ]
 
 en_news.each do |news|
   category = Category.find_by_name_en news[:category]
-  rand_id = rand(Region.count)+1
   a = Award.find_by_year 2012
   News.create! category_id: category.id, title: news[:title], award_id: a.id, 
-    content: news[:content], remote_logo_url: news[:url], region_id: rand_id,
+    content: news[:content], remote_logo_url: news[:url], slug: news[:slug],
     tag_list: news[:tag_list]
 end
 
@@ -104,18 +103,17 @@ expert = Expert.find_by_last_name 'Biden'
 
 I18n.locale = :ru
 ru_news = [
-  { title: "Больше туристов, больше инвестиций - это часть политики", category: 'Экономика', tag_list: "инвестиции, туристы", url: "http://rus.db.lv/uploads/thumbnails/scale_380x247/article/0005/41267/147287_ORIGINAL_1332251504.jpg.jpg", content: "Если средний турист тратит 530 евро на человека за поездку, то средний турист из России тратит 1300 евро на человека. Тоже разница чувствуется. И мы будем делать все, чтобы отношения с регионами Российской Федерации, в частности и с Россией в целом, укреплялись. Потому что это выгодно. Это выгодно экономически, но и не стоит скидывать со счетов просто человеческий аспект." },
-  { title: "В Госдуму повторно внесен законопроект о СМИ \"иностранных агентах\"", category: 'Политика', tag_list: "госдума, инвестиции", url: "http://lenta.ru/news/2012/11/23/agentsmi/picture.jpg", content: "По замыслу автора документа единороса Евгения Федорова, для попадания в эту категорию СМИ необходимо освещать политическую ситуацию в России и получать более половины своих доходов из зарубежных источников." },
-  { title: "Россия предъявила Украине таможенно-газовый ультиматум", category: 'Политика', tag_list: "ультиматум, инвестиции", url: "http://telegraf.com.ua/files/2013/01/ukr-rf-580x290.jpg", content: "\"Нельзя быть чуть-чуть беременным\", - заявил директор департамента МИДа РФ по поводу попыток Киева добиться скидки на газ без вступления в Таможенный союз. Украина пытается получить выгоды и от сотрудничества с РФ, и от интеграции в ЕС. В конце 2012 года на фоне этих противоречий сорвался визит Януковича к Путину." },
-  { title: "Убытки мировой экономики из-за катаклизмов составили 160 млрд долларов", category: 'Экономика', tag_list: "мировая экономика", url: "http://cdn3.img22.rian.ru/images/91706/70/917067069.jpg", content: "Экономический ущерб от природных катаклизмов в мире составил в 2012 году 160 миллиардов долларов, из них 65 миллиардов должны быть возмещены страховыми компаниями, сообщает в четверг немецкая перестраховочная компания Muenchener Rueckversicherung AG (Munich Re).\nЧисло погибших в результате природных катаклизмов составило 9,5 тысяч человек, что существенно меньше, чем в 2011 году, когда жертвами стали почти 30 тысяч человек. Наибольший экономический ущерб причинил ураган \"Сэнди\" в США: 25 миллиардов долларов, что составляет две пятых от общемирового ущерба или 90% по застрахованным случаям. Второе место по нанесенному ущербу занимает длительная летняя засуха в США, которая обошлась экономике в 20 миллиардов долларов (должно быть возмещено около 15-17 миллиардов)." }
+  { title: "Больше туристов, больше инвестиций - это часть политики", slug: 'turists-means-investments', category: 'Экономика', tag_list: "инвестиции, туристы", url: "http://rus.db.lv/uploads/thumbnails/scale_380x247/article/0005/41267/147287_ORIGINAL_1332251504.jpg.jpg", content: "Если средний турист тратит 530 евро на человека за поездку, то средний турист из России тратит 1300 евро на человека. Тоже разница чувствуется. И мы будем делать все, чтобы отношения с регионами Российской Федерации, в частности и с Россией в целом, укреплялись. Потому что это выгодно. Это выгодно экономически, но и не стоит скидывать со счетов просто человеческий аспект." },
+  { title: "В Госдуму повторно внесен законопроект о СМИ \"иностранных агентах\"", slug: 'gosduma-smi', category: 'Политика', tag_list: "госдума, инвестиции", url: "http://lenta.ru/news/2012/11/23/agentsmi/picture.jpg", content: "По замыслу автора документа единороса Евгения Федорова, для попадания в эту категорию СМИ необходимо освещать политическую ситуацию в России и получать более половины своих доходов из зарубежных источников." },
+  { title: "Россия предъявила Украине таможенно-газовый ультиматум", slug: 'russia-ukraine-ultimatum', category: 'Политика', tag_list: "ультиматум, инвестиции", url: "http://telegraf.com.ua/files/2013/01/ukr-rf-580x290.jpg", content: "\"Нельзя быть чуть-чуть беременным\", - заявил директор департамента МИДа РФ по поводу попыток Киева добиться скидки на газ без вступления в Таможенный союз. Украина пытается получить выгоды и от сотрудничества с РФ, и от интеграции в ЕС. В конце 2012 года на фоне этих противоречий сорвался визит Януковича к Путину." },
+  { title: "Убытки мировой экономики из-за катаклизмов составили 160 млрд долларов", slug: 'world-economy-losses', category: 'Экономика', tag_list: "мировая экономика", url: "http://cdn3.img22.rian.ru/images/91706/70/917067069.jpg", content: "Экономический ущерб от природных катаклизмов в мире составил в 2012 году 160 миллиардов долларов, из них 65 миллиардов должны быть возмещены страховыми компаниями, сообщает в четверг немецкая перестраховочная компания Muenchener Rueckversicherung AG (Munich Re).\nЧисло погибших в результате природных катаклизмов составило 9,5 тысяч человек, что существенно меньше, чем в 2011 году, когда жертвами стали почти 30 тысяч человек. Наибольший экономический ущерб причинил ураган \"Сэнди\" в США: 25 миллиардов долларов, что составляет две пятых от общемирового ущерба или 90% по застрахованным случаям. Второе место по нанесенному ущербу занимает длительная летняя засуха в США, которая обошлась экономике в 20 миллиардов долларов (должно быть возмещено около 15-17 миллиардов)." }
 ]
 
 ru_news.each do |news|
   category = Category.find_by_name_ru news[:category]
-  rand_id = rand(Region.count)+1
   a = Award.find_by_year 2012
   News.create! category_id: category.id, title: news[:title], award_id: a.id,
-    content: news[:content], remote_logo_url: news[:url], region_id: rand_id,
+    content: news[:content], remote_logo_url: news[:url], slug: news[:slug],
     tag_list: news[:tag_list]
 end
 
@@ -179,4 +177,15 @@ years.each do |year|
   Expert.all.each do |expert|
     Juror.create! award_id: award.id, expert_id: expert.id
   end
+end
+
+images = [
+  'http://zhkhacker.ru/wp-content/uploads/2013/01/Corbis-42-34954200.jpg',
+  'http://www.hotelholidayvenice.com/img/meetings3_b.jpg'
+]
+
+award = Award.find_by_year 2013
+gallery = Gallery.create! award_id: award.id
+images.each do |image|
+  Image.create! remote_file_url: image, gallery_id: gallery.id
 end

@@ -1,10 +1,10 @@
 class CreateNews < ActiveRecord::Migration
   def up
     create_table :news do |t|
+      t.string :slug
       t.string :logo
       t.string :title
       t.text :content
-      t.integer :region_id
       t.integer :category_id
       t.integer :award_id
       t.boolean :announcement

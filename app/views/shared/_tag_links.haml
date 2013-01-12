@@ -1,0 +1,4 @@
+.tag_links
+  - news.tags.each_with_index do |tag, i|
+    = "|" unless i == 0
+    = link_to tag, tag_news_index_path(tag)

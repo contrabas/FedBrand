@@ -8,10 +8,13 @@ class News < ActiveRecord::Base
   mount_uploader :logo, ImageUploader
 
   belongs_to :category
-  belongs_to :region
   belongs_to :award
 
   validates_presence_of :title
+
+  def to_param
+    "#{id}-#{slug}"
+  end
 
   def tags
     I18n.locale == :ru ? ru_tags : en_tags

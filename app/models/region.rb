@@ -3,7 +3,6 @@ class Region < ActiveRecord::Base
 
   mount_uploader :emblem, RegionUploader
 
-  has_many :news
   has_many :ratings
   has_many :nominees
   has_many :awards, through: :nominees

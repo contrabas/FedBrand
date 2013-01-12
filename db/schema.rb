@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130106111633) do
+ActiveRecord::Schema.define(:version => 20130112182722) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -139,10 +139,10 @@ ActiveRecord::Schema.define(:version => 20130106111633) do
   end
 
   create_table "news", :force => true do |t|
+    t.string   "slug"
     t.string   "logo"
     t.string   "title"
     t.text     "content"
-    t.integer  "region_id"
     t.integer  "category_id"
     t.integer  "award_id"
     t.boolean  "announcement"
@@ -247,6 +247,7 @@ ActiveRecord::Schema.define(:version => 20130106111633) do
 
   create_table "tags", :force => true do |t|
     t.string "name"
+    t.string "slug"
   end
 
   create_table "users", :force => true do |t|

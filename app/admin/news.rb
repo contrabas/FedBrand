@@ -2,14 +2,14 @@
 ActiveAdmin.register News do
   form do |f|
     f.inputs do
+      f.input :slug
       f.input :title
       f.input :content
       f.input :logo, hint: f.object.logo.url ? 
         f.template.image_tag(f.object.logo.url(:thumb)) :
         f.template.content_tag(:span, "")
       f.input :remote_logo_url
-      f.input :tag_list
-      f.input :region
+      f.input :tag_list, hint: "Разделять запятыми"
       f.input :category
       f.input :announcement
       f.input :published_by
@@ -27,7 +27,6 @@ ActiveAdmin.register News do
     column :title
     column :tag_list
     column :category
-    column :region
     column :award
     column :announcement
     column :published_by
@@ -39,12 +38,14 @@ ActiveAdmin.register News do
   show do |g|
     attributes_table do
       row :id
+      row :slug do
+        link_to g.slug, g
+      end
       row :logo do
         link_to image_tag(g.logo.url(:thumb)), g.logo.url, target: '_blank'
       end
       row :title
       row :content
-      row :region
       row :category
       row :award
       row :announcement

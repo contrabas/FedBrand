@@ -8,7 +8,9 @@ FedBrand::Application.routes.draw do
         match '/:year/:month' => 'experts#monthly', as: :monthly
       end
     end
-    resources :news, only: %w(index show)
+    resources :news, only: %w(index show) do
+      get 'tags/:tag', to: 'news#tags', as: :tag, on: :collection
+    end
     resources :ratings, only: %w(index)
     resources :awards, only: %w(index) do
       collection do

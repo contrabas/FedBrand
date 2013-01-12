@@ -3,4 +3,4 @@
   .image= image_tag @news.logo.url(:thumb)
   .content_block
     .content= @news.content
-    = render partial: 'shared/news_links', locals: { news: @news }
+    = render partial: 'shared/tag_links', locals: { news: @news }
