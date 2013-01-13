@@ -15,10 +15,13 @@ class Expert < ActiveRecord::Base
   has_many :monthly_experts
   has_many :months, through: :monthly_experts
 
-  validates_presence_of :first_name, :last_name
+  validates_presence_of :first_name, :last_name, :slug
+  validates_uniqueness_of :slug
+
+  before_validation :generate_slug
 
   def to_param
-    "#{id}-#{name.parameterize}"
+    slug
   end
 
   def name 
@@ -27,5 +30,9 @@ class Expert < ActiveRecord::Base
 
   def full_name
     "#{last_name} #{first_name} #{middle_name}"
+  end
+
+  def generate_slug
+    self.slug ||= name.parameterize
   end
 end

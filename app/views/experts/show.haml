@@ -1,0 +1,15 @@
+#expert_info
+  = image_tag @expert.photo.url(:big)
+  %p= @expert.full_name
+  %p= @expert.description
+  .workplace
+    %b.title= t 'pages.ratings.workplace'
+    = @expert.workplace
+  .post
+    %b.title= t 'pages.ratings.post'
+    = @expert.post
+
+#expert_opinions
+  = t('pages.ratings.expert_opinions')+ ":"
+  - @expert.opinions.each do |opinion|
+    .content= opinion.content
