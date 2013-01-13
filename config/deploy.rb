@@ -11,8 +11,6 @@ set :deploy_via, :remote_cache
 set :scm, :git
 set :repository, 'git@github.com:RavWar/FedBrand.git'
 set :normalize_asset_timestamps, false
-set :shared_children, shared_children + %w[public/wp-content]
-set :shared_children, shared_children + %w[public/system]
 set :shared_children, shared_children + %w[public/uploads]
 
 ssh_options[:forward_agent] = true
