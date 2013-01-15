@@ -11,9 +11,6 @@ $ ->
   $('body').on 'click', '#maximize, #minimize', (e) ->
     e.preventDefault()
     if $('#ratings:visible').length then hideRatings() else showRatings()
-
-  location = window.location.pathname
-  $('#maximize').click() if location == '/' or location == '/en'
   
   $("#index_expert-block ul li p.get-text").each ->
     niceText = $(this)

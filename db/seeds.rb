@@ -158,7 +158,7 @@ ru_opinions.each do |opinion|
 end
 
 ru_videos = [
-  { title: "Крушение самолета во Внуково. Первые кадры с места ЧП", thumb: "http://i4.ytimg.com/vi/c2brROQMQe0/mqdefault.jpg", tag: "<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/c2brROQMQe0?rel=0\" frameborder=\"0\" allowfullscreen></iframe>" },
+  { title: "Крушение самолета во Внуково.", thumb: "http://i4.ytimg.com/vi/c2brROQMQe0/mqdefault.jpg", tag: "<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/c2brROQMQe0?rel=0\" frameborder=\"0\" allowfullscreen></iframe>" },
   { title: "Экономика Британии переживает вторую волну кризиса", thumb: "http://i1.ytimg.com/vi/hirNcR_87eY/mqdefault.jpg", tag: "<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/hirNcR_87eY?rel=0\" frameborder=\"0\" allowfullscreen></iframe>" },
   { title: "Экономический кризис: выживем ли мы?", thumb: "http://i2.ytimg.com/vi/A5j930jIGw4/mqdefault.jpg", tag: "<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/A5j930jIGw4?rel=0\" frameborder=\"0\" allowfullscreen></iframe>" }
 ]

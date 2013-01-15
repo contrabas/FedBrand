@@ -1,5 +1,7 @@
 #coding: utf-8
 ActiveAdmin.register Nominee do
+  menu parent: "Awards"
+  
   index do
     column :id
     column :title

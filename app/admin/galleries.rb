@@ -1,5 +1,7 @@
 #coding: utf-8
 ActiveAdmin.register Gallery do
+  menu parent: "Awards"
+
   action_item except: [:show] do
     if I18n.locale == :en
       link_to "Rus version", locale: nil

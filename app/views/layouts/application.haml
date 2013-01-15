@@ -38,7 +38,6 @@
           .container
             = render :partial => 'shared/top_ratings'
             .content-wrapper= yield
-            .content-wrapper= render 'shared/opinions'
     %footer#get-footer
       .container
         %aside.pull-left
@@ -47,6 +46,7 @@
           %p= link_to 'info@fedbrand.ru', 'mailto:info@fedbrand.ru'
 
   = include_gon watch: true
+  %script{ type: 'text/javascript', src: 'http://www.google.com/jsapi' }
   :javascript
     Modernizr.load([
       {
