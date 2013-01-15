@@ -13,7 +13,7 @@
         = render 'shared/locale'
       #nav
         = render 'shared/navbar'
-      #content
+      #content{ class: "#{controller_name}-#{action_name}" }
         #top_ratings= render 'shared/top_ratings'
         = yield
     #footer
