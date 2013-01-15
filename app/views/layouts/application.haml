@@ -1,23 +1,59 @@
-%html
+!!! 5
+<!--[if lt IE 7]> <html lang="ru" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html lang="ru" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html lang="ru" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+%html.no-js{ :lang => "ru" }
+  <!--<![endif]-->
   %head
+    %meta{ :charset => "utf-8" }/
+    %meta{'http-equiv' => 'X-UA-Compatible', :content => 'IE=edge,chrome=1'}/
     = title
-    = stylesheet_link_tag 'application'
-    %style{ type: "text/css" }= yield :stylesheets
+    = stylesheet_link_tag "application"
+    %meta{:content=>"width=device-width, initial-scale=1.0", :name=>"viewport"}/
+    /[if !IE 7]
+      :css
+        #wrapper {display:table;height:100%}
+    = javascript_include_tag 'modernizr'
   %body
-    - if flash[:notice]
-      .alert.alert-success=flash[:notice]
-    - if flash[:alert]
-      .alert.alert-error=flash[:alert]
-    #header-with-content
-      #header
-        = render 'shared/locale'
-      #nav
-        = render 'shared/navbar'
-      #content
-        #top_ratings= render 'shared/top_ratings'
-        = yield
-    #footer
+    #wrapper
+      #main-layout
+        - if flash[:notice]
+          .alert.alert-success=flash[:notice]
+        - if flash[:alert]
+          .alert.alert-error=flash[:alert]
+        %header#get-header
+          .container
+            .get-logo= link_to 'FedBrand', root_path
+            .get-slogan
+              %p Репутация - путь к процветанию региона!
+            .get-social
+              %ul
+                %li= link_to 'Facebook', '#', :class=>'get-facebook', :title=>'Facebook'
+                %li= link_to 'Twitter', '#', :class=>'get-twitter', :title=>'Twitter'
+                %li= link_to 'Youtube', '#', :class=>'get-youtube', :title=>'Youtube'
+            = render 'shared/locale'
+            = render 'shared/navbar'
+        %section#get-main_content.get-index_page
+          .container
+            = render :partial => 'shared/top_ratings'
+            .content-wrapper= yield
+    %footer#get-footer
+      .container
+        %aside.pull-left
+          %p &#169; ФедБренд &#151; премия в области репутационных технологий
+        %aside.pull-right
+          %p= link_to 'info@fedbrand.ru', 'mailto:info@fedbrand.ru'
 
-  = javascript_include_tag 'application'
   = include_gon watch: true
-  %script{ type: 'text/javascript', src: 'http://www.google.com/jsapi' }
+  :javascript
+    Modernizr.load([
+      {
+        load: ['timeout=3000!timeout=3000!//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js', '#{javascript_path "application"}'],
+          callback: function () {
+            if (!window.jQuery) {
+              Modernizr.load('#{javascript_path "fallback_jquery"}');
+            }
+        }
+      }
+    ]);

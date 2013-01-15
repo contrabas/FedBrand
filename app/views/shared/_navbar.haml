@@ -1,7 +1,10 @@
-%ul
-  %li= link_to t('nav.home'), root_path
-  %li= link_to t('nav.rating'), ratings_path
-  %li= link_to t('nav.experts'), experts_path
-  %li= link_to t('nav.award'), awards_path
-  %li= link_to t('nav.news'), news_index_path
-  %li= link_to t('nav.contacts'), contacts_path
+#get-nav
+  .container
+    %nav
+      %ul.nav-element.get-shadow
+        %li= link_to t('nav.home'), root_path
+        %li= link_to t('nav.rating'), ratings_path
+        %li= link_to t('nav.experts'), experts_path
+        %li= link_to t('nav.award'), awards_path
+        %li= link_to t('nav.news'), news_index_path
+        %li= link_to t('nav.contacts'), contacts_path

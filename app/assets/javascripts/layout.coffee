@@ -14,4 +14,3 @@ $ ->
 
   location = window.location.pathname
   $('#maximize').click() if location == '/' or location == '/en'
-      

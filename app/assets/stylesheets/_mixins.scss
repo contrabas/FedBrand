@@ -1,0 +1,26 @@
+@mixin wrap {float:left; width:100%;}
+
+@mixin hide-block {display:block; text-indent:-999em; }
+
+@mixin float-left {float:left; display:inline; }
+@mixin float-right {float:right; display:inline; }
+
+@mixin my-inline-list($margin:0, $float:left) {list-style-type:none; padding:0px; margin:0px; li {float:$float; display:inline; margin:$margin; }}
+
+@mixin ul-inlineblock($margin:0, $align:left) {
+	
+	ul {list-style-type:none; padding:0px; margin:0px; text-align:$align;
+
+		li {display: -moz-inline-stack; display:inline-block; vertical-align:middle; zoom: 1; *display: inline; margin:$margin; }
+	
+	}
+	
+}
+
+@mixin content-wrapper($margin:20px) {@include wrap; margin-top:$margin; }
+
+@mixin get-absolute($zIndex:55) {position:absolute; z-index:$zIndex; }
+
+@mixin pie($type:relative) {position:$type; behavior: url('/javascripts/PIE.htc'); }
+
+@mixin linear-background-pie($color1, $color2) {@include background(linear-gradient($color1, $color2)); -pie-background:linear-gradient($color1, $color2); behavior: url('/javascripts/PIE.htc'); }

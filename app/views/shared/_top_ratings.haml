@@ -1,21 +1,13 @@
-#minimize
-  = link_to t('layout.top_ratings.minimize'), '#'
-#maximize
-  = link_to t('layout.top_ratings.maximize'), '#'
-
-#title
-  = t 'layout.top_ratings.title'
-  = link_to Date.today.month_i18n, monthly_experts_path(Date.today.month_path)
-
-#ratings
-  #rating_columns
+#get-rating_block.get-gradient.get-shadow
+  %header 
+    = t 'layout.top_ratings.title'
+    = link_to Date.today.month_i18n, monthly_experts_path(Date.today.month_path)
+  %article
     - i = 0
     - Rating.top(10).to_a.in_groups_of(5).each do |ratings|
-      %ul.rating
+      %ul
         - ratings.each do |region_id, rating|
           - break unless region_id
           - i += 1
           = ratings_row i, Region.find(region_id).name, rating
-
-  #links= link_to t('layout.top_ratings.links'), ratings_path
-        
+  %footer= link_to t('layout.top_ratings.links'), ratings_path, :class=>"get-icon_link"

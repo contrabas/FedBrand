@@ -1,0 +1,38 @@
+@import "base";
+
+* {margin:0;padding:0;} 
+
+html, body {height: 100%; }
+
+body {background:$bodyBackground image-url('repeaters/bg.gif') repeat; min-width:990px; }
+
+#wrapper {min-height:100%; }
+
+#main-layout {overflow:auto; padding-bottom:85px; } 
+
+body:before {content:""; height:100%; float:left; width:0; margin-top:-32767px; }
+
+.container {width:970px; margin:0 auto; }
+
+.pull-left, .pull-right {display:inline; }
+
+.content-wrapper {@include content-wrapper; }
+
+.cssgradients .get-gradient {@include background-image(linear-gradient(white, #f6f6f6)); }
+
+.boxshadow .get-shadow {@include box-shadow(#888 0 2px 3px); }
+.no-boxshadow .get-shadow, .cssgradients .get-gradient {@include pie-element; }
+
+.get-icon_link {padding-left:25px; position:relative; font-size:pem(10px); text-transform:uppercase; font-weight:bold; color:#000;
+
+  &:before, & > ieb {content:""; background:sprite($icons, icon-link) no-repeat; width:20px; height:20px; @include get-absolute; left:0; top:-4px; }
+
+}
+
+a {outline:0!important; }
+
+#get-footer {position:relative; margin-top:-68px; height:38px; clear:both; background:image-url('repeaters/g_bg20.png') repeat-x left top; padding-top:30px; font-size:pem(12px);
+
+  a {color:$textColor; text-decoration:underline!important; &:hover {text-decoration:none!important; } }
+
+}

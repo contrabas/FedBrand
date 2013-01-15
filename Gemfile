@@ -18,10 +18,10 @@ group :development do
 end
 
 group :assets do
-  gem 'compass-rails'
-  gem 'sass-rails'
+  gem 'bootstrap-sass', '~> 2.2.2.0'
   gem 'coffee-rails'
+  gem 'compass-rails'
+  gem 'jquery-rails'
+  gem 'sass-rails', '~> 3.2'
   gem 'uglifier'
 end
-
-gem 'jquery-rails'
