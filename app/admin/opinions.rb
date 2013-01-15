@@ -1,5 +1,7 @@
 #coding: utf-8
 ActiveAdmin.register Opinion do
+  menu parent: "Experts"
+
   action_item except: [:show] do
     if I18n.locale == :en
       link_to "Rus version", locale: nil
