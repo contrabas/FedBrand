@@ -1,4 +1,10 @@
-#partners_block
-  %h4= t 'pages.home.partners.title'
-  - Partner.all.each do |partner|
-    .logo= link_to image_tag(partner.logo.url(:thumb)), partner.url
+%section.index-block.index-partners_block.get-shadow
+  %h2= t 'pages.home.partners.title'
+  .partners-carousel_link
+    = link_to 'Назад', '#', :id=>"partners-slider_prev"
+  .jcarousel#partners-slider
+    %ul
+      - Partner.all.each do |partner|
+        %li= link_to image_tag(partner.logo.url(:thumb)), partner.url
+  .partners-carousel_link
+    = link_to 'Назад', '#', :id=>"partners-slider_next"

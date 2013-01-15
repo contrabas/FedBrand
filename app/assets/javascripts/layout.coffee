@@ -14,3 +14,24 @@ $ ->
 
   location = window.location.pathname
   $('#maximize').click() if location == '/' or location == '/en'
+  
+  $("#index_expert-block ul li p.get-text").each ->
+    niceText = $(this)
+    openSpan = "<b>"
+    closeSpan = "</b>"
+    niceText = niceText.text().split(" ")
+    niceText.unshift openSpan
+    niceText.splice 3, 0, closeSpan
+    niceText = niceText.join(" ")
+    $(this).html niceText
+  
+  $("#partners-slider").jcarousel(
+    vertical: true
+    wrap: "circular"
+  )
+  $("#partners-slider_prev").click ->
+    $("#partners-slider").jcarousel "scroll", "-=1"
+    false
+  $("#partners-slider_next").click ->
+    $("#partners-slider").jcarousel "scroll", "-=1"
+    false

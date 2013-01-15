@@ -15,3 +15,4 @@
 //= require jquery.ui.datepicker-en-GB
 //= require jquery.ui.datepicker-ru
 //= require_tree .
+//=require jquery.jcarousel.min

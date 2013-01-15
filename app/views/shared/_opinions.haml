@@ -1,12 +1,11 @@
-#opinions_wrapper
-  %h4= t 'pages.opinions.title'
-  #opinions
+%section.index-block.index-expert_block.get-shadow#index_expert-block
+  %ul
     - Opinion.all.last(3).each do |opinion|
-      .opinion
-        .photo= image_tag opinion.expert.photo.url(:bw)
-        .content
-          .title= h truncate opinion.content, length: 175, separator: ' '
-          .name
+      %li
+        %figure
+          %p= image_tag opinion.expert.photo.url(:bw)
+          %h3= h truncate opinion.content, length: 175, separator: ' '
+          %p.get-text
             = opinion.expert.first_name + ' ' + opinion.expert.last_name + ", "
             = opinion.expert.position
-  .link= link_to t('pages.opinions.link'), '#'
+  %footer= link_to t('pages.opinions.link'), '#', :class=>'get-icon_link'

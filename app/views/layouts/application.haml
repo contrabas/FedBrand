@@ -38,6 +38,7 @@
           .container
             = render :partial => 'shared/top_ratings'
             .content-wrapper= yield
+            .content-wrapper= render 'shared/opinions'
     %footer#get-footer
       .container
         %aside.pull-left

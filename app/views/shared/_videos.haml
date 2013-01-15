@@ -1,7 +1,8 @@
-#videos_block
-  %h4= t 'pages.videos.title'
-
+%section.index-block.index-video_block.get-shadow
+  %h2= t 'pages.videos.title'
   - Video.all.last(3).each do |video|
-    .video
-      .thumb= link_to image_tag(video.thumb), '#'
-      .title= link_to video.title, '#'
+    %article.get-gradient
+      %figure
+        %p= link_to image_tag(video.thumb), '#'
+        %figcaption
+          %h3= link_to video.title, '#'

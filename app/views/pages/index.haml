@@ -1,12 +1,10 @@
-#news_home
-  %h4= t 'pages.home.news.title'
-  %ul
-    - News.all.last(4).each do |news|
-      %li
-        .title= link_to news.title, news
-        .content= h truncate news.content, length: 220, separator: ' '
-        .link= link_to t('pages.home.news.link'), news
+%section.index-block.index-news_block.get-shadow
+  %h2= t 'pages.home.news.title'
+  - News.all.last(4).each do |news|
+    %article
+      %h3= link_to news.title, news
+      %p= h truncate news.content, length: 220, separator: ' '
+      %footer= link_to t('pages.home.news.link'), news, :class=>'get-icon_link'
 
 = render 'shared/videos'
 = render 'shared/partners'
-= render 'shared/opinions'
