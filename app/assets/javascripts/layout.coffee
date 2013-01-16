@@ -1,31 +1,28 @@
 $ ->
   hideRatings = ->
-    $('#top_ratings #ratings').hide()
-    $('#top_ratings #maximize').show()
-    $('#top_ratings #minimize').hide()
+    $('#get-rating_block #ratings').hide()
+    $('#get-rating_block #maximize').show()
+    $('#get-rating_block #minimize').hide()
   showRatings = ->
-    $('#top_ratings #ratings').show()
-    $('#top_ratings #maximize').hide()
-    $('#top_ratings #minimize').show()
+    $('#get-rating_block #ratings').show()
+    $('#get-rating_block #maximize').hide()
+    $('#get-rating_block #minimize').show()
 
   $('body').on 'click', '#maximize, #minimize', (e) ->
     e.preventDefault()
     if $('#ratings:visible').length then hideRatings() else showRatings()
   
-  $("#index_expert-block ul li p.get-text").each ->
-    niceText = $(this)
-    openSpan = "<b>"
-    closeSpan = "</b>"
-    niceText = niceText.text().split(" ")
-    niceText.unshift openSpan
-    niceText.splice 3, 0, closeSpan
-    niceText = niceText.join(" ")
-    $(this).html niceText
+  path_menu = window.location.pathname
+  $('#get-nav nav a[href$="' + path_menu + '"]').addClass 'active'
   
   $("#partners-slider").jcarousel(
     vertical: true
     wrap: "circular"
   )
+  
+  if $("#partners-slider").length < 6
+    $("#partners-slider_prev, #partners-slider_next").hide()
+  
   $("#partners-slider_prev").click ->
     $("#partners-slider").jcarousel "scroll", "-=1"
     false

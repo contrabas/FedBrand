@@ -1,13 +1,18 @@
 #get-rating_block.get-gradient.get-shadow
   %header 
+    #minimize.get-rating_link
+      = link_to t('layout.top_ratings.minimize'), '#'
+    #maximize.get-rating_link
+      = link_to t('layout.top_ratings.maximize'), '#'
     = t 'layout.top_ratings.title'
     = link_to Date.today.month_i18n, monthly_experts_path(Date.today.month_path)
-  %article
-    - i = 0
-    - Rating.top(10).to_a.in_groups_of(5).each do |ratings|
-      %ul
-        - ratings.each do |region_id, rating|
-          - break unless region_id
-          - i += 1
-          = ratings_row i, Region.find(region_id).name, rating
-  %footer= link_to t('layout.top_ratings.links'), ratings_path, :class=>"get-icon_link"
+  #ratings
+    %article
+      - i = 0
+      - Rating.top(10).to_a.in_groups_of(5).each do |ratings|
+        %ul
+          - ratings.each do |region_id, rating|
+            - break unless region_id
+            - i += 1
+            = ratings_row i, Region.find(region_id).name, rating
+    %footer= link_to t('layout.top_ratings.links'), ratings_path, :class=>"get-icon_link"

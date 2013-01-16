@@ -15,7 +15,7 @@
       :css
         #wrapper {display:table;height:100%}
     = javascript_include_tag 'modernizr'
-  %body
+  %body{class: "#{controller_name}-#{action_name}"}
     #wrapper
       #main-layout
         - if flash[:notice]
@@ -33,8 +33,8 @@
                 %li= link_to 'Twitter', '#', :class=>'get-twitter', :title=>'Twitter'
                 %li= link_to 'Youtube', '#', :class=>'get-youtube', :title=>'Youtube'
             = render 'shared/locale'
-            = render 'shared/navbar'
-        %section#get-main_content.get-index_page
+        = render 'shared/navbar'
+        %section#get-main_content
           .container
             = render :partial => 'shared/top_ratings'
             .content-wrapper= yield
