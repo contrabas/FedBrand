@@ -12,16 +12,13 @@
     %li.rating= t 'pages.ratings.rating'
     %li.change= t 'pages.ratings.change'
 
-  - last_month_ratings = Rating.sum('value', include: 'region', conditions: ['date < ?', Rating.last_month], group: 'regions.id', order: 'SUM(value) DESC').map(&:first)
-
-  - Rating.top.each_with_index do |(region_id, rating), i|
-    - region = Region.find region_id
-    - change = last_month_ratings.index(region_id) - i
+  - Rating.top.each_with_index do |rating, i|
+    - change = Rating.last_month_ratings.map(&:region).index(rating.region) - i
 
     %ul.region
-      %li.checkbox= check_box_tag 'region', region.id
+      %li.checkbox= check_box_tag 'region', rating.region.id
       %li.position= i+1
-      %li.name= region.name
-      %li.emblem= image_tag region.emblem.url(:icon)
-      %li.rating= rating
+      %li.name= rating.region.name
+      %li.emblem= image_tag rating.region.emblem.url(:icon)
+      %li.rating= rating.value
       %li.change= change > 0 ? "+#{change}" : "#{change}"

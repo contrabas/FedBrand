@@ -3,7 +3,7 @@ class Rating < ActiveRecord::Base
 
   belongs_to :region
 
-  scope :by_regions, lambda {|regions_id| 
+  scope :by_regions, lambda {|regions_id|
     includes(:region).where(regions: {id: regions_id})
   }
 
@@ -12,8 +12,7 @@ class Rating < ActiveRecord::Base
   after_initialize :set_default_date
 
   def self.top limit=nil
-    sum 'value', include: :region, group: 'regions.id',
-      order: 'SUM(value) DESC', limit: limit
+    where(date: last_month.month_span).order('value DESC').limit(limit)
   end
 
   def self.sum_by_region
@@ -22,6 +21,10 @@ class Rating < ActiveRecord::Base
 
   def self.last_month
     order('date DESC').first.date.at_beginning_of_month
+  end
+
+  def self.last_month_ratings
+    where(date: last_month.prev_month.month_span).order('value DESC')
   end
 
   private
