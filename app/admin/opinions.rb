@@ -9,10 +9,14 @@ ActiveAdmin.register Opinion do
       link_to "Англ версия", locale: 'en'
     end
   end
-  
+
   controller do
+    def active_admin_collection
+      Opinion.unscoped { super }
+    end
+
     def scoped_collection
-      Opinion.unscoped
+      Opinion.unscoped { super }
     end
 
     def resource
