@@ -5,7 +5,7 @@ ActiveAdmin.register News do
       f.input :slug
       f.input :title
       f.input :content
-      f.input :logo, hint: f.object.logo.url ? 
+      f.input :logo, hint: f.object.logo.url ?
         f.template.image_tag(f.object.logo.url(:thumb)) :
         f.template.content_tag(:span, "")
       f.input :remote_logo_url
@@ -31,7 +31,7 @@ ActiveAdmin.register News do
     column :announcement
     column :published_by
     column :online
-    
+
     default_actions
   end
 
@@ -64,8 +64,10 @@ ActiveAdmin.register News do
       link_to "Англ версия", locale: 'en'
     end
   end
-  
+
   controller do
+    defaults finder: :find_by_slug
+
     def scoped_collection
       News.unscoped
     end

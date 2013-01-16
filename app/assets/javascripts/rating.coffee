@@ -18,7 +18,7 @@ drawRatingChart = ->
   addRows data
 
   title = if gon.locale == 'en' then "«FEDERAL BRAND» RATINGS" else "РЕЙТИНГ «ФЕДЕРАЛЬНЫЙ БРЕНД»"
-  options = 
+  options =
     title: title
     pointSize: 5
     vAxis: {viewWindow: {min: 150, max: 750}}
@@ -33,7 +33,7 @@ drawRatingChart = ->
   chart = new google.visualization.LineChart(document.getElementById("rating_chart"))
   google.visualization.events.addListener chart, "ready", (event) ->
     replaceMonths()
-  
+
   chart.draw data, options
 
 loadChart = ->
@@ -53,9 +53,9 @@ addRows = (data) ->
 
       $.datepicker.setDefaults($.datepicker.regional['en-GB']) unless gon.locale == 'ru'
       values.push { "v": date, "f": $.datepicker.formatDate('MM yy', date) }
-      
-      addValues ratings, data
-    
+
+      addValues ratings
+
     data.addRow values
 
 addValues = (value) ->
@@ -66,6 +66,7 @@ regions = (region, supplied) ->
   checkRegion(info, region, supplied) for info in supplied when found is false
 
 checkRegion = (info, region, supplied) ->
+  console.log info[0]
   if info[0] == region then addValue(info[1]) else missValue(info, supplied)
 
 addValue = (value) ->
@@ -81,9 +82,9 @@ replaceMonths = ->
       return text.replace value, monthNamesShort[key]
 
 maxDate = ->
-  interval = Math.abs((endDate.getFullYear()*12 + endDate.getMonth()) - 
+  interval = Math.abs((endDate.getFullYear()*12 + endDate.getMonth()) -
     (startDate.getFullYear()*12 + startDate.getMonth())) + 1
-  
+
   toAdd = 4 - interval if interval < 4
   toAdd = 1 if interval == 9
   return unless toAdd
@@ -127,7 +128,7 @@ $ ->
       $(@).parent().parent().removeClass 'background'
     else
       $(@).parent().parent().addClass 'background'
-      
+
     regionSelect()
 
   $(window).bind "resize", (e) ->

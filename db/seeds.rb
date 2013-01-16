@@ -13,7 +13,7 @@ regions = [
 ]
 
 regions.each do |region|
-  Region.create! name_ru: region[:name_ru], name_en: region[:name_en], 
+  Region.create! name_ru: region[:name_ru], name_en: region[:name_en],
     remote_emblem_url: region[:url]
 end
 
@@ -45,7 +45,7 @@ en_news = [
 en_news.each do |news|
   category = Category.find_by_name_en news[:category]
   a = Award.find_by_year 2012
-  News.create! category_id: category.id, title: news[:title], award_id: a.id, 
+  News.create! category_id: category.id, title: news[:title], award_id: a.id,
     content: news[:content], remote_logo_url: news[:url], slug: news[:slug],
     tag_list: news[:tag_list]
 end
@@ -58,7 +58,7 @@ partners = [
 ]
 
 partners.each do |partner|
-  Partner.create! name: partner[:name], remote_logo_url: partner[:logo], 
+  Partner.create! name: partner[:name], remote_logo_url: partner[:logo],
     url: partner[:url]
 end
 
@@ -70,7 +70,7 @@ en_experts = [
 
 en_experts.each_with_index do |expert, i|
   category = Category.find_by_name_en expert[:category]
-  Expert.create! last_name: expert[:last_name], first_name: expert[:first_name], 
+  Expert.create! last_name: expert[:last_name], first_name: expert[:first_name],
     middle_name: expert[:middle_name], remote_photo_url: expert[:url],
     description: expert[:description], position: expert[:position], partner_id: i+1,
     category_id: category.id, post: expert[:post], workplace: expert[:workplace]
@@ -117,7 +117,7 @@ ru_news.each do |news|
     tag_list: news[:tag_list]
 end
 
-expert.update_attributes last_name: "Байден", first_name: "Джозеф", 
+expert.update_attributes last_name: "Байден", first_name: "Джозеф",
   middle_name: "Робинетт", description: "Американский политик, член демократической партии, 47-й вице-президент США. Вступил в должность одновременно с Бараком Обамой 20 января 2009 года. До избрания вице-президентом был сенатором США от штата Делавэр (с 1973 года).", position: "Вице-президент США", post: "Вице-президент", workplace: "Правительство США"
 
 ru_experts = [
@@ -127,7 +127,7 @@ ru_experts = [
 
 ru_experts.each_with_index do |expert, i|
   category = Category.find_by_name_ru expert[:category]
-  Expert.create! last_name: expert[:last_name], first_name: expert[:first_name], 
+  Expert.create! last_name: expert[:last_name], first_name: expert[:first_name],
     middle_name: expert[:middle_name], remote_photo_url: expert[:url],
     description: expert[:description], position: expert[:position], partner_id: i+1,
     category_id: category.id, post: expert[:post], workplace: expert[:workplace]
@@ -135,7 +135,7 @@ end
 
 6.times do |i|
   Region.all.each do |region|
-    num = i == 0 ? 300+Random.rand(250) : Random.rand(-75..75)
+    num = 250+Random.rand(400)
     Rating.create! region_id: region.id, value: num, date: (5-i).months.ago
   end
   month = Month.create! month: i.months.ago

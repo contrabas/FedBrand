@@ -139,6 +139,7 @@ ru:
         current_sign_in_ip: Текущий айпи  #g
         last_sign_in_ip: Последний айпи  #g
         admin: Админ  #g
+        sign_in_count: Количество входов
 
       region:
         name_ru: Название(рус.)
