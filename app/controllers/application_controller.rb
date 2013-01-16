@@ -3,10 +3,10 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale, :user_data_for_js
 
   def authenticate_admin!
-    authenticate_user! 
+    authenticate_user!
     redirect_to root_path unless current_user.admin?
   end
-  
+
   def user_data_for_js
     gon.locale = I18n.locale
   end
