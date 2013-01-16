@@ -66,7 +66,6 @@ regions = (region, supplied) ->
   checkRegion(info, region, supplied) for info in supplied when found is false
 
 checkRegion = (info, region, supplied) ->
-  console.log info[0]
   if info[0] == region then addValue(info[1]) else missValue(info, supplied)
 
 addValue = (value) ->
