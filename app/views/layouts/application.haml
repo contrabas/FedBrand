@@ -14,7 +14,6 @@
     /[if !IE 7]
       :css
         #wrapper {display:table;height:100%}
-    = javascript_include_tag 'modernizr'
   %body{class: "#{controller_name}-#{action_name}"}
     #wrapper
       #main-layout
@@ -47,14 +46,4 @@
 
   = include_gon watch: true
   %script{ type: 'text/javascript', src: 'http://www.google.com/jsapi' }
-  :javascript
-    Modernizr.load([
-      {
-        load: ['timeout=3000!timeout=3000!//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js', '#{javascript_path "application"}'],
-          callback: function () {
-            if (!window.jQuery) {
-              Modernizr.load('#{javascript_path "fallback_jquery"}');
-            }
-        }
-      }
-    ]);
+  = javascript_include_tag 'application', 'modernizr'
