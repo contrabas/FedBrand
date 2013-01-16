@@ -29,13 +29,16 @@ ActiveAdmin.register Expert do
       link_to image_tag(expert.photo.url(:thumb)), expert.photo.url, target: '_blank'
     end
     column :description do |expert|
-      truncate expert.description, length: 125, separator: ' '
+      truncate expert.description, length: 100, separator: ' '
     end
     column :position
     column :post
     column :workplace
     column :category
     column :partner
+    column :opinions do |expert|
+      expert.opinions.count
+    end
     default_actions
   end
 
