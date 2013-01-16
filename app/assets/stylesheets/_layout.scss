@@ -31,6 +31,9 @@ body:before {content:""; height:100%; float:left; width:0; margin-top:-32767px; 
 
 a {outline:0!important; }
 
+.get-sidebar {@include float-right; width:220px; padding:10px 15px; h2 {line-height:normal; margin-top:0!important; } p {font-size:pem(12px); } }
+.get-content_side {@include float-left; width:660px; padding:10px 15px; h1 {line-height:normal; margin-top:0!important; } p {font-size:pem(12px); } }
+
 #get-footer {position:relative; margin-top:-68px; height:38px; clear:both; background:image-url('repeaters/g_bg20.png') repeat-x left top; padding-top:30px; font-size:pem(12px);
 
   a {color:$textColor; text-decoration:underline!important; &:hover {text-decoration:none!important; } }

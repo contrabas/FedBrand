@@ -1,13 +1,13 @@
-#contacts
-  #map
-    .title= t 'pages.contacts.map.title'
-    .address= t 'pages.contacts.map.address'
+%section.get-content_side.get-shadow.get-gradient
+  %h1= t 'pages.contacts.map.title'
+  %figure
+    %p= t 'pages.contacts.map.address'
 
-  #contact_us
-    .title= t 'pages.contacts.contact_us.title'
-    .phone
-      .title= t 'pages.contacts.contact_us.phone'
-      %p (495) 940-60-83
-    .email
-      .title E-mail
-      %p welcome@fedbrend.ru
+%section.get-sidebar.get-shadow.get-contacts_sidebar
+  %h2= t 'pages.contacts.contact_us.title'
+  %article.get-phone
+    %p= t 'pages.contacts.contact_us.phone'
+    %h3 (495) 940-60-83
+  %article
+    %p E-mail
+    %h3= link_to 'welcome@fedbrend.ru', 'mailto:welcome@fedbrend.ru'
