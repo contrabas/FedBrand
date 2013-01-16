@@ -7,7 +7,7 @@ ActiveAdmin.register Expert do
       f.input :middle_name
       f.input :category
       f.input :partner
-      f.input :photo, hint: f.object.photo.url ? 
+      f.input :photo, hint: f.object.photo.url ?
         f.template.image_tag(f.object.photo.url(:thumb)) :
         f.template.content_tag(:span, "")
       f.input :remote_photo_url
@@ -46,8 +46,10 @@ ActiveAdmin.register Expert do
       link_to "Англ версия", locale: 'en'
     end
   end
-  
+
   controller do
+    defaults finder: :find_by_slug
+
     def scoped_collection
       Expert.unscoped
     end
