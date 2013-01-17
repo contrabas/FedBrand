@@ -17,27 +17,57 @@
               = render partial: 'shared/tag_links', locals: { news: news }
               .read_more= link_to t('pages.news.read_more'), news, :class=>"get-icon_link"
   
-  %h2= t 'pages.news.press_centre'
-  = link_to t('pages.news.preview'), '#'
-  |
-  = link_to "ON-LINE", '#'
-  |
-  = link_to t('pages.news.press'), '#'
-  .news-cats.index-news_block
-
-%section.get-sidebar.news-sidebar
-  .calendar
-    calendar
-  = render 'shared/videos'
-  .categories
-    %h2= t 'pages.news.rubrics'
-    .title= link_to t('pages.news.latest'), '#'
-    - News.all[0..-4].map(&:category).each do |category|
-      .title= link_to category.name.mb_chars.upcase.to_s, '#'
-  .tags
-    %h2= t 'pages.news.tags'
-    #tag_cloud
-      - tag_cloud News.tag_counts, %w[s m l] do |tag, css_class|
-        = link_to tag.name, tag_news_index_path(tag), class: css_class
+  %h2.no-bg= t 'pages.news.press_centre'
+  .get-content_menu.get-pad
+    %ul
+      %li= link_to t('pages.news.preview'), '#'
+      %li= link_to "ON-LINE", '#'
+      %li= link_to t('pages.news.press'), '#'
+  .news-cats.index-news_block.get-press_block
+    %section
+      %article
+        %h3= link_to 'Hello!', '#'
+        %p Hello, text!
+        %footer
+          %p
+            %span Анонс
+      %article
+        %h3= link_to 'Hello!', '#'
+        %p Hello, text!
+        %footer
+          %p
+            %span.get-bradius.on-line On-line
+      %article
+        %h3= link_to 'Hello!', '#'
+        %p Hello, text!
+        %footer
+          %p= link_to 'Читать полностью', '#', :class=>'get-icon_link'
+  .get-pager
+    .get-link.get-prev= link_to 'Предыдущая', '#'
+    .get-middle
+      %ul
+        %li
+          %span.get-bradius 1
+        %li= link_to '2', '#', :class=>"get-bradius"
+        %li= link_to '3', '#', :class=>"get-bradius"
+        %li= link_to '4', '#', :class=>"get-bradius"
+        %li= link_to '5', '#', :class=>"get-bradius"
+    .get-link.get-next= link_to 'Следующая', '#'
+      
+%section.get-sidebar.news-sidebar.no-width_pad
+  .get-wrapper
+    .get-sidebar.get-shadow.get-video_carousel
+      /= render 'shared/videos'
+      %h2 Аналитика и комментарии.tv
+    .get-sidebar.get-shadow.get-gradient.get-news_categories
+      %h2= t 'pages.news.rubrics'
+      .title= link_to t('pages.news.latest'), '#'
+      - News.all[0..-4].map(&:category).each do |category|
+        .title= link_to category.name.mb_chars.upcase.to_s, '#'
+    .get-sidebar.get-shadow.get-tags_cloud
+      %h2= t 'pages.news.tags'
+      #tag_cloud
+        - tag_cloud News.tag_counts, %w[s m l] do |tag, css_class|
+          = link_to tag.name, tag_news_index_path(tag), class: css_class
     
 .content-wrapper= render 'shared/opinions'

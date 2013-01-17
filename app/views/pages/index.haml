@@ -6,6 +6,6 @@
       %p= h truncate news.content, length: 220, separator: ' '
       %footer= link_to t('pages.home.news.link'), news, :class=>'get-icon_link'
 
-= render 'shared/videos'
+%section.index-block.index-video_block.get-shadow= render 'shared/videos'
 = render 'shared/partners'
 .content-wrapper= render 'shared/opinions'

@@ -34,7 +34,7 @@ body:before {content:""; height:100%; float:left; width:0; margin-top:-32767px; 
 .cssgradients .get-gradient {@include background-image(linear-gradient(white, #f6f6f6)); }
 
 .boxshadow .get-shadow {@include box-shadow(#888 0 2px 3px); }
-.no-boxshadow .get-shadow, .cssgradients .get-gradient {@include pie-element; }
+.no-boxshadow .get-shadow, .cssgradients .get-gradient, .no-borderradius .get-bradius {@include pie-element; }
 
 .get-icon_link {padding-left:25px; position:relative; font-size:pem(10px); text-transform:uppercase; font-weight:bold; color:#000;
 
