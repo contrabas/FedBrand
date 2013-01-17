@@ -12,9 +12,6 @@ $ ->
     e.preventDefault()
     if $('#ratings:visible').length then hideRatings() else showRatings()
 
-  path_menu = window.location.pathname
-  $('#get-nav nav a[href$="' + path_menu + '"]').addClass 'active'
-
   $("#partners-slider").jcarousel(
     vertical: true
     wrap: "circular"
