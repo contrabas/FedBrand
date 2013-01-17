@@ -1,43 +1,43 @@
-#news_side_block
-  = render 'shared/videos'
+%section.get-content_side.get-shadow.no-width_pad.get-news_content
+  %h1= t 'pages.news.title'
+  
+  %h2.actual= t 'pages.news.latest'
+  .news-cats.get-gradient.width-full
+    %section= render partial: 'shared/news', locals: { collection: News.all.last(3) }
+  
+  - News.all[0..-4].group_by(&:category).each do |category, news_by_category|
+    %h2= category.name.mb_chars.upcase.to_s
+    .news-cats.get-gradient.index-news_block
+      %section
+        - news_by_category.last(3).each do |news|
+          %article
+            %h3= link_to news.title, news
+            %p= h truncate news.content, length: 150, separator: ' '
+            %footer
+              = render partial: 'shared/tag_links', locals: { news: news }
+              .read_more= link_to t('pages.news.read_more'), news, :class=>"get-icon_link"
+  
+  %h2= t 'pages.news.press_centre'
+  = link_to t('pages.news.preview'), '#'
+  |
+  = link_to "ON-LINE", '#'
+  |
+  = link_to t('pages.news.press'), '#'
+  .news-cats.index-news_block
 
-  #rubrics
-    %h4= t 'pages.news.rubrics'
+%section.get-sidebar.news-sidebar
+  .calendar
+    calendar
+  = render 'shared/videos'
+  .categories
+    %h2= t 'pages.news.rubrics'
     .title= link_to t('pages.news.latest'), '#'
     - News.all[0..-4].map(&:category).each do |category|
       .title= link_to category.name.mb_chars.upcase.to_s, '#'
-
-  #tags
-    %h4= t 'pages.news.tags'
+  .tags
+    %h2= t 'pages.news.tags'
     #tag_cloud
       - tag_cloud News.tag_counts, %w[s m l] do |tag, css_class|
         = link_to tag.name, tag_news_index_path(tag), class: css_class
-
-#news_index
-  %h3= t 'pages.news.title'
-
-  .latest
-    %h4= t 'pages.news.latest'
-    = render partial: 'shared/news', locals: { collection: News.all.last(3) }
-
-  .by_category
-    - News.all[0..-4].group_by(&:category).each do |category, news_by_category|
-      %h4= category.name.mb_chars.upcase.to_s
-      - news_by_category.last(3).each do |news|
-        .block
-          .content
-            %p= link_to news.title, news
-            = h truncate news.content, length: 150, separator: ' '
-          .footer
-            = render partial: 'shared/tag_links', locals: { news: news }
-            .read_more= link_to t('pages.news.read_more'), news
-
-  .press_centre
-    %h4= t 'pages.news.press_centre'
-    = link_to t('pages.news.preview'), '#'
-    |
-    = link_to "ON-LINE", '#'
-    |
-    = link_to t('pages.news.press'), '#'
-
-= render 'shared/opinions'
+    
+.content-wrapper= render 'shared/opinions'

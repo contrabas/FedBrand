@@ -1,3 +1,21 @@
+@import "bootstrap/variables";
+
+$icons:sprite-map('icons/*.png', $layout: smart);
+$sprites:sprite-map('sprites/*.png', $layout: smart);
+
+$linkColor:#1559a9;
+
+$pie-behavior: url("/javascript/PIE.htc");
+$pie-base-class: pie-element;
+
+$textColor:#414141;
+
+$baseFontSize:14px;
+
+@function pem($pxval, $base: $baseFontSize) {
+  @return #{$pxval / $base}em;
+}
+
 @mixin wrap {float:left; width:100%;}
 
 @mixin hide-block {display:block; text-indent:-999em; }

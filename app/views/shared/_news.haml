@@ -1,9 +1,10 @@
 - collection.each do |news|
-  .news_block
-    .content
-      = image_tag news.logo.url(:thumb)
-      %p= link_to news.title, news
-      = h truncate news.content, length: 250, separator: ' '
-    .footer
-      .read_more= link_to t('pages.news.read_more'), news
+  %article
+    - if news.logo.url
+      %figure= image_tag news.logo.url(:thumb)
+    .get-desc
+      %h3= link_to news.title, news
+      %p= h truncate news.content, length: 250, separator: ' '
+    %footer
+      .read_more= link_to t('pages.news.read_more'), news, :class=>"get-icon_link"
       = render partial: 'shared/tag_links', locals: { news: news }
