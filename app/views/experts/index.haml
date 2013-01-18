@@ -1,2 +1,4 @@
-#all_experts
-  = render partial: 'shared/experts', locals: { experts: Expert.all }
+%section.get-experts_block.get-shadow
+  .container
+    %h1 Эксперты
+  .get-experts_category.get-gradient= render partial: 'shared/experts', locals: { experts: Expert.all }

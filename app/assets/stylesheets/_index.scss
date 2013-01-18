@@ -1,10 +1,7 @@
+@import "compass/css3/images";
 @import "mixins";
 
-.index-block {@include float-left; height:565px; overflow:hidden; background-color:#fff;
-
-  h2 {margin-top:5px; }
-
-}
+.index-block {@include float-left; height:560px; overflow:hidden; background-color:#fff; padding-top:5px; }
 
 .index-news_block {
   
@@ -21,28 +18,35 @@
 
 .pages-index {
   
-  .index-news_block {width:425px; padding:0 20px; article {margin-right:30px; width:195px; &:nth-child(odd) {margin-right:0; } } }
+  .index-news_block {width:425px; padding-left:20px; padding-right:20px; article {margin-right:30px; width:195px; &:nth-child(odd) {margin-right:0; } } }
+  
+  .index-video_block { article {@include background-image(linear-gradient(white, #f6f6f6)); } }
   
 }
 
-.index-video_block {width:210px; margin-left:22px;
+.index-video_block {width:210px; margin-left:22px; background-color:#fff;
   
   h2 {margin-left:15px; margin-bottom:0; }
   
-  article {@include content-wrapper(14px); padding:0 15px 5px 15px; width:180px;
+  article {@include content-wrapper; padding:0 15px 5px 15px; width:180px;
   
     &:first-child {margin-top:5px; }
   
-  }
+    h3 {font-size:pem(14px); line-height:16px; word-wrap:break-word; }
   
+    figure {margin:0; 
+    
+      p {margin:0; a {position:relative; display:block; width:160px; height:97px; &:before, & > ieb {content:""; @include get-absolute; background:sprite($icons, icon-video-play) no-repeat; width:39px; height:39px; left:50%; top:50%; margin:-19px 0 0 -19px; } } }
+      
+      img {border:1px solid #ccc; width:158px; height:95px; }
+      
+    }
+  
+  }
   
 }
 
-.index-partners_block {width:226px; float:right; padding:0 12px;
-  
-  h2 {margin-bottom:0; }
-  
-}
+.index-partners_block {width:226px; float:right; padding-left:12px; padding-right:12px; }
 
 .index-expert_block {width:940px; height:175px; padding:20px 15px 0 15px; 
 

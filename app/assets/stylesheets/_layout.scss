@@ -34,18 +34,17 @@ body:before {content:""; height:100%; float:left; width:0; margin-top:-32767px; 
 .cssgradients .get-gradient {@include background-image(linear-gradient(white, #f6f6f6)); }
 
 .boxshadow .get-shadow {@include box-shadow(#888 0 2px 3px); }
-.no-boxshadow .get-shadow, .cssgradients .get-gradient, .no-borderradius .get-bradius {@include pie-element; }
+.no-boxshadow .get-shadow, .no-cssgradients .get-gradient, .no-borderradius .get-bradius, no-cssgradients .index-video_block article {@include pie-element; }
 
-.get-icon_link {padding-left:25px; position:relative; font-size:pem(10px); text-transform:uppercase; font-weight:bold; color:#000;
-
-  &:before, & > ieb {content:""; background:sprite($icons, icon-link) no-repeat; width:20px; height:20px; @include get-absolute; left:0; top:-4px; }
-
-}
+.get-relative {position:relative; }
 
 a {outline:0!important; }
 
-.get-sidebar {@include float-right; width:220px; padding:10px 15px; h2 {line-height:normal; margin-top:0!important; } p {font-size:pem(12px); } }
-.get-content_side {@include float-left; width:660px; padding:10px 15px; h1 {line-height:normal; margin-top:0!important; } p {font-size:pem(12px); } }
+h1, h2, h3 {font-size: $baseFontSize; line-height:$baseLineHeight; }
+h1, h2 {text-transform:uppercase; }
+
+.get-sidebar, .get-content_side {@include float-right; width:220px; padding:10px 15px; p {font-size:pem(12px); } }
+.get-content_side {float:left; width:660px; }
 
 .no-width_pad {padding-left:0!important; padding-right:0!important; }
 

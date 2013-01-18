@@ -10,7 +10,9 @@ $pie-base-class: pie-element;
 
 $textColor:#414141;
 
-$baseFontSize:14px;
+$headingsColor:#000;
+
+$baseLineHeight:18px;
 
 @function pem($pxval, $base: $baseFontSize) {
   @return #{$pxval / $base}em;
@@ -40,5 +42,3 @@ $baseFontSize:14px;
 @mixin get-absolute($zIndex:55) {position:absolute; z-index:$zIndex; }
 
 @mixin pie($type:relative) {position:$type; behavior: url('/javascripts/PIE.htc'); }
-
-@mixin linear-background-pie($color1, $color2) {@include background(linear-gradient($color1, $color2)); -pie-background:linear-gradient($color1, $color2); behavior: url('/javascripts/PIE.htc'); }

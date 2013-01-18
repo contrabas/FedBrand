@@ -141,6 +141,9 @@ GEM
       activesupport (= 3.2.8)
       bundler (~> 1.0)
       railties (= 3.2.8)
+    rails-dev-tweaks (0.6.1)
+      actionpack (~> 3.1)
+      railties (~> 3.1)
     railties (3.2.8)
       actionpack (= 3.2.8)
       activesupport (= 3.2.8)
@@ -199,6 +202,7 @@ DEPENDENCIES
   pg
   quiet_assets
   rails
+  rails-dev-tweaks (~> 0.6.1)
   rmagick
   russian (~> 0.6.0)
   sass-rails (~> 3.2)

@@ -14,5 +14,9 @@
 //= require jquery_ujs
 //= require jquery.ui.datepicker-en-GB
 //= require jquery.ui.datepicker-ru
+//= require jquery-ui.min.js
+//= require jquery.wijmo.wijsuperpanel.min.js
+//= require jquery.wijmo.wijutil.min.js
+//= require jquery.wijmo.wijdropdown.min.js
 //= require_tree .
-//=require jquery.jcarousel.min
+//= require jquery.jcarousel.min

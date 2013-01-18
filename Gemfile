@@ -15,13 +15,14 @@ gem 'acts-as-taggable-on'
 group :development do
   gem 'quiet_assets'
   gem 'thin'
+  gem 'rails-dev-tweaks', '~> 0.6.1'
 end
 
 group :assets do
-  gem 'bootstrap-sass', '~> 2.2.2.0'
+  gem 'sass-rails', '~> 3.2'
   gem 'coffee-rails'
+  gem 'bootstrap-sass', '~> 2.2.2.0'
   gem 'compass-rails'
   gem 'jquery-rails'
-  gem 'sass-rails', '~> 3.2'
   gem 'uglifier'
 end

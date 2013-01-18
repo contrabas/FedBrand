@@ -1,0 +1,62 @@
+@import "mixins";
+
+.get-experts_block {width:990px; padding:15px 0; background-color:#fff; @include float-left;
+  
+  .container {padding:0 15px; margin:0; width:960px; @include float-left; }
+  
+  .get-expert_action {@include get-absolute; right:0; width:330px; 
+    
+    label {color:#666; font-size:pem(12px); padding-right:10px; }
+    
+    .link-abc {font-size:pem(12px); a {color:#000; text-decoration:underline!important; &:hover {text-decoration:none!important; } }}
+  
+  }
+  
+  .experts-switcher {@include content-wrapper(30px); padding-bottom:10px;
+    
+    h1 {@include float-left; margin:0 15px 0 0; }
+    
+    @include ul-inlineblock(0 2px, left); ul {@include float-left; margin-top:-2px; }
+    
+    li {padding-top:1px; &.get-label {padding-top:0; } }
+    
+    a {@include hide-block; width:5px; height:8px;
+      
+      &.disabled {cursor:auto; }
+    
+      &.get-prev {background:sprite($icons, icon-arrow-left-blue) no-repeat; &.disabled {background:sprite($icons, icon-arrow-left-gray) no-repeat; } }
+      &.get-next {background:sprite($icons, icon-arrow-right-blue) no-repeat; &.disabled {background:sprite($icons, icon-arrow-right-gray) no-repeat; } }
+    
+    }
+    
+    span {font-weight:bold; text-transform:uppercase; color:$linkColor; } 
+  
+  }
+  
+  .get-experts_category {@include content-wrapper(30px); padding-bottom:30px;
+    
+    h2 {margin:0 0 0 20px; }
+  
+    article {width:248px; display: -moz-inline-stack; display:inline-block; vertical-align:middle; zoom: 1; *display: inline; margin:0 88px 0 20px;  
+    
+      &:nth-child(3n+3) {margin-right:0; }
+    
+      h3 {font-size:pem(18px); line-height:22px; }
+      
+      p {font-size:pem(12px); }
+      
+      ul {@include my-inline-list; li {width:145px; padding-left:105px; font-size:pem(12px); position:relative; span {font-weight:bold; @include get-absolute; width:100px; left:0; }}}
+      
+      footer {@include content-wrapper(30px); border-top:1px solid #eee; padding-top:10px; }
+      
+    }
+  
+  }
+  
+  .experts-pager {@include ul-inlineblock(0 10px 0 0, center); li {float:none; padding:3px 0 0 10px; border-left:1px solid #ccc; height:18px; &:first-child {border:none; } }
+    
+    
+  
+  }
+
+}

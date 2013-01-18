@@ -20,28 +20,12 @@
     
     ul {height:20000em; @include get-absolute; list-style:none; margin: 0; padding: 0; 
     
-      li {@include float-left; }
+      li {@include float-left; width:226px; height:93px; border-top:1px solid #eee; line-height:93px; }
     
     }
     
-    &:before, & > ieb {content:""; @include get-absolute(88); height:1px; }
-    
-  &.white-slider { &:before, & > ieb {width:226px; background-color:#fff; } li {width:226px; height:93px; border-top:1px solid #eee; line-height:93px; } }
-  
-  &.blue-slider {margin-top:35px; &:before, & > ieb {width:220px; background-color:#276eb5; } 
-    
-  li {width:220px; height:124px; padding:15px 0 10px 0; border-top:1px solid #4c82ba; }
-    
-    .get-video_item {
+    &:before, & > ieb {content:""; @include get-absolute(88); height:1px; width:226px; background-color:#fff; }
       
-      h3 {width:180px!important; @include float-left; }
-      
-      a {color:#fff; }
-      
-    }  
-
-  }    
-        
   }
-      
+
 }

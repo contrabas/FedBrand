@@ -16,6 +16,7 @@
             %footer
               = render partial: 'shared/tag_links', locals: { news: news }
               .read_more= link_to t('pages.news.read_more'), news, :class=>"get-icon_link"
+        .get-all_items= link_to 'Все публикации', '#', :class=>"get-icon_link"
   
   %h2.no-bg= t 'pages.news.press_centre'
   .get-content_menu.get-pad
@@ -42,59 +43,22 @@
         %p Hello, text!
         %footer
           %p= link_to 'Читать полностью', '#', :class=>'get-icon_link'
-  .get-pager
-    .get-link.get-prev= link_to 'Предыдущая', '#', :class=>'no-active'
-    .get-middle
-      %ul
-        %li
-          %span.get-bradius 1
-        %li= link_to '2', '#', :class=>"get-bradius"
-        %li= link_to '3', '#', :class=>"get-bradius"
-        %li= link_to '4', '#', :class=>"get-bradius"
-        %li= link_to '5', '#', :class=>"get-bradius"
-    .get-link.get-next= link_to 'Следующая', '#'
+  -#.get-pager
+    -#.get-link.get-prev_link= link_to 'Предыдущая', '#', :class=>'no-active'
+    -#.get-middle
+      -#%ul
+        -#%li
+          -#%span.get-bradius 1
+        -#%li= link_to '2', '#', :class=>"get-bradius"
+        -#%li= link_to '3', '#', :class=>"get-bradius"
+        -#%li= link_to '4', '#', :class=>"get-bradius"
+        -#%li= link_to '5', '#', :class=>"get-bradius"
+    -#.get-link.get-next_link= link_to 'Следующая', '#'
       
 %section.get-sidebar.news-sidebar.no-width_pad
   .get-wrapper
-    .get-sidebar.get-shadow.get-video_carousel
-      /= render 'shared/videos'
-      %h2 Аналитика и комментарии.tv
-      .vertical-carousel_link
-        = link_to 'Назад', '#', :id=>"video-slider_prev"
-      .jcarousel.vertical-slider.blue-slider#video-slider
-        %ul
-          %li.get-video_item
-            %figure
-              %p= link_to image_tag('/assets/'), '#'
-              %figcaption
-                %h3= link_to 'Лучшие инвестиционные проекты регионов', '#'
-          %li.get-video_item
-            %figure
-              %p= link_to image_tag('/assets/'), '#'
-              %figcaption
-                %h3= link_to 'Лучшие инвестиционные проекты регионов', '#'
-          %li.get-video_item
-            %figure
-              %p= link_to image_tag('/assets/'), '#'
-              %figcaption
-                %h3= link_to 'Лучшие инвестиционные проекты регионов', '#'
-          %li.get-video_item
-            %figure
-              %p= link_to image_tag('/assets/'), '#'
-              %figcaption
-                %h3= link_to 'Лучшие инвестиционные проекты регионов', '#'
-          %li.get-video_item
-            %figure
-              %p= link_to image_tag('/assets/'), '#'
-              %figcaption
-                %h3= link_to 'Лучшие инвестиционные проекты регионов', '#'
-          %li.get-video_item
-            %figure
-              %p= link_to image_tag('/assets/'), '#'
-              %figcaption
-                %h3= link_to 'Лучшие инвестиционные проекты регионов', '#'
-      .vertical-carousel_link
-        = link_to 'Вперед', '#', :id=>"video-slider_next"
+    .get-sidebar.index-video_block.get-gradient.get-shadow
+      = render 'shared/videos'
     .get-sidebar.get-shadow.get-gradient.get-news_categories
       %h2= t 'pages.news.rubrics'
       %ul
