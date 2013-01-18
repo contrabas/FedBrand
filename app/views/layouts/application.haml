@@ -34,10 +34,10 @@
                 %li= link_to 'Youtube', '#', :class=>'get-youtube', :title=>'Youtube'
             = render 'shared/locale'
         = render 'shared/navbar'
+        %section#get-rating_content
+          .container= render :partial => 'shared/top_ratings'
         %section#get-main_content
-          .container
-            = render :partial => 'shared/top_ratings'
-            .content-wrapper= yield
+          .container= yield
     %footer#get-footer
       .container
         %aside.pull-left

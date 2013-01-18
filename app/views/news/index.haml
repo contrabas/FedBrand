@@ -43,7 +43,7 @@
         %footer
           %p= link_to 'Читать полностью', '#', :class=>'get-icon_link'
   .get-pager
-    .get-link.get-prev= link_to 'Предыдущая', '#'
+    .get-link.get-prev= link_to 'Предыдущая', '#', :class=>'no-active'
     .get-middle
       %ul
         %li
@@ -59,15 +59,53 @@
     .get-sidebar.get-shadow.get-video_carousel
       /= render 'shared/videos'
       %h2 Аналитика и комментарии.tv
+      .vertical-carousel_link
+        = link_to 'Назад', '#', :id=>"video-slider_prev"
+      .jcarousel.vertical-slider.blue-slider#video-slider
+        %ul
+          %li.get-video_item
+            %figure
+              %p= link_to image_tag('/assets/'), '#'
+              %figcaption
+                %h3= link_to 'Лучшие инвестиционные проекты регионов', '#'
+          %li.get-video_item
+            %figure
+              %p= link_to image_tag('/assets/'), '#'
+              %figcaption
+                %h3= link_to 'Лучшие инвестиционные проекты регионов', '#'
+          %li.get-video_item
+            %figure
+              %p= link_to image_tag('/assets/'), '#'
+              %figcaption
+                %h3= link_to 'Лучшие инвестиционные проекты регионов', '#'
+          %li.get-video_item
+            %figure
+              %p= link_to image_tag('/assets/'), '#'
+              %figcaption
+                %h3= link_to 'Лучшие инвестиционные проекты регионов', '#'
+          %li.get-video_item
+            %figure
+              %p= link_to image_tag('/assets/'), '#'
+              %figcaption
+                %h3= link_to 'Лучшие инвестиционные проекты регионов', '#'
+          %li.get-video_item
+            %figure
+              %p= link_to image_tag('/assets/'), '#'
+              %figcaption
+                %h3= link_to 'Лучшие инвестиционные проекты регионов', '#'
+      .vertical-carousel_link
+        = link_to 'Вперед', '#', :id=>"video-slider_next"
     .get-sidebar.get-shadow.get-gradient.get-news_categories
       %h2= t 'pages.news.rubrics'
-      .title= link_to t('pages.news.latest'), '#'
-      - News.all[0..-4].map(&:category).each do |category|
-        .title= link_to category.name.mb_chars.upcase.to_s, '#'
+      %ul
+        %li= link_to t('pages.news.latest'), '#'
+        - News.all[0..-4].map(&:category).each do |category|
+          %li= link_to category.name.mb_chars.upcase.to_s, '#'
     .get-sidebar.get-shadow.get-tags_cloud
       %h2= t 'pages.news.tags'
-      #tag_cloud
-        - tag_cloud News.tag_counts, %w[s m l] do |tag, css_class|
-          = link_to tag.name, tag_news_index_path(tag), class: css_class
+      .tag_links
+        %ul
+          - tag_cloud News.tag_counts, %w[s m l] do |tag, css_class|
+            %li= link_to tag.name, tag_news_index_path(tag), class: css_class
     
 .content-wrapper= render 'shared/opinions'

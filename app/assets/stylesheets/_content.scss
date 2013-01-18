@@ -8,17 +8,17 @@ h1, h2 {font-size:pem(14px)!important; line-height:normal; text-transform:upperc
 
 .pages-index {
   
-  #get-main_content {background:image-url('repeaters/bg_index.jpg') repeat-x left top; }
-  
   #get-rating_block header .get-rating_link {display:none!important; }
   
 }
+
+#get-rating_content {background:image-url('repeaters/bg_index.jpg') repeat-x left top; @include content-wrapper; }
 
 .csscolumns #get-rating_block article {@include column-count(2); @include column-width(280px); @include column-rule-width(50px); @include column-gap(100px); @include column-rule(1px, solid, #dfdfdf); }
 
 #get-rating_block {@include content-wrapper(5px); padding:15px 25px; width:920px;
   
-  header {font-size:pem(12px); font-weight:bold; text-transform:uppercase; @include wrap; position:relative; 
+  header {font-size:pem(12px); font-weight:bold; text-transform:uppercase; @include wrap; position:relative;
   
     .get-rating_link {@include get-absolute; right:0; 
       
@@ -124,6 +124,24 @@ h1, h2 {font-size:pem(14px)!important; line-height:normal; text-transform:upperc
 
 }
 
+.tag_links {@include float-left; @include ul-inlineblock(0 8px 0 0, left); text-transform:uppercase; font-size:pem(10px); color:#ccc; 
+          
+    li {position:relative;
+      
+      &:before, & > ieb {content:"| "; @include get-absolute; left:-3px; font-weight:normal; color:#ccc; } 
+    
+      &:first-child {
+      
+        &:before, & > ieb {content:""; } 
+      
+      }
+          
+  }
+
+  a {font-weight:bold; background:image-url('repeaters/dot_link.gif') repeat-x left bottom; margin-left:5px; &:hover {background:none; } }
+  
+}
+
 .get-news_content {width:690px!important; background-color:#fff; padding-bottom:25px!important;
   
   .get-content_menu {padding:0 20px; margin-top:10px; width:650px; }
@@ -156,25 +174,9 @@ h1, h2 {font-size:pem(14px)!important; line-height:normal; text-transform:upperc
           
           &:nth-child(3n+3) {margin-right:0; }
          
-          footer {
-            
             .read_more {width:190px; margin-top:10px; }
             
-            .tag_links {margin-top:-5px; width:190px; 
-              
-              ul {text-align:left; 
-              
-                li {margin-left:0; margin-right:5px; 
-                
-                  &:first-child {a {margin-left:0; }}
-                
-                }
-              
-              } 
-          
-            }
-            
-          }
+            .tag_links {margin-top:-5px; width:190px; ul {text-align:left; li:first-child a {margin-left:0; } } }
           
         }
       
@@ -198,23 +200,9 @@ h1, h2 {font-size:pem(14px)!important; line-height:normal; text-transform:upperc
       
       footer {@include content-wrapper(10px); border-top:1px solid #eee; padding-top:10px; 
         
+        .tag_links {width:445px; float:right; ul {margin-right:0; margin-left:5px; text-align:right; } }
+        
         .read_more {@include float-left; width:170px; } 
-      
-        .tag_links {@include float-right; width:445px; @include ul-inlineblock(0 0 0 5px, right); text-transform:uppercase; font-size:pem(10px); color:#ccc; 
-          
-          li {
-            
-            &:before, & > ieb {content:"| "; }
-            
-            &:first-child {
-              
-              &:before, & > ieb {content:""; }
-              
-            }
-          
-          }
-          
-          a {font-weight:bold; background:image-url('repeaters/dot_link.gif') repeat-x left bottom; margin-left:5px; &:hover {background:none; } } } 
       
       }
     
@@ -240,13 +228,51 @@ h2 {@include float-left; width:650px; position:relative; line-height:normal; pad
 
 }
 
+.get-video_item {
+  
+  h3 {font-size:pem(14px); line-height:16px; word-wrap:break-word; }
+  
+  figure {margin:0; 
+    
+  p {margin:0; a {position:relative; display:block; width:160px; height:97px; &:before, & > ieb {content:""; @include get-absolute; background:sprite($icons, icon-video-play) no-repeat; width:39px; height:39px; left:50%; top:50%; margin:-19px 0 0 -19px; } } }
+      
+  img {border:1px solid #ccc; width:158px; height:95px; }
+      
+  }
+      
+}
+
 .get-pager {@include content-wrapper; 
 
   .get-link {@include float-left; font-size:pem(10px); font-weight:bold; text-transform:uppercase; width:110px;
     
-    &.get-prev {padding-left:20px; }
+    a {position:relative; color:#000; }
     
-    &.get-next {float:right; padding-right:20px; text-align:right; }
+    &.get-prev {padding-left:20px; a {padding-left:20px; &:before, & > ieb {content:""; background:sprite($icons, icon-arrow-left-black) no-repeat; @include get-absolute; left:0; top:2px; width:5px; height:8px; } } }
+    
+    &.get-next {float:right; padding-right:20px; text-align:right; a {padding-right:20px; &:after, & > iea {content:""; background:sprite($icons, icon-arrow-right-black) no-repeat; @include get-absolute; right:0; top:2px; width:5px; height:8px; } } }
+    
+    .no-active {color:#828282; cursor:auto; text-decoration:none!important; }
+    
+    &.get-prev {
+      
+      .no-active {
+        
+        &:before, & > ieb {background:sprite($icons, icon-arrow-left-gray) no-repeat; }
+        
+      }
+      
+    }
+      
+      &.get-next {
+      
+        .no-active {
+        
+          &:after, & > iea {background:sprite($icons, icon-arrow-right-gray) no-repeat; }
+        
+        }
+      
+    }
   
   }
   
@@ -268,14 +294,20 @@ h2 {@include float-left; width:650px; position:relative; line-height:normal; pad
   
   .get-tags_cloud {background-color:#fff; }
 
-  .get-news_categories {background-color:#fff; }
+  .get-news_categories {background-color:#fff; 
+  
+    ul {@include my-inline-list; li {font-size:pem(10px); font-weight:bold; width:200px; border-bottom:1px solid #eee; padding:5px 0 3px 20px; position:relative; 
+      
+      &:before, & > ieb {content:""; background:sprite($icons, icon-arrow-right-gray) no-repeat; width:5px; height:8px; @include get-absolute; left:3px; top:10px; }
+      
+      &:last-child {border:none; } } }
+  
+  }
 
   .get-video_carousel {background-color:#1d62ab; color:#fff;
   
-    h2 {font-size:pem(12px)!important; }
+    h2 {font-size:pem(12px)!important; margin-bottom:20px; }
   
   }
   
 }
-
-

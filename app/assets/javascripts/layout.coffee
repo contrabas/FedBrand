@@ -15,7 +15,7 @@ $ ->
   path_menu = window.location.pathname
   $('#get-nav nav a[href$="' + path_menu + '"]').addClass 'active'
   
-  $("#partners-slider").jcarousel(
+  $("#partners-slider, #video-slider").jcarousel(
     vertical: true
     wrap: "circular"
   )
@@ -28,4 +28,11 @@ $ ->
     false
   $("#partners-slider_next").click ->
     $("#partners-slider").jcarousel "scroll", "-=1"
+    false
+  
+  $("#video-slider_prev").click ->
+    $("#video-slider").jcarousel "scroll", "-=1"
+    false
+  $("#video-slider_next").click ->
+    $("#video-slider").jcarousel "scroll", "-=1"
     false
