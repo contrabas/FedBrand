@@ -3,7 +3,7 @@
 
 .index-block {@include float-left; height:560px; overflow:hidden; background-color:#fff; padding-top:5px; }
 
-.index-news_block {
+.content-news_block {
   
   h3 {font-size:$baseFontSize * 1.15; line-height:$baseLineHeight * 1.15; line-height:16px; margin-top:0; }
   p {font-size:pem(11px); line-height:15px; }
@@ -18,7 +18,7 @@
 
 .pages-index {
   
-  .index-news_block {width:425px; padding-left:20px; padding-right:20px; article {margin-right:30px; width:195px; &:nth-child(odd) {margin-right:0; } } }
+  .content-news_block {width:425px; padding-left:20px; padding-right:20px; article {margin-right:30px; width:195px; &:nth-child(odd) {margin-right:0; } } }
   
   .index-video_block { article {@include background-image(linear-gradient(white, #f6f6f6)); } }
   

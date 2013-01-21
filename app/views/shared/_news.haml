@@ -5,6 +5,5 @@
     .get-desc
       %h3= link_to news.title, news
       %p= h truncate news.content, length: 250, separator: ' '
-    %footer
-      .read_more= link_to t('pages.news.read_more'), news, :class=>"get-icon_link"
-      = render partial: 'shared/tag_links', locals: { news: news }
+    %footer= link_to t('pages.news.read_more'), news
+    = render partial: 'shared/tag_links', locals: { news: news }

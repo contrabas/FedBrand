@@ -1,0 +1,84 @@
+@import "compass/css3/border-radius";
+@import "mixins";
+
+.ratings-index {
+  
+  #get-main_content {background:image-url('repeaters/bg_minimize.jpg') repeat-x left top; }
+  
+  #get-rating_content {display:none; }
+  
+  .get-content_side-full {margin-top:12px; padding-top:15px; padding-bottom:0; 
+  
+    aside {@include float-left; margin-top:15px;
+      
+      &.rating-dashboard {padding-left:15px; padding-bottom:15px; margin-top:50px; width:608px; 
+        
+        .get-text {@include content-wrapper(30px);
+        
+          p {font-size:pem(12px); }
+        
+        }
+      
+        table.region {width:100%;
+          
+          th {font-weight:normal; font-size:pem(12px); border-bottom:1px solid #b0b0b0; padding-bottom:5px; text-align:left; 
+          
+          }
+          td {font-size:pem(12px); border-bottom:1px solid #dbdbdb; padding:5px 5px 5px 0;
+            
+            &.idle {border:none; }
+            
+            &.checkbox, &.position {width:27px; }
+            &.name {width:197px; }
+            &.emblem {width:53px; }
+            &.rating {width:75px; }
+            &.change {width:140px; }
+            &.trend {width:52px; 
+            
+              span {@include hide-block; width:8px; height:11px; 
+              
+                &.get-up {background:sprite($icons, icon-up-green) no-repeat; }
+                &.get-down {background:sprite($icons, icon-down-red) no-repeat; }
+              
+              }
+            
+            }
+            
+          }
+          
+          tr {
+            
+            &:last-child td {border:none; }
+            &.get-gradient td {font-weight:bold; }
+            
+          }
+          
+        }
+      
+      }
+    
+      &.rating-info {background-color:$colorBlue; float:right; padding:10px 18px; width:262px; color:#fff; 
+      
+        h2, h3 {color:#fff; font-size:$baseFontSize; }
+        h3 {line-height:$baseFontSize * 1.2; }
+        p {font-size:pem(12px); }
+        
+        article {@include content-wrapper(30px);
+          
+          header {
+            
+            span {background-color:#225d91; width:34px; height:34px; font-weight:bold; font-size:pem(18px); display:block; line-height:34px; text-align:center; &.get-bradius {@include border-radius(50%); } }
+            
+          }
+          
+        }
+      
+      }
+    
+    }
+  
+  }
+  
+  
+  
+}

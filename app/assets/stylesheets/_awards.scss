@@ -88,3 +88,36 @@
   h2 {@include h3-big; text-transform:none; margin:0!important; line-height:normal!important; }
 
 }
+
+.awards-archive {
+  
+  .get-publications {@include wrap; padding-top:20px; h2 {margin-left:15px; } article {width:200px!important; } }
+  
+  .get-archive_years {margin-top:35px; padding:8px 0; background-color:#eee; 
+  
+    ul {margin-left:15px; li {font-size:pem(16px)!important; } }
+  
+  }
+  
+  .awards-archieve_block {@include content-wrapper(16px); padding-bottom:15px;
+  
+    aside {@include float-left; 
+    
+      h3 {margin:0; }
+      p {line-height:$baseFontSize; }
+      
+      article {@include wrap; padding:10px 0 0 0; }
+    
+      &.get-winners {width:370px; font-weight:bold; }
+      &.get-jury {width:290px; margin-left:110px; 
+      
+        figure {@include float-left; width:63px; padding-right:10px; }
+        aside {float:right; width:217px; font-size:pem(12px); h3 {font-size:$baseFontSize; line-height:$baseFontSize; } }
+      
+      }
+    
+    }
+  
+  }
+  
+}

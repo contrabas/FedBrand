@@ -1,5 +1,31 @@
 @import "mixins";
 
+.items-3 {
+    
+  article:nth-child(3n+3) {margin-right:0!important; }
+    
+}
+  
+.items-4 {
+    
+  article:nth-child(4n+4) {margin-right:0!important; }
+    
+}
+
+.get-text {
+  
+  ul {list-style-type:none; padding:0; margin:0;
+  
+    li {font-size:pem(12px); margin-top:10px; padding:0 0 0 15px; position:relative;
+    
+      &:before, & > ieb {content:"\2022"; color:#ccc; font-size:pem(22px); @include get-absolute; left:0; top:0; }
+    
+    }
+  
+  }
+  
+}
+
 article {
  
   p {font-size:pem(12px); }
@@ -10,7 +36,7 @@ article {
 
 }
 
-.get-icon_link {padding-left:25px; position:relative; font-size:pem(10px); text-transform:uppercase; font-weight:bold; color:#000;
+.get-icon_link, article footer a {padding-left:25px; position:relative; font-size:pem(10px); text-transform:uppercase; font-weight:bold; color:#000;
 
   &:before, & > ieb {content:""; background:sprite($icons, icon-link) no-repeat; width:20px; height:20px; @include get-absolute; left:0; top:-4px; }
 

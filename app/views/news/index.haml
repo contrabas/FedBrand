@@ -13,9 +13,9 @@
           %article
             %h3= link_to news.title, news
             %p= h truncate news.content, length: 150, separator: ' '
+            = render partial: 'shared/tag_links', locals: { news: news }
             %footer
-              = render partial: 'shared/tag_links', locals: { news: news }
-              .read_more= link_to t('pages.news.read_more'), news, :class=>"get-icon_link"
+              .read_more= link_to t('pages.news.read_more'), news
         .get-all_items= link_to 'Все публикации', '#', :class=>"get-icon_link"
   
   %h2.no-bg= t 'pages.news.press_centre'
@@ -24,7 +24,7 @@
       %li= link_to t('pages.news.preview'), '#'
       %li= link_to "ON-LINE", '#'
       %li= link_to t('pages.news.press'), '#'
-  .news-cats.index-news_block.get-press_block
+  .news-cats.content-news_block.get-publications.items-3
     %section
       %article
         %h3= link_to 'Hello!', '#'
@@ -42,7 +42,7 @@
         %h3= link_to 'Hello!', '#'
         %p Hello, text!
         %footer
-          %p= link_to 'Читать полностью', '#', :class=>'get-icon_link'
+          %p= link_to 'Читать полностью', '#'
   -#.get-pager
     -#.get-link.get-prev_link= link_to 'Предыдущая', '#', :class=>'no-active'
     -#.get-middle

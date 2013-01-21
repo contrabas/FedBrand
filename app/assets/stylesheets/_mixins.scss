@@ -14,6 +14,8 @@ $headingsColor:#000;
 
 $baseLineHeight:18px;
 
+$colorBlue:#367cba;
+
 @function pem($pxval, $base: $baseFontSize) {
   @return #{$pxval / $base}em;
 }

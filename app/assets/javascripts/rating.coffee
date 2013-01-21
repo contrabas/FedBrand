@@ -120,13 +120,13 @@ $ ->
   $.each $('.region .name'), (key, value) ->
     if $.inArray($(value).text(), gon.data.regions) >= 0
       $(value).parent().find('input').attr 'checked', true
-      $(value).parent().addClass 'background'
+      $(value).parent().addClass 'get-gradient'
 
   $('body').on "click", '.region input', ->
     if $(@).attr('checked') == undefined
-      $(@).parent().parent().removeClass 'background'
+      $(@).parent().parent().removeClass 'get-gradient'
     else
-      $(@).parent().parent().addClass 'background'
+      $(@).parent().parent().addClass 'get-gradient'
 
     regionSelect()
 

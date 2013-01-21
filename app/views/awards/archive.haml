@@ -4,42 +4,47 @@
 
     .get-content_menu.awards-nav= render 'shared/awards_nav'
 
-  #years
+  .get-content_menu.get-archive_years
     - last_award = Award.where(ended: true).last
-    - Award.where(ended: true).each do |award|
-      = link_to_unless_current award.year, archive_awards_path(award.year)
-      = "|" unless award == last_award
+    %ul
+      - Award.where(ended: true).each do |award|
+        %li= link_to_unless_current award.year, archive_awards_path(award.year)
 
   - if @award and @award.ended
-    .block
-      - nominee_winners = @award.nominees.where winner: true
-      - unless nominee_winners.blank?
-        .winners
-          .title= t 'pages.awards.winners'
-          - nominee_winners.each do |winner|
-            .content
-              %p= link_to winner.award_category.title, '#'
-              = winner.title
+    .get-gradient.awards-archieve_block
+      .container
+        - nominee_winners = @award.nominees.where winner: true
+        - unless nominee_winners.blank?
+          %aside.get-winners
+            %h2= t 'pages.awards.winners'
+            - nominee_winners.each do |winner|
+              %article
+                %h3= link_to winner.award_category.title, '#'
+                %p= winner.title
+              %article
+                %h3= link_to winner.award_category.title, '#'
+                %p= winner.title          
 
-      .jury
-        - jurors = @award.jurors
-        - unless jurors.blank?
-          .title= t 'pages.awards.jury'
-          - jurors.each do |juror|
-            - next unless juror.expert
-            .content
-              .image= link_to image_tag(juror.expert.photo.url(:thumb)), '#'
-              .info
-                = link_to juror.expert.name, expert_path(juror.expert)
-                %p= juror.expert.position
-
-  .published
+        %aside.get-jury
+          - jurors = @award.jurors
+          - unless jurors.blank?
+            %h2= t 'pages.awards.jury'
+            - jurors.each do |juror|
+              - next unless juror.expert
+              %article
+                %figure
+                  %p= link_to image_tag(juror.expert.photo.url(:thumb)), '#'
+                %aside
+                  %h3= link_to juror.expert.name, expert_path(juror.expert)
+                  %p= juror.expert.position
+  .get-news_content
     - all_news = @award.news.limit(4)
     - unless all_news.blank?
-      = t 'pages.awards.published'
-      .news_block
-        - all_news.each do |news|
-          .news_single
-            .title= link_to news.title, news
-            .content= h truncate news.content, length: 100, separator: ' '
-            .link= link_to t('pages.home.news.link'), news
+      .news-cats.content-news_block.get-publications.items-4
+        %h2= t 'pages.awards.published'
+        %section
+          - all_news.each do |news|
+            %article
+              %h3= link_to news.title, news
+              %p= h truncate news.content, length: 100, separator: ' '
+              %footer= link_to t('pages.home.news.link'), news
