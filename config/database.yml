@@ -11,4 +11,3 @@ test:
 production:
   adapter: postgresql
   database: FedBrand_production
-  host: localhost
