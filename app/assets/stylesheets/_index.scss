@@ -54,7 +54,7 @@
   
   li {width:200px; height:135px; overflow:hidden; padding-left:90px; position:relative;
     
-    h3 {font-size:$baseFontSize; line-height:$baseLineHeight; margin:0; }
+    h3 {font-size:$baseFontSize; line-height:$baseFontSize; margin:0; }
     
     p {@include get-absolute; top:80px; font-size:pem(11px); line-height:14px; margin:0; padding:0; }
     
