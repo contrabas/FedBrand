@@ -1,6 +1,14 @@
 @import "mixins";
 
-/* Arrows, pagers */
+article {
+ 
+  p {font-size:pem(12px); }
+  
+  footer {@include content-wrapper(10px); border-top:1px solid #eee; padding-top:10px; }
+  
+  ul.work-info {@include my-inline-list; li {width:145px; padding-left:105px; font-size:pem(12px); position:relative; span {font-weight:bold; @include get-absolute; width:100px; left:0; }}}
+
+}
 
 .get-icon_link {padding-left:25px; position:relative; font-size:pem(10px); text-transform:uppercase; font-weight:bold; color:#000;
 
@@ -36,4 +44,30 @@
     
   } 
   
+}
+
+.get-content_menu {@include wrap; @include ul-inlineblock(0 20px 0 0, left); text-transform:uppercase; font-size:pem(12px); font-weight:bold; 
+
+  li {position:relative;
+    
+    &:before, & > ieb {content:"| "; @include get-absolute; left:-12px; font-weight:normal; color:#ccc; } 
+    
+    &:first-child {
+      
+      &:before, & > ieb {content:""; } 
+      
+    }
+  
+  }
+
+}
+
+.get-pdf {@include wrap; font-size:pem(12px); font-weight:bold; text-transform:uppercase; 
+
+  a {position:relative; padding-left:35px;
+  
+    &:before, & > ieb {content:""; width:23px; height:28px; left:0; top:-5px; @include get-absolute; background:sprite($icons, icon-pdf) no-repeat; }
+  
+  }
+
 }

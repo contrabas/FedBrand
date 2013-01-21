@@ -3,7 +3,7 @@
     %figure= link_to image_tag(expert.photo.url(:big)), expert_path(expert), :title=>expert.full_name
     %h3= link_to expert.full_name, expert_path(expert)
     %p= expert.description
-    %ul
+    %ul.work-info
       %li 
         %span= t 'pages.ratings.workplace'
         = expert.workplace

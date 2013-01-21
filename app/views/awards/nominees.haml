@@ -1,28 +1,36 @@
 - award = Award.where("ended is not true").last
 
-#awards_nominees
-  = link_to t('pages.awards.back'), awards_path
+%section.get-content_side-full.get-shadow
+  .container
+    .link-back= link_to t('pages.awards.back'), awards_path
 
-  = render 'shared/awards_nav'
+    .get-content_menu.awards-nav= render 'shared/awards_nav'
 
   - if award
-    .nominees
+    .get-news_content.nominees-block
       %h1= link_to t('pages.awards.nominees')+' '+award.year.to_s, '#'
-      - Nominee.where(award_id: award.id).limit(3).each do |nominee|
-        .nominee_block
-          = nominee.date.strftime('%d.%m.%Y')
-          %h3= nominee.region.name+':'
-          .content= nominee.title
-          .read_more= link_to t('pages.news.read_more')
+      .news-cats.index-news_block
+        - Nominee.where(award_id: award.id).limit(3).each do |nominee|
+          %article
+            .get-date= nominee.date.strftime('%d.%m.%Y')
+            %h3= nominee.region.name+':'
+            %p= nominee.title
+            %footer= link_to t('pages.news.read_more'), '#', :class=>'get-icon_link'
+    .nominees-experts
+      .get-gradient.get-experts_category
+        %h2= link_to t('pages.awards.experts')+' '+award.year.to_s, '#'
+        - experts = Expert.joins(:jurors).where(jurors: { award_id: award.id })
+        = render partial: 'shared/experts', locals: { experts: experts }
 
-    .experts
-      %h1= link_to t('pages.awards.experts')+' '+award.year.to_s, '#'
-      - experts = Expert.joins(:jurors).where(jurors: { award_id: award.id })
-      = render partial: 'shared/experts', locals: { experts: experts }
-
-    .gallery
-      %h1= link_to t('pages.awards.gallery')+' '+award.year.to_s, '#'
-      - gallery = Gallery.where(award_id: award.id).last
-      - if gallery
+%section.get-shadow.nominees-slider#nominees-slider
+  %h2= t('pages.awards.gallery')+' '+award.year.to_s
+  - gallery = Gallery.where(award_id: award.id).last
+  - if gallery
+    - if gallery.images.length > 5
+      - $gallery_class = 'get-pad_arrows'
+      .horizontal-carousel_link= link_to 'Назад', '#', :id=>'nominees-slider_prev'
+      .horizontal-carousel_link= link_to 'Вперед', '#', :id=>'nominees-slider_next'
+    .jcarousel.horizontal-slider{:class=>"#{$gallery_class}"}
+      %ul
         - gallery.images.each do |image|
-          = link_to image_tag(image.file.url(:thumb)), image.file.url
+          %li= link_to image_tag(image.file.url(:thumb)), image.file.url

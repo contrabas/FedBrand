@@ -5,12 +5,12 @@
 
 .index-news_block {
   
-  h3 {font-size:pem(16px); line-height:16px; margin:0 0 10px 0; }
+  h3 {font-size:$baseFontSize * 1.15; line-height:$baseLineHeight * 1.15; line-height:16px; margin-top:0; }
   p {font-size:pem(11px); line-height:15px; }
   
   article {display: -moz-inline-stack; display:inline-block; vertical-align:top; zoom: 1; *display: inline; padding-bottom:20px;
   
-    footer {border-top:1px solid #eee; @include content-wrapper(5px); padding-top:10px; }
+    footer {margin-top:5px; }
   
   }
   
@@ -32,7 +32,7 @@
   
     &:first-child {margin-top:5px; }
   
-    h3 {font-size:pem(14px); line-height:16px; word-wrap:break-word; }
+    h3 {font-size:$baseFontSize; line-height:$baseLineHeight; word-wrap:break-word; }
   
     figure {margin:0; 
     
@@ -54,7 +54,7 @@
   
   li {width:200px; height:135px; overflow:hidden; padding-left:90px; position:relative;
     
-    h3 {font-size:pem(14px); line-height:15px; margin:0; }
+    h3 {font-size:$baseFontSize; line-height:$baseLineHeight; margin:0; }
     
     p {@include get-absolute; top:80px; font-size:pem(11px); line-height:14px; margin:0; padding:0; }
     
@@ -68,6 +68,6 @@
     
   }
 
-  footer {@include wrap; border-top:1px solid #eee; margin-top:-5px; padding-top:10px; }
+  footer {margin-top:-5px; }
 
 }

@@ -1,6 +1,12 @@
-#awards_about
-  = t 'pages.awards.title'
-
-  = render 'shared/awards_nav'
-
+%section.get-content_side.get-awards.get-shadow.no-width_pad
+  .get-gradient
+    %h1= t 'pages.awards.title'
+    .get-content_menu.awards-nav= render 'shared/awards_nav'
+  
+    %article.get-text
+      %figure= image_tag '/assets/tmp/award_main.jpg'
+      %h3 Это награда за выдающиеся результаты, достигнутые в области территориального маркетинга:
+      %p Cоздания социокультурных, спортивных либо иных проектов, которые повышают инвестиционную привлекательность региона. Создание и развитие геобрендов, проектов, улучшающих уровень жизни населения региона и повышающих имидж конкретной территории, что в свою очередь автоматически относится к репутационным технологиям. Премия присуждается на конкурсной основе и сопровождается вручением наград и дипломов. 
+  .get-pdf= link_to 'Скачать презентацию', '#'
+  
 = render 'shared/partners'

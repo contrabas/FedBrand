@@ -1,18 +1,39 @@
-#awards_organizers
-  = link_to t('pages.awards.back'), awards_path
+%section.get-content_side-full.get-shadow
+  .container
+    .link-back= link_to t('pages.awards.back'), awards_path
 
-  = render 'shared/awards_nav'
-
-  .partners
+    .get-content_menu.awards-nav= render 'shared/awards_nav'
+  
+  .container
+    %article.get-organizer_main
+      %figure= image_tag '/assets/tmp/award_main_organizer.jpg'
+      %aside
+        %p 
+          %b Организатор. 
+          Cоздания социокультурных, спортивных либо иных проектов, которые повышают инвестиционную привлекательность региона. Создание и развитие геобрендов. создания социокультурных, спортивных либо иных проектов, которые повышают инвестиционную привлекательность региона. Создание и развитие геобрендов.
+  .get-gradient.awards-partners_block.awards-partners_block-main
+    .container
+      %article
+        %figure= image_tag '/assets/tmp/thumb_136_136.jpg'
+        %aside
+          %h1 Нина Исайченко,
+          %p.get-work_post 
+            генеральный директор PMCG «Art&Smart», 
+            %br
+            идеолог  проекта «Федеральный бренд»:
+          %p создания социокультурных, спортивных либо иных проектов, которые повышают инвестиционную привлекательность региона. Создание и развитие геобрендов.
+          %footer= link_to 'Читать полностью', '#', :class=>'get-icon_link'
+  .container.awards-partners_block
     %h2= t 'pages.home.partners.title'
     - Partner.all.each do |partner|
-      .partner_block
-        .logo= link_to image_tag(partner.logo.url(:thumb)), partner.url
+      %article
+        %header
+          %figure= link_to image_tag(partner.logo.url(:thumb)), partner.url
         - expert = partner.experts.first
         - if expert
-          .photo= link_to image_tag(expert.photo.url(:medium)), expert.photo.url
-          .info
-            .name= link_to expert.name+',', '#'
-            .post= expert.position
-            .desc= h truncate expert.description, length: 150, separator: ' '
-            .link= link_to t('pages.news.read_more'), '#'
+          %figure= link_to image_tag(expert.photo.url(:medium)), expert.photo.url
+          %aside
+            %h3= link_to expert.name+',', '#'
+            %p.get-work_post= expert.position
+            %p= h truncate expert.description, length: 150, separator: ' '
+            %footer= link_to t('pages.news.read_more'), '#', :class=>'get-icon_link'

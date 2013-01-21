@@ -41,4 +41,4 @@ $baseLineHeight:18px;
 
 @mixin get-absolute($zIndex:55) {position:absolute; z-index:$zIndex; }
 
-@mixin pie($type:relative) {position:$type; behavior: url('/javascripts/PIE.htc'); }
+@mixin h3-big {font-size:$baseFontSize * 1.75; line-height:$baseLineHeight * 1.75; color:$linkColor; }

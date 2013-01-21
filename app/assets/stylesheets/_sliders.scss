@@ -6,25 +6,51 @@
     
     &#partners-slider_prev {background:sprite($icons, icon-carousel-prev-gray) no-repeat; }
     &#partners-slider_next {background:sprite($icons, icon-carousel-next-gray) no-repeat; margin-top:5px; }
-      
-    &#video-slider_prev {background:sprite($icons, icon-carousel-prev-white) no-repeat; }
-    &#video-slider_next {background:sprite($icons, icon-carousel-next-white) no-repeat; margin-top:5px; }
     
   }
   
 }
 
+.horizontal-carousel_link {position:relative; 
+
+  a {@include hide-block; @include get-absolute; width:12px; height:28px; top:65px;
+  
+    &#nominees-slider_prev {background:sprite($icons, icon-carousel-prev-horizontal-gray) no-repeat; left:0; 
+    
+      &:hover {background:sprite($icons, icon-carousel-prev-horizontal-black) no-repeat;}
+    
+    }
+    &#nominees-slider_next {background:sprite($icons, icon-carousel-next-horizontal-gray) no-repeat; right:0; }
+  
+  }
+
+}
+
 .jcarousel {position:relative; overflow:hidden; 
+  
+  ul {@include get-absolute; list-style:none; margin:0; padding:0; li {@include float-left; } }
 
   &.vertical-slider {width:226px; height:470px; margin-top:15px;
     
-    ul {height:20000em; @include get-absolute; list-style:none; margin: 0; padding: 0; 
+    ul {height:20000em;
     
       li {@include float-left; width:226px; height:93px; border-top:1px solid #eee; line-height:93px; }
     
     }
     
     &:before, & > ieb {content:""; @include get-absolute(88); height:1px; width:226px; background-color:#fff; }
+      
+  }
+  
+  &.horizontal-slider {margin-top:30px; height:100px; 
+    
+    &.get-pad_arrows {padding:0 45px; }
+    
+    ul {width:20000em;
+    
+      li {width:160px; height:95px; margin:0 5px; img {border:1px solid #ccc; width:158px; height:95px; } }
+    
+    }
       
   }
 

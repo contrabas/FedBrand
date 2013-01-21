@@ -1,0 +1,90 @@
+@import "mixins";
+
+.get-awards {background-color:#fff; width:690px!important;
+
+  .get-gradient {@include float-left; width:660px; padding:0 15px; }
+
+  .get-text {@include content-wrapper(15px); 
+  
+    figure {margin-bottom:30px; }
+  
+  }
+  
+  .get-pdf {padding:10px 15px; margin-top:10px; width:660px; }
+  
+}
+
+.awards-nav {margin-top:30px; }
+
+.get-organizer_main {@include content-wrapper(50px); padding-bottom:20px;
+
+  figure {@include float-left; width:330px; padding-right:14px; border-right:1px solid #ccc; }
+  aside {@include float-right; width:520px; padding:8px 20px 0 0; }
+
+}
+
+.awards-partners_block {
+  
+  figure {width:146px; @include float-left; padding-right:10px; }
+  
+  aside {@include float-left; width:254px; }
+  
+  .get-work_post {font-size:pem(16px); font-weight:bold; color:#000; }
+
+  article {width:410px; margin-top:25px; margin-left:16px; display: -moz-inline-stack; display:inline-block; vertical-align:top; zoom: 1; *display: inline; 
+    
+    &:nth-child(2n+2) {margin-right:40px; padding-right:59px; margin-left:0; border-right:1px solid #ccc; }
+    
+    header {@include wrap; height:130px; padding-bottom:10px; figure {text-align:center; width:100%; padding:0; } }
+    
+  }
+  
+  &.awards-partners_block-main {margin:0 0 35px 0; padding:30px 15px; width:940px; @include float-left;
+    
+    .container {padding:0; }
+    
+    article {width:100%; margin:0; }
+    
+    aside {width:765px; }
+    
+    h1 {@include h3-big; text-transform:none; margin:0; }
+  
+    footer {margin-top:0; }
+  
+  }
+
+}
+
+.awards-nominees {
+  
+  .get-content_side-full {padding-bottom:0; }
+  
+  .nominees-experts {
+    
+    .get-experts_category {margin-top:30px; }
+    
+    h2 {@include h3-big; text-transform:none; margin:0 0 0 15px; }
+    
+  }
+  
+}
+
+.nominees-block {width:970px!important; @include float-left; margin-top:30px;
+  
+  .news-cats {width:970px!important; padding:0px!important; }
+  
+  h1 {@include h3-big; text-transform:none; }
+  
+  article {width:280px!important; margin:0 20px;
+    
+    h3 {color:#000; }
+  
+  }
+  
+}
+
+.nominees-slider {padding:16px 15px; width:940px; height:178px; @include float-left; background-color:#fff; margin-top:20px; 
+
+  h2 {@include h3-big; text-transform:none; margin:0!important; line-height:normal!important; }
+
+}

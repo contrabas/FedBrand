@@ -102,23 +102,9 @@
 
 .get-contacts_sidebar {background-color:#fff;
 
-  article {@include wrap; margin:0 5px; width:210px; padding:20px 0 10px 0; h3 {font-size:pem(18px); line-height:normal; margin:0!important; color:#1578c5; a {color:#1578c5; text-decoration:underline!important; &:hover {text-decoration:none!important; }} } &.get-phone {border-bottom:1px solid #eee; padding-bottom:20px; h3 {font-size:pem(24px); } } }
-
-}
-
-.get-content_menu {@include wrap; @include ul-inlineblock(0 20px 0 0, left); text-transform:uppercase; font-size:pem(12px); font-weight:bold; 
-
-  li {position:relative;
-    
-    &:before, & > ieb {content:"| "; @include get-absolute; left:-12px; font-weight:normal; color:#ccc; } 
-    
-    &:first-child {
-      
-      &:before, & > ieb {content:""; } 
-      
-    }
+  article {@include wrap; margin:0 5px; width:210px; padding:20px 0 10px 0; h3 a {text-decoration:underline!important; &:hover {text-decoration:none!important; } } 
   
-  }
+    &.get-phone {border-bottom:1px solid #eee; padding-bottom:20px; h3 {@include h3-big; } } }
 
 }
 
@@ -140,7 +126,7 @@
   
 }
 
-.get-news_content {width:690px!important; background-color:#fff; padding-bottom:25px!important;
+.get-news_content {width:690px; background-color:#fff; padding-bottom:25px;
   
   .get-all_items {@include content-wrapper(10px); text-align:right; }
   
@@ -192,7 +178,7 @@
       
     .get-desc {@include float-right; width:445px; p {line-height:normal; } }
     
-    h3 {font-size:pem(24px); line-height:24px; margin-top:0; a {color:#1559a9; } }
+    h3 {@include h3-big; }
   
   }
   
@@ -200,7 +186,7 @@
   
     article {
       
-      footer {@include content-wrapper(10px); border-top:1px solid #eee; padding-top:10px; 
+      footer {
         
         .tag_links {width:445px; float:right; ul {margin-right:0; margin-left:5px; text-align:right; } }
         

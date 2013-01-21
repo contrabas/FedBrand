@@ -20,6 +20,11 @@ $ ->
     wrap: "circular"
   )
   
+  $("#nominees-slider").jcarousel(
+    vertical: true
+    wrap: "circular"
+  )
+  
   if $("#partners-slider").length < 6
     $("#partners-slider_prev, #partners-slider_next").hide()
   
@@ -28,6 +33,13 @@ $ ->
     false
   $("#partners-slider_next").click ->
     $("#partners-slider").jcarousel "scroll", "-=1"
+    false
+  
+  $("#nominees-slider_prev").click ->
+    $("#nominees-slider").jcarousel "scroll", "-=1"
+    false
+  $("#nominees-slider_next").click ->
+    $("#nominees-slider").jcarousel "scroll", "-=1"
     false
     
   $("#expert-way").wijdropdown();
