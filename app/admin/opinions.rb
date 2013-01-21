@@ -2,6 +2,14 @@
 ActiveAdmin.register Opinion do
   menu parent: "Experts"
 
+  index do
+    column :id
+    column :content
+    column :expert
+
+    default_actions
+  end
+
   action_item except: [:show] do
     if I18n.locale == :en
       link_to "Rus version", locale: nil
@@ -9,7 +17,7 @@ ActiveAdmin.register Opinion do
       link_to "Англ версия", locale: 'en'
     end
   end
-  
+
   controller do
     def scoped_collection
       Opinion.unscoped

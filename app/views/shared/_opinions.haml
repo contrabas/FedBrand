@@ -4,7 +4,7 @@
       %li
         %figure
           %p= image_tag opinion.expert.photo.url(:bw)
-        %h3= h truncate opinion.content, length: 110, separator: ' '
+        %h3= h truncate opinion.content, length: 105, separator: ' '
         %p.get-text
           %b= opinion.expert.first_name + ' ' + opinion.expert.last_name + ", "
           = opinion.expert.position

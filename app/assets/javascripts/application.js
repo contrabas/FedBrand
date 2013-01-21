@@ -18,5 +18,5 @@
 //= require jquery.wijmo.wijsuperpanel.min.js
 //= require jquery.wijmo.wijutil.min.js
 //= require jquery.wijmo.wijdropdown.min.js
-//= require_tree .
 //= require jquery.jcarousel.min
+//= require_tree .

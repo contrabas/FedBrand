@@ -1,81 +1,80 @@
 @import "mixins";
 
 #get-header {padding-top:18px; height:76px; background:image-url('repeaters/g_bg9.png') repeat-x left bottom; @include wrap;
-  
+
   .container {
-  
+
   div {@include float-left; padding:20px 0 0 50px;
-  
+
     ul {@include my-inline-list(0 0 0 10px, left); }
-    
+
     &.get-logo {padding:0; a {@include hide-block; background:sprite($sprites, sprite-logo) no-repeat; width:209px; height:61px; } }
     &.get-slogan {color:#252525; font-size:pem(21px); font-weight:bold; }
     &.get-social {
-      
+
       a {@include hide-block; width:22px; height:23px;
-        
+
         &.get-facebook {background:sprite($icons, icon-facebook) no-repeat; }
         &.get-twitter {background:sprite($icons, icon-twitter) no-repeat; }
         &.get-youtube {background:sprite($icons, icon-youtube) no-repeat; }
-        
       }
-      
+
     }
-    
-    &.get-lang {float:right;  
-    
+
+    &.get-lang {float:right;
+
       li {text-transform:uppercase; color:#1d1d1d; font-size:pem(12px); font-weight:bold;
-        
-        &:first-child {background:image-url('repeaters/g_bg80.png') repeat-y right top; padding-right:10px; }
-              
+
+        &:first-child {background:image-url('repeaters/g_bg80.png') repeat-y right top; padding-right:10px; margin: 0;}
+
         a {color:lighten($textColor, 44%); }
-      
+
       }
-    
+
     }
-  
+
   }
-  
-}
-  
+
 }
 
-#get-nav {@include content-wrapper(3px); background:image-url('repeaters/bg_nav.png') repeat-x left top; 
+}
+
+#get-nav {@include content-wrapper(3px); background:image-url('repeaters/bg_nav.png') repeat-x left top;
 
 .container {padding-top:7px; }
 
 ul.nav-element {width:970px; height:45px; background-color:#fff; @include my-inline-list;
 
   li {width:158px; padding:0 10px; line-height:45px; text-align:center; text-transform:uppercase; font-size:pem(12px); font-weight:bold; background:image-url('repeaters/bg_nav_li.png') no-repeat right center;
-  
-  .dropdown-menu li {float:none; padding:0; line-height:normal; width:100%!important; text-align:left!important; 
-  
+
+  .dropdown-menu li {float:none; padding:0; line-height:normal; width:100%!important; text-align:left!important;
+
     a:hover {color:#fff; }
-  
+
   }
-  
+
   &.dropdown {
-    
+
     .dropdown-toggle {
-      
+
       &:after, & > iea {content:""; @include get-absolute; margin-left:15px; top:20px; width: 0; height: 0; border-left:4px solid transparent; border-right:4px solid transparent; border-top:5px solid #bfbfbf; }
-      
+
       &:hover {
-        
+
         &:after, & > iea {content:""; border-top:5px solid #c90000; }
-        
+
       }
-      
+
     }
-    
+
   }
-  
+
     &:first-child {width:105px; padding:0 0 0 24px; text-align:left; }
-    
+
     &:last-child {width:105px; padding:0 24px 0 0; text-align:right; background:none; }
-    
+
     a {color:#000; &:hover, &.active {color:#c90000; } &.active {text-decoration:none!important; cursor:auto; } }
-  
+
   }
 
 }
