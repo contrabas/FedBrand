@@ -237,7 +237,7 @@ DEPENDENCIES
   gon
   haml
   jquery-rails
-  modernizr
+  modernizr (= 2.6.2)
   pg
   quiet_assets
   rails
