@@ -1,6 +1,7 @@
 #coding: utf-8
 ActiveAdmin.register Region do
   index do
+    selectable_column
     column :id
     column :name_ru
     column :name_en
@@ -29,7 +30,7 @@ ActiveAdmin.register Region do
       f.input :name_ru
       f.input :name_en
 
-      f.input :emblem, hint: f.object.emblem.url ? 
+      f.input :emblem, hint: f.object.emblem.url ?
         f.template.image_tag(f.object.emblem.url(:thumb)) :
         f.template.content_tag(:span, "")
       f.input :remote_emblem_url

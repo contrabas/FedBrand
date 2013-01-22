@@ -17,6 +17,7 @@ ActiveAdmin.register Month do
   end
 
   index do
+    selectable_column
     column :id
     column :month, sortable: :month do |g|
       l g.month, format: '%B %Y'
@@ -51,7 +52,7 @@ ActiveAdmin.register Month do
       link_to "Англ версия", locale: 'en'
     end
   end
-  
+
   controller do
     def create
       create! do |format|

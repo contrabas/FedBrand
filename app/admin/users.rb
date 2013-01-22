@@ -9,6 +9,7 @@ ActiveAdmin.register User do
   end
 
   index do
+    selectable_column
     column :email
     column :current_sign_in_ip
     column :current_sign_in_at

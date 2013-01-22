@@ -3,7 +3,7 @@ ActiveAdmin.register Video do
   form do |f|
     f.inputs do
       f.input :title
-      f.input :thumb, hint: f.object.thumb.url ? 
+      f.input :thumb, hint: f.object.thumb.url ?
         f.template.image_tag(f.object.thumb) :
         f.template.content_tag(:span, "")
       f.input :remote_thumb_url
@@ -14,13 +14,14 @@ ActiveAdmin.register Video do
   end
 
   index do
+    selectable_column
     column :id
     column :title
     column "Thumb" do |video|
       link_to image_tag(video.thumb), video.thumb.url, target: '_blank'
     end
     column :tag
-    
+
     default_actions
   end
 
@@ -31,7 +32,7 @@ ActiveAdmin.register Video do
       link_to "Англ версия", locale: 'en'
     end
   end
-  
+
   controller do
     def scoped_collection
       Video.unscoped

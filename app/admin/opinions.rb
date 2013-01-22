@@ -3,6 +3,7 @@ ActiveAdmin.register Opinion do
   menu parent: "Experts"
 
   index do
+    selectable_column
     column :id
     column :content
     column :expert

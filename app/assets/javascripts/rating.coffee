@@ -28,7 +28,7 @@ drawRatingChart = ->
     chartArea:
       left: 50
       height: '75%'
-      width: '65%'
+      width: '72%'
 
   chart = new google.visualization.LineChart(document.getElementById("rating_chart"))
   google.visualization.events.addListener chart, "ready", (event) ->

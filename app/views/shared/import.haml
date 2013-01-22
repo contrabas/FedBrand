@@ -1,0 +1,17 @@
+= form_for :dump, url: { action: "upload" }, html: { multipart: true } do |f|
+  %table
+    %tr
+      %td{ style: "width: 150px"}
+        %label{ for: "month" }
+          Месяц :
+      %td
+        = date_select 'rating', 'date', discard_day: true
+    %tr
+      %td{ style: "width: 200px"}
+        %label{ for: "dump_file" }
+          CSV/XLS/XLSX файл :
+      %td
+        = f.file_field :file
+    %tr
+      %td
+        = submit_tag 'Создать'

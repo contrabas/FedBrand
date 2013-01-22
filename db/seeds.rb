@@ -51,10 +51,7 @@ en_news.each do |news|
 end
 
 partners = [
-  { name: 'Совет Федерации', logo: "http://www.eurasium.com/images/logo_sovetfeder.gif", url: "http://www.council.gov.ru/" },
-  { name: 'ВТБ', logo: "http://newslab.ru/images/2011/aug/10/pqkmficq.jpg", url: "http://www.vtb.ru/" },
-  { name: 'Эхо Москвы', logo: "http://corelline.ru/uploads/posts/2011-07/1310154827_eho-moskvy.jpg", url: "http://www.echo.msk.ru/" },
-  { name: 'Ведомости', logo: "http://www.legalstudies.ru/events/spb-2010/images/logo-vedomosti.jpg", url: "http://www.vedomosti.ru/" }
+  { name: 'Совет Федерации', logo: "http://www.eurasium.com/images/logo_sovetfeder.gif", url: "http://www.council.gov.ru/" }
 ]
 
 partners.each do |partner|

@@ -1,13 +1,13 @@
 - experts.each do |expert|
   %article
     %figure= link_to image_tag(expert.photo.url(:big)), expert_path(expert), :title=>expert.full_name
-    %h3= link_to expert.full_name, expert_path(expert)
+    %h3= link_to expert.name, expert_path(expert)
     %p= expert.description
     %ul.work-info
-      %li 
+      %li
         %span= t 'pages.ratings.workplace'
         = expert.workplace
-      %li 
+      %li
         %span= t 'pages.ratings.post'
         = expert.post
     %footer= link_to t('pages.ratings.expert_opinions'), expert_path(expert)

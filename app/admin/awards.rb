@@ -31,6 +31,7 @@ ActiveAdmin.register Award do
   end
 
   index do
+    selectable_column
     column :id
     column :year
     column :ended
@@ -71,7 +72,7 @@ ActiveAdmin.register Award do
       link_to "Англ версия", locale: 'en'
     end
   end
-  
+
   controller do
     def create
       create! do |format|

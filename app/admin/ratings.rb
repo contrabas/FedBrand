@@ -1,16 +1,31 @@
 #coding: utf-8
 ActiveAdmin.register Rating do
+  action_item only: :index do
+    link_to 'Импорт', action: 'import'
+  end
+
+  collection_action :import do
+    render "shared/import"
+  end
+
+  collection_action :upload, method: :post do
+    Rating.import params[:dump][:file], params[:rating]
+    redirect_to action: :index
+  end
+
   form do |f|
     f.inputs do
       f.input :value
       f.input :date, as: :date, include_blank: false, discard_day: true
-      f.input :region, include_blank: false
+      f.input :region, include_blank: false,
+        collection: Region.all.map{|r| [r.name_ru, r.id]}.sort
     end
 
     f.actions
   end
 
   index do
+    selectable_column
     column :id
     column :region, sortable: "regions.name"
     column :value
@@ -40,7 +55,7 @@ ActiveAdmin.register Rating do
       link_to "Англ версия", locale: 'en'
     end
   end
-  
+
   controller do
     def create
       create! do |format|

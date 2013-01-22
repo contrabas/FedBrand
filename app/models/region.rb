@@ -7,8 +7,8 @@ class Region < ActiveRecord::Base
   has_many :nominees
   has_many :awards, through: :nominees
 
-  validates_presence_of :name_ru, :name_en
-  validates_uniqueness_of :name_ru, :name_en
+  validates_presence_of :name_ru
+  validates_uniqueness_of :name_ru
 
   def name
     send "name_#{I18n.locale}"

@@ -20,6 +20,7 @@ ActiveAdmin.register News do
   end
 
   index do
+    selectable_column
     column :id
     column "Logo" do |news|
       link_to image_tag(news.logo.url(:thumb)), news.logo.url, target: '_blank'

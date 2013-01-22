@@ -1,3 +1,4 @@
+#coding: UTF-8
 class Rating < ActiveRecord::Base
   attr_accessible :date, :region_id, :value
 
@@ -25,6 +26,25 @@ class Rating < ActiveRecord::Base
 
   def self.last_month_ratings
     where(date: last_month.prev_month.month_span).order('value DESC')
+  end
+
+  def self.import(file, date)
+    parsed_date = Date.parse(date.to_a.sort.collect{|c| c[1]}.join("-"))
+    spreadsheet = open_spreadsheet file
+    (1..spreadsheet.last_row).each do |i|
+      row = spreadsheet.row i
+      region = Region.find_or_create_by_name_ru row[0]
+      create! region_id: region.id, value: row[1], date: parsed_date
+    end
+  end
+
+  def self.open_spreadsheet(file)
+    case File.extname(file.original_filename)
+      when ".csv" then Csv.new(file.path, nil, :ignore)
+      when ".xls" then Excel.new(file.path, nil, :ignore)
+      when ".xlsx" then Excelx.new(file.path, nil, :ignore)
+      else raise "Неизвестный тип файла: #{file.original_filename}"
+    end
   end
 
   private

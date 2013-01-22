@@ -2,7 +2,7 @@
 ActiveAdmin.register Partner do
   form do |f|
     f.inputs do
-      f.input :logo, hint: f.object.logo.url ? 
+      f.input :logo, hint: f.object.logo.url ?
         f.template.image_tag(f.object.logo.url(:thumb)) :
         f.template.content_tag(:span, "")
       f.input :remote_logo_url
@@ -14,6 +14,7 @@ ActiveAdmin.register Partner do
   end
 
   index do
+    selectable_column
     column :id
     column :name
     column "Logo" do |partner|
@@ -30,7 +31,7 @@ ActiveAdmin.register Partner do
       link_to "Англ версия", locale: 'en'
     end
   end
-  
+
   controller do
     def create
       create! do |format|

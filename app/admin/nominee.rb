@@ -1,8 +1,9 @@
 #coding: utf-8
 ActiveAdmin.register Nominee do
   menu parent: "Awards"
-  
+
   index do
+    selectable_column
     column :id
     column :title
     column :award
@@ -10,7 +11,7 @@ ActiveAdmin.register Nominee do
     column :region
     column :date
     column :winner
-    
+
     default_actions
   end
 
@@ -37,7 +38,7 @@ ActiveAdmin.register Nominee do
       link_to "Англ версия", locale: 'en'
     end
   end
-  
+
   controller do
     def scoped_collection
       Nominee.unscoped

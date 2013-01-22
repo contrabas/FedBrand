@@ -10,6 +10,7 @@ gem 'russian', '~> 0.6.0'
 gem 'activeadmin', '0.5.0.pre1'
 gem 'globalize3'
 gem 'gon'
+gem 'roo'
 gem 'acts-as-taggable-on'
 
 group :development do

@@ -21,6 +21,7 @@ ActiveAdmin.register Expert do
   end
 
   index do
+    selectable_column
     column :id
     column :last_name
     column :first_name

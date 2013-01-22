@@ -9,8 +9,9 @@ ActiveAdmin.register Gallery do
       link_to "Англ версия", locale: 'en'
     end
   end
-  
+
   index do
+    selectable_column
     column :id
     column :award_year do |g|
       link_to g.award.year, admin_award_path(g.award)
@@ -48,7 +49,7 @@ ActiveAdmin.register Gallery do
         g.input :_destroy, as: :boolean, required: false, label: t('delete')
       end
 
-      g.input :file, hint: g.object.file.url ? 
+      g.input :file, hint: g.object.file.url ?
         g.template.image_tag(g.object.file.url(:thumb)) :
         g.template.content_tag(:span, "")
       g.input :remote_file_url
