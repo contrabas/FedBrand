@@ -25,5 +25,5 @@ group :assets do
   gem 'compass-rails'
   gem 'jquery-rails'
   gem 'uglifier'
-  gem "modernizr"
+  gem "modernizr", '2.6.2'
 end
