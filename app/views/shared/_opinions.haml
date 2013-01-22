@@ -8,4 +8,4 @@
         %p.get-text
           %b= opinion.expert.first_name + ' ' + opinion.expert.last_name + ", "
           = opinion.expert.position
-  %footer= link_to t('pages.opinions.link'), '#', :class=>'get-icon_link'
+  %footer= link_to t('pages.opinions.link'), opinions_path, :class=>'get-icon_link'

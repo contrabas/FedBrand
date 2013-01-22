@@ -12,6 +12,7 @@ FedBrand::Application.routes.draw do
       get 'tags/:tag', to: 'news#tags', as: :tag, on: :collection
     end
     resources :ratings, only: %w(index)
+    resources :opinions, only: %w(index)
     resources :awards, only: %w(index) do
       collection do
         get "organizers"

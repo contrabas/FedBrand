@@ -1,0 +1,6 @@
+- Opinion.all.each do |opinion|
+  .opinion
+    = image_tag opinion.expert.photo.url(:thumb)
+    = opinion.expert.name
+    .content= opinion.content
+    %footer= link_to t('pages.ratings.expert_opinions'), expert_path(opinion.expert)
