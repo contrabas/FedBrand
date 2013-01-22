@@ -7,15 +7,14 @@
   
   - News.all[0..-4].group_by(&:category).each do |category, news_by_category|
     %h2= category.name.mb_chars.upcase.to_s
-    .news-cats.get-gradient.index-news_block
+    .news-cats.get-gradient.content-news_block
       %section
         - news_by_category.last(3).each do |news|
           %article
             %h3= link_to news.title, news
             %p= h truncate news.content, length: 150, separator: ' '
             = render partial: 'shared/tag_links', locals: { news: news }
-            %footer
-              .read_more= link_to t('pages.news.read_more'), news
+            %footer= link_to t('pages.news.read_more'), news
         .get-all_items= link_to 'Все публикации', '#', :class=>"get-icon_link"
   
   %h2.no-bg= t 'pages.news.press_centre'
@@ -30,19 +29,16 @@
         %h3= link_to 'Hello!', '#'
         %p Hello, text!
         %footer
-          %p
-            %span Анонс
+          %span Анонс
       %article
         %h3= link_to 'Hello!', '#'
         %p Hello, text!
         %footer
-          %p
-            %span.get-bradius.on-line On-line
+          %span.get-bradius.on-line On-line
       %article
         %h3= link_to 'Hello!', '#'
         %p Hello, text!
-        %footer
-          %p= link_to 'Читать полностью', '#'
+        %footer= link_to 'Читать полностью', '#'
   -#.get-pager
     -#.get-link.get-prev_link= link_to 'Предыдущая', '#', :class=>'no-active'
     -#.get-middle

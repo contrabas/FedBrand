@@ -16,6 +16,8 @@ $baseLineHeight:18px;
 
 $colorBlue:#367cba;
 
+$borderHrColor:#eee;
+
 @function pem($pxval, $base: $baseFontSize) {
   @return #{$pxval / $base}em;
 }
@@ -43,4 +45,4 @@ $colorBlue:#367cba;
 
 @mixin get-absolute($zIndex:55) {position:absolute; z-index:$zIndex; }
 
-@mixin h3-big {font-size:$baseFontSize * 1.75; line-height:$baseLineHeight * 1.75; color:$linkColor; }
+@mixin h3-big {font-size:$baseFontSize * 1.75; line-height:$baseLineHeight * 1.55; color:$linkColor; }

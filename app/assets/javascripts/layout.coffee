@@ -39,4 +39,4 @@ $ ->
     $("#nominees-slider").jcarousel "scroll", "-=1"
     false
 
-  $("#expert-way").wijdropdown();
+  #$("#expert-way").wijdropdown();

@@ -30,7 +30,7 @@ article {
  
   p {font-size:pem(12px); }
   
-  footer {@include content-wrapper(10px); border-top:1px solid #eee; padding-top:10px; }
+  footer {@include content-wrapper(10px); border-top:1px solid $borderHrColor; padding-top:10px; }
   
   ul.work-info {@include my-inline-list; li {width:145px; padding-left:105px; font-size:pem(12px); position:relative; span {font-weight:bold; @include get-absolute; width:100px; left:0; }}}
 
@@ -42,7 +42,7 @@ article {
 
 }
 
-.link-back {font-weight:bold; text-transform:uppercase;
+.link-back {font-weight:bold; text-transform:uppercase; padding-top:10px;
   
   a {color:#000; position:relative; padding-left:11px; &:hover {color:#000; } 
 

@@ -59,11 +59,9 @@
   
   .get-content_side-full {padding-bottom:0; }
   
-  .nominees-experts {
+  .nominees-experts {padding-top:30px!important;
     
-    .get-experts_category {margin-top:30px; }
-    
-    h2 {@include h3-big; text-transform:none; margin:0 0 0 15px; }
+    h2 {@include h3-big; text-transform:none; }
     
   }
   

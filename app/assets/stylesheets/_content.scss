@@ -104,25 +104,27 @@
 
   article {@include wrap; margin:0 5px; width:210px; padding:20px 0 10px 0; h3 a {text-decoration:underline!important; &:hover {text-decoration:none!important; } } 
   
-    &.get-phone {border-bottom:1px solid #eee; padding-bottom:20px; h3 {@include h3-big; } } }
+    &.get-phone {border-bottom:1px solid $borderHrColor; padding-bottom:20px; h3 {@include h3-big; } } }
 
 }
 
-.tag_links {@include float-left; @include ul-inlineblock(0 8px 0 0, left); text-transform:uppercase; font-size:pem(10px); color:#ccc; 
+.tag_links {@include float-left; @include ul-inlineblock(0 4px, left); text-transform:uppercase; font-size:pem(10px); color:#ccc; 
           
     li {position:relative;
       
-      &:before, & > ieb {content:"| "; @include get-absolute; left:-3px; font-weight:normal; color:#ccc; } 
-    
-      &:first-child {
+      &:first-child {margin-left:0; }
       
-        &:before, & > ieb {content:""; } 
+      &:after, & > iea {content:"| "; @include get-absolute; right:-7px; font-weight:normal; color:#ccc; } 
+    
+      &:last-child {
+      
+        &:after, & > iea {content:""; } 
       
       }
           
   }
 
-  a {font-weight:bold; background:image-url('repeaters/dot_link.gif') repeat-x left bottom; margin-left:5px; &:hover {background:none; } }
+  a {font-weight:bold; background:image-url('repeaters/dot_link.gif') repeat-x left bottom; &:hover {background:none; } }
   
 }
 
@@ -164,15 +166,9 @@
     
     &.get-publications {
       
-      footer {
+      footer {text-transform:uppercase; font-weight:bold;
         
-        p {font-size:pem(11px)!important; text-transform:uppercase; font-weight:bold; 
-          
-          .get-icon_link {font-size:pem(13px)!important; } 
-          
-          span {color:#1559a9; &.on-line {color:#fff; background-color:#1eb113; padding:3px 7px; &.get-bradius {@include border-radius(3px); } }}
-        
-        }
+        span {color:#1559a9; font-size:pem(12px); &.on-line {color:#fff; background-color:#1eb113; padding:3px 7px; &.get-bradius {@include border-radius(3px); } } }
         
       }
       
@@ -187,8 +183,10 @@
         article {width:190px; margin:0 20px;
           
           p {font-size:pem(11px); }
+          
+          footer {border:none; }
             
-            .tag_links {margin-top:-5px; width:190px; ul {text-align:left; li:first-child a {margin-left:0; } } }
+          .tag_links {margin-top:10px; padding-top:5px; width:190px; border-top:1px solid $borderHrColor; ul {text-align:left; li:first-child a {margin-left:0; } } }
           
         }
       
@@ -196,23 +194,17 @@
       
     }
     
-    &.width-full { article {@include content-wrapper(40px);} 
+    &.width-full { article {@include content-wrapper(40px); .tag_links {@include get-absolute; width:445px; right:0; top:-20px; ul {text-align:right; } } } 
   
     figure {@include float-left; width:188px; }
       
     .get-desc {@include float-right; width:445px; p {line-height:normal; } }
     
-    h3 {@include h3-big; }
+    h3 {@include h3-big; margin-top:0; line-height:$baseLineHeight * 1.4; }
   
   }
   
     section {@include wrap; margin-top:-20px; }
-  
-    article footer {
-        
-        .tag_links {width:445px; float:right; ul {margin-right:0; margin-left:5px; text-align:right; } }
-    
-    }
   
   }
   
@@ -270,7 +262,7 @@
   
   .get-tags_cloud {background-color:#fff; }
   
-  .index-video_block {width:220px; h2 {color:#fff; margin-left:0; } &.get-gradient {@include background-image(linear-gradient(#2870b6, #1457a1)); }
+  .index-video_block {width:220px; margin-top:25px; h2 {color:#fff; margin-left:0; } &.get-gradient {@include background-image(linear-gradient(#2870b6, #1457a1)); }
   
     article {width:220px; padding:0; border-bottom:1px solid #477cb5; &:last-child {border:none; } a {color:#fff; } }
   
@@ -278,7 +270,7 @@
 
   .get-news_categories {background-color:#fff; 
   
-    ul {@include my-inline-list; li {font-size:pem(10px); font-weight:bold; width:200px; border-bottom:1px solid #eee; padding:5px 0 3px 20px; position:relative; 
+    ul {@include my-inline-list; li {font-size:pem(10px); font-weight:bold; width:200px; border-bottom:1px solid $borderHrColor; padding:5px 0 3px 20px; position:relative; 
       
       &:before, & > ieb {content:""; background:sprite($icons, icon-arrow-right-gray) no-repeat; width:5px; height:8px; @include get-absolute; left:3px; top:10px; }
       

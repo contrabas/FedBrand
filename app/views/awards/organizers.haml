@@ -22,7 +22,7 @@
             %br
             идеолог  проекта «Федеральный бренд»:
           %p создания социокультурных, спортивных либо иных проектов, которые повышают инвестиционную привлекательность региона. Создание и развитие геобрендов.
-          %footer= link_to 'Читать полностью', '#', :class=>'get-icon_link'
+          %footer= link_to 'Читать полностью', '#'
   .container.awards-partners_block
     %h2= t 'pages.home.partners.title'
     - Partner.all.each do |partner|
@@ -36,4 +36,4 @@
             %h3= link_to expert.name+',', '#'
             %p.get-work_post= expert.position
             %p= h truncate expert.description, length: 150, separator: ' '
-            %footer= link_to t('pages.news.read_more'), '#', :class=>'get-icon_link'
+            %footer= link_to t('pages.news.read_more'), '#'

@@ -20,7 +20,7 @@
         %li= link_to 'Следующий месяц', '#', :title=>"Следующий месяц", :class=>'get-next', :class=>'disabled'
 
     - @experts.group_by(&:category).each do |category, experts|
-      .get-experts_category.get-gradient
+      .get-experts_category.get-gradient.items-3
         %h2= category.name
         = render partial: 'shared/experts', locals: { experts: experts }
 

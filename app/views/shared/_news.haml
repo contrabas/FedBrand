@@ -6,4 +6,4 @@
       %h3= link_to news.title, news
       %p= h truncate news.content, length: 250, separator: ' '
     %footer= link_to t('pages.news.read_more'), news
-    = render partial: 'shared/tag_links', locals: { news: news }
+    .get-relative.get-wrap= render partial: 'shared/tag_links', locals: { news: news }

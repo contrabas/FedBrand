@@ -14,7 +14,9 @@
     /[if !IE 7]
       :css
         #wrapper {display:table;height:100%}
-    = javascript_include_tag 'modernizr'
+    = javascript_include_tag 'modernizr_custom'
+    /[if lt IE 9]
+      = javascript_include_tag "http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"
   %body{class: "#{controller_name}-#{action_name}"}
     #wrapper
       #main-layout
@@ -41,9 +43,9 @@
     %footer#get-footer
       .container
         %aside.pull-left
-          %p &#169; ФедБренд &#151; премия в области репутационных технологий
+          %p &#169; ФедБренд &#151; премия в рейтинге репутационных технологий
         %aside.pull-right
-          %p= link_to 'info@fedbrand.ru', 'mailto:info@fedbrand.ru'
+          %p= link_to 'welcome@fedbrand.ru', 'mailto:welcome@fedbrand.ru'
 
   = include_gon watch: true
   %script{ type: 'text/javascript', src: 'http://www.google.com/jsapi' }
