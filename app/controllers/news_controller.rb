@@ -10,4 +10,9 @@ class NewsController < ApplicationController
   def show
     @news = News.find_by_slug! params[:id]
   end
+
+  def category
+    category = Category.where("lower(name_en) = ?", params[:category]).first
+    @news = News.where category_id: category.id
+  end
 end

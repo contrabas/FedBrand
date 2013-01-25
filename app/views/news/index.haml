@@ -1,10 +1,10 @@
 %section.get-content_side.get-shadow.no-width_pad.get-news_content
   %h1= t 'pages.news.title'
-  
+
   %h2.actual= t 'pages.news.latest'
   .news-cats.get-gradient.width-full
     %section= render partial: 'shared/news', locals: { collection: News.all.last(3) }
-  
+
   - News.all[0..-4].group_by(&:category).each do |category, news_by_category|
     %h2= category.name.mb_chars.upcase.to_s
     .news-cats.get-gradient.content-news_block
@@ -15,14 +15,14 @@
             %p= h truncate news.content, length: 150, separator: ' '
             = render partial: 'shared/tag_links', locals: { news: news }
             %footer= link_to t('pages.news.read_more'), news
-        .get-all_items= link_to 'Все публикации', '#', :class=>"get-icon_link"
-  
+        .get-all_items= link_to 'Все публикации', category_news_index_path(category.name_en.downcase), :class=>"get-icon_link"
+
   %h2.no-bg= t 'pages.news.press_centre'
   .get-content_menu.get-pad
     %ul
-      %li= link_to t('pages.news.preview'), '#'
-      %li= link_to "ON-LINE", '#'
-      %li= link_to t('pages.news.press'), '#'
+      %li.preview= link_to t('pages.news.preview'), '#'
+      %li.online= link_to "ON-LINE", '#'
+      %li.press= link_to t('pages.news.press'), '#'
   .news-cats.content-news_block.get-publications.items-3
     %section
       %article
@@ -39,18 +39,18 @@
         %h3= link_to 'Hello!', '#'
         %p Hello, text!
         %footer= link_to 'Читать полностью', '#'
-  -#.get-pager
-    -#.get-link.get-prev_link= link_to 'Предыдущая', '#', :class=>'no-active'
-    -#.get-middle
-      -#%ul
-        -#%li
-          -#%span.get-bradius 1
-        -#%li= link_to '2', '#', :class=>"get-bradius"
-        -#%li= link_to '3', '#', :class=>"get-bradius"
-        -#%li= link_to '4', '#', :class=>"get-bradius"
-        -#%li= link_to '5', '#', :class=>"get-bradius"
-    -#.get-link.get-next_link= link_to 'Следующая', '#'
-      
+  / -.get-pager
+  /   -.get-link.get-prev_link= link_to 'Предыдущая', '#', :class=>'no-active'
+  /   -.get-middle
+  /     -%ul
+  /       -%li
+  /         -%span.get-bradius 1
+  /       -%li= link_to '2', '#', :class=>"get-bradius"
+  /       -%li= link_to '3', '#', :class=>"get-bradius"
+  /       -%li= link_to '4', '#', :class=>"get-bradius"
+  /       -%li= link_to '5', '#', :class=>"get-bradius"
+  /   -.get-link.get-next_link= link_to 'Следующая', '#'
+
 %section.get-sidebar.news-sidebar.no-width_pad
   .get-wrapper
     .get-sidebar.index-video_block.get-gradient.get-shadow
@@ -58,14 +58,14 @@
     .get-sidebar.get-shadow.get-gradient.get-news_categories
       %h2= t 'pages.news.rubrics'
       %ul
-        %li= link_to t('pages.news.latest'), '#'
+        / %li= link_to t('pages.news.latest'), '#'
         - News.all[0..-4].map(&:category).each do |category|
-          %li= link_to category.name.mb_chars.upcase.to_s, '#'
+          %li= link_to category.name.mb_chars.upcase.to_s, category_news_index_path(category.name_en.downcase)
     .get-sidebar.get-shadow.get-tags_cloud
       %h2= t 'pages.news.tags'
       .tag_links
         %ul
           - tag_cloud News.tag_counts, %w[s m l] do |tag, css_class|
             %li= link_to tag.name, tag_news_index_path(tag), class: css_class
-    
+
 .content-wrapper= render 'shared/opinions'

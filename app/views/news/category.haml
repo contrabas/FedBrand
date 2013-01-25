@@ -1,0 +1,7 @@
+%h2= @news.first.category.name
+- @news.each do |news|
+  %h2= news.title
+  .image= image_tag news.logo.url(:thumb)
+  .content_block
+    .content= news.content
+    = render partial: 'shared/tag_links', locals: { news: news }

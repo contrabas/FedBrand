@@ -9,10 +9,13 @@ FedBrand::Application.routes.draw do
       end
     end
     resources :news, only: %w(index show) do
-      get 'tags/:tag', to: 'news#tags', as: :tag, on: :collection
+      collection do
+        get 'tags/:tag', to: 'news#tags', as: :tag
+        get '/:category', to: 'news#category', as: :category
+      end
     end
     resources :ratings, only: %w(index)
-    resources :opinions, only: %w(index)
+    resources :quotes, controller: "opinions", only: %w(index)
     resources :awards, only: %w(index) do
       collection do
         get "organizers"
