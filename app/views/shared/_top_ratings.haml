@@ -6,7 +6,8 @@
     #maximize.get-rating_link
       = link_to t('layout.top_ratings.maximize'), '#'
     = t 'layout.top_ratings.title'
-    = link_to Date.today.month_i18n, monthly_experts_path(Date.today.month_path)
+    - last_month = Rating.last_month
+    = link_to last_month.month_i18n, monthly_experts_path(last_month.month_path)
   #ratings
     %article
       - i = 0
