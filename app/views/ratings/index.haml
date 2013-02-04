@@ -17,11 +17,12 @@
       - Rating.top.each_with_index do |rating, i|
         - lm_rating = Rating.last_month_ratings.map(&:region).index(rating.region)
         - change = lm_rating ? lm_rating - i : 0
+        - emblem = rating.region.emblem
         %tr
           %td.checkbox= check_box_tag 'region', rating.region.id
           %td.position= i+1
           %td.name= rating.region.name
-          %td.emblem= image_tag rating.region.emblem.url(:icon)
+          %td.emblem= image_tag emblem.url(:icon) if emblem.url
           %td.rating= rating.value
           %td.change= change > 0 ? "+#{change}" : "#{change}"
           %td.trend

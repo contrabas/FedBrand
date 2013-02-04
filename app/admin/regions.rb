@@ -6,7 +6,8 @@ ActiveAdmin.register Region do
     column :name_ru
     column :name_en
     column "Emblem" do |region|
-      link_to image_tag(region.emblem.url(:icon)), region.emblem.url, target: '_blank'
+      link_to image_tag(region.emblem.url(:icon)), region.emblem.url,
+        target: '_blank' if region.emblem.url
     end
     default_actions
   end
@@ -17,7 +18,8 @@ ActiveAdmin.register Region do
       row :name_ru
       row :name_en
       row :emblem do
-        link_to image_tag(r.emblem.url(:thumb)), r.emblem.url, target: '_blank'
+        link_to image_tag(r.emblem.url(:thumb)), r.emblem.url,
+          target: '_blank' if region.emblem.url
       end
       row :created_at
       row :updated_at
