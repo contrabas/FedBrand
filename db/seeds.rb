@@ -1,15 +1,88 @@
 #coding: utf-8
 regions = [
-  { name_en: 'Moscow', name_ru: 'Москва', url: "http://heraldry.hobby.ru/m/moscow.jpg" },
-  { name_en: 'St. Petersburg', name_ru: 'Санкт-Петербург', url: "http://www.peterburg.biz/images/stories/gerb_b.jpg" },
-  { name_en: 'Arkhangelsk Region', name_ru: 'Архангельская область', url: "http://images.vector-images.com/29/arkhangelsk_obl_coa_n529.gif" },
   { name_en: 'Altai Territory ', name_ru: 'Алтайский край', url: "http://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Coat_of_Arms_of_Altai_Krai.svg/200px-Coat_of_Arms_of_Altai_Krai.svg.png" },
   { name_en: 'Amur Region', name_ru: 'Амурская область', url: "http://upload.wikimedia.org/wikipedia/commons/4/42/Amurskaja_obl_coa_2008.gif" },
+  { name_en: 'Arkhangelsk Region', name_ru: 'Архангельская область', url: "http://images.vector-images.com/29/arkhangelsk_obl_coa_n529.gif" },
   { name_en: 'Astrakhan Region', name_ru: 'Астраханская область', url: "http://www.megabook.ru/MObjects2/data/pict2006/new/06s1053.jpg" },
-  { name_en: 'Tyumen Region', name_ru: 'Тюменская область', url: "http://admtyumen.ru/files/%D0%93%D0%95%D0%A0%D0%91%20%D0%BF%D0%BE%D0%BB%D0%BD%D1%8B%D0%B9.jpg" },
+  { name_ru: 'Белгородская область' },
+  { name_ru: 'Брянская область' },
+  { name_ru: 'Владимирская область' },
+  { name_ru: 'Волгоградская область' },
+  { name_ru: 'Вологодская область' },
+  { name_ru: 'Воронежская область' },
+  { name_en: 'Moscow', name_ru: 'Город Москва', url: "http://heraldry.hobby.ru/m/moscow.jpg" },
+  { name_ru: 'Еврейская автономная область' },
+  { name_ru: 'Забайкальский край' },
+  { name_ru: 'Ивановская область' },
+  { name_ru: 'Иркутская область' },
+  { name_ru: 'Кабардино-Балкарская Республика' },
+  { name_ru: 'Калининградская область' },
+  { name_ru: 'Калужская область' },
+  { name_ru: 'Камчатский край' },
+  { name_ru: 'Карачаево-Черкесская Республика' },
+  { name_ru: 'Кемеровская область' },
+  { name_ru: 'Кировская область' },
+  { name_ru: 'Костромская область' },
   { name_en: 'Krasnodar Territory', name_ru: 'Краснодарский край', url: "http://heraldry.hobby.ru/k/krasnodar.gif" },
+  { name_ru: 'Красноярский край' },
+  { name_ru: 'Курганская область' },
+  { name_ru: 'Курская область' },
+  { name_ru: 'Ленинградская область' },
+  { name_ru: 'Липецкая область' },
+  { name_ru: 'Магаданская область' },
+  { name_ru: 'Московская область' },
+  { name_ru: 'Мурманская область' },
+  { name_ru: 'Ненецкий автономный округ' },
+  { name_ru: 'Нижегородская область' },
+  { name_ru: 'Новгородская область' },
+  { name_ru: 'Новосибирская область' },
+  { name_ru: 'Омская область' },
+  { name_en: 'Orenburg Region', name_ru: 'Оренбургская область', url: "http://upload.wikimedia.org/wikipedia/commons/6/68/Coat_of_Arms_of_Orenburg_oblast.png" },
+  { name_ru: 'Орловская область' },
+  { name_ru: 'Пензенская область' },
   { name_en: 'Perm Territory', name_ru: 'Пермский край', url: "http://courses-in-perm.ucoz.ru/_ph/6/2/199516501.jpg" },
-  { name_en: 'Orenburg Region', name_ru: 'Оренбургская область', url: "http://upload.wikimedia.org/wikipedia/commons/6/68/Coat_of_Arms_of_Orenburg_oblast.png" }
+  { name_ru: 'Приморский край' },
+  { name_ru: 'Псковская область' },
+  { name_ru: 'Республика Адыгея (Адыгея)' },
+  { name_ru: 'Республика Алтай' },
+  { name_ru: 'Республика Башкортостан' },
+  { name_ru: 'Республика Бурятия' },
+  { name_ru: 'Республика Дагестан' },
+  { name_ru: 'Республика Ингушетия' },
+  { name_ru: 'Республика Калмыкия' },
+  { name_ru: 'Республика Карелия' },
+  { name_ru: 'Республика Коми' },
+  { name_ru: 'Республика Марий Эл' },
+  { name_ru: 'Республика Мордовия' },
+  { name_ru: 'Республика Саха (Якутия)' },
+  { name_ru: 'Республика Северная Осетия — Алания' },
+  { name_ru: 'Республика Татарстан (Татарстан)' },
+  { name_ru: 'Республика Тыва' },
+  { name_ru: 'Республика Хакасия' },
+  { name_ru: 'Ростовская область' },
+  { name_ru: 'Рязанская область' },
+  { name_ru: 'Самарская область' },
+  { name_en: 'St. Petersburg', name_ru: 'Санкт-Петербург', url: "http://www.peterburg.biz/images/stories/gerb_b.jpg" },
+  { name_ru: 'Саратовская область' },
+  { name_ru: 'Сахалинская область' },
+  { name_ru: 'Свердловская область' },
+  { name_ru: 'Смоленская область' },
+  { name_ru: 'Ставропольский край' },
+  { name_ru: 'Тамбовская область' },
+  { name_ru: 'Тверская область' },
+  { name_ru: 'Томская область' },
+  { name_ru: 'Тульская область' },
+  { name_en: 'Tyumen Region', name_ru: 'Тюменская область', url: "http://admtyumen.ru/files/%D0%93%D0%95%D0%A0%D0%91%20%D0%BF%D0%BE%D0%BB%D0%BD%D1%8B%D0%B9.jpg" },
+  { name_ru: 'Удмуртская Республика' },
+  { name_ru: 'Ульяновская область' },
+  { name_ru: 'Хабаровский край' },
+  { name_ru: 'Ханты-Мансийский автономный округ — Югра' },
+  { name_ru: 'Челябинская область' },
+  { name_ru: 'Чеченская Республика' },
+  { name_ru: 'Чувашская Республика — Чувашия' },
+  { name_ru: 'Чукотский автономный округ' },
+  { name_ru: 'Ямало-Ненецкий автономный округ' },
+  { name_ru: 'Ярославская область' }
 ]
 
 regions.each do |region|
@@ -131,16 +204,16 @@ ru_experts.each_with_index do |expert, i|
     category_id: category.id, post: expert[:post], workplace: expert[:workplace]
 end
 
-6.times do |i|
+3.times do |i|
   Region.all.each do |region|
     num = 250+Random.rand(400)
-    Rating.create! region_id: region.id, value: num, date: (5-i).months.ago
+    Rating.create! region_id: region.id, value: num, date: (3-i).months.ago
   end
   month = Month.create! month: i.months.ago
-  rand_num = Random.rand 1..6
+  rand_num = Random.rand(6)+1
   rand_num.times do |j|
-    id = rand(Expert.count)+1
-    MonthlyExpert.create! month_id: month.id, expert_id: id
+    id = rand(Expert.unscoped{Expert.count})+1
+    MonthlyExpert.create!(month_id: month.id, expert_id: id) rescue nil
   end
 end
 

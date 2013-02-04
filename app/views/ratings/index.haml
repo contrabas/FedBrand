@@ -29,6 +29,7 @@
             -#%span.get-up Вверх
             %span.get-down Вниз
     .get-text
+      = link_to 'Очистить список', '#', class: 'clear-selection'
       - month = Month.where(month: Rating.last_month).last
       = link_to t('pages.ratings.download'), month.ratings.url if month
 

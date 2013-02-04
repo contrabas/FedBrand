@@ -30,13 +30,19 @@ class Rating < ActiveRecord::Base
 
   def self.import(file, date)
     parsed_date = Date.parse(date.to_a.sort.collect{|c| c[1]}.join("-"))
-    Month.find_or_create_by_month(parsed_date).update_attributes ratings: file
     spreadsheet = open_spreadsheet file
+    data = []
 
     (4..spreadsheet.last_row).each do |i|
       row = spreadsheet.row i
-      region = Region.find_or_create_by_name_ru row[1]
-      create! region_id: region.id, value: row[8], date: parsed_date
+      region = Region.find_by_name_ru row[1]
+      raise "Регион #{row[1]} в базе не найден!" unless region
+      data << [region.id, row[8]]
+    end
+
+    Month.find_or_create_by_month(parsed_date).update_attributes ratings: file
+    data.each do |region_id, value|
+      create! region_id: region_id, value: value, date: parsed_date
     end
   end
 

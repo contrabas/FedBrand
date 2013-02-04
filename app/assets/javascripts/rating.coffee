@@ -11,17 +11,22 @@ monthNamesShort = ['Янв','Фев','Мар','Апр','Май','Июн','Июл
 
 drawRatingChart = ->
   data = new google.visualization.DataTable()
-  data.addColumn 'date', 'Дата'
-  $.each gon.data.regions, (key, value) ->
-    data.addColumn 'number', value
-
-  addRows data
 
   title = if gon.locale == 'en' then "«FEDERAL BRAND» RATINGS" else "РЕЙТИНГ «ФЕДЕРАЛЬНЫЙ БРЕНД»"
+  position = if gon.data.regions.length then 'right' else 'none'
+
+  data.addColumn('date', 'Дата')
+  data.addColumn('number', '') unless gon.data.regions.length
+  data.addColumn('number', value) for value in gon.data.regions
+  addRows data
+
   options =
     title: title
     pointSize: 5
-    vAxis: {viewWindow: {min: 150, max: 750}}
+    legend:
+      position: "#{position}"
+    vAxis:
+      viewWindow: {min: 150, max: 750}
     hAxis:
       format: "MMM yyy"
       viewWindow: {max: maxDate()}
@@ -81,6 +86,7 @@ replaceMonths = ->
       return text.replace value, monthNamesShort[key]
 
 maxDate = ->
+  return unless endDate
   interval = Math.abs((endDate.getFullYear()*12 + endDate.getMonth()) -
     (startDate.getFullYear()*12 + startDate.getMonth())) + 1
 
@@ -98,19 +104,13 @@ regionSelect = ->
   startDate = new Date(2100, 0, 1)
   endDate = null
 
-  $.each $('.region input[type="checkbox"]:checked'), (key, region) ->
-    ids.push region.value
-
+  ids.push region.value for region in $('.region input:checked')
   prefix = if gon.locale == 'en' then "/en" else ""
   gon.watch 'data', url: "#{prefix}/ratings?ids=#{ids}", updateChart
 
 updateChart = (data) ->
   gon.data = data
-
   loadChart()
-
-setGraphSize = ->
-  # $('#rating_chart').width($('#container').width())
 
 $ ->
   return unless $('#rating_chart').length
@@ -123,14 +123,11 @@ $ ->
       $(value).parent().addClass 'get-gradient'
 
   $('body').on "click", '.region input', ->
-    if $(@).attr('checked') == undefined
-      $(@).parent().parent().removeClass 'get-gradient'
-    else
-      $(@).parent().parent().addClass 'get-gradient'
-
+    $(@).parent().parent().toggleClass 'get-gradient'
     regionSelect()
 
-  $(window).bind "resize", (e) ->
-    # doTimeout ...
-    setGraphSize()
-    loadChart()
+  $('body').on 'click', '.clear-selection', (e) ->
+    e.preventDefault()
+    $('.region input').attr 'checked', false
+    $('.region tr').removeClass 'get-gradient'
+    regionSelect()
