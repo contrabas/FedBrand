@@ -1,5 +1,7 @@
 class Month < ActiveRecord::Base
-  attr_accessible :month, :monthly_experts_attributes
+  attr_accessible :month, :monthly_experts_attributes, :ratings
+
+  mount_uploader :ratings, RatingUploader
 
   has_many :monthly_experts
   has_many :experts, through: :monthly_experts
@@ -12,6 +14,6 @@ class Month < ActiveRecord::Base
   def set_default_date
     self.month = Date.today.at_beginning_of_month if self.month.blank?
   rescue ActiveModel::MissingAttributeError
-    
+
   end
 end

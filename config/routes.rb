@@ -5,6 +5,7 @@ FedBrand::Application.routes.draw do
 
     resources :experts, only: %w(index show) do
       collection do
+        get 'quotes'
         match '/:year/:month' => 'experts#monthly', as: :monthly
       end
     end
@@ -15,7 +16,6 @@ FedBrand::Application.routes.draw do
       end
     end
     resources :ratings, only: %w(index)
-    resources :quotes, controller: "opinions", only: %w(index)
     resources :awards, only: %w(index) do
       collection do
         get "organizers"

@@ -25,6 +25,9 @@ ActiveAdmin.register Month do
     column :expert_count do |g|
       "#{g.experts.count}"
     end
+    column :ratings do |g|
+      link_to g.ratings, g.ratings.url
+    end
     default_actions
   end
 
@@ -38,6 +41,9 @@ ActiveAdmin.register Month do
         row :expert do
           link_to expert.name, admin_expert_path(expert)
         end
+      end
+      row :ratings do |g|
+        link_to g.ratings, g.ratings.url
       end
       row :created_at
       row :updated_at

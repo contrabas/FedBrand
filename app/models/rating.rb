@@ -30,6 +30,7 @@ class Rating < ActiveRecord::Base
 
   def self.import(file, date)
     parsed_date = Date.parse(date.to_a.sort.collect{|c| c[1]}.join("-"))
+    Month.find_or_create_by_month(parsed_date).update_attributes ratings: file
     spreadsheet = open_spreadsheet file
 
     (4..spreadsheet.last_row).each do |i|
