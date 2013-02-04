@@ -1,6 +1,12 @@
 @import "compass/css3/border-radius";
 @import "mixins";
 
+#get-rating_content {
+  #ratings { display: none; }
+  #maximize { display: block; }
+  #minimize { display: none; }
+}
+
 .ratings-index {
 
   #get-main_content {background:image-url('repeaters/bg_minimize.jpg') repeat-x left top; }
