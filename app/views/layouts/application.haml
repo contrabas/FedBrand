@@ -14,7 +14,6 @@
     /[if !IE 7]
       :css
         #wrapper {display:table;height:100%}
-    = javascript_include_tag 'modernizr_custom'
     /[if lt IE 9]
       = javascript_include_tag "http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"
   %body{class: "#{controller_name}-#{action_name}"}

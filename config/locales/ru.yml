@@ -33,6 +33,7 @@ ru:
       workplace: ! 'Место работы:'
       expert_opinions: ПУБЛИКАЦИИ ЭКСПЕРТА
       all_experts: ВСЕ ЭКСПЕРТЫ
+      download: Скачать подробный рейтинг
     contacts:
       map:
         title: СХЕМА ПРОЕЗДА
@@ -65,32 +66,32 @@ ru:
       partners:
         title: ПАРТНЕРЫ
   delete: Удалить?
-  seconds: 
+  seconds:
     one: секунда
     few: секунды
     many: секунд
     other: секунды
-  minutes: 
+  minutes:
     one: минута
     few: минуты
     many: минут
     other: минуты
-  hours: 
+  hours:
     one: час
     few: часа
     many: часов
     other: часа
-  days: 
+  days:
     one: день
     few: дня
     many: дней
     other: дня
-  weeks: 
+  weeks:
     one: неделя
     few: недели
     many: недель
     other: недели
-  months: 
+  months:
     one: месяц
     few: месяца
     many: месяцев

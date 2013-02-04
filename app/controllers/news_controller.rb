@@ -3,8 +3,8 @@ class NewsController < ApplicationController
   end
 
   def tags
-    tag = ActsAsTaggableOn::Tag.find_by_slug params[:tag]
-    @news = News.tagged_with tag
+    @tag = ActsAsTaggableOn::Tag.find_by_slug params[:tag]
+    @news = News.tagged_with @tag
   end
 
   def show

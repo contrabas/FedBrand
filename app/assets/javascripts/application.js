@@ -15,4 +15,5 @@
 //= require jquery.ui.datepicker-en-GB
 //= require jquery.ui.datepicker-ru
 //= require jquery.jcarousel.min
+//= require modernizr
 //= require_tree .

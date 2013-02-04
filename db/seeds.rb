@@ -51,7 +51,8 @@ en_news.each do |news|
 end
 
 partners = [
-  { name: 'Совет Федерации', logo: "http://www.eurasium.com/images/logo_sovetfeder.gif", url: "http://www.council.gov.ru/" }
+  { name: 'Совет Федерации', logo: "http://www.eurasium.com/images/logo_sovetfeder.gif", url: "http://www.council.gov.ru/" },
+  { name: 'Федерал пресс', logo: "http://www.history.nsc.ru/website/history-institute/var/custom/Image/federalpress_logo.jpg", url: "http://fedpress.ru/" }
 ]
 
 partners.each do |partner|

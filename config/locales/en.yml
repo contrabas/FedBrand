@@ -33,6 +33,7 @@ en:
       workplace: ! 'WORKPLACE:'
       expert_opinions: EXPERT'S PUBLICATIONS
       all_experts: ALL EXPERTS
+      download: Download detailed ratings
     contacts:
       map:
         title: MAP ROUTE
