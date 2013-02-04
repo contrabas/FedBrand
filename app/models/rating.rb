@@ -31,10 +31,11 @@ class Rating < ActiveRecord::Base
   def self.import(file, date)
     parsed_date = Date.parse(date.to_a.sort.collect{|c| c[1]}.join("-"))
     spreadsheet = open_spreadsheet file
-    (1..spreadsheet.last_row).each do |i|
+
+    (4..spreadsheet.last_row).each do |i|
       row = spreadsheet.row i
-      region = Region.find_or_create_by_name_ru row[0]
-      create! region_id: region.id, value: row[1], date: parsed_date
+      region = Region.find_or_create_by_name_ru row[1]
+      create! region_id: region.id, value: row[8], date: parsed_date
     end
   end
 
