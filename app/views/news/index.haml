@@ -59,7 +59,7 @@
       %h2= t 'pages.news.rubrics'
       %ul
         / %li= link_to t('pages.news.latest'), '#'
-        - News.all[0..-4].map(&:category).each do |category|
+        - News.all[0..-4].map(&:category).uniq.each do |category|
           %li= link_to category.name.mb_chars.upcase.to_s, category_news_index_path(category.name_en.downcase)
     .get-sidebar.get-shadow.get-tags_cloud
       %h2= t 'pages.news.tags'
