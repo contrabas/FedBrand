@@ -3,6 +3,9 @@
     #rating_chart
 
   %aside.rating-dashboard
+    = link_to 'Очистить список', '#', class: 'clear-selection'
+    - month = Month.where(month: Rating.last_month).last
+    = link_to t('pages.ratings.download'), month.ratings.url if month
     %table.region
       %tr
         %th.t_checkbox
@@ -29,10 +32,6 @@
             -#%span.get-up Вверх
             %span.get-down Вниз
     .get-text
-      = link_to 'Очистить список', '#', class: 'clear-selection'
-      - month = Month.where(month: Rating.last_month).last
-      = link_to t('pages.ratings.download'), month.ratings.url if month
-
       %p Таким образом, ФедБренд - это единая площадка для оценки, анализа, обсуждения и обучения тонкостям региональной информационной политики для развития Субъектов Федерации.
       %h2 Политика
       %p «Федеральный бренд» (ФедБренд)  - репутационный рейтинг регионов, основанный на постоянном мониторинге медиапространства РФ и экспертных оценках  PR-профилей субъектов Федерации. Цель проекта «ФедБренд»  - популяризировать тему управления репутацией для успешной жизнедеятельности регионов.
