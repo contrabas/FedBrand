@@ -18,7 +18,8 @@ ActiveAdmin.register Video do
     column :id
     column :title
     column "Thumb" do |video|
-      link_to image_tag(video.thumb), video.thumb.url, target: '_blank'
+      link_to image_tag(video.thumb), video.thumb.url,
+        target: '_blank' if video.thumb.url
     end
     column :tag
 

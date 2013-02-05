@@ -27,7 +27,8 @@ ActiveAdmin.register Expert do
     column :first_name
     column :middle_name
     column "Photo" do |expert|
-      link_to image_tag(expert.photo.url(:thumb)), expert.photo.url, target: '_blank'
+      link_to image_tag(expert.photo.url(:thumb)), expert.photo.url,
+        target: '_blank' if expert.photo.url
     end
     column :description do |expert|
       truncate expert.description, length: 100, separator: ' '

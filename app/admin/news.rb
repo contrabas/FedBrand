@@ -23,7 +23,8 @@ ActiveAdmin.register News do
     selectable_column
     column :id
     column "Logo" do |news|
-      link_to image_tag(news.logo.url(:thumb)), news.logo.url, target: '_blank'
+      link_to image_tag(news.logo.url(:thumb)), news.logo.url,
+        target: '_blank' if news.logo.url
     end
     column :title
     column :tag_list
@@ -43,7 +44,8 @@ ActiveAdmin.register News do
         link_to g.slug, g
       end
       row :logo do
-        link_to image_tag(g.logo.url(:thumb)), g.logo.url, target: '_blank'
+        link_to image_tag(g.logo.url(:thumb).to_s), g.logo.url,
+          target: '_blank' if news.logo.url
       end
       row :title
       row :content

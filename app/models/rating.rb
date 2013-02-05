@@ -9,6 +9,7 @@ class Rating < ActiveRecord::Base
   }
 
   validates_presence_of :region, :value, :date
+  validates_uniqueness_of :date, scope: :region_id
 
   after_initialize :set_default_date
 

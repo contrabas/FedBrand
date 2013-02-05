@@ -30,7 +30,8 @@ ActiveAdmin.register Gallery do
       end
       g.images.each do |image|
         row :image do
-          link_to image_tag(image.file.url(:thumb)), image.file.url, target: '_blank'
+          link_to image_tag(image.file.url(:thumb)), image.file.url,
+            target: '_blank' if image.file.url
         end
       end
       row :created_at

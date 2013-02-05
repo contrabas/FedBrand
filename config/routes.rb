@@ -12,7 +12,7 @@ FedBrand::Application.routes.draw do
     resources :news, only: %w(index show) do
       collection do
         get 'tags/:tag', to: 'news#tags', as: :tag
-        get '/:category', to: 'news#category', as: :category
+        get 'category/:category', to: 'news#category', as: :category
       end
     end
     resources :ratings, only: %w(index)

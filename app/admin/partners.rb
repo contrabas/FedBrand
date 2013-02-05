@@ -18,7 +18,8 @@ ActiveAdmin.register Partner do
     column :id
     column :name
     column "Logo" do |partner|
-      link_to image_tag(partner.logo.url(:thumb)), partner.logo.url, target: '_blank'
+      link_to image_tag(partner.logo.url(:thumb)), partner.logo.url,
+        target: '_blank' if partner.logo.url
     end
     column :url
     default_actions
