@@ -14,7 +14,8 @@ class Rating < ActiveRecord::Base
   after_initialize :set_default_date
 
   def self.top limit=nil
-    where(date: last_month.month_span).order('value DESC').limit(limit)
+    find :all, conditions: {date: last_month.month_span}, joins: :region,
+      limit: limit, order: "value DESC, regions.#{Region.name_column}"
   end
 
   def self.sum_by_region

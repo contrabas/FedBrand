@@ -10,7 +10,11 @@ class Region < ActiveRecord::Base
   validates_presence_of :name_ru
   validates_uniqueness_of :name_ru
 
+  def self.name_column
+    "name_#{I18n.locale}"
+  end
+
   def name
-    send "name_#{I18n.locale}"
+    send Region.name_column
   end
 end
