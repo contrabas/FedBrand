@@ -1,6 +1,6 @@
 #news_show_page
   %h2= @news.title
-  .image= image_tag @news.logo.url(:thumb)
+  .image= image_tag @news.logo.url(:thumb) if @news.logo.url(:thumb)
   .content_block
     .content= @news.content
     = render partial: 'shared/tag_links', locals: { news: @news }

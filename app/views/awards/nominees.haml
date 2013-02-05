@@ -4,7 +4,7 @@
   .container
     .link-back= link_to t('pages.awards.back'), awards_path
     .get-content_menu.awards-nav= render 'shared/awards_nav'
-  - if award  
+  - if award
     .get-news_content.nominees-block
       %h1= link_to t('pages.awards.nominees')+' '+award.year.to_s, '#'
       .news-cats.content-news_block
@@ -19,7 +19,7 @@
     .get-experts_category.get-gradient.items-3
       - experts = Expert.joins(:jurors).where(jurors: { award_id: award.id })
       = render partial: 'shared/experts', locals: { experts: experts }
-      
+
 %section.get-shadow.nominees-slider#nominees-slider
   %h2= t('pages.awards.gallery')+' '+award.year.to_s
   - gallery = Gallery.where(award_id: award.id).last
@@ -31,4 +31,4 @@
     .jcarousel.horizontal-slider{:class=>"#{$gallery_class}"}
       %ul
         - gallery.images.each do |image|
-          %li= link_to image_tag(image.file.url(:thumb)), image.file.url
+          %li= link_to image_tag(image.file.url(:thumb)), image.file.url if image.file.url

@@ -3,13 +3,13 @@
     .link-back= link_to t('pages.awards.back'), awards_path
 
     .get-content_menu.awards-nav= render 'shared/awards_nav'
-  
+
   .container
     %article.get-organizer_main
       %figure= image_tag '/assets/tmp/award_main_organizer.jpg'
       %aside
-        %p 
-          %b Организатор. 
+        %p
+          %b Организатор.
           Cоздания социокультурных, спортивных либо иных проектов, которые повышают инвестиционную привлекательность региона. Создание и развитие геобрендов. создания социокультурных, спортивных либо иных проектов, которые повышают инвестиционную привлекательность региона. Создание и развитие геобрендов.
   .get-gradient.awards-partners_block.awards-partners_block-main
     .container
@@ -17,8 +17,8 @@
         %figure= image_tag '/assets/tmp/thumb_136_136.jpg'
         %aside
           %h1 Нина Исайченко,
-          %p.get-work_post 
-            генеральный директор PMCG «Art&Smart», 
+          %p.get-work_post
+            генеральный директор PMCG «Art&Smart»,
             %br
             идеолог  проекта «Федеральный бренд»:
           %p создания социокультурных, спортивных либо иных проектов, которые повышают инвестиционную привлекательность региона. Создание и развитие геобрендов.
@@ -28,10 +28,10 @@
     - Partner.all.each do |partner|
       %article
         %header
-          %figure= link_to image_tag(partner.logo.url(:thumb)), partner.url
+          %figure= link_to image_tag(partner.logo.url(:thumb)), partner.url if partner.logo.url
         - expert = partner.experts.first
         - if expert
-          %figure= link_to image_tag(expert.photo.url(:medium)), expert.photo.url
+          %figure= link_to image_tag(expert.photo.url(:medium)), expert.photo.url if expert.photo.url
           %aside
             %h3= link_to expert.name+',', '#'
             %p.get-work_post= expert.position

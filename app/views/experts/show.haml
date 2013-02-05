@@ -1,5 +1,5 @@
 #expert_info
-  = image_tag @expert.photo.url(:big)
+  = image_tag @expert.photo.url(:big) if @expert.photo.url
   %p= @expert.name
   %p= @expert.description
   .workplace

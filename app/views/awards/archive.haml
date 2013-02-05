@@ -23,7 +23,7 @@
                 %p= winner.title
               %article
                 %h3= link_to winner.award_category.title, '#'
-                %p= winner.title          
+                %p= winner.title
 
         %aside.get-jury
           - jurors = @award.jurors
@@ -33,7 +33,8 @@
               - next unless juror.expert
               %article
                 %figure
-                  %p= link_to image_tag(juror.expert.photo.url(:thumb)), '#'
+                  - photo = juror.expert.photo.url(:thumb)
+                  %p= link_to image_tag(photo), '#' if photo
                 %aside
                   %h3= link_to juror.expert.name, expert_path(juror.expert)
                   %p= juror.expert.position

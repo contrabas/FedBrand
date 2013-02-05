@@ -3,7 +3,8 @@
     - Opinion.all.last(3).each do |opinion|
       %li
         %figure
-          %p= image_tag opinion.expert.photo.url(:bw)
+          - photo = opinion.expert.photo
+          %p= image_tag photo.url(:bw) if photo.url
         %h3= h truncate opinion.content, length: 105, separator: ' '
         %p.get-text
           %b= opinion.expert.first_name + ' ' + opinion.expert.last_name + ", "

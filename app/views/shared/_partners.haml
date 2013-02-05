@@ -5,6 +5,6 @@
   .jcarousel.vertical-slider.white-slider#partners-slider
     %ul
       - Partner.all.each do |partner|
-        %li= link_to image_tag(partner.logo.url(:thumb)), partner.url
+        %li= link_to image_tag(partner.logo.url(:thumb)), partner.url if partner.logo.url
   .vertical-carousel_link
     = link_to 'Назад', '#', :id=>"partners-slider_next"
