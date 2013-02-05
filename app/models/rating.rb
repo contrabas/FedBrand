@@ -13,6 +13,8 @@ class Rating < ActiveRecord::Base
 
   after_initialize :set_default_date
 
+  class Custom < StandardError; end
+
   def self.top limit=nil
     find :all, conditions: {date: last_month.month_span}, joins: :region,
       limit: limit, order: "value DESC, regions.#{Region.name_column}"
@@ -38,7 +40,7 @@ class Rating < ActiveRecord::Base
     (4..spreadsheet.last_row).each do |i|
       row = spreadsheet.row i
       region = Region.find_by_name_ru row[1]
-      raise "Регион #{row[1]} в базе не найден!" unless region
+      raise Custom.new "Регион \"#{row[1]}\" в базе не найден!" unless region
       data << [region.id, row[8]]
     end
 
