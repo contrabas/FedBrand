@@ -78,3 +78,6 @@ en:
   i18n:
     transliterate:
       rule: {}
+  activerecord:
+    models:
+      admin: 

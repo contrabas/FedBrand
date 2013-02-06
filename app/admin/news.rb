@@ -14,6 +14,8 @@ ActiveAdmin.register News do
       f.input :announcement
       f.input :published_by
       f.input :publish_url
+      f.input :online
+      f.input :award
     end
 
     f.actions
