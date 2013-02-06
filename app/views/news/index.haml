@@ -12,7 +12,7 @@
         - news_by_category.last(3).each do |news|
           %article
             %h3= link_to news.title, news
-            %p= h truncate news.content, length: 150, separator: ' '
+            %p= h truncate strip_tags(news.content), length: 150, separator: ' '
             = render partial: 'shared/tag_links', locals: { news: news }
             %footer= link_to t('pages.news.read_more'), news
         .get-all_items= link_to 'Все публикации', category_news_index_path(category.name_en.downcase), :class=>"get-icon_link"
