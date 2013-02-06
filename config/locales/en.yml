@@ -1,70 +1,4 @@
 en:
-  nav:
-    home: Home
-    rating: Ratings
-    experts: Experts
-    award: Awards
-    news: News
-    contacts: Contacts
-  layout:
-    top_ratings:
-      title: TOP-10 FEDBRAND
-      links: GO TO FULL RATINGS
-      minimize: HIDE RATINGS
-      maximize: SHOW RATINGS
-  pages:
-    news:
-      title: NEWS
-      region_link: Region's Rating
-      read_more: READ MORE
-      latest: LATEST
-      rubrics: RUBRICS
-      tags: TAGS
-      press_centre: PRESS-CENTRE
-      preview: ANNOUNCEMENTS
-      press: PUBLICATIONS IN PRESS
-    ratings:
-      name: Subject
-      rating: Rating
-      change: Monthly change
-      back: BACK TO RATINGS
-      experts: EXPERTS OF
-      post: ! 'POST:'
-      workplace: ! 'WORKPLACE:'
-      expert_opinions: EXPERT'S PUBLICATIONS
-      all_experts: ALL EXPERTS
-      download: Download detailed ratings
-    contacts:
-      map:
-        title: MAP ROUTE
-        address: ! 'Address: Moscow, Tverskaya Street 9/17 c7'
-      contact_us:
-        title: CONTACT US
-        phone: PHONE NUMBER
-    awards:
-      published: PUBLICATIONS IN MEDIA
-      winners: ! 'WINNERS:'
-      jury: ! 'JURY:'
-      title: ABOUT AWARD
-      back: BACK TO AWARDS
-      links:
-        organizers: ORGANIZERS
-        nominees: NOMINEES
-        archive: ARCHIVE
-      nominees: Nominees of award «Federal Brand»
-      experts: Experts jury of yearly award «Federal Brand»
-      gallery: Guests of award «Federal Brand»
-    videos:
-      title: VIDEO
-    opinions:
-      title: EXPERT'S OPINIONS
-      link: ALL EXPERTS OPINIONS
-    home:
-      news:
-        title: NEWS
-        link: READ MORE
-      partners:
-        title: PARTNERS
   delete: Delete?
   date:
     order:
@@ -75,3 +9,72 @@ en:
       default: ! '%d.%m.%Y'
       long: ! '%d %B %Y'
       short: ! '%d %b'
+  pages:
+    awards:
+      back: Back to awards
+      experts: Experts jury of yearly award «Federal Brand»
+      gallery: Guests of award «Federal Brand»
+      jury: ! 'Jury:'
+      links:
+        archive: Archive
+        nominees: Nominees
+        organizers: Organizers
+      nominees: Nominees of award «Federal Brand»
+      published: Publications in media
+      title: About award
+      winners: ! 'Winners:'
+    contacts:
+      contact_us:
+        phone: Phone number
+        title: Contact us
+      map:
+        address: ! 'Address: Moscow, Tverskaya Street 9/17 c7'
+        title: Map route
+    home:
+      news:
+        link: Read more
+        title: News
+      partners:
+        title: Partners
+    nav:
+      award: Awards
+      contacts: Contacts
+      experts: Experts
+      home: Home
+      news: News
+      rating: Ratings
+    news:
+      latest: Latest
+      press: Publication in media
+      press_centre: Press-centre
+      preview: Announcements
+      read_more: Read more
+      region_link: Region's Rating
+      rubrics: Rubrics
+      tags: Tags
+      title: News
+    opinions:
+      link: All experts opinions
+      title: Expert's opinions
+    ratings:
+      all_experts: All experts
+      back: Back to ratings
+      change: Monthly change
+      clear: Clear selection
+      download: Download detailed ratings
+      expert_opinions: Expert's publications
+      experts: Experts of
+      name: Subject
+      post: ! 'Post:'
+      rating: Rating
+      workplace: ! 'Workplace:'
+    top_ratings:
+      links: Go to full ratings
+      maximize: Show ratings
+      minimize: Hide ratings
+      title: Top-10 FedBrand
+    videos:
+      title: Video
+  i18n:
+    transliterate:
+      rule: {}

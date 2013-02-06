@@ -12,6 +12,7 @@ gem 'globalize3'
 gem 'gon'
 gem 'roo'
 gem 'acts-as-taggable-on'
+gem 'localeapp'
 
 group :development do
   gem 'quiet_assets'

@@ -2,10 +2,10 @@
 
   %header
     #minimize.get-rating_link
-      = link_to t('layout.top_ratings.minimize'), '#'
+      = link_to t('pages.top_ratings.minimize'), '#'
     #maximize.get-rating_link
-      = link_to t('layout.top_ratings.maximize'), '#'
-    = t 'layout.top_ratings.title'
+      = link_to t('pages.top_ratings.maximize'), '#'
+    = t 'pages.top_ratings.title'
     - last_month = Rating.last_month
     = link_to last_month.month_i18n, monthly_experts_path(last_month.month_path)
   #ratings
@@ -17,4 +17,4 @@
             - break unless rating
             - i += 1
             = ratings_row i, rating.region.name, rating.value
-    %footer= link_to t('layout.top_ratings.links'), ratings_path, class: "get-icon_link"
+    %footer= link_to t('pages.top_ratings.links'), ratings_path, class: "get-icon_link"
