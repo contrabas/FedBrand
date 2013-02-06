@@ -89,6 +89,9 @@ ru:
           other: ! '%{model}: сохранение не удалось из-за %{count} ошибки'
     models:
       admin: Admin
+      world-economy-loss: World Economy Losses
+      en: 
+      news: 
   date:
     abbr_day_names:
     - Вс
@@ -481,3 +484,14 @@ ru:
       title: Топ-10 ФедБренд
     videos:
       title: Видео
+  update: 
+  available_styles: 
+  insert_many: 
+  insert_many_tip: 
+  insert_one: 
+  insert_one_tip: 
+  upload_a_file: 
+  view_grid: 
+  view_grid_tip: 
+  view_list: 
+  view_list_tip: 
