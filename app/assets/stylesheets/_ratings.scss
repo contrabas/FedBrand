@@ -43,7 +43,7 @@
             &.change {width:140px; }
             &.trend {width:52px;
 
-              span {@include hide-block; width:8px; height:11px;
+              div {width:8px; height:11px;
 
                 &.get-up {background:sprite($icons, icon-up-green) no-repeat; }
                 &.get-down {background:sprite($icons, icon-down-red) no-repeat; }
