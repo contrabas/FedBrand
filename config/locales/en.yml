@@ -36,6 +36,8 @@ en:
         title: News
       partners:
         title: Partners
+        next: Next
+        prev: Previous
     nav:
       award: Awards
       contacts: Contacts
@@ -43,6 +45,8 @@ en:
       home: Home
       news: News
       rating: Ratings
+      slogan: Репутация - путь к процветанию региона!
+      footer: репутационный рейтинг регионов
     news:
       latest: Latest
       press: Publication in media
@@ -75,3 +79,19 @@ en:
       title: Top-10 FedBrand
     videos:
       title: Video
+  i18n:
+    transliterate:
+      rule: {}
+    plural:
+      rule: 
+  activerecord:
+    models:
+      admin: Admin
+      en: En
+  views:
+    pagination:
+      first: First
+      last: Last
+      next: Next
+      previous: Previous
+      truncate: ! ' '

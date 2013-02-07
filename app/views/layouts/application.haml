@@ -27,7 +27,7 @@
           .container
             .get-logo= link_to 'FedBrand', root_path
             .get-slogan
-              %p Репутация - путь к процветанию региона!
+              %p= t 'pages.nav.slogan'
             .get-social
               %ul
                 %li= link_to 'Facebook', '#', :class=>'get-facebook', :title=>'Facebook'
@@ -42,7 +42,9 @@
     %footer#get-footer
       .container
         %aside.pull-left
-          %p &#169; ФедБренд &#151; репутационный рейтинг регионов
+          %p
+            &#169; ФедБренд &#151;
+            = t 'pages.nav.footer'
         %aside.pull-right
           %p= link_to 'welcome@fedbrand.ru', 'mailto:welcome@fedbrand.ru'
 

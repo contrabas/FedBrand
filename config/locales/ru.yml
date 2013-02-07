@@ -87,6 +87,9 @@ ru:
           many: ! '%{model}: сохранение не удалось из-за %{count} ошибок'
           one: ! '%{model}: сохранение не удалось из-за %{count} ошибки'
           other: ! '%{model}: сохранение не удалось из-за %{count} ошибки'
+    models:
+      admin: Admin
+      en: En
   date:
     abbr_day_names:
     - Вс
@@ -437,6 +440,8 @@ ru:
         title: Новости
       partners:
         title: Партнеры
+        next: Вперед
+        prev: Назад
     nav:
       award: Премия
       contacts: Контакты
@@ -444,6 +449,8 @@ ru:
       home: Главная
       news: Новости
       rating: Рейтинг
+      slogan: Репутация - путь к процветанию региона!
+      footer: репутационный рейтинг регионов
     news:
       latest: Актуально
       press: Публикации в прессе
@@ -476,3 +483,15 @@ ru:
       title: Топ-10 ФедБренд
     videos:
       title: Видео
+  i18n:
+    transliterate:
+      rule: 
+    plural:
+      rule: 
+  views:
+    pagination:
+      first: Первая
+      last: Последняя
+      next: Следующая
+      previous: Предыдущая
+      truncate: ! ' '

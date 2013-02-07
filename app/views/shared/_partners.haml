@@ -1,10 +1,10 @@
 %section.index-block.index-partners_block.get-shadow
   %h2= t 'pages.home.partners.title'
   .vertical-carousel_link
-    = link_to 'Назад', '#', :id=>"partners-slider_prev"
+    = link_to t('pages.home.partners.prev'), '#', :id=>"partners-slider_prev"
   .jcarousel.vertical-slider.white-slider#partners-slider
     %ul
       - Partner.all.each do |partner|
         %li= link_to image_tag(partner.logo.url(:thumb)), partner.url if partner.logo.url
   .vertical-carousel_link
-    = link_to 'Назад', '#', :id=>"partners-slider_next"
+    = link_to t('pages.home.partners.next'), '#', :id=>"partners-slider_next"

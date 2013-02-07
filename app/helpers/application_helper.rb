@@ -6,7 +6,10 @@ module ApplicationHelper
   end
 
   def nav_link label, url
-    class_name = 'active' if request.fullpath[ %r"/[^/]*" ] == url[ %r"/[^/]*" ]
+    method = '.sub(/^\/en/,"")[ %r"/[^/]*" ]'
+    fullpath = request.fullpath
+
+    class_name = 'active' if eval("fullpath#{method}") == eval("url#{method}")
     link_to label, url, class: class_name
   end
 end
