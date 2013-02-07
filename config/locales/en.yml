@@ -75,24 +75,3 @@ en:
       title: Top-10 FedBrand
     videos:
       title: Video
-  i18n:
-    transliterate:
-      rule: {}
-  activerecord:
-    models:
-      admin: Admin
-      world-economy-loss: World Economy Losses
-      en: En
-      news: News
-  update: Update %{model}
-  required: required
-  available_styles: 
-  insert_many: 
-  insert_many_tip: 
-  insert_one: 
-  insert_one_tip: 
-  upload_a_file: 
-  view_grid: 
-  view_grid_tip: 
-  view_list: 
-  view_list_tip: 
