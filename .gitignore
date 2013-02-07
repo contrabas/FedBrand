@@ -2,8 +2,7 @@
 /.sass-cache
 /db/*.sqlite3
 /db/*.sqlite3-journal
-/log/*.log
-/log/*.yml
+/log/*
 /tmp
 /public/uploads
 .DS_Store
