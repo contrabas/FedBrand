@@ -2,13 +2,13 @@
   #videoModal.modal.hide.fade{:tabindex=>'-1', :role=>'dialog', 'aria-labelledby'=>'videoModalLabel', 'aria-hidden'=>'true'}
     %header.modal-header
       %button.close{:type=>'button', 'data-dismiss'=>'modal', 'aria-hidden'=>'true'} x
-      %h3#videoModalLabel Премия 2011 года
+      %h3#videoModalLabel
     .modal-body
-      %iframe{:src=>'http://player.vimeo.com/video/45682028', :width=>'500', :height=>'281', :frameborder=>'0'}
+      .iframe= raw(%Q[<iframe width="560" height="315" frameborder="0" allowfullscreen></iframe>])
 %h2= t 'pages.videos.title'
 - Video.all.last(3).each do |video|
-  %article
-    %figure
+  %article.video
+    %figure{ data: { iframe: video.tag, title: video.title }}
       %p= link_to image_tag(video.thumb), '#videoModal', :role=>'button', 'data-toggle'=>'modal', 'data-backdrop'=>'static' if video.thumb
       %figcaption
         %h3= link_to video.title, '#videoModal', :role=>'button', 'data-toggle'=>'modal', 'data-backdrop'=>'static'

@@ -41,3 +41,10 @@ $ ->
 
   unless gon.locale == 'ru'
     $.datepicker.setDefaults $.datepicker.regional['en-GB']
+
+  $('#videoModal').on 'hide', ->
+    $(@).find("iframe").attr "src", $(@).find("iframe").attr("src")
+  $('body').on 'click', '.video a', ->
+    el = $(@).parents('figure')
+    $('#videoModal #videoModalLabel').text el.data('title')
+    $('#videoModal .iframe').html el.data('iframe')
