@@ -5,11 +5,11 @@
   .news-cats.get-gradient.width-full
     %section= render partial: 'shared/news', locals: { collection: News.all.first(3) }
 
-  - News.all[4..-1].group_by(&:category).each do |category, news_by_category|
+  - News.offset(3).limit(2**32).group_by(&:category).each do |category, c_news|
     %h2= category.name.mb_chars.upcase.to_s
     .news-cats.get-gradient.content-news_block
       %section
-        - news_by_category.first(3).each do |news|
+        - c_news.first(3).each do |news|
           %article
             %h3= link_to news.title, news
             %p= h truncate strip_tags(news.content), length: 150, separator: ' '
@@ -17,23 +17,25 @@
             %footer= link_to t('pages.news.read_more'), news
         .get-all_items= link_to 'Все публикации', category_news_index_path(category.name_en.downcase), :class=>"get-icon_link"
 
-  %h2.no-bg= t 'pages.news.press_centre'
-  .get-content_menu.get-pad
-    %ul
-      %li.preview= link_to t('pages.news.preview'), '#'
-      %li.online= link_to "ON-LINE", '#'
-      %li.press= link_to t('pages.news.press'), '#'
-  .news-cats.content-news_block.get-publications.items-3
-    - News.where("online is true or announcement is true").each do |news|
-      %section
-        %article
-          %h3= link_to news.title, news
-          %p= strip_tags(news.content)
-          %footer
-            - if news.online
-              %span.get-bradius.on-line On-line
-            - if news.announcement
-              = link_to 'Читать полностью', news
+  - pc_news = News.press_centre
+  - unless pc_news.blank?
+    %h2.no-bg= t 'pages.news.press_centre'
+    .get-content_menu.get-pad
+      %ul
+        %li.preview= link_to t('pages.news.preview'), '#'
+        %li.online= link_to "ON-LINE", '#'
+        %li.press= link_to t('pages.news.press'), '#'
+    .news-cats.content-news_block.get-publications.items-3
+      - pc_news.each do |news|
+        %section
+          %article
+            %h3= link_to news.title, news
+            %p= h truncate strip_tags(news.content), length: 150, separator: ' '
+            %footer
+              - if news.online
+                %span.get-bradius.on-line On-line
+              - if news.announcement
+                = link_to 'Читать полностью', news
 
       / %article
       /   %h3= link_to 'Hello!', '#'
