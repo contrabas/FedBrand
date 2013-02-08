@@ -3,13 +3,13 @@
   %p= @expert.name
   %p= @expert.description
   .workplace
-    %b.title= t 'pages.ratings.workplace'
+    %b.title= t 'pages.experts.workplace'
     = @expert.workplace
   .post
-    %b.title= t 'pages.ratings.post'
+    %b.title= t 'pages.experts.post'
     = @expert.post
 
 #expert_opinions
-  = t('pages.ratings.expert_opinions')+ ":"
+  = t('pages.experts.expert_opinions')+ ":"
   - @expert.opinions.each do |opinion|
     .content= opinion.content

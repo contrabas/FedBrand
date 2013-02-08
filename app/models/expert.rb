@@ -1,6 +1,6 @@
 class Expert < ActiveRecord::Base
   attr_protected
-  translates :first_name, :last_name, :middle_name, :description, :position, 
+  translates :first_name, :last_name, :middle_name, :description, :position,
     :post, :workplace
 
   default_scope { with_translations(I18n.locale) }
@@ -15,17 +15,16 @@ class Expert < ActiveRecord::Base
   has_many :monthly_experts
   has_many :months, through: :monthly_experts
 
+  before_validation :generate_slug
   validates_presence_of :first_name, :last_name, :slug
   validates_uniqueness_of :slug
-
-  before_validation :generate_slug
 
   def to_param
     slug
   end
 
-  def name 
-    "#{first_name} #{last_name}" 
+  def name
+    "#{first_name} #{last_name}"
   end
 
   def full_name
@@ -33,6 +32,6 @@ class Expert < ActiveRecord::Base
   end
 
   def generate_slug
-    self.slug ||= name.parameterize
+    self.slug ||= Russian::transliterate(name)
   end
 end

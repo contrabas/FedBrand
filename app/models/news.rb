@@ -4,6 +4,7 @@ class News < ActiveRecord::Base
   acts_as_taggable_on :ru_tags, :en_tags
 
   default_scope { with_translations(I18n.locale) }
+  scope :press_centre, where("online is true or announcement is true")
 
   mount_uploader :logo, ImageUploader
 

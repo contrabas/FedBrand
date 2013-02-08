@@ -249,7 +249,7 @@ DEPENDENCIES
   acts-as-taggable-on
   bootstrap-sass (~> 2.2.2.0)
   carrierwave
-  ckeditor
+  ckeditor (= 3.7.3)
   coffee-rails
   compass-rails
   devise

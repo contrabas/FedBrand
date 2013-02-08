@@ -3,13 +3,13 @@
 
   %h2.actual= t 'pages.news.latest'
   .news-cats.get-gradient.width-full
-    %section= render partial: 'shared/news', locals: { collection: News.all.last(3) }
+    %section= render partial: 'shared/news', locals: { collection: News.all.first(3) }
 
-  - News.all[0..-4].group_by(&:category).each do |category, news_by_category|
+  - News.offset(3).limit(2**32).group_by(&:category).each do |category, c_news|
     %h2= category.name.mb_chars.upcase.to_s
     .news-cats.get-gradient.content-news_block
       %section
-        - news_by_category.last(3).each do |news|
+        - c_news.first(3).each do |news|
           %article
             %h3= link_to news.title, news
             %p= h truncate strip_tags(news.content), length: 150, separator: ' '
@@ -17,39 +17,46 @@
             %footer= link_to t('pages.news.read_more'), news
         .get-all_items= link_to 'Все публикации', category_news_index_path(category.name_en.downcase), :class=>"get-icon_link"
 
-  %h2.no-bg= t 'pages.news.press_centre'
-  .get-content_menu.get-pad
-    %ul
-      %li.preview= link_to t('pages.news.preview'), '#'
-      %li.online= link_to "ON-LINE", '#'
-      %li.press= link_to t('pages.news.press'), '#'
-  .news-cats.content-news_block.get-publications.items-3
-    %section
-      %article
-        %h3= link_to 'Hello!', '#'
-        %p Hello, text!
-        %footer
-          %span Анонс
-      %article
-        %h3= link_to 'Hello!', '#'
-        %p Hello, text!
-        %footer
-          %span.get-bradius.on-line On-line
-      %article
-        %h3= link_to 'Hello!', '#'
-        %p Hello, text!
-        %footer= link_to 'Читать полностью', '#'
-  / -.get-pager
-  /   -.get-link.get-prev_link= link_to 'Предыдущая', '#', :class=>'no-active'
-  /   -.get-middle
-  /     -%ul
-  /       -%li
-  /         -%span.get-bradius 1
-  /       -%li= link_to '2', '#', :class=>"get-bradius"
-  /       -%li= link_to '3', '#', :class=>"get-bradius"
-  /       -%li= link_to '4', '#', :class=>"get-bradius"
-  /       -%li= link_to '5', '#', :class=>"get-bradius"
-  /   -.get-link.get-next_link= link_to 'Следующая', '#'
+  - pc_news = News.press_centre
+  - unless pc_news.blank?
+    %h2.no-bg= t 'pages.news.press_centre'
+    .get-content_menu.get-pad
+      %ul
+        %li.preview= link_to t('pages.news.preview'), '#'
+        %li.online= link_to "ON-LINE", '#'
+        %li.press= link_to t('pages.news.press'), '#'
+    .news-cats.content-news_block.get-publications.items-3
+      - pc_news.each do |news|
+        %section
+          %article
+            %h3= link_to news.title, news
+            %p= h truncate strip_tags(news.content), length: 150, separator: ' '
+            %footer
+              - if news.online
+                %span.get-bradius.on-line On-line
+              - if news.announcement
+                = link_to 'Читать полностью', news
+
+      / %article
+      /   %h3= link_to 'Hello!', '#'
+      /   %p Hello, text!
+      /   %footer
+      /     %span Анонс
+      / %article
+      /   %h3= link_to 'Hello!', '#'
+      /   %p Hello, text!
+      /   %footer= link_to 'Читать полностью', '#'
+  / .get-pager
+  /   .get-link.get-prev_link= link_to 'Предыдущая', '#', :class=>'no-active'
+  /   .get-middle
+  /     %ul
+  /       %li
+  /         %span.get-bradius 1
+  /       %li= link_to '2', '#', :class=>"get-bradius"
+  /       %li= link_to '3', '#', :class=>"get-bradius"
+  /       %li= link_to '4', '#', :class=>"get-bradius"
+  /       %li= link_to '5', '#', :class=>"get-bradius"
+  /   .get-link.get-next_link= link_to 'Следующая', '#'
 
 %section.get-sidebar.news-sidebar.no-width_pad
   .get-wrapper
