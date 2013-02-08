@@ -62,6 +62,6 @@ class Rating < ActiveRecord::Base
   private
 
   def set_default_date
-    self.date = Date.today.at_beginning_of_month if self.date.blank?
+    self.date = Date.today.at_beginning_of_month if new_record?
   end
 end

@@ -34,7 +34,7 @@
             %footer
               - if news.online
                 %span.get-bradius.on-line On-line
-              - if news.announcement
+              - else
                 = link_to 'Читать полностью', news
 
       / %article

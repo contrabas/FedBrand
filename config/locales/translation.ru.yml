@@ -109,7 +109,7 @@ ru:
 
       news:
         slug: Путь Урл
-        logo: Логотип  #g
+        logo: Изображение  #g
         remote_logo_url: либо урл
         title: Заголовок  #g
         content: Содержание  #g
@@ -121,6 +121,8 @@ ru:
         region: Регион  #g
         award: Премия
         tag_list: Теги
+        edited_time: Время создания
+        actual: Актуально
 
       category:
         name_ru: Название(рус.)  #g

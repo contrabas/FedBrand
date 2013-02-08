@@ -11,10 +11,12 @@ ActiveAdmin.register News do
       f.input :remote_logo_url
       f.input :tag_list, hint: "Разделять запятыми"
       f.input :category
+      f.input :edited_time
+      f.input :actual
+      f.input :online
       f.input :announcement
       f.input :published_by
       f.input :publish_url
-      f.input :online
       f.input :award
     end
 
@@ -23,18 +25,18 @@ ActiveAdmin.register News do
 
   index do
     selectable_column
-    column :id
-    column "Logo" do |news|
+    column :title
+    column :logo do |news|
       link_to image_tag(news.logo.url(:thumb)), news.logo.url,
         target: '_blank' if news.logo.url
     end
-    column :title
-    column :tag_list
     column :category
-    column :award
+    column :edited_time
+    column :actual
+    column :online
     column :announcement
     column :published_by
-    column :online
+    column :award
 
     default_actions
   end
@@ -52,10 +54,13 @@ ActiveAdmin.register News do
       row :title
       row :content
       row :category
-      row :award
+      row :edited_time
+      row :actual
+      row :online
       row :announcement
       row :published_by
       row :publish_url
+      row :award
       row :created_at
       row :updated_at
     end
