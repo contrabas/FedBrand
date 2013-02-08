@@ -26,8 +26,8 @@
         %li.online= link_to "ON-LINE", '#'
         %li.press= link_to t('pages.news.press'), '#'
     .news-cats.content-news_block.get-publications.items-3
-      - pc_news.each do |news|
-        %section
+      %section
+        - pc_news.each do |news|
           %article
             %h3= link_to news.title, news
             %p= h truncate strip_tags(news.content), length: 150, separator: ' '
