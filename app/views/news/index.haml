@@ -3,9 +3,10 @@
 
   %h2.actual= t 'pages.news.latest'
   .news-cats.get-gradient.width-full
-    %section= render partial: 'shared/news', locals: { collection: News.main.actual.first(3) }
+    - actual = News.main.actual.limit(3)
+    %section= render partial: 'shared/news', locals: { collection: actual }
 
-  - News.main.offset(3).limit(2**32).group_by(&:category).each do |category, category_news|
+  - News.main.where('news.id not in (?)', actual.map(&:id)).group_by(&:category).each do |category, category_news|
     %h2= category.name.mb_chars.upcase.to_s
     .news-cats.get-gradient.content-news_block
       %section
