@@ -13,7 +13,7 @@ regions = [
 ]
 
 regions.each do |region|
-  Region.create! name_ru: region[:name_ru], name_en: region[:name_en],
+  Region.create name_ru: region[:name_ru], name_en: region[:name_en],
     remote_emblem_url: region[:url]
 end
 
@@ -24,16 +24,16 @@ categories = [
 ]
 
 categories.each do |category|
-  Category.create! name_ru: category[:name_ru], name_en: category[:name_en]
+  Category.create name_ru: category[:name_ru], name_en: category[:name_en]
 end
 
 years = [2010, 2011, 2012]
 
 years.each do |year|
-  Award.create! year: year, ended: true
+  Award.create year: year, ended: true
 end
 
-Award.create! year: 2013
+Award.create year: 2013
 
 en_news = [
   { title: "Gerard Depardieu 'granted Russian citizenship'", slug: 'depardieu-russian-citizenship', category: 'Culture', tag_list: "Gerard Depardieu, overweight", url: "http://news.bbcimg.co.uk/media/images/65058000/jpg/_65058151_f29da479-90bc-4725-9414-c9ad0de563e6.jpg", content: "French actor Gerard Depardieu has obtained Russian citizenship, according to a brief statement posted on the Kremlin website.\n\"Vladimir Putin has signed a decree granting Russian citizenship to Gerard Depardieu,\" the message read.\nMr Depardieu recently announced he would give up his French passport after the government criticised his decision to move abroad to avoid higher taxes.\nIn December, Mr Putin said he would be happy to welcome the actor in Russia." },
@@ -45,7 +45,7 @@ en_news = [
 en_news.each do |news|
   category = Category.find_by_name_en news[:category]
   a = Award.find_by_year 2012
-  News.create! category_id: category.id, title: news[:title], award_id: a.id,
+  News.create category_id: category.id, title: news[:title], award_id: a.id,
     content: news[:content], remote_logo_url: news[:url], slug: news[:slug],
     tag_list: news[:tag_list]
 end
@@ -55,7 +55,7 @@ partners = [
 ]
 
 partners.each do |partner|
-  Partner.create! name: partner[:name], remote_logo_url: partner[:logo],
+  Partner.create name: partner[:name], remote_logo_url: partner[:logo],
     url: partner[:url]
 end
 
@@ -67,7 +67,7 @@ en_experts = [
 
 en_experts.each_with_index do |expert, i|
   category = Category.find_by_name_en expert[:category]
-  Expert.create! last_name: expert[:last_name], first_name: expert[:first_name],
+  Expert.create last_name: expert[:last_name], first_name: expert[:first_name],
     middle_name: expert[:middle_name], remote_photo_url: expert[:url],
     description: expert[:description], position: expert[:position], partner_id: i+1,
     category_id: category.id, post: expert[:post], workplace: expert[:workplace]
@@ -81,7 +81,7 @@ en_opinions = [
 
 en_opinions.each do |opinion|
   expert = Expert.find_by_last_name opinion[:expert]
-  Opinion.create! content: opinion[:content], expert_id: expert.id
+  Opinion.create content: opinion[:content], expert_id: expert.id
 end
 
 en_videos = [
@@ -91,10 +91,10 @@ en_videos = [
 ]
 
 en_videos.each do |video|
-  Video.create! title: video[:title], remote_thumb_url: video[:thumb], tag: video[:tag]
+  Video.create title: video[:title], remote_thumb_url: video[:thumb], tag: video[:tag]
 end
 
-AwardCategory.create! title: 'Business-Project of the Year'
+AwardCategory.create title: 'Business-Project of the Year'
 expert = Expert.find_by_last_name 'Biden'
 
 
@@ -109,7 +109,7 @@ ru_news = [
 ru_news.each do |news|
   category = Category.find_by_name_ru news[:category]
   a = Award.find_by_year 2012
-  News.create! category_id: category.id, title: news[:title], award_id: a.id,
+  News.create category_id: category.id, title: news[:title], award_id: a.id,
     content: news[:content], remote_logo_url: news[:url], slug: news[:slug],
     tag_list: news[:tag_list]
 end
@@ -124,7 +124,7 @@ ru_experts = [
 
 ru_experts.each_with_index do |expert, i|
   category = Category.find_by_name_ru expert[:category]
-  Expert.create! last_name: expert[:last_name], first_name: expert[:first_name],
+  Expert.create last_name: expert[:last_name], first_name: expert[:first_name],
     middle_name: expert[:middle_name], remote_photo_url: expert[:url],
     description: expert[:description], position: expert[:position], partner_id: i+1,
     category_id: category.id, post: expert[:post], workplace: expert[:workplace]
@@ -133,13 +133,13 @@ end
 6.times do |i|
   Region.all.each do |region|
     num = 250+Random.rand(400)
-    Rating.create! region_id: region.id, value: num, date: (5-i).months.ago
+    Rating.create region_id: region.id, value: num, date: (5-i).months.ago
   end
-  month = Month.create! month: i.months.ago
+  month = Month.create month: i.months.ago
   rand_num = Random.rand 1..6
   rand_num.times do |j|
     id = rand(Expert.count)+1
-    MonthlyExpert.create! month_id: month.id, expert_id: id
+    MonthlyExpert.create month_id: month.id, expert_id: id
   end
 end
 
@@ -151,7 +151,7 @@ ru_opinions = [
 
 ru_opinions.each do |opinion|
   expert = Expert.find_by_last_name opinion[:expert]
-  Opinion.create! content: opinion[:content], expert_id: expert.id
+  Opinion.create content: opinion[:content], expert_id: expert.id if expert
 end
 
 ru_videos = [
@@ -161,7 +161,7 @@ ru_videos = [
 ]
 
 ru_videos.each do |video|
-  Video.create! title: video[:title], remote_thumb_url: video[:thumb], tag: video[:tag]
+  Video.create title: video[:title], remote_thumb_url: video[:thumb], tag: video[:tag]
 end
 
 AwardCategory.first.update_attribute :title, 'Бизнес-проект года'
@@ -169,10 +169,10 @@ AwardCategory.first.update_attribute :title, 'Бизнес-проект года
 years = [2012, 2013]
 years.each do |year|
   award = Award.find_by_year year
-  Nominee.create! award_id: award.id, date: '2012.12.12'.to_date, region_id: 2,
+  Nominee.create award_id: award.id, date: '2012.12.12'.to_date, region_id: 2,
     award_category_id: 1, winner: true, title: "Проект возрождения Амуро-Сибирской магистрали"
   Expert.all.each do |expert|
-    Juror.create! award_id: award.id, expert_id: expert.id
+    Juror.create award_id: award.id, expert_id: expert.id
   end
 end
 
@@ -182,7 +182,7 @@ images = [
 ]
 
 award = Award.find_by_year 2013
-gallery = Gallery.create! award_id: award.id
+gallery = Gallery.create award_id: award.id
 images.each do |image|
-  Image.create! remote_file_url: image, gallery_id: gallery.id
+  Image.create remote_file_url: image, gallery_id: gallery.id
 end

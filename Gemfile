@@ -27,4 +27,5 @@ group :assets do
   gem 'jquery-rails'
   gem 'uglifier'
   gem "modernizr", '2.6.2'
+  gem 'Wijmo'
 end
