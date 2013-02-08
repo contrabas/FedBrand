@@ -57,7 +57,7 @@ GEM
       activesupport (>= 3.2.0)
     choice (0.1.6)
     chunky_png (1.2.7)
-    ckeditor (4.0.2)
+    ckeditor (3.7.3)
       mime-types
       orm_adapter
     coffee-rails (3.2.2)
@@ -249,7 +249,7 @@ DEPENDENCIES
   acts-as-taggable-on
   bootstrap-sass (~> 2.2.2.0)
   carrierwave
-  ckeditor
+  ckeditor (= 3.7.3)
   coffee-rails
   compass-rails
   devise

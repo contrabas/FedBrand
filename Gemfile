@@ -14,7 +14,7 @@ gem 'gon'
 gem 'roo'
 gem 'acts-as-taggable-on'
 gem 'localeapp'
-gem 'ckeditor'
+gem 'ckeditor', '3.7.3'
 
 group :development do
   gem 'quiet_assets'
