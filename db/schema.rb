@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130208121012) do
+ActiveRecord::Schema.define(:version => 20130208160424) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -165,7 +165,7 @@ ActiveRecord::Schema.define(:version => 20130208121012) do
     t.integer  "award_id"
     t.boolean  "announcement", :default => false
     t.boolean  "online",       :default => false
-    t.string   "published_by"
+    t.string   "published_by", :default => ""
     t.string   "publish_url"
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false

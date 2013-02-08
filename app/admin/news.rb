@@ -1,5 +1,9 @@
 #coding: utf-8
 ActiveAdmin.register News do
+  scope :all
+  scope :ru
+  scope :en
+
   form do |f|
     f.inputs do
       f.input :slug

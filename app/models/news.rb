@@ -4,12 +4,14 @@ class News < ActiveRecord::Base
   acts_as_taggable_on :ru_tags, :en_tags
   just_define_datetime_picker :edited_time
 
-  default_scope { with_translations(I18n.locale) }
+  default_scope { with_translations(I18n.locale).order('edited_time DESC') }
   scope :press_centre, where("online is true or announcement is true
-    or news.published_by is not null")
+    or news.published_by != ''")
   scope :main, where("online is false and announcement is false
-    and news.published_by is null")
+    and news.published_by = ''")
   scope :actual, where(actual: true)
+  scope :ru, with_translations('ru')
+  scope :en, with_translations('en')
 
   mount_uploader :logo, ImageUploader
 

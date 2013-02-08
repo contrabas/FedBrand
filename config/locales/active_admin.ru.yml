@@ -81,6 +81,10 @@ ru:
       links:
         sign_in: "Войти"
         forgot_your_password: "Забыли пароль?"
+    scopes:
+      all: "Все"
+      ru: "Рус"
+      en: "Англ"
   formtastic:
     :yes: 'Да'
     :no: 'Нет'
