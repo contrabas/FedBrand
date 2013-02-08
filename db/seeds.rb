@@ -207,6 +207,7 @@ end
 3.times do |i|
   Region.all.each do |region|
     num = 250+Random.rand(400)
+<<<<<<< HEAD
     Rating.create region_id: region.id, value: num, date: (3-i).months.ago
   end
   month = Month.create month: i.months.ago
@@ -214,6 +215,15 @@ end
   rand_num.times do |j|
     id = rand(Expert.unscoped{Expert.count})+1
     MonthlyExpert.create(month_id: month.id, expert_id: id) rescue nil
+=======
+    Rating.create region_id: region.id, value: num, date: (5-i).months.ago
+  end
+  month = Month.create month: i.months.ago
+  rand_num = Random.rand 1..6
+  rand_num.times do |j|
+    id = rand(Expert.count)+1
+    MonthlyExpert.create month_id: month.id, expert_id: id
+>>>>>>> origin/style
   end
 end
 

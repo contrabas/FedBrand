@@ -30,5 +30,9 @@ group :assets do
   gem 'jquery-rails'
   gem 'uglifier'
   gem "modernizr", '2.6.2'
+<<<<<<< HEAD
   gem 'turbo-sprockets-rails3'
+=======
+  gem 'Wijmo'
+>>>>>>> origin/style
 end
