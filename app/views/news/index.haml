@@ -3,13 +3,13 @@
 
   %h2.actual= t 'pages.news.latest'
   .news-cats.get-gradient.width-full
-    %section= render partial: 'shared/news', locals: { collection: News.all.first(3) }
+    %section= render partial: 'shared/news', locals: { collection: News.main.actual.first(3) }
 
-  - News.offset(3).limit(2**32).group_by(&:category).each do |category, c_news|
+  - News.main.offset(3).limit(2**32).group_by(&:category).each do |category, category_news|
     %h2= category.name.mb_chars.upcase.to_s
     .news-cats.get-gradient.content-news_block
       %section
-        - c_news.first(3).each do |news|
+        - category_news.first(3).each do |news|
           %article
             %h3= link_to news.title, news
             %p= h truncate strip_tags(news.content), length: 150, separator: ' '
@@ -33,7 +33,7 @@
             %p= h truncate strip_tags(news.content), length: 150, separator: ' '
             %footer
               - if news.online
-                %span.get-bradius.on-line On-line
+                %span.get-bradius.on-line Online
               - else
                 = link_to 'Читать полностью', news
 

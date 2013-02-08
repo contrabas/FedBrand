@@ -6,6 +6,9 @@ class News < ActiveRecord::Base
   default_scope { with_translations(I18n.locale) }
   scope :press_centre, where("online is true or announcement is true
     or news.published_by is not null")
+  scope :main, where("online is false and announcement is false
+    and news.published_by is null")
+  scope :actual, where(actual: true)
 
   mount_uploader :logo, ImageUploader
 
