@@ -15,7 +15,7 @@
             %p= h truncate strip_tags(news.content), length: 150, separator: ' '
             = render partial: 'shared/tag_links', locals: { news: news }
             %footer= link_to t('pages.news.read_more'), news
-        .get-all_items= link_to 'Все публикации', category_news_index_path(category.name_en.downcase), :class=>"get-icon_link"
+        .get-all_items= link_to 'Все публикации', category_news_index_path(category), :class=>"get-icon_link"
 
   - pc_news = News.press_centre
   - unless pc_news.blank?
@@ -29,6 +29,8 @@
       %section
         - pc_news.each do |news|
           %article
+            - unless news.published_by.blank?
+              %span= news.published_by+":"
             %h3= link_to news.title, news
             %p= h truncate strip_tags(news.content), length: 150, separator: ' '
             %footer
@@ -66,13 +68,13 @@
       %h2= t 'pages.news.rubrics'
       %ul
         / %li= link_to t('pages.news.latest'), '#'
-        - News.all[0..-4].map(&:category).uniq.each do |category|
-          %li= link_to category.name.mb_chars.upcase.to_s, category_news_index_path(category.name_en.downcase)
+        - Category.all.each do |category|
+          %li= link_to category.name.mb_chars.upcase.to_s, category_news_index_path(category)
     .get-sidebar.get-shadow.get-tags_cloud
       %h2= t 'pages.news.tags'
       .tag_links
         %ul
           - tag_cloud News.tag_counts, %w[s m l] do |tag, css_class|
-            %li= link_to tag.name, tag_news_index_path(tag), class: css_class
+            %li= link_to tag, tag_news_index_path(tag), class: css_class
 
 .content-wrapper= render 'shared/opinions'
