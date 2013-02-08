@@ -39,14 +39,14 @@ en:
         next: Next
         prev: Previous
     nav:
-      award: Awards
       contacts: Contacts
       experts: Experts
       home: Home
       news: News
-      rating: Ratings
       slogan: Репутация - путь к процветанию региона!
       footer: репутационный рейтинг регионов
+      awards: Awards
+      ratings: Ratings
     news:
       latest: Latest
       press: Publication in media

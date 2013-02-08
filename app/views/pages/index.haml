@@ -1,9 +1,9 @@
 %section.index-block.content-news_block.get-shadow
   %h2= t 'pages.home.news.title'
-  - News.all.last(4).each do |news|
+  - News.all.first(4).each do |news|
     %article
       %h3= link_to news.title, news
-      %p= h truncate news.content, length: 220, separator: ' '
+      %p= h truncate strip_tags(news.content), length: 220, separator: ' '
       %footer= link_to t('pages.home.news.link'), news, :class=>'get-icon_link'
 
 %section.index-block.index-video_block.get-shadow= render 'shared/videos'

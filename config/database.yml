@@ -1,13 +1,10 @@
 development:
   adapter: postgresql
   database: FedBrand_development
-  username: vagrant
-  password: 
 test:
   adapter: postgresql
   database: FedBrand_test
   host: localhost
-
 production:
   adapter: postgresql
   database: FedBrand_production

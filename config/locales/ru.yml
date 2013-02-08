@@ -443,14 +443,14 @@ ru:
         next: Вперед
         prev: Назад
     nav:
-      award: Премия
       contacts: Контакты
       experts: Эксперты
       home: Главная
       news: Новости
-      rating: Рейтинг
       slogan: Репутация - путь к процветанию региона!
       footer: репутационный рейтинг регионов
+      awards: Премия
+      ratings: Рейтинг
     news:
       latest: Актуально
       press: Публикации в прессе

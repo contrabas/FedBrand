@@ -117,6 +117,9 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.7.6)
+    just-datetime-picker (0.0.5)
+      activeadmin (>= 0.4.4)
+      formtastic (>= 2.0.0)
     jwt (0.1.5)
       multi_json (>= 1.0)
     kaminari (0.14.1)
@@ -258,6 +261,7 @@ DEPENDENCIES
   gon
   haml
   jquery-rails
+  just-datetime-picker
   localeapp
   mini_magick
   modernizr (= 2.6.2)

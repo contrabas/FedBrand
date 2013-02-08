@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130206223826) do
+ActiveRecord::Schema.define(:version => 20130208160424) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -163,12 +163,14 @@ ActiveRecord::Schema.define(:version => 20130206223826) do
     t.text     "content"
     t.integer  "category_id"
     t.integer  "award_id"
-    t.boolean  "announcement"
-    t.boolean  "online"
-    t.string   "published_by"
+    t.boolean  "announcement", :default => false
+    t.boolean  "online",       :default => false
+    t.string   "published_by", :default => ""
     t.string   "publish_url"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.boolean  "actual",       :default => true
+    t.datetime "edited_time"
   end
 
   create_table "news_translations", :force => true do |t|

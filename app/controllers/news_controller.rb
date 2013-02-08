@@ -12,7 +12,7 @@ class NewsController < ApplicationController
   end
 
   def category
-    category = Category.where("lower(name_en) = ?", params[:category]).first
-    @news = News.where category_id: category.id
+    @category = Category.where("lower(name_en) = ?", params[:category]).first
+    @news = News.where category_id: @category.id
   end
 end
