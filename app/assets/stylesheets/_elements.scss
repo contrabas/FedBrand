@@ -97,3 +97,15 @@ article {
   }
 
 }
+
+.modal {border-radius:0!important; width:662px; margin-left:-340px; padding:5px 9px 9px 9px;
+
+  .modal-header {border:none; padding:0; 
+    
+    .close {width:12px; height:12px; @include hide-block; @include opacity(100); margin-top:5px!important; background:sprite($icons, icon-close) no-repeat; } 
+  
+  }
+  
+  .modal-body {padding:5px 0 0 0; text-align:center; }
+
+}

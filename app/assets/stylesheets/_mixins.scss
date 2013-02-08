@@ -1,7 +1,11 @@
+//-- Imports
+
+@import "compass/css3";
+@import "compass/css3/pie";
+@import "compass/utilities";
 @import "bootstrap/variables";
 
-$icons:sprite-map('icons/*.png', $layout: smart);
-$sprites:sprite-map('sprites/*.png', $layout: smart);
+//-- Variables
 
 $linkColor:#1559a9;
 
@@ -18,9 +22,18 @@ $colorBlue:#367cba;
 
 $borderHrColor:#eee;
 
+//-- Functions
+
 @function pem($pxval, $base: $baseFontSize) {
   @return #{$pxval / $base}em;
 }
+
+//-- Sprites
+
+$icons:sprite-map('icons/*.png', $layout: smart);
+$sprites:sprite-map('sprites/*.png', $layout: smart);
+
+//-- Mixins
 
 @mixin wrap {float:left; width:100%;}
 
@@ -44,5 +57,7 @@ $borderHrColor:#eee;
 @mixin content-wrapper($margin:20px) {@include wrap; margin-top:$margin; }
 
 @mixin get-absolute($zIndex:55) {position:absolute; z-index:$zIndex; }
+
+@mixin get-relative {position:relative; }
 
 @mixin h3-big {font-size:$baseFontSize * 1.75; line-height:$baseLineHeight * 1.55; color:$linkColor; }

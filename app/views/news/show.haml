@@ -1,6 +1,33 @@
-#news_show_page
-  %h2= @news.title
-  .image= image_tag @news.logo.url(:thumb) if @news.logo.url(:thumb)
-  .content_block
-    .content= raw @news.content
-    = render partial: 'shared/tag_links', locals: { news: @news }
+%section.get-content_side.get-shadow.no-width_pad.get-news_content
+  %h1= t 'pages.news.title'
+  .get-gradient
+    %figure= image_tag @news.logo.url(:thumb) if @news.logo.url(:thumb)
+    .get-content_short
+      %h2= @news.title
+      %p= raw @news.content
+    .get-content_short
+      = render partial: 'shared/tag_links', locals: { news: @news }
+  .get-content_short.get-content_full
+    %p test
+    %blockquote 
+      По неофициальной информации, обыск проходил не только в кабинете губернатора, но и в его резиденции на Черном озере. Однако Следственный комитет РФ не уточнял, куда именно ездили следователи.
+    %p test
+
+%section.get-sidebar.news-sidebar.no-width_pad
+  .get-wrapper
+    .get-sidebar.index-video_block.get-gradient.get-shadow
+      = render 'shared/videos'
+    .get-sidebar.get-shadow.get-gradient.get-news_categories
+      %h2= t 'pages.news.rubrics'
+      %ul
+        / %li= link_to t('pages.news.latest'), '#'
+        - News.all[0..-4].map(&:category).uniq.each do |category|
+          %li= link_to category.name.mb_chars.upcase.to_s, category_news_index_path(category.name_en.downcase)
+    .get-sidebar.get-shadow.get-tags_cloud
+      %h2= t 'pages.news.tags'
+      .tag_links
+        %ul
+          - tag_cloud News.tag_counts, %w[s m l] do |tag, css_class|
+            %li= link_to tag.name, tag_news_index_path(tag), class: css_class
+
+.content-wrapper= render 'shared/opinions'

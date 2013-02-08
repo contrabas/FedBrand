@@ -43,9 +43,11 @@
 
 .container {padding-top:7px; }
 
-ul.nav-element {width:970px; height:45px; background-color:#fff; @include my-inline-list;
+@include ul-inlineblock(0 20px, center);
 
-  li {width:158px; padding:0 10px; line-height:45px; text-align:center; text-transform:uppercase; font-size:pem(12px); font-weight:bold; background:image-url('repeaters/bg_nav_li.png') no-repeat right center;
+ul.nav-element {width:970px; height:45px; background-color:#fff; @include float-left;
+
+  li {padding-right:40px; line-height:45px; text-align:center; text-transform:uppercase; font-size:pem(12px); font-weight:bold; background:image-url('repeaters/bg_nav_li.png') no-repeat right center;
 
   .dropdown-menu li {float:none; padding:0; line-height:normal; width:100%!important; text-align:left!important;
 
@@ -69,9 +71,7 @@ ul.nav-element {width:970px; height:45px; background-color:#fff; @include my-inl
 
   }
 
-    &:first-child {width:105px; padding:0 0 0 24px; text-align:left; }
-
-    &:last-child {width:105px; padding:0 24px 0 0; text-align:right; background:none; }
+    &:last-child {background:none; }
 
     a {color:#000; &:hover, &.active {color:#c90000; } &.active {text-decoration:none!important; cursor:auto; } }
 

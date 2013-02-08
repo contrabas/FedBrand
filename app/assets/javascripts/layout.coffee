@@ -38,5 +38,5 @@ $ ->
   $("#nominees-slider_next").click ->
     $("#nominees-slider").jcarousel "scroll", "-=1"
     false
-
-  #$("#expert-way").wijdropdown();
+  
+  $("#dp-inline").datepicker $.datepicker.regional[ "gon.locale" ]

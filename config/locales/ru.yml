@@ -465,17 +465,12 @@ ru:
       link: Все экспертные мнения
       title: Мнения экспертов
     ratings:
-      all_experts: Все эксперты
       back: Назад к рейтингу
       change: Изменения за месяц
       clear: Очистить список
       download: Скачать подробный рейтинг
-      expert_opinions: Публикации эксперта
-      experts: Эксперты
       name: Субъект РФ
-      post: ! 'Должность:'
       rating: Рейтинг
-      workplace: ! 'Место работы:'
     top_ratings:
       links: Перейти к полному рейтингу
       maximize: Развернуть рейтинг
@@ -483,6 +478,12 @@ ru:
       title: Топ-10 ФедБренд
     videos:
       title: Видео
+    experts:
+      all_experts: Все эксперты
+      expert_opinions: Публикации эксперта
+      experts: Эксперты
+      post: ! 'Должность:'
+      workplace: ! 'Место работы:'
   i18n:
     transliterate:
       rule: 
