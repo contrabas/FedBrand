@@ -2,6 +2,7 @@ class News < ActiveRecord::Base
   attr_protected
   translates :content, :title, :published_by
   acts_as_taggable_on :ru_tags, :en_tags
+  just_define_datetime_picker :edited_time
 
   default_scope { with_translations(I18n.locale) }
   scope :press_centre, where("online is true or announcement is true

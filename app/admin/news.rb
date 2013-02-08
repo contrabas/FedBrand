@@ -4,14 +4,14 @@ ActiveAdmin.register News do
     f.inputs do
       f.input :slug
       f.input :title
-      f.input :content, as: :ckeditor
       f.input :logo, hint: f.object.logo.url ?
         f.template.image_tag(f.object.logo.url(:thumb)) :
         f.template.content_tag(:span, "")
+      f.input :content, as: :ckeditor
       f.input :remote_logo_url
       f.input :tag_list, hint: "Разделять запятыми"
       f.input :category
-      f.input :edited_time
+      f.input :edited_time, as: :just_datetime_picker
       f.input :actual
       f.input :online
       f.input :announcement
