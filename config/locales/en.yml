@@ -61,17 +61,12 @@ en:
       link: All experts opinions
       title: Expert's opinions
     ratings:
-      all_experts: All experts
       back: Back to ratings
       change: Monthly change
       clear: Clear selection
       download: Download detailed ratings
-      expert_opinions: Expert's publications
-      experts: Experts of
       name: Subject
-      post: ! 'Post:'
       rating: Rating
-      workplace: ! 'Workplace:'
     top_ratings:
       links: Go to full ratings
       maximize: Show ratings
@@ -79,6 +74,12 @@ en:
       title: Top-10 FedBrand
     videos:
       title: Video
+    experts:
+      all_experts: All experts
+      expert_opinions: Expert's publications
+      experts: Experts of
+      post: ! 'Post:'
+      workplace: ! 'Workplace:'
   i18n:
     transliterate:
       rule: {}
