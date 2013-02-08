@@ -38,5 +38,6 @@ $ ->
   $("#nominees-slider_next").click ->
     $("#nominees-slider").jcarousel "scroll", "-=1"
     false
-  
-  $("#dp-inline").datepicker $.datepicker.regional[ "gon.locale" ]
+
+  unless gon.locale == 'ru'
+    $.datepicker.setDefaults $.datepicker.regional['en-GB']

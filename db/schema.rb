@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130208160424) do
+ActiveRecord::Schema.define(:version => 20130208195930) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -178,9 +178,9 @@ ActiveRecord::Schema.define(:version => 20130208160424) do
     t.string   "locale"
     t.text     "content"
     t.string   "title"
-    t.string   "published_by"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.string   "published_by", :default => ""
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
   end
 
   add_index "news_translations", ["locale"], :name => "index_news_translations_on_locale"

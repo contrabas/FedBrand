@@ -56,7 +56,6 @@ addRows = (data) ->
       startDate = date if i == 0
       endDate = date if i == gon.data.ratings.length-1
 
-      $.datepicker.setDefaults($.datepicker.regional['en-GB']) unless gon.locale == 'ru'
       values.push { "v": date, "f": $.datepicker.formatDate('MM yy', date) }
 
       addValues ratings
