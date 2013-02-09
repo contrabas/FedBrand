@@ -80,11 +80,6 @@ en:
       experts: Experts of
       post: ! 'Post:'
       workplace: ! 'Workplace:'
-  i18n:
-    transliterate:
-      rule: {}
-    plural:
-      rule: 
   activerecord:
     models:
       admin: Admin

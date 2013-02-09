@@ -3,7 +3,7 @@ class NewsController < ApplicationController
   end
 
   def tags
-    @tag = ActsAsTaggableOn::Tag.find_by_slug params[:tag]
+    @tag = ActsAsTaggableOn::Tag.find_by_slug! params[:tag]
     @news = News.tagged_with @tag
   end
 
@@ -12,7 +12,7 @@ class NewsController < ApplicationController
   end
 
   def category
-    @category = Category.where("lower(name_en) = ?", params[:category]).first
+    @category = Category.find_by_slug! params[:category]
     @news = News.where category_id: @category.id
   end
 end

@@ -32,6 +32,6 @@ class Expert < ActiveRecord::Base
   end
 
   def generate_slug
-    self.slug ||= Russian::transliterate(name)
+    self.slug ||= name.parameterize
   end
 end

@@ -130,6 +130,8 @@ ru:
         translations: Переводы  #g
         experts: Эксперты  #g
         news: Новости  #g
+        edited_time: Время создания
+        slug: Путь Урл
 
       user:
         email: Электронная почта  #g

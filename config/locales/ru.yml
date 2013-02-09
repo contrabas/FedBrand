@@ -484,11 +484,6 @@ ru:
       experts: Эксперты
       post: ! 'Должность:'
       workplace: ! 'Место работы:'
-  i18n:
-    transliterate:
-      rule: 
-    plural:
-      rule: 
   views:
     pagination:
       first: Первая

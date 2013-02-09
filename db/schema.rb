@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130208195930) do
+ActiveRecord::Schema.define(:version => 20130209090940) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -55,8 +55,10 @@ ActiveRecord::Schema.define(:version => 20130208195930) do
   create_table "categories", :force => true do |t|
     t.string   "name_ru"
     t.string   "name_en"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.datetime "edited_time"
+    t.string   "slug"
   end
 
   create_table "ckeditor_assets", :force => true do |t|

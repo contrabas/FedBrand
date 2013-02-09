@@ -1,5 +1,6 @@
 #coding: utf-8
 ActiveAdmin.register News do
+  config.sort_order = "edited_time_desc"
   scope :all
   scope :ru
   scope :en
