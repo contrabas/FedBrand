@@ -48,7 +48,7 @@
 
     ul {margin:0; padding:0; list-style-type:none;
 
-      li {margin-top:20px; line-height:normal; position:relative; background:image-url('repeaters/gray_dot3px.gif') repeat-x left bottom;
+      li {margin-top:20px; line-height:normal; position:relative; background:image-url('repeaters/gray_dot3px.gif') repeat-x left bottom; font-size:12px !important;
 
       em {font-style:normal; position:relative; left:0; padding-right:4px; top:4px; } span {@include get-absolute; padding-left:2px; right:0; top:4px; color:#d30000; }
 
