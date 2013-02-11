@@ -1,6 +1,6 @@
 %section.index-block.content-news_block.get-shadow
   %h2= t 'pages.home.news.title'
-  - News.all.first(4).each do |news|
+  - News.where(main_page: true).limit(4).each do |news|
     %article
       %h3= link_to news.title, news
       %p= h truncate strip_tags(news.content), length: 220, separator: ' '

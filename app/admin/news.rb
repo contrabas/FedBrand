@@ -17,6 +17,7 @@ ActiveAdmin.register News do
       f.input :tag_list, hint: "Разделять запятыми"
       f.input :category
       f.input :edited_time, as: :just_datetime_picker
+      f.input :main_page
       f.input :actual
       f.input :online
       f.input :announcement
@@ -37,6 +38,7 @@ ActiveAdmin.register News do
     end
     column :category
     column :edited_time
+    column :main_page
     column :actual
     column :online
     column :announcement
@@ -60,6 +62,7 @@ ActiveAdmin.register News do
       row :content
       row :category
       row :edited_time
+      row :main_page
       row :actual
       row :online
       row :announcement

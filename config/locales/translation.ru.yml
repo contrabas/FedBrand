@@ -123,6 +123,7 @@ ru:
         tag_list: Теги
         edited_time: Время создания
         actual: Актуально
+        main_page: На Главной
 
       category:
         name_ru: Название(рус.)  #g
@@ -145,6 +146,7 @@ ru:
         last_sign_in_ip: Последний айпи  #g
         admin: Админ  #g
         sign_in_count: Количество входов
+        password: Пароль
 
       region:
         name_ru: Название(рус.)
