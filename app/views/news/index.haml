@@ -61,22 +61,5 @@
   /       %li= link_to '5', '#', :class=>"get-bradius"
   /   .get-link.get-next_link= link_to 'Следующая', '#'
 
-%section.get-sidebar.news-sidebar.no-width_pad
-  .get-wrapper
-    /= render 'shared/calendar'
-    .get-sidebar.index-video_block.get-gradient.get-shadow
-      = render 'shared/videos'
-    .get-sidebar.get-shadow.get-gradient.get-news_categories
-      %h2= t 'pages.news.rubrics'
-      %ul
-        / %li= link_to t('pages.news.latest'), '#'
-        - Category.all.each do |category|
-          %li= link_to category.name.mb_chars.upcase.to_s, category_news_index_path(category)
-    .get-sidebar.get-shadow.get-tags_cloud
-      %h2= t 'pages.news.tags'
-      .tag_links
-        %ul
-          - tag_cloud News.tag_counts, %w[s m l] do |tag, css_class|
-            %li= link_to tag, tag_news_index_path(tag), class: css_class
-
+= render 'shared/news_sidebar'
 .content-wrapper= render 'shared/opinions'
