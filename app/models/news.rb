@@ -17,6 +17,8 @@ class News < ActiveRecord::Base
 
   belongs_to :category
   belongs_to :award
+  has_many :news_opinions, dependent: :destroy
+  has_many :opinions, through: :news_opinions
 
   validates_presence_of :title, :slug, :category_id
   validates_uniqueness_of :slug

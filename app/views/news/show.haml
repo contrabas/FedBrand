@@ -7,11 +7,10 @@
       %p= raw @news.content
     .get-content_short
       = render partial: 'shared/tag_links', locals: { news: @news }
-  .get-content_short.get-content_full
-    %p test
-    %blockquote 
-      По неофициальной информации, обыск проходил не только в кабинете губернатора, но и в его резиденции на Черном озере. Однако Следственный комитет РФ не уточнял, куда именно ездили следователи.
-    %p test
+  - unless @news.opinions.blank?
+    .get-content_short.get-content_full
+      - @news.opinions.each do |opinion|
+        %blockquote= raw opinion.content
 
 %section.get-sidebar.news-sidebar.no-width_pad
   .get-wrapper

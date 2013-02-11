@@ -3,7 +3,7 @@ ru:
     models:
       award: Премии  #g
       award_category: Категории Премий
-      opinion: Мнения  #g
+      opinion: Цитаты  #g
       partner: Партнеры  #g
       gallery: Галлереи  #g
       news: Новости  #g
@@ -18,6 +18,7 @@ ru:
       video: Видео
       month: Месяцы
       monthly_expert: Эксперт месяца
+      news_opinion: Новостная Цитата
     attributes:
       active_admin/comment:
         resource_type: resource_type  #g
@@ -61,6 +62,7 @@ ru:
         content: Содержание  #g
         translations: Переводы  #g
         expert: Эксперт  #g
+        news: Новости
 
       opinion/translation:
         locale: Язык  #g
@@ -124,6 +126,9 @@ ru:
         edited_time: Время создания
         actual: Актуально
         main_page: На Главной
+
+      news_opinion:
+        news: Новость
 
       category:
         name_ru: Название(рус.)  #g
