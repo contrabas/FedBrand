@@ -7,8 +7,8 @@ ActiveAdmin.register News do
 
   form do |f|
     f.inputs do
-      f.input :slug
       f.input :title
+      f.input :slug
       f.input :logo, hint: f.object.logo.url ?
         f.template.image_tag(f.object.logo.url(:thumb)) :
         f.template.content_tag(:span, "")

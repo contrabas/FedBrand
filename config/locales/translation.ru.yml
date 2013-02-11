@@ -110,7 +110,7 @@ ru:
         image_count: Фотографий
 
       news:
-        slug: Путь Урл
+        slug: Урл путь
         logo: Изображение  #g
         remote_logo_url: либо урл
         title: Заголовок  #g
