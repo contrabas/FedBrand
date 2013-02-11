@@ -32,10 +32,10 @@ ActiveAdmin.register News do
   index do
     selectable_column
     column :title
-    column :logo do |news|
-      link_to image_tag(news.logo.url(:thumb)), news.logo.url,
-        target: '_blank' if news.logo.url
-    end
+    # column :logo do |news|
+    #   link_to image_tag(news.logo.url(:thumb)), news.logo.url,
+    #     target: '_blank' if news.logo.url
+    # end
     column :category
     column :edited_time
     column :main_page
