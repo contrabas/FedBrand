@@ -23,6 +23,7 @@ ActiveAdmin.register User do
     f.inputs "Admin Details" do
       f.input :email
       f.input :password
+      f.input :admin
     end
     f.buttons
   end
