@@ -3,7 +3,7 @@
   - News.where(main_page: true).limit(4).each do |news|
     %article
       %h3= link_to news.title, news
-      %p= h truncate strip_tags(news.content), length: 220, separator: ' '
+      %p= h truncate Sanitize.clean(news.content, remove_contents: ['sub-title']), length: 220, separator: ' '
       %footer= link_to t('pages.home.news.link'), news, :class=>'get-icon_link'
 
 %section.index-block.index-video_block.get-shadow= render 'shared/videos'

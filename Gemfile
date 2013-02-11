@@ -16,6 +16,7 @@ gem 'acts-as-taggable-on'
 gem 'localeapp'
 gem 'ckeditor', '3.7.3'
 gem "just-datetime-picker"
+gem 'sanitize'
 
 group :development do
   gem 'quiet_assets'

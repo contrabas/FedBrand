@@ -4,5 +4,5 @@
     %h2= news.title
     .image= image_tag news.logo.url(:thumb) if news.logo.url(:thumb)
     .content_block
-      .content= strip_tags news.content
+      .content= Sanitize.clean(news.content, remove_contents: ['sub-title'])
       = render partial: 'shared/tag_links', locals: { news: news }

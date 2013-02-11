@@ -47,5 +47,5 @@
           - all_news.each do |news|
             %article
               %h3= link_to news.title, news
-              %p= h truncate strip_tags(news.content), length: 100, separator: ' '
+              %p= h truncate Sanitize.clean(news.content, remove_contents: ['sub-title']), length: 100, separator: ' '
               %footer= link_to t('pages.home.news.link'), news
