@@ -4,6 +4,6 @@
       %figure= image_tag news.logo.url(:thumb) if news.logo.url
     .get-desc
       %h3= link_to news.title, news
-      %p= h truncate Sanitize.clean(news.content, remove_contents: ['sub-title']), length: 250, separator: ' '
+      %p= h truncate Sanitize.clean(news.content, remove_contents: ['h1','h2','h3','h4']), length: 250, separator: ' '
     %footer= link_to t('pages.news.read_more'), news
     .get-relative.get-wrap= render partial: 'shared/tag_links', locals: { news: news }

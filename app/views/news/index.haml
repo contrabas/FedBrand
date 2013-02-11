@@ -13,7 +13,7 @@
         - category_news.first(3).each do |news|
           %article
             %h3= link_to news.title, news
-            %p= h truncate Sanitize.clean(news.content, remove_contents: ['sub-title']), length: 150, separator: ' '
+            %p= h truncate Sanitize.clean(news.content, remove_contents: ['h1','h2','h3','h4']), length: 150, separator: ' '
             = render partial: 'shared/tag_links', locals: { news: news }
             %footer= link_to t('pages.news.read_more'), news
         .get-all_items= link_to 'Все публикации', category_news_index_path(category), :class=>"get-icon_link"
@@ -33,7 +33,7 @@
             - unless news.published_by.blank?
               %span= news.published_by+":"
             %h3= link_to news.title, news
-            %p= h truncate Sanitize.clean(news.content, remove_contents: ['sub-title']), length: 150, separator: ' '
+            %p= h truncate Sanitize.clean(news.content, remove_contents: ['h1','h2','h3','h4']), length: 150, separator: ' '
             %footer
               - if news.online
                 %span.get-bradius.on-line Online
