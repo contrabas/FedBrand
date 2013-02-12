@@ -41,7 +41,9 @@ drawRatingChart = ->
 
   chart.draw data, options
   pos = $('g:eq(1) text').last().offset()
+  display = if gon.data.regions.length then 'block' else 'none'
   $('.clear-selection').css
+    display: display
     position: 'absolute'
     top: pos.top+40
     left: pos.left
