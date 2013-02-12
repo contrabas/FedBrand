@@ -2,5 +2,5 @@
   .opinion
     = image_tag opinion.expert.photo.url(:thumb) if opinion.expert.photo.url
     = opinion.expert.name
-    .content= opinion.content
+    .content= strip_tags(opinion.content)
     %footer= link_to t('pages.experts.expert_opinions'), expert_path(opinion.expert)

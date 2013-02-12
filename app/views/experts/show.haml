@@ -12,4 +12,4 @@
 #expert_opinions
   = t('pages.experts.expert_opinions')+ ":"
   - @expert.opinions.each do |opinion|
-    .content= opinion.content
+    .content= strip_tags(opinion.content)

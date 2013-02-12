@@ -5,7 +5,7 @@
         %figure
           - photo = opinion.expert.photo
           %p= image_tag photo.url(:bw) if photo.url
-        %h3= h truncate opinion.content, length: 105, separator: ' '
+        %h3= h truncate strip_tags(opinion.content), length: 105, separator: ' '
         %p.get-text
           %b= opinion.expert.first_name + ' ' + opinion.expert.last_name + ", "
           = opinion.expert.position
