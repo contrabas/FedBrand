@@ -162,7 +162,7 @@
 
     blockquote {border:1px solid #777; padding:15px 20px; @include float-left; font-style:italic; font-size:pem(18px); }
 
-    .get-content_short {@include float-left; width:615px; padding-left:20px; blockquote {width:573px; }
+    .get-content_short {@include float-left; width:550px; padding-left:20px; blockquote {width:573px; }
 
       &.get-content_full {padding-left:30px; width:605px; margin-top:20px; blockquote {width:563px; } } }
 
