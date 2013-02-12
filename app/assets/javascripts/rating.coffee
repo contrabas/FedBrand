@@ -40,6 +40,11 @@ drawRatingChart = ->
     replaceMonths()
 
   chart.draw data, options
+  pos = $('g:eq(1) text').last().offset()
+  $('.clear-selection').css
+    position: 'absolute'
+    top: pos.top+40
+    left: pos.left
 
 loadChart = ->
   google.load "visualization", "1",
