@@ -6,13 +6,13 @@ ActiveAdmin.register Opinion do
       f.input :expert
     end
 
-    f.has_many :news_opinions do |g|
-      unless g.object.new_record?
-        g.input :_destroy, as: :boolean, required: false, label: t('delete')
-      end
+    # f.has_many :news_opinions do |g|
+    #   unless g.object.new_record?
+    #     g.input :_destroy, as: :boolean, required: false, label: t('delete')
+    #   end
 
-      g.input :news
-    end
+    #   g.input :news
+    # end
 
     f.actions
   end
@@ -22,9 +22,9 @@ ActiveAdmin.register Opinion do
     column :id
     column :content
     column :expert
-    column :news do |g|
-      g.news.map(&:title).join(', ')
-    end
+    # column :news do |g|
+    #   g.news.map(&:title).join(', ')
+    # end
 
     default_actions
   end
@@ -34,11 +34,11 @@ ActiveAdmin.register Opinion do
       row :id
       row :content
       row :expert
-      g.news.each do |news|
-        row :news do
-          link_to news.title, admin_news_path(news)
-        end
-      end
+      # g.news.each do |news|
+      #   row :news do
+      #     link_to news.title, admin_news_path(news)
+      #   end
+      # end
       row :created_at
       row :updated_at
     end
