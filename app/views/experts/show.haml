@@ -2,11 +2,11 @@
   = image_tag @expert.photo.url(:big) if @expert.photo.url
   %p= @expert.name
   %p= @expert.description
-  - if @expert.workplace
+  - unless @expert.workplace.blank?
     .workplace
       %b.title= t 'pages.experts.workplace'
       = @expert.workplace
-  - if @expert.post
+  - unless @expert.post.blank?
     .post
       %b.title= t 'pages.experts.post'
       = @expert.post

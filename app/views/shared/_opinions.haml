@@ -3,10 +3,11 @@
     - Opinion.all.last(3).each do |opinion|
       %li
         %figure
-          - photo = opinion.expert.photo
+          - expert = opinion.expert
+          - photo = expert.photo
           %p= image_tag photo.url(:bw) if photo.url
         %h3= h truncate strip_tags(opinion.content), length: 105, separator: ' '
         %p.get-text
-          %b= opinion.expert.first_name + ' ' + opinion.expert.last_name
-          = ", " + opinion.expert.position if opinion.expert.position
+          %b= expert.first_name + ' ' + expert.last_name
+          = ", " + expert.position unless expert.position.blank?
   %footer= link_to t('pages.opinions.link'), quotes_experts_path, class: 'get-icon_link'

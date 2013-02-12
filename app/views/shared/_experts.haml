@@ -4,11 +4,11 @@
     %h3= link_to expert.name, expert_path(expert)
     %p= expert.description
     %ul.work-info
-      - if expert.workplace
+      - unless expert.workplace.blank?
         %li
           %span= t 'pages.experts.workplace'
           = expert.workplace
-      - if expert.post
+      - unless expert.post.blank?
         %li
           %span= t 'pages.experts.post'
           = expert.post
