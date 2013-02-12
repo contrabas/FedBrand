@@ -2,12 +2,14 @@
   = image_tag @expert.photo.url(:big) if @expert.photo.url
   %p= @expert.name
   %p= @expert.description
-  .workplace
-    %b.title= t 'pages.experts.workplace'
-    = @expert.workplace
-  .post
-    %b.title= t 'pages.experts.post'
-    = @expert.post
+  - if @expert.workplace
+    .workplace
+      %b.title= t 'pages.experts.workplace'
+      = @expert.workplace
+  - if @expert.post
+    .post
+      %b.title= t 'pages.experts.post'
+      = @expert.post
 
 #expert_opinions
   = t('pages.experts.expert_opinions')+ ":"

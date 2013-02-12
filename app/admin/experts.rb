@@ -22,16 +22,13 @@ ActiveAdmin.register Expert do
 
   index do
     selectable_column
-    column :id
-    column :last_name
-    column :first_name
-    column :middle_name
-    column "Photo" do |expert|
+    column :full_name
+    column :photo do |expert|
       link_to image_tag(expert.photo.url(:thumb)), expert.photo.url,
         target: '_blank' if expert.photo.url
     end
-    column :description do |expert|
-      truncate expert.description, length: 100, separator: ' '
+    column :description, width: "200px" do |expert|
+      truncate expert.description, length: 200, separator: ' '
     end
     column :position
     column :post

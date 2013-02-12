@@ -4,10 +4,12 @@
     %h3= link_to expert.name, expert_path(expert)
     %p= expert.description
     %ul.work-info
-      %li
-        %span= t 'pages.experts.workplace'
-        = expert.workplace
-      %li
-        %span= t 'pages.experts.post'
-        = expert.post
+      - if expert.workplace
+        %li
+          %span= t 'pages.experts.workplace'
+          = expert.workplace
+      - if expert.post
+        %li
+          %span= t 'pages.experts.post'
+          = expert.post
     %footer= link_to t('pages.experts.expert_opinions'), expert_path(expert)

@@ -169,13 +169,14 @@ ru:
         remote_photo_url: либо урл
         description: Описание  #g
         position: Позиция  #g
-        post: Титул  #g
+        post: Должность  #g
         workplace: Место работы  #g
         translations: Переводы  #g
         category: Категория  #g
         partner: Партнер  #g
-        opinions: Мнения  #g
+        opinions: Цитаты  #g
         slug: Путь Урл
+        full_name: ФИО
 
       image:
         file: Файл  #g
