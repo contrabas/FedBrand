@@ -5,8 +5,6 @@ ActiveAdmin.register Expert do
       f.input :last_name
       f.input :first_name
       f.input :middle_name
-      f.input :category
-      f.input :partner
       f.input :photo, hint: f.object.photo.url ?
         f.template.image_tag(f.object.photo.url(:thumb)) :
         f.template.content_tag(:span, "")
@@ -15,6 +13,8 @@ ActiveAdmin.register Expert do
       f.input :position
       f.input :post
       f.input :workplace
+      f.input :category
+      f.input :partner
     end
 
     f.actions
@@ -27,18 +27,40 @@ ActiveAdmin.register Expert do
       link_to image_tag(expert.photo.url(:thumb)), expert.photo.url,
         target: '_blank' if expert.photo.url
     end
-    column :description, width: "200px" do |expert|
-      truncate expert.description, length: 200, separator: ' '
-    end
+    column :description
     column :position
     column :post
     column :workplace
     column :category
     column :partner
-    column :opinions do |expert|
-      expert.opinions.count
-    end
     default_actions
+  end
+
+  show do |g|
+    attributes_table do
+      row :id
+      row :last_name
+      row :first_name
+      row :middle_name
+      row :photo do
+        link_to image_tag(g.photo.url(:thumb).to_s), g.photo.url,
+          target: '_blank' if g.photo.url
+      end
+      row :description
+      row :position
+      row :post
+      row :workplace
+      row :category
+      row :partner
+      g.opinions.each do |opinion|
+        row :opinion do
+          link_to raw(opinion.content), admin_opinion_path(opinion)
+        end
+      end
+      row :created_at
+      row :updated_at
+    end
+    active_admin_comments
   end
 
   action_item except: [:show] do

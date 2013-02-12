@@ -56,7 +56,7 @@ ActiveAdmin.register News do
       end
       row :logo do
         link_to image_tag(g.logo.url(:thumb).to_s), g.logo.url,
-          target: '_blank' if news.logo.url
+          target: '_blank' if g.logo.url
       end
       row :title
       row :content

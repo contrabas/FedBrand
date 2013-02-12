@@ -177,6 +177,7 @@ ru:
         opinions: Цитаты  #g
         slug: Путь Урл
         full_name: ФИО
+        opinion: Цитата
 
       image:
         file: Файл  #g
