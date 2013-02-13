@@ -10,7 +10,9 @@
 
   .get-expert_action {@include get-absolute; right:0; width:330px;
 
-    label {color:#666; font-size:pem(12px); padding-right:10px; }
+    label {color:#666; font-size:pem(12px); padding-right:10px; cursor:auto;}
+
+    select {cursor:auto;}
 
     .link-abc {font-size:pem(12px); a {color:#000; text-decoration:underline!important; &:hover {text-decoration:none!important; } }}
 
