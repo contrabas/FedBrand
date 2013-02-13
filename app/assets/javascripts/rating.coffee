@@ -46,7 +46,7 @@ drawRatingChart = ->
     display: display
     position: 'absolute'
     top: pos.top+40
-    left: pos.left
+    left: pos.left-15
 
 loadChart = ->
   google.load "visualization", "1",

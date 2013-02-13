@@ -18,7 +18,6 @@
       %tr
         %td.idle{:colspan=>"7"}
       - ratings = Rating.top
-      -#- cache(ratings) do
       - lm_ratings = Rating.last_month_ratings.map(&:region)
       - ratings.each_with_index do |rating, i|
         - lm_rating = lm_ratings.index(rating.region)
