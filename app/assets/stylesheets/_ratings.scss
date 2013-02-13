@@ -20,7 +20,13 @@
     aside {@include float-left; margin-top:15px;
 
       &.rating-dashboard {padding-left:15px; padding-bottom:15px; width:608px;
-
+        
+        .clear-selection {display:block; padding:8px 15px; text-transform:uppercase; color:#000; font-size:pem(12px); font-weight:bold; left:940px!important;
+        
+          &:before {content:""; @include float-left; width:9px; height:9px; background:sprite($icons, icon-clear) no-repeat; margin:5px 15px 0 0; }
+        
+        }
+        
         .get-text {@include content-wrapper(30px);
 
           p {font-size:pem(12px); }

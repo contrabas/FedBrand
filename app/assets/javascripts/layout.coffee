@@ -41,7 +41,12 @@ $ ->
 
   unless gon.locale == 'ru'
     $.datepicker.setDefaults $.datepicker.regional['en-GB']
-
+  
+  $( "#dp-inline" ).datepicker(
+    showOtherMonths: true
+    selectOtherMonths: true
+  )
+  
   $('#videoModal').on 'hide', ->
     $(@).find("iframe").attr "src", $(@).find("iframe").attr("src")
   $('body').on 'click', '.video a', ->
