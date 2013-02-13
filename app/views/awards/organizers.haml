@@ -36,4 +36,4 @@
             %h3= link_to expert.name+',', '#'
             %p.get-work_post= expert.position
             %p= h truncate expert.description, length: 150, separator: ' '
-            %footer= link_to t('pages.news.read_more'), '#'
+            %footer= link_to t('pages.news.read_more'), expert

@@ -1,10 +1,10 @@
 %section.index-block.index-expert_block.get-shadow#index_expert-block
   %ul
-    - Opinion.all.last(3).each do |opinion|
+    - Opinion.limit(3).each do |opinion|
       %li
         %figure
           - expert = opinion.expert
-          - photo = expert.photo
+          - photo = expert.photo_by_height.url ? expert.photo_by_height : expert.photo
           %p= image_tag photo.url(:bw) if photo.url
         %h3= h truncate strip_tags(opinion.content), length: 105, separator: ' '
         %p.get-text

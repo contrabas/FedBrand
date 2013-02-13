@@ -1,9 +1,12 @@
 #coding: utf-8
 ActiveAdmin.register Opinion do
+  config.sort_order = "edited_time_desc"
+
   form do |f|
     f.inputs do
       f.input :content, as: :ckeditor
       f.input :expert
+      f.input :edited_time, as: :just_datetime_picker
     end
 
     # f.has_many :news_opinions do |g|
@@ -22,6 +25,7 @@ ActiveAdmin.register Opinion do
     column :id
     column :content
     column :expert
+    column :edited_time
     # column :news do |g|
     #   g.news.map(&:title).join(', ')
     # end
@@ -34,6 +38,7 @@ ActiveAdmin.register Opinion do
       row :id
       row :content
       row :expert
+      row :edited_time
       # g.news.each do |news|
       #   row :news do
       #     link_to news.title, admin_news_path(news)

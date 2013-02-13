@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130211120757) do
+ActiveRecord::Schema.define(:version => 20130213092925) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -105,9 +105,10 @@ ActiveRecord::Schema.define(:version => 20130211120757) do
     t.text     "position"
     t.string   "post"
     t.string   "workplace"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.string   "slug"
+    t.string   "photo_by_height"
   end
 
   create_table "galleries", :force => true do |t|
@@ -234,8 +235,9 @@ ActiveRecord::Schema.define(:version => 20130211120757) do
   create_table "opinions", :force => true do |t|
     t.integer  "expert_id"
     t.text     "content"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.datetime "edited_time"
   end
 
   create_table "partners", :force => true do |t|

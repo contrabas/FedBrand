@@ -5,10 +5,19 @@ ActiveAdmin.register Expert do
       f.input :last_name
       f.input :first_name
       f.input :middle_name
-      f.input :photo, hint: f.object.photo.url ?
-        f.template.image_tag(f.object.photo.url(:thumb)) :
-        f.template.content_tag(:span, "")
-      f.input :remote_photo_url
+      f.inputs do
+        f.input :photo, hint: f.object.photo.url ?
+          f.template.image_tag(f.object.photo.url(:thumb)) :
+          f.template.content_tag(:span, "")
+        f.input :remote_photo_url
+      end
+      f.inputs do
+        f.input :photo_by_height, hint: f.object.photo_by_height.url ?
+          f.template.image_tag(f.object.photo_by_height.url(:thumb)) :
+          f.template.content_tag(:span, "")
+        f.input :remote_photo_by_height_url,
+          hint: 'Для главной страницы. Можно оставить пустым'
+      end
       f.input :description
       f.input :position
       f.input :post
@@ -23,10 +32,6 @@ ActiveAdmin.register Expert do
   index do
     selectable_column
     column :full_name
-    column :photo do |expert|
-      link_to image_tag(expert.photo.url(:thumb)), expert.photo.url,
-        target: '_blank' if expert.photo.url
-    end
     column :description
     column :position
     column :post
@@ -45,6 +50,10 @@ ActiveAdmin.register Expert do
       row :photo do
         link_to image_tag(g.photo.url(:thumb).to_s), g.photo.url,
           target: '_blank' if g.photo.url
+      end
+      row :photo_by_height do
+        link_to image_tag(g.photo_by_height.url(:thumb).to_s),
+          g.photo_by_height.url, target: '_blank' if g.photo_by_height.url
       end
       row :description
       row :position

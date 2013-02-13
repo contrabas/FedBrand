@@ -63,6 +63,7 @@ ru:
         translations: Переводы  #g
         expert: Эксперт  #g
         news: Новости
+        edited_time: Время создания
 
       opinion/translation:
         locale: Язык  #g
@@ -165,8 +166,11 @@ ru:
         first_name: Имя  #g
         last_name: Фамилия  #g
         middle_name: Отчество  #g
-        photo: Фото  #g
+        photo: Фото #g
         remote_photo_url: либо урл
+        photo_by_height: Фото в высоту #g
+        photo_by_height_hint: Фото в высоту(для главной) #g
+        remote_photo_by_height_url: либо урл
         description: Описание  #g
         position: Позиция  #g
         post: Должность  #g

@@ -18,7 +18,7 @@ class ExpertUploader < CarrierWave::Uploader::Base
   end
 
   version :bw do
-    process resize_to_fit: [125, 175]
+    process resize_to_fill: [80, 105]
     process :black_and_white
   end
 

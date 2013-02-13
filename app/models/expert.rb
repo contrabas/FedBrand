@@ -6,6 +6,7 @@ class Expert < ActiveRecord::Base
   default_scope { with_translations(I18n.locale) }
 
   mount_uploader :photo, ExpertUploader
+  mount_uploader :photo_by_height, ExpertUploader
 
   belongs_to :category
   belongs_to :partner
