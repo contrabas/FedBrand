@@ -63,5 +63,6 @@ class Rating < ActiveRecord::Base
 
   def set_default_date
     self.date = Date.today.at_beginning_of_month if self.date.blank?
+  rescue ActiveModel::MissingAttributeError
   end
 end

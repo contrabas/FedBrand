@@ -49,6 +49,7 @@ class News < ActiveRecord::Base
   private
 
   def set_default_date
-    self.edited_time = DateTime.now if new_record?
+    self.edited_time = DateTime.now if self.edited_time.blank?
+  rescue ActiveModel::MissingAttributeError
   end
 end
