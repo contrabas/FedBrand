@@ -1,56 +1,56 @@
 @import "mixins";
 
 .experts-index {
-  
+
   .get-content_side-full {padding-bottom:0; }
-  
+
 }
 
 .get-experts_block {
-  
-  .get-expert_action {@include get-absolute; right:0; width:330px; 
-    
+
+  .get-expert_action {@include get-absolute; right:0; width:330px;
+
     label {color:#666; font-size:pem(12px); padding-right:10px; }
-    
+
     .link-abc {font-size:pem(12px); a {color:#000; text-decoration:underline!important; &:hover {text-decoration:none!important; } }}
-  
+
   }
-  
+
   .experts-switcher {@include content-wrapper(30px); padding-bottom:10px;
-    
+
     h1 {@include float-left; margin:0 15px 0 0; }
-    
+
     @include ul-inlineblock(0 2px, left); ul {@include float-left; margin-top:-2px; }
-    
+
     li {padding-top:1px; &.get-label {padding-top:0; } }
-    
+
     a {@include hide-block; width:5px; height:8px;
-      
-      &.disabled {cursor:auto; }
-    
+
+      &.disabled {cursor:default; }
+
       &.get-prev {background:sprite($icons, icon-arrow-left-blue) no-repeat; &.disabled {background:sprite($icons, icon-arrow-left-gray) no-repeat; } }
       &.get-next {background:sprite($icons, icon-arrow-right-blue) no-repeat; &.disabled {background:sprite($icons, icon-arrow-right-gray) no-repeat; } }
-    
+
     }
-    
-    span {font-weight:bold; text-transform:uppercase; color:$linkColor; } 
-  
+
+    span {font-weight:bold; text-transform:uppercase; color:$linkColor; }
+
   }
-  
+
   .experts-pager {@include ul-inlineblock(0 10px 0 0, center); li {float:none; padding:3px 0 0 10px; border-left:1px solid #ccc; height:18px; &:first-child {border:none; } }
-  
+
   }
 
 }
 
 .get-experts_category {@include wrap; padding-bottom:30px;
-    
+
   h2 {margin:0 0 0 20px; }
-  
-  article {width:248px; padding-top:30px; display: -moz-inline-stack; display:inline-block; vertical-align:top; zoom: 1; *display: inline; margin:0 69px 0 20px;  
-      
+
+  article {width:248px; padding-top:30px; display: -moz-inline-stack; display:inline-block; vertical-align:top; zoom: 1; *display: inline; margin:0 69px 0 20px;
+
     footer {margin-top:30px; }
-      
+
   }
-  
+
 }
