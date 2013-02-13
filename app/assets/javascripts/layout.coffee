@@ -56,3 +56,27 @@ $ ->
 
   $('body').on 'click', '.disabled', (e) ->
     e.preventDefault()
+
+  $('body').on 'change', '#category_select', ->
+    category = $(@).find(':selected').text()
+    if category == 'Все'
+      $('article.expert').show()
+    else
+      $("article.expert[data-category!=#{category}]").hide()
+      $("article.expert[data-category=#{category}]").show()
+
+  reverse = false
+  $('body').on 'click', '.link-abc a', (e) ->
+    e.preventDefault()
+    reverse = if reverse then false else true
+    list = $(".get-experts_category")
+    items = $("article.expert").get()
+
+    items.sort (a, b) ->
+      compA = $(a).data('name')
+      compB = $(b).data('name')
+      return if (compA > compB) then -1 else
+        if (compA < compB) then 1 else 0
+
+    items.reverse() unless reverse
+    list.html items

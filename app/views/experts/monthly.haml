@@ -1,19 +1,10 @@
 %section.get-content_side-full.get-experts_block.get-shadow
-  .container
-    .get-relative
-      .get-expert_action
-        %form
-          %label Выберите направление
-          %select#expert-way
-            %option Все эксперты
-            %option Еще эксперты
-            %option Еще эксперты2
-        %p.link-abc= link_to 'По алфавиту', '#'
+  - prev_month_path  = monthly_experts_path(@date.prev_month.month_path)
+  - prev_month_class = 'disabled' unless Month.month(@date.prev_month)
+  - next_month_path  = monthly_experts_path(@date.next_month.month_path)
+  - next_month_class = 'disabled' unless Month.month(@date.next_month)
 
-    - prev_month_path  = monthly_experts_path(@date.prev_month.month_path)
-    - prev_month_class = 'disabled' unless Month.month(@date.prev_month)
-    - next_month_path  = monthly_experts_path(@date.next_month.month_path)
-    - next_month_class = 'disabled' unless Month.month(@date.next_month)
+  .container
     .experts-switcher
       %h1= t 'pages.experts.experts'
       %ul
