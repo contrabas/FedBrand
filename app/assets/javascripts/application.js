@@ -16,4 +16,5 @@
 //= require jquery.ui.datepicker-ru
 //= require jquery.jcarousel.min
 //= require bootstrap-modal
+//= require jpages
 //= require_tree .

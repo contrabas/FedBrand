@@ -22,14 +22,17 @@
   - unless pc_news.blank?
     %h2.no-bg= t 'pages.news.press_centre'
     .get-content_menu.get-pad
-      %ul
+      %ul.press-centre
         %li.preview= link_to t('pages.news.preview'), '#'
         %li.online= link_to "ON-LINE", '#'
         %li.press= link_to t('pages.news.press'), '#'
     .news-cats.content-news_block.get-publications.items-3
-      %section
+      %section#press-centre
         - pc_news.each do |news|
-          %article
+          - name = t('pages.news.preview') if news.announcement
+          - name = t('pages.news.press') unless news.published_by.blank?
+          - name = "ON-LINE" if news.online
+          %article.press-centre{data: {category: name}}
             - unless news.published_by.blank?
               %span= news.published_by+":"
             %h3= link_to news.title, news
@@ -40,26 +43,7 @@
               - else
                 = link_to 'Читать полностью', news
 
-      / %article
-      /   %h3= link_to 'Hello!', '#'
-      /   %p Hello, text!
-      /   %footer
-      /     %span Анонс
-      / %article
-      /   %h3= link_to 'Hello!', '#'
-      /   %p Hello, text!
-      /   %footer= link_to 'Читать полностью', '#'
-  / .get-pager
-  /   .get-link.get-prev_link= link_to 'Предыдущая', '#', :class=>'no-active'
-  /   .get-middle
-  /     %ul
-  /       %li
-  /         %span.get-bradius 1
-  /       %li= link_to '2', '#', :class=>"get-bradius"
-  /       %li= link_to '3', '#', :class=>"get-bradius"
-  /       %li= link_to '4', '#', :class=>"get-bradius"
-  /       %li= link_to '5', '#', :class=>"get-bradius"
-  /   .get-link.get-next_link= link_to 'Следующая', '#'
+  .get-pager.press-centre
 
 = render 'shared/news_sidebar'
 .content-wrapper= render 'shared/opinions'

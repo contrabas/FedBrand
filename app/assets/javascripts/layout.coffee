@@ -62,8 +62,8 @@ $ ->
     if category == 'Все'
       $('article.expert').show()
     else
-      $("article.expert[data-category!=#{category}]").hide()
-      $("article.expert[data-category=#{category}]").show()
+      $("article.expert[data-category!='#{category}']").hide()
+      $("article.expert[data-category='#{category}']").show()
 
   reverse = false
   $('body').on 'click', '.link-abc a', (e) ->
@@ -80,3 +80,26 @@ $ ->
 
     items.reverse() unless reverse
     list.html items
+
+  menu_html = $('ul.press-centre').html()
+  content_html = $("#press-centre").html()
+  prev = if gon.locale=='ru' then 'Предыдущая' else 'Previous'
+  next = if gon.locale=='ru' then 'Следующая' else 'Next'
+  config =
+    containerID : "press-centre"
+    perPage : 3
+    previous: prev
+    next: next
+
+  $('.get-pager.press-centre').jPages(config)
+
+  $('body').on 'click', 'ul.press-centre a', (e) ->
+    e.preventDefault()
+    category = $(@).text()
+    name = $(@).parent().attr('class')
+
+    $('ul.press-centre').html menu_html
+    $("ul.press-centre .#{name}").html category
+    $("#press-centre").html content_html
+    $("article.press-centre[data-category!='#{category}']").remove()
+    $(".get-pager.press-centre").jPages("destroy").jPages(config)

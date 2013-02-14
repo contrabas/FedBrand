@@ -171,17 +171,17 @@
 }
 
 .news-category, .news-tags {
-  
-  .get-news_content {width:690px; background-color:#fff; 
-  
+
+  .get-news_content {width:690px; background-color:#fff;
+
     .news-cats {@include float-left; padding:20px; width:650px;
 
       &.content-news_block {padding-left:0; padding-right:0; width:690px; }
 
     }
-  
+
   }
-  
+
 }
 
 .get-news_content {
@@ -258,13 +258,13 @@
 
     }
 
-      &.get-next_link {
+    &.get-next_link {
 
-        .no-active {
+      .no-active {
 
-          &:after, & > iea {background:sprite($icons, icon-arrow-right-gray) no-repeat; }
+        &:after, & > iea {background:sprite($icons, icon-arrow-right-gray) no-repeat; }
 
-        }
+      }
 
     }
 
@@ -281,60 +281,60 @@
 }
 
 .borderradius {
-  
+
   .news-sidebar .ui-datepicker-inline table td a.ui-state-active {@include border-radius(3px); }
-  
+
 }
 
 .news-sidebar {
-  
-  .calendar-wrapper {margin-top:25px!important; 
-  
+
+  .calendar-wrapper {margin-top:25px!important;
+
     h2 {color:#fff; }
-  
+
   }
-  
+
   .ui-datepicker-inline {padding-top:5px;
-    
+
     .ui-datepicker-header {@include get-relative; height:35px; margin:0 11px; background:image-url('repeaters/calendar-head.gif') repeat-x left 10px; text-align:center;
-      
+
       a {@include hide-block; width:5px; height:8px; @include get-absolute; top:7px;
-      
+
         &.ui-datepicker-prev {background:sprite($icons, icon-arrow-left-white) no-repeat; left:-11px; }
         &.ui-datepicker-next {background:sprite($icons, icon-arrow-right-white) no-repeat; right:-11px; }
-      
+
       }
-      
+
       .ui-datepicker-title {font-size:pem(11px); display:inline; font-weight:bold; text-transform:uppercase; color:#fff; padding:0 6px; background-color:#DB3200;
-      
+
         span {padding:0; margin:0; }
-      
+
       }
-      
+
     }
-  
+
     table.ui-datepicker-calendar {width:100%;
-      
+
       th, td {text-transform:uppercase; font-weight:bold; font-size:pem(10px); color:#ffe987; text-align:left; padding:0 10px 0 9px; border-left:1px solid #dd5943; }
-      
+
       td {
-        
+
         a {color:#fff; &.ui-state-active {color:#e62f0c; background-color:#fff; padding:2px 3px; } }
-        
+
         &.ui-datepicker-other-month a {color:#8a110a; }
-        
+
       }
-      
+
       th:first-child {border:none; padding-left:0; }
-      
+
       tr {
-        
+
         td:first-child {border:none; padding-left:0; }
-        
+
       }
-    
+
     }
-  
+
   }
 
   h2 {margin:5px 0; }

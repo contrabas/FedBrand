@@ -1,57 +1,86 @@
 @import "mixins";
 
-.vertical-carousel_link {position:relative; 
-  
+.vertical-carousel_link {position:relative;
+
   a {@include hide-block; @include get-absolute; width:28px; height:12px; left:50%; margin-left:-14px;
-    
+
     &#partners-slider_prev {background:sprite($icons, icon-carousel-prev-gray) no-repeat; }
     &#partners-slider_next {background:sprite($icons, icon-carousel-next-gray) no-repeat; margin-top:5px; }
-    
+
   }
-  
+
 }
 
-.horizontal-carousel_link {position:relative; 
+.horizontal-carousel_link {position:relative;
 
   a {@include hide-block; @include get-absolute; width:12px; height:28px; top:65px;
-  
-    &#nominees-slider_prev {background:sprite($icons, icon-carousel-prev-horizontal-gray) no-repeat; left:0; 
-    
+
+    &#nominees-slider_prev {background:sprite($icons, icon-carousel-prev-horizontal-gray) no-repeat; left:0;
+
       &:hover {background:sprite($icons, icon-carousel-prev-horizontal-black) no-repeat;}
-    
+
     }
     &#nominees-slider_next {background:sprite($icons, icon-carousel-next-horizontal-gray) no-repeat; right:0; }
-  
+
   }
 
 }
 
-.jcarousel {position:relative; overflow:hidden; 
-  
+.jcarousel {position:relative; overflow:hidden;
+
   ul {@include get-absolute; list-style:none; margin:0; padding:0; li {@include float-left; } }
 
   &.vertical-slider {width:226px; height:470px; margin-top:15px;
-    
+
     ul {height:20000em;
-    
+
       li {@include float-left; width:226px; height:93px; border-top:1px solid #eee; line-height:93px; }
-    
+
     }
-    
+
     &:before, & > ieb {content:""; @include get-absolute(88); height:1px; width:226px; background-color:#fff; }
-      
-  }
-  
-  &.horizontal-slider {margin-top:30px; height:100px; 
-    
-    &.get-pad_arrows {padding:0 45px; }
-    
-    ul {width:20000em;
-    
-      li {width:160px; height:95px; margin:0 5px; img {border:1px solid #ccc; width:158px; height:95px; } }
-    
-    }
-      
+
   }
 
+  &.horizontal-slider {margin-top:30px; height:100px;
+
+    &.get-pad_arrows {padding:0 45px; }
+
+    ul {width:20000em;
+
+      li {width:160px; height:95px; margin:0 5px; img {border:1px solid #ccc; width:158px; height:95px; } }
+
+    }
+
+  }
+
+}
+
+.get-pager.press-centre {@include content-wrapper; text-align:center;
+  a {display:inline-block; cursor:pointer; width:24px; height:24px; line-height:23px; @include border-radius(50%); color: #8D8D8D; background-color: #E6E6E6; margin-right:4px; margin-left:4px; }
+
+  a:hover {text-decoration:none; }
+  a:hover, .jp-current {color:#fff; background-color:#1559a9; }
+
+  .jp-disabled {color:#828282 !important; cursor:auto; text-decoration:none!important; }
+
+  .jp-previous, .jp-next {font-size:pem(10px); font-weight:bold; text-transform:uppercase; width:auto; @include border-radius(0); color:black; background-color:white; }
+
+  .jp-previous:hover, .jp-next:hover {color:black; background-color:white; }
+
+  .jp-previous {float:left; margin-left:25px; padding-left:20px; margin-right:0px; position:relative;
+    &:before, & > ieb {content:""; background:sprite($icons, icon-arrow-left-black) no-repeat; @include get-absolute; left:0; top:6px; width:5px; height:8px; }
+  }
+
+  .jp-previous.jp-disabled {
+    &:before, & > ieb {background:sprite($icons, icon-arrow-left-gray) no-repeat; }
+  }
+
+  .jp-next {float:right; margin-right:25px; padding-right:20px; margin-left:0px; position:relative;
+    &:after, & > iea {content:""; background:sprite($icons, icon-arrow-right-black) no-repeat; @include get-absolute; right:0; top:6px; width:5px; height:8px; }
+
+    .jp-disabled {
+      &:after, & > iea {background:sprite($icons, icon-arrow-right-gray) no-repeat; }
+    }
+  }
 }
