@@ -72,15 +72,14 @@
     &:before, & > ieb {content:""; background:sprite($icons, icon-arrow-left-black) no-repeat; @include get-absolute; left:0; top:6px; width:5px; height:8px; }
   }
 
+  .jp-next {float:right; margin-right:25px; padding-right:20px; margin-left:0px; position:relative;
+    &:after, & > iea {content:""; background:sprite($icons, icon-arrow-right-black) no-repeat; @include get-absolute; right:0; top:6px; width:5px; height:8px; }
+  }
+
   .jp-previous.jp-disabled {
     &:before, & > ieb {background:sprite($icons, icon-arrow-left-gray) no-repeat; }
   }
-
-  .jp-next {float:right; margin-right:25px; padding-right:20px; margin-left:0px; position:relative;
-    &:after, & > iea {content:""; background:sprite($icons, icon-arrow-right-black) no-repeat; @include get-absolute; right:0; top:6px; width:5px; height:8px; }
-
-    .jp-disabled {
-      &:after, & > iea {background:sprite($icons, icon-arrow-right-gray) no-repeat; }
-    }
+  .jp-next.jp-disabled {
+    &:after, & > iea {background:sprite($icons, icon-arrow-right-gray) no-repeat; }
   }
 }
