@@ -1,6 +1,6 @@
 require 'bundler/capistrano'
 
-server '178.63.96.144', :app, :web, :db, primary: true
+server '5.178.85.4', :app, :web, :db, primary: true
 
 set :user, 'fedbrand'
 set :deploy_to, '/var/rails/fedbrand'
