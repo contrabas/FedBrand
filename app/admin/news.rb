@@ -12,8 +12,8 @@ ActiveAdmin.register News do
       f.input :logo, hint: f.object.logo.url ?
         f.template.image_tag(f.object.logo.url(:thumb)) :
         f.template.content_tag(:span, "")
-      f.input :content, as: :ckeditor
       f.input :remote_logo_url
+      f.input :content, as: :ckeditor
       f.input :tag_list, hint: "Разделять запятыми"
       f.input :category
       f.input :edited_time, as: :just_datetime_picker
