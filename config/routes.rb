@@ -3,6 +3,8 @@ FedBrand::Application.routes.draw do
     mount Ckeditor::Engine => '/ckeditor'
     ActiveAdmin.routes(self)
     devise_for :users, ActiveAdmin::Devise.config
+    root to: 'pages#index'
+    get "contacts" => "pages#contacts"
 
     resources :experts, only: %w(index show) do
       collection do
@@ -24,8 +26,5 @@ FedBrand::Application.routes.draw do
         match 'archive(/:id)' => 'awards#archive', as: :archive
       end
     end
-    root to: 'pages#index'
-
-    get "contacts" => "pages#contacts"
   end
 end
