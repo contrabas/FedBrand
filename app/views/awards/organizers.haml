@@ -7,10 +7,8 @@
   .container
     %article.get-organizer_main
       %figure= image_tag '/assets/tmp/award_main_organizer.jpg'
-      %aside
-        %p
-          %b Организатор.
-          Cоздания социокультурных, спортивных либо иных проектов, которые повышают инвестиционную привлекательность региона. Создание и развитие геобрендов. создания социокультурных, спортивных либо иных проектов, которые повышают инвестиционную привлекательность региона. Создание и развитие геобрендов.
+      - content = Static.find_by_name('Awards_organizers').try(:content)
+      %aside= raw content unless content.blank?
   .get-gradient.awards-partners_block.awards-partners_block-main
     .container
       %article

@@ -47,6 +47,7 @@ en:
       footer: репутационный рейтинг регионов
       awards: Awards
       ratings: Ratings
+      calendar: Calendar
     news:
       latest: Latest
       press: Publication in media
@@ -57,6 +58,7 @@ en:
       rubrics: Rubrics
       tags: Tags
       title: News
+      tag: Tag
     opinions:
       link: All experts opinions
       title: Expert's opinions
@@ -80,6 +82,8 @@ en:
       experts: Experts of
       post: ! 'Post:'
       workplace: ! 'Workplace:'
+      select_category: Select category
+      sort: By name
   activerecord:
     models:
       admin: Admin

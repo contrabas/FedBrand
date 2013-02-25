@@ -1,5 +1,5 @@
 %section.get-content_side.get-shadow.no-width_pad.get-news_content
-  %h1= "Тэг: #{@tag}"
+  %h1= "#{t('pages.news.tag')}: #{@tag}"
   - unless @news.blank?
     .news-cats.get-gradient.width-full
       %section= render partial: 'shared/news', locals: { collection: @news }

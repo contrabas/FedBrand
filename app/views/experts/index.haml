@@ -3,8 +3,9 @@
     .get-relative
       .get-expert_action
         %form
-          %label Выберите направление
-          = select_tag :category, ("<option value='0'>Все</option>"+options_from_collection_for_select(Category.all, :id, :name)).html_safe, id: 'category_select'
-        %p.link-abc= link_to 'По алфавиту', '#'
+          %label= t 'pages.experts.select_category'
+          - all = I18n.locale == :ru ? 'Все' : 'All'
+          = select_tag :category, ("<option value='0'>#{all}</option>"+options_from_collection_for_select(Category.all, :id, :name)).html_safe, id: 'category_select'
+        %p.link-abc= link_to t('pages.experts.sort'), '#'
     %h1 Эксперты
   .get-experts_category.get-gradient.items-3= render partial: 'shared/experts', locals: { experts: Expert.order('experts.last_name') }

@@ -452,6 +452,7 @@ ru:
       footer: репутационный рейтинг регионов
       awards: Премия
       ratings: Рейтинг
+      calendar: Календарь
     news:
       latest: Актуально
       press: Публикации в прессе
@@ -462,6 +463,7 @@ ru:
       rubrics: Рубрики
       tags: Теги
       title: Новости
+      tag: Тег
     opinions:
       link: Все экспертные мнения
       title: Мнения экспертов
@@ -485,6 +487,8 @@ ru:
       experts: Эксперты
       post: ! 'Должность:'
       workplace: ! 'Место работы:'
+      select_category: Выберите направление
+      sort: По алфавиту
   views:
     pagination:
       first: Первая

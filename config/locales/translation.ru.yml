@@ -19,6 +19,7 @@ ru:
       month: Месяцы
       monthly_expert: Эксперт месяца
       news_opinion: Новостная Цитата
+      static: Статика
     attributes:
       active_admin/comment:
         resource_type: resource_type  #g
@@ -43,6 +44,11 @@ ru:
         thumb: Изображение
         remote_thumb_url: либо урл
         tag: Тэг
+
+      static:
+        name: Название
+        content_ru: Содержание(рус.)
+        content_en: Содержание(англ.)
 
       award:
         year: Год  #g
