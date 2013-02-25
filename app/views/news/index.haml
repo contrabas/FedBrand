@@ -16,7 +16,7 @@
             %p= h truncate Sanitize.clean(news.content, remove_contents: ['h1','h2','h3','h4']), length: 150, separator: ' '
             = render partial: 'shared/tag_links', locals: { news: news }
             %footer= link_to t('pages.news.read_more'), news
-        .get-all_items= link_to 'Все публикации', category_news_index_path(category), :class=>"get-icon_link"
+        .get-all_items= link_to t('pages.news.all'), category_news_index_path(category), :class=>"get-icon_link"
 
   - pc_news = News.press_centre
   - unless pc_news.blank?

@@ -31,7 +31,7 @@ namespace :deploy do
   task(:stop)  {}
 
   task :restart, :roles => :app, :except => { :no_release => true } do
-    run "touch #{current_path}/tmp/restart.txt"
     run "cd #{current_path}; bundle exec localeapp daemon -b -i 30"
+    run "touch #{current_path}/tmp/restart.txt"
   end
 end
