@@ -1,5 +1,6 @@
 #coding: utf-8
 ActiveAdmin.register Opinion do
+  menu parent: "Experts"
   config.sort_order = "edited_time_desc"
 
   form do |f|

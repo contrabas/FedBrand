@@ -5,7 +5,7 @@ ru:
       award_category: Категории Премий
       opinion: Цитаты  #g
       partner: Партнеры  #g
-      gallery: Галлереи  #g
+      gallery: Галереи  #g
       news: Новости  #g
       category: Категории  #g
       user: Пользователи  #g
@@ -189,7 +189,7 @@ ru:
         title: Заголовок  #g
         description: Описание  #g
         translations: Переводы  #g
-        gallery: Галлерея  #g
+        gallery: Галерея  #g
 
       juror:
         expert: Эксперт  #g

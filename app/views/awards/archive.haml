@@ -33,8 +33,8 @@
               - next unless juror.expert
               %article
                 %figure
-                  - photo = juror.expert.photo.url(:thumb)
-                  %p= link_to image_tag(photo), '#' if photo
+                  - photo = juror.expert.photo_by_height.url ? juror.expert.photo_by_height : juror.expert.photo
+                  %p= link_to image_tag(photo.url(:bw)), expert_path(juror.expert) if photo.url
                 %aside
                   %h3= link_to juror.expert.name, expert_path(juror.expert)
                   %p= juror.expert.position
