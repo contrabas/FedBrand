@@ -18,7 +18,6 @@
       = javascript_include_tag "http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"
     = javascript_include_tag "modernizr"
   %body{class: "#{controller_name}-#{action_name}"}
-    = yield(:video_modal)
     #wrapper
       #main-layout
         - if flash[:notice]

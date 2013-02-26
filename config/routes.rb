@@ -18,6 +18,7 @@ FedBrand::Application.routes.draw do
         get 'category/:category', to: 'news#category', as: :category
       end
     end
+    resources :videos, only: %w(show)
     resources :ratings, only: %w(index)
     resources :awards, only: %w(index) do
       collection do
