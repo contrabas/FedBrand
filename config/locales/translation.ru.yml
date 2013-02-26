@@ -43,7 +43,8 @@ ru:
         title: Заголовок
         thumb: Изображение
         remote_thumb_url: либо урл
-        tag: Тэг
+        tag: Html Тег
+        edited_time: Время создания
 
       static:
         name: Название

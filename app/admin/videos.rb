@@ -1,5 +1,7 @@
 #coding: utf-8
 ActiveAdmin.register Video do
+  config.sort_order = "edited_time_desc"
+
   form do |f|
     f.inputs do
       f.input :title
@@ -8,6 +10,7 @@ ActiveAdmin.register Video do
         f.template.content_tag(:span, "")
       f.input :remote_thumb_url
       f.input :tag
+      f.input :edited_time, as: :just_datetime_picker
     end
 
     f.actions
@@ -22,6 +25,7 @@ ActiveAdmin.register Video do
         target: '_blank' if video.thumb.url
     end
     column :tag
+    column :edited_time
 
     default_actions
   end
