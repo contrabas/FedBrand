@@ -1,37 +1,37 @@
 @import "mixins";
 
 .items-3 {
-    
+
   article:nth-child(3n+3) {margin-right:0!important; }
-    
+
 }
-  
+
 .items-4 {
-    
+
   article:nth-child(4n+4) {margin-right:0!important; }
-    
+
 }
 
 .get-text {
-  
+
   ul {list-style-type:none; padding:0; margin:0;
-  
+
     li {font-size:pem(12px); margin-top:10px; padding:0 0 0 15px; position:relative;
-    
+
       &:before, & > ieb {content:"\2022"; color:#ccc; font-size:pem(22px); @include get-absolute; left:0; top:0; }
-    
+
     }
-  
+
   }
-  
+
 }
 
 article {
- 
+
   p {font-size:pem(12px); }
-  
+
   footer {@include content-wrapper(10px); border-top:1px solid $borderHrColor; padding-top:10px; }
-  
+
   ul.work-info {@include my-inline-list; li {width:145px; padding-left:105px; font-size:pem(12px); position:relative; span {font-weight:bold; @include get-absolute; width:100px; left:0; }}}
 
 }
@@ -43,69 +43,69 @@ article {
 }
 
 .link-back {font-weight:bold; text-transform:uppercase; padding-top:10px;
-  
-  a {color:#000; position:relative; padding-left:11px; &:hover {color:#000; } 
 
-    &:before, & > ieb {content:""; width:5px; height:8px; background:sprite($icons, icon-arrow-left-black) no-repeat; @include get-absolute; left:0; top:5px; } 
-  
-  } 
+  a {color:#000; position:relative; padding-left:11px; &:hover {color:#000; }
+
+    &:before, & > ieb {content:""; width:5px; height:8px; background:sprite($icons, icon-arrow-left-black) no-repeat; @include get-absolute; left:0; top:5px; }
+
+  }
+
+}
+
+.get-prev_link {padding-left:20px;
+
+  a {padding-left:20px;
+
+    &:before, & > ieb {content:""; background:sprite($icons, icon-arrow-left-black) no-repeat; @include get-absolute; left:0; top:2px; width:5px; height:8px; }
+
+  }
 
 }
 
-.get-prev_link {padding-left:20px; 
-  
-  a {padding-left:20px; 
-    
-    &:before, & > ieb {content:""; background:sprite($icons, icon-arrow-left-black) no-repeat; @include get-absolute; left:0; top:2px; width:5px; height:8px; } 
-  
-  } 
+.get-next_link {float:right; padding-right:20px; text-align:right;
+
+  a {padding-right:20px;
+
+    &:after, & > iea {content:""; background:sprite($icons, icon-arrow-right-black) no-repeat; @include get-absolute; right:0; top:2px; width:5px; height:8px; }
+
+  }
 
 }
-    
-.get-next_link {float:right; padding-right:20px; text-align:right; 
-  
-  a {padding-right:20px; 
-    
-    &:after, & > iea {content:""; background:sprite($icons, icon-arrow-right-black) no-repeat; @include get-absolute; right:0; top:2px; width:5px; height:8px; } 
-    
-  } 
-  
-}
 
-.get-content_menu {@include wrap; @include ul-inlineblock(0 20px 0 0, left); text-transform:uppercase; font-size:pem(12px); font-weight:bold; 
+.get-content_menu {@include wrap; @include ul-inlineblock(0 20px 0 0, left); text-transform:uppercase; font-size:pem(12px); font-weight:bold;
 
   li {position:relative;
-    
-    &:before, & > ieb {content:"| "; @include get-absolute; left:-12px; font-weight:normal; color:#ccc; } 
-    
+
+    &:before, & > ieb {content:"| "; @include get-absolute; left:-12px; font-weight:normal; color:#ccc; }
+
     &:first-child {
-      
-      &:before, & > ieb {content:""; } 
-      
+
+      &:before, & > ieb {content:""; }
+
     }
-  
+
   }
 
 }
 
-.get-pdf {@include wrap; font-size:pem(12px); font-weight:bold; text-transform:uppercase; 
+.get-pdf {@include wrap; font-size:pem(12px); font-weight:bold; text-transform:uppercase;
 
   a {position:relative; padding-left:35px;
-  
+
     &:before, & > ieb {content:""; width:23px; height:28px; left:0; top:-5px; @include get-absolute; background:sprite($icons, icon-pdf) no-repeat; }
-  
+
   }
 
 }
 
-.modal {border-radius:0!important; width:662px; margin-left:-340px; padding:5px 9px 9px 9px;
+.modal {border-radius:0!important; width:662px; margin-left:-340px; padding:5px 9px 9px 9px; left: 44% !important;
 
-  .modal-header {border:none; padding:0; 
-    
-    .close {width:12px; height:12px; @include hide-block; @include opacity(100); margin-top:5px!important; background:sprite($icons, icon-close) no-repeat; } 
-  
+  .modal-header {border:none; padding:0;
+
+    .close {width:12px; height:12px; @include hide-block; @include opacity(100); margin-top:5px!important; background:sprite($icons, icon-close) no-repeat; }
+
   }
-  
+
   .modal-body {padding:5px 0 0 0; text-align:center; }
 
 }
