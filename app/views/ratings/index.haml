@@ -29,7 +29,7 @@
           %td.position= i+1
           %td.name= rating.region.name
           %td.emblem= image_tag emblem.url(:icon) if emblem.url
-          %td.rating= rating.value
+          %td.rating= "%g" % rating.value
           %td.change= change
           %td.trend
             - class_name = change.to_i > 0 ? 'get-up' : ('get-down' if change.to_i < 0)
