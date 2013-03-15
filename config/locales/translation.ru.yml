@@ -169,6 +169,11 @@ ru:
         translations: Переводы  #g
         news: Новости  #g
 
+      rating:
+        region: Регион
+        value: Значение
+        date: Дата
+
       expert:
         first_name: Имя  #g
         last_name: Фамилия  #g
