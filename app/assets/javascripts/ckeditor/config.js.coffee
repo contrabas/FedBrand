@@ -12,6 +12,8 @@ CKEDITOR.editorConfig = (config) ->
     { name: 'links',       items: [ 'Link','Unlink','Anchor' ] },
     { name: 'tools',       items: [ 'Maximize', 'ShowBlocks','-','About' ] }
   ]
-  config.toolbar = 'Pure'
+  config.toolbar               = 'Pure'
+  config.font_defaultLabel     = 'Arial'
+  config.fontSize_defaultLabel = '12'
 
   true
