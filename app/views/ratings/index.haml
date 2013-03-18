@@ -24,7 +24,8 @@
         - change = lm_rating ? lm_rating - i : 0
         - change = change > 0 ? "+#{change}" : change==0 ? '-' : "#{change}"
         - emblem = rating.region.emblem
-        %tr
+        - style  = (i==0 or i==1) ? "opacity: 0.65" : ""
+        %tr{style: style}
           %td.checkbox= check_box_tag 'region', rating.region.id
           %td.position= i-1 unless i == 0 or i == 1
           %td.name= rating.region.name
