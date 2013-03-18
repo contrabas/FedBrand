@@ -25,8 +25,6 @@ drawRatingChart = ->
     pointSize: 5
     legend:
       position: "#{position}"
-    vAxis:
-      viewWindow: {min: 150, max: 750}
     hAxis:
       format: "MMM yyy"
       viewWindow: {max: maxDate()}
