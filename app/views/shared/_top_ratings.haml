@@ -16,5 +16,5 @@
           - ratings.each do |rating|
             - break unless rating
             - i += 1
-            = ratings_row i, rating.region.name, rating.value
+            = ratings_row i, rating.region.name, ("%g" % rating.value)
     %footer= link_to t('pages.top_ratings.links'), ratings_path, class: "get-icon_link"
