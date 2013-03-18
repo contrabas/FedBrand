@@ -101,7 +101,7 @@ ru:
     - Пт
     - Сб
     abbr_month_names:
-    - 
+    -
     - Янв
     - Фев
     - Мар
@@ -115,7 +115,7 @@ ru:
     - Ноя
     - Дек
     abbr_month_names_old:
-    - 
+    -
     - янв.
     - февр.
     - марта
@@ -141,7 +141,7 @@ ru:
       long: ! '%d %B %Y'
       short: ! '%d %b'
     month_names:
-    - 
+    -
     - январь
     - февраль
     - март
@@ -159,7 +159,7 @@ ru:
     - :month
     - :year
     plural_month_names:
-    - 
+    -
     - января
     - февраля
     - марта
@@ -358,9 +358,9 @@ ru:
             many: триллионов
             one: триллион
             other: триллионов
-          unit: 
+          unit:
       format:
-        delimiter: 
+        delimiter:
         precision: 1
         significant: false
         strip_insignificant_zeros: false
@@ -378,10 +378,10 @@ ru:
           tb: ТБ
     percentage:
       format:
-        delimiter: 
+        delimiter:
     precision:
       format:
-        delimiter: 
+        delimiter:
   seconds:
     few: секунды
     many: секунд
@@ -448,7 +448,7 @@ ru:
       experts: Эксперты
       home: Главная
       news: Новости
-      slogan: Репутация - путь к процветанию региона!
+      slogan: Репутация регионов - путь к процветанию России!
       footer: репутационный рейтинг регионов
       awards: Премия
       ratings: Рейтинг
