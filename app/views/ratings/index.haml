@@ -26,7 +26,7 @@
         - emblem = rating.region.emblem
         %tr
           %td.checkbox= check_box_tag 'region', rating.region.id
-          %td.position= i+1
+          %td.position= i-1 unless i == 0 or i == 1
           %td.name= rating.region.name
           %td.emblem= image_tag emblem.url(:icon) if emblem.url
           %td.rating= "%g" % rating.value
