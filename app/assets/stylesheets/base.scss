@@ -14,7 +14,7 @@
 @import "bootstrap/close";
 @import "bootstrap/alerts";
 
-* {margin:0;padding:0;} 
+* {margin:0;padding:0;}
 
 html, body {height: 100%; }
 
@@ -22,7 +22,7 @@ body {background:$bodyBackground image-url('repeaters/bg.gif') repeat; min-width
 
 #wrapper {min-height:100%; }
 
-#main-layout {overflow:auto; padding-bottom:85px; } 
+#main-layout {overflow:auto; padding-bottom:85px; }
 
 body:before {content:""; height:100%; float:left; width:0; margin-top:-32767px; }
 
@@ -62,7 +62,7 @@ figure {margin:0; }
 
 .get-content_side-full {width:970px; @include float-left; padding:5px 0 20px 0; background-color:#fff; .container {padding:0 15px; margin:0; width:940px; @include float-left; } }
 
-#get-footer {position:relative; margin-top:-68px; height:38px; clear:both; background:image-url('repeaters/g_bg20.png') repeat-x left top; padding-top:30px; font-size:pem(12px);
+#get-footer {position:relative; margin-top:-68px; height:38px; clear:both; background:image-url('repeaters/g_bg20.png') repeat-x left top; padding-top:25px; font-size:pem(12px);
 
   a {color:$textColor; text-decoration:underline!important; &:hover {text-decoration:none!important; } }
 

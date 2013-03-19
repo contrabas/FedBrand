@@ -41,14 +41,7 @@
           .container= render :partial => 'shared/top_ratings'
         %section#get-main_content
           .container= yield
-    %footer#get-footer
-      .container
-        %aside.pull-left
-          %p
-            &#169; ФедБренд &#151;
-            = t 'pages.nav.footer'
-        %aside.pull-right
-          %p= link_to 'welcome@fedbrand.ru', 'mailto:welcome@fedbrand.ru'
+    %footer#get-footer= render 'shared/footer'
 
   = include_gon watch: true
   %script{ type: 'text/javascript', src: 'http://www.google.com/jsapi' }
