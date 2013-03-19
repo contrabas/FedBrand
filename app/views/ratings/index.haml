@@ -5,7 +5,8 @@
   %aside.rating-dashboard
     = link_to t('pages.ratings.clear'), '#', class: 'clear-selection get-gradient2'
     - month = Month.where(month: Rating.last_month).last
-    = link_to t('pages.ratings.download'), month.ratings.url if month.ratings
+    - link = month.ratings
+    = link_to t('pages.ratings.download'), link.url unless link.blank?
     %table.region
       %tr
         %th.t_checkbox
