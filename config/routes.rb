@@ -4,7 +4,8 @@ FedBrand::Application.routes.draw do
     ActiveAdmin.routes(self)
     devise_for :users, ActiveAdmin::Devise.config
     root to: 'pages#index'
-    get "contacts" => "pages#contacts"
+    get 'contacts' => 'pages#contacts'
+    get 'videos' => 'pages#videos'
 
     resources :experts, only: %w(index show) do
       collection do

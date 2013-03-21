@@ -5,10 +5,11 @@
       = render 'shared/videos'
     .get-sidebar.get-shadow.get-gradient.get-news_categories
       %h2= t 'pages.news.rubrics'
-      %ul
+      %ul{style: "text-transform: uppercase"}
         / %li= link_to t('pages.news.latest'), '#'
+        %li= link_to t('pages.videos.title').upcase, videos_path
         - Category.all.each do |category|
-          %li= link_to category.name.mb_chars.upcase.to_s, category_news_index_path(category)
+          %li= link_to category.name, category_news_index_path(category)
     .get-sidebar.get-shadow.get-tags_cloud
       %h2= t 'pages.news.tags'
       .tag_links
