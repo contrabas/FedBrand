@@ -1,9 +1,10 @@
 %section.index-block.index-expert_block.get-shadow#index_expert-block
   %ul
-    - Opinion.limit(3).each do |opinion|
+    - Opinion.includes(:expert).limit(3).each do |opinion|
+      - expert = opinion.expert
+      - next unless expert
       %li
         %figure
-          - expert = opinion.expert
           - photo = expert.photo_by_height.url ? expert.photo_by_height : expert.photo
           %p= link_to image_tag(photo.url(:bw)), expert_path(expert) if photo.url
         %h3= link_to h(truncate(strip_tags(opinion.content), length: 105, separator: ' ')), expert_path(expert)

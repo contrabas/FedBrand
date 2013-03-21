@@ -10,7 +10,7 @@ class Opinion < ActiveRecord::Base
   has_many :news, through: :news_opinions
   accepts_nested_attributes_for :news_opinions, allow_destroy: true
 
-  validates_presence_of :content
+  validates_presence_of :content, :expert_id
   after_initialize :set_default_date
 
   private
