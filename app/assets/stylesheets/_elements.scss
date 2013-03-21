@@ -32,7 +32,7 @@ article {
 
   footer {@include content-wrapper(10px); border-top:1px solid $borderHrColor; padding-top:10px; }
 
-  ul.work-info {list-style-type: none; margin:0; li {width:145px; padding-left:105px; font-size:pem(12px); position:relative; span {font-weight:bold; @include get-absolute; width:100px; left:0; }}}
+  ul.work-info {list-style-type:none; margin:0 0 9px 0; li {width:145px; padding-left:105px; font-size:pem(12px); position:relative; span {font-weight:bold; @include get-absolute; width:100px; left:0; }}}
 
 }
 

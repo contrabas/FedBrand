@@ -55,6 +55,10 @@
 
   article:nth-child(3n+2) {margin-left:65px; margin-right:60px;}
 
-  article {width:248px; padding-top:30px; display: -moz-inline-stack; display:inline-block; vertical-align:top; zoom: 1; *display: inline;}
+  article {width:248px; padding-top:35px; display: -moz-inline-stack; display:inline-block; vertical-align:top; zoom: 1; *display: inline;
+
+    footer {margin-top:0; }
+
+  }
 
 }
