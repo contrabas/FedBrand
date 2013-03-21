@@ -8,4 +8,4 @@
           = select_tag :category, ("<option value='0'>#{all}</option>"+options_from_collection_for_select(Category.all, :id, :name)).html_safe, id: 'category_select'
         %p.link-abc= link_to t('pages.experts.sort'), '#'
     %h1 Эксперты
-  .get-experts_category.get-gradient.items-3= render partial: 'shared/experts', locals: { experts: Expert.order('experts.last_name') }
+  .get-experts_category.get-gradient= render partial: 'shared/experts', locals: { experts: Expert.order('experts.last_name') }
