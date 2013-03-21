@@ -8,6 +8,8 @@
 
 .get-experts_block {
 
+  h2 {margin-top:35px;}
+
   .get-expert_action {@include get-absolute; right:0; width:330px;
 
     label {color:#666; font-size:pem(12px); padding-right:10px; cursor:auto;}
@@ -18,7 +20,7 @@
 
   }
 
-  .experts-switcher {@include content-wrapper(30px); padding-bottom:10px;
+  .experts-switcher {margin-top:20px; height:20px;
 
     h1 {@include float-left; margin:0 15px 0 0; }
 
@@ -47,9 +49,12 @@
 
 .get-experts_category {@include wrap; padding-bottom:30px;
 
-  h2 {margin:0 0 0 20px; }
+  h2 {margin:0 0 0 20px;}
 
-  article {width:248px; padding-top:30px; display: -moz-inline-stack; display:inline-block; vertical-align:top; zoom: 1; *display: inline; margin:0 69px 0 20px;
+  article:nth-child(3n+1) {margin-left:30px;}
+  article:nth-child(3n+2) {margin-left:65px; margin-right:60px;}
+
+  article {width:248px; padding-top:20px; display: -moz-inline-stack; display:inline-block; vertical-align:top; zoom: 1; *display: inline;
 
     footer {margin-top:30px; }
 
