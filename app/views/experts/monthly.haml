@@ -13,7 +13,7 @@
           %span= @date.month_i18n
         %li= link_to 'Следующий месяц', next_month_path, :title=>"Следующий месяц", class: "get-next #{next_month_class}"
 
-    - @experts.group_by(&:category).each do |category, experts|
+    - @experts.includes(:category).group_by(&:category).each do |category, experts|
       .get-experts_category.get-gradient.items-3
         %h2= category.name
         = render partial: 'shared/experts', locals: { experts: experts }

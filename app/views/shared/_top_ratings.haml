@@ -11,7 +11,7 @@
   #ratings
     %article
       - i = 0
-      - Rating.joins(:region).where("regions.name_ru not like ? and regions.name_ru not like ?", 'Город Москва', 'Санкт-Петербург').top(10).to_a.in_groups_of(5).each do |ratings|
+      - Rating.includes(:region).where("regions.name_ru not like ? and regions.name_ru not like ?", 'Город Москва', 'Санкт-Петербург').top(10).to_a.in_groups_of(5).each do |ratings|
         %ul
           - ratings.each do |rating|
             - break unless rating

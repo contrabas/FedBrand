@@ -1,4 +1,4 @@
-- experts.each do |expert|
+- experts.includes(:category).each do |expert|
   - category = expert.category.name
   %article.expert{data: {category: category, name: expert.last_name}}
     %figure= link_to image_tag(expert.photo.url(:big)), expert_path(expert), title: expert.full_name if expert.photo.url
