@@ -8,7 +8,7 @@
 
 .get-experts_block {
 
-  h2 {margin-top:40px;}
+  h2 {margin:40px 0 0 0;}
 
   .get-expert_action {@include get-absolute; right:0; width:330px;
 
@@ -47,7 +47,7 @@
 
 }
 
-.get-experts_category {@include wrap; padding-bottom:30px;
+.get-experts_category {padding-bottom:30px;
 
   h2 {margin:0 0 0 20px;}
 
