@@ -7,7 +7,7 @@
       %h2= t 'pages.news.rubrics'
       %ul{style: "text-transform: uppercase"}
         / %li= link_to t('pages.news.latest'), '#'
-        %li= link_to t('pages.videos.title').upcase, videos_path
+        %li= link_to t('pages.videos.title').upcase, videos_news_index_path
         - Category.all.each do |category|
           %li= link_to category.name, category_news_index_path(category)
     .get-sidebar.get-shadow.get-tags_cloud

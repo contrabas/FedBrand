@@ -4,8 +4,7 @@ FedBrand::Application.routes.draw do
     ActiveAdmin.routes(self)
     devise_for :users, ActiveAdmin::Devise.config
     root to: 'pages#index'
-    get 'contacts' => 'pages#contacts'
-    get 'videos' => 'pages#videos'
+    get 'contacts', to: 'pages#contacts'
 
     resources :experts, only: %w(index show) do
       collection do
@@ -15,6 +14,7 @@ FedBrand::Application.routes.draw do
     end
     resources :news, only: %w(index show) do
       collection do
+        get 'videos', to: 'news#videos'
         get 'tags/:tag', to: 'news#tags', as: :tag
         get 'category/:category', to: 'news#category', as: :category
       end
