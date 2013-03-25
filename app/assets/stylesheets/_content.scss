@@ -366,4 +366,9 @@
 .all-videos{width: 690px; background-color: #fff;
   h1 {margin: 5px 0 20px 15px;}
   article {margin:0 0 40px 40px; width:280px; float:left; display:inline-block;}
+  figure {margin:0;
+    p a {position:relative; &:before, & > ieb {content:""; @include get-absolute; background:sprite($icons, icon-video-play) no-repeat; width:39px; height:39px; left:50%; top:50%; margin:-19px 0 0 -19px; }}
+
+    img {border:1px solid #ccc;}
+  }
 }
