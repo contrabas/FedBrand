@@ -17,7 +17,6 @@ class NewsController < ApplicationController
   end
 
   def videos
-    @videos = Video.unscoped.with_translations(I18n.locale)
-      .order('edited_time ASC').limit Video.count-3
+    @videos = Video.all
   end
 end
