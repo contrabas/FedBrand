@@ -62,3 +62,13 @@
   }
 
 }
+
+#expert_info {display: inline-block;
+  img {float: left;}
+  p {font-size: 15px;}
+  .info_block {display: inline-block; margin-left: 25px; width: 650px;}
+}
+
+#expert_opinions {
+  h4 {margin: 20px 0 0 0;}
+}

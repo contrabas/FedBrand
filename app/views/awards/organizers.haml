@@ -1,8 +1,9 @@
 %section.get-content_side-full.get-shadow
   .container
-    .link-back= link_to t('pages.awards.back'), awards_path
+    %h2= t 'pages.nav.organizers'
+    / .link-back= link_to t('pages.awards.back'), awards_path
 
-    .get-content_menu.awards-nav= render 'shared/awards_nav'
+    / .get-content_menu.awards-nav= render 'shared/awards_nav'
 
   .container
     %article.get-organizer_main
@@ -14,13 +15,13 @@
       %article
         %figure= image_tag '/assets/tmp/thumb_136_136.jpg'
         %aside
-          %h1 Нина Исайченко,
+          %h1 Нина Исайченко
           %p.get-work_post
             генеральный директор PMCG «Art&Smart»,
             %br
             идеолог  проекта «Федеральный бренд»:
           %p создания социокультурных, спортивных либо иных проектов, которые повышают инвестиционную привлекательность региона. Создание и развитие геобрендов.
-          %footer= link_to 'Читать полностью', '#'
+          /%footer= link_to 'Читать полностью', '#'
   .container.awards-partners_block
     %h2= t 'pages.home.partners.title'
     - Partner.all.each do |partner|
@@ -31,7 +32,7 @@
         - if expert
           %figure= link_to image_tag(expert.photo.url(:medium)), expert.photo.url if expert.photo.url
           %aside
-            %h3= link_to expert.name+',', '#'
+            %h3= link_to expert.name, expert
             %p.get-work_post= expert.position
             %p= h truncate expert.description, length: 150, separator: ' '
             %footer= link_to t('pages.news.read_more'), expert

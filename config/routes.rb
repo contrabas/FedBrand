@@ -5,6 +5,7 @@ FedBrand::Application.routes.draw do
     devise_for :users, ActiveAdmin::Devise.config
     root to: 'pages#index'
     get 'contacts', to: 'pages#contacts'
+    get 'organizers', to: 'awards#organizers'
 
     resources :experts, only: %w(index show) do
       collection do

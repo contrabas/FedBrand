@@ -1,17 +1,19 @@
 #expert_info
   = image_tag @expert.photo.url(:big) if @expert.photo.url
-  %p= @expert.name
-  %p= @expert.description
-  - unless @expert.workplace.blank?
-    .workplace
-      %b.title= t 'pages.experts.workplace'
-      = @expert.workplace
-  - unless @expert.post.blank?
-    .post
-      %b.title= t 'pages.experts.post'
-      = @expert.post
+  .info_block
+    %h4= @expert.name
+    %p= @expert.description
+    - unless @expert.workplace.blank?
+      .workplace
+        %b.title= t 'pages.experts.workplace'
+        = @expert.workplace
+    - unless @expert.post.blank?
+      .post
+        %b.title= t 'pages.experts.post'
+        = @expert.post
 
 #expert_opinions
-  = t('pages.experts.expert_opinions')+ ":"
+  %h4= t('pages.experts.expert_opinions')+ ":"
   - @expert.opinions.each do |opinion|
+    %br
     .content= raw opinion.content
