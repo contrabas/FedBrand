@@ -1,7 +1,8 @@
+#coding: UTF-8
 module ApplicationHelper
   def title
     content_tag :title do
-      @title || "Fed Brand"
+      @title || t('pages.nav.title')
     end
   end
 
