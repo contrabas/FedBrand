@@ -2,12 +2,13 @@
 ActiveAdmin.register Partner do
   form do |f|
     f.inputs do
+      f.input :name
+      f.input :group
       f.input :logo, hint: f.object.logo.url ?
         f.template.image_tag(f.object.logo.url(:thumb)) :
         f.template.content_tag(:span, "")
       f.input :remote_logo_url
       f.input :url
-      f.input :name
     end
 
     f.actions
@@ -17,6 +18,7 @@ ActiveAdmin.register Partner do
     selectable_column
     column :id
     column :name
+    column :group
     column "Logo" do |partner|
       link_to image_tag(partner.logo.url(:thumb)), partner.logo.url,
         target: '_blank' if partner.logo.url

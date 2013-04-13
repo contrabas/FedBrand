@@ -1,5 +1,5 @@
 %section.get-content_side-full.get-shadow
-  .container
+  .container.organizers
     %h2= t 'pages.nav.organizers'
     / .link-back= link_to t('pages.awards.back'), awards_path
 
@@ -23,16 +23,18 @@
           %p создания социокультурных, спортивных либо иных проектов, которые повышают инвестиционную привлекательность региона. Создание и развитие геобрендов.
           /%footer= link_to 'Читать полностью', '#'
   .container.awards-partners_block
-    %h2= t 'pages.home.partners.title'
-    - Partner.all.each do |partner|
-      %article
-        %header
-          %figure= link_to image_tag(partner.logo.url(:thumb)), partner.url if partner.logo.url
-        - expert = partner.experts.first
-        - if expert
-          %figure= link_to image_tag(expert.photo.url(:medium)), expert.photo.url if expert.photo.url
-          %aside
-            %h3= link_to expert.name, expert
-            %p.get-work_post= expert.position
-            %p= h truncate expert.description, length: 150, separator: ' '
-            %footer= link_to t('pages.news.read_more'), expert
+    - Partner.all.reverse.group_by(&:group).each do |group, partners|
+      .group
+        %h2= group
+        - partners.each do |partner|
+          %article
+            %header
+              %figure= link_to image_tag(partner.logo.url(:thumb)), partner.url if partner.logo.url
+            - expert = partner.experts.first
+            - if expert
+              %figure= link_to image_tag(expert.photo.url(:medium)), expert.photo.url if expert.photo.url
+              %aside
+                %h3= link_to expert.name, expert
+                %p.get-work_post= expert.position
+                %p= h truncate expert.description, length: 150, separator: ' '
+                %footer= link_to t('pages.news.read_more'), expert

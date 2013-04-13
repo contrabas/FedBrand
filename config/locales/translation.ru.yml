@@ -109,6 +109,7 @@ ru:
         remote_logo_url: либо урл
         url: Ссылка  #g
         experts: Эксперты  #g
+        group: Тип
 
       gallery:
         image: Фотография
