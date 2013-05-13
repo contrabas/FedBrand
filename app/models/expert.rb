@@ -17,7 +17,7 @@ class Expert < ActiveRecord::Base
   has_many :months, through: :monthly_experts
 
   before_validation :generate_slug
-  validates_presence_of :first_name, :last_name, :slug
+  validates_presence_of :first_name, :last_name, :slug, :category
   validates_uniqueness_of :slug
 
   def to_param
