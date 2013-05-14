@@ -4,7 +4,7 @@
     = link_to t('pages.home.partners.prev'), '#', :id=>"partners-slider_prev"
   .jcarousel.vertical-slider.white-slider#partners-slider
     %ul
-      - Partner.all.each do |partner|
+      - Partner.where(group: 'Партнеры').each do |partner|
         %li= link_to image_tag(partner.logo.url(:thumb)), partner.url if partner.logo.url
   .vertical-carousel_link
     = link_to t('pages.home.partners.next'), '#', :id=>"partners-slider_next"
