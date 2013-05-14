@@ -13,6 +13,7 @@ ActiveAdmin.register News do
         f.template.image_tag(f.object.logo.url(:thumb)) :
         f.template.content_tag(:span, "")
       f.input :remote_logo_url
+      f.input :alt
       f.input :content, as: :ckeditor
       f.input :tag_list, hint: "Разделять запятыми"
       f.input :category
@@ -58,6 +59,7 @@ ActiveAdmin.register News do
         link_to image_tag(g.logo.url(:thumb).to_s), g.logo.url,
           target: '_blank' if g.logo.url
       end
+      row :alt
       row :title
       row :content
       row :category
