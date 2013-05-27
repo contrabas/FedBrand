@@ -6,15 +6,15 @@ en:
     - :month
     - :year
     formats:
-      default: ! '%d.%m.%Y'
-      long: ! '%d %B %Y'
-      short: ! '%d %b'
+      default: '%d.%m.%Y'
+      long: '%d %B %Y'
+      short: '%d %b'
   pages:
     awards:
       back: Back to awards
       experts: Experts jury of yearly award «Federal Brand»
       gallery: Guests of award «Federal Brand»
-      jury: ! 'Jury:'
+      jury: 'Jury:'
       links:
         archive: Archive
         nominees: Nominees
@@ -22,13 +22,13 @@ en:
       nominees: Nominees of award «Federal Brand»
       published: Publications in media
       title: About award
-      winners: ! 'Winners:'
+      winners: 'Winners:'
     contacts:
       contact_us:
         phone: Phone number
         title: Contact us
       map:
-        address: ! 'Address: Moscow, Tverskaya Street 9/17 c7'
+        address: 'Address: Moscow, Tverskaya Street 9/17 c7'
         title: Map route
     home:
       news:
@@ -61,6 +61,7 @@ en:
       tags: Tags
       title: News
       tag: Tag
+      all: All publications
     opinions:
       link: All experts opinions
       title: Expert's opinions
@@ -83,8 +84,8 @@ en:
       all_experts: All experts
       expert_opinions: Expert's publications
       experts: Experts of
-      post: ! 'Post:'
-      workplace: ! 'Workplace:'
+      post: 'Post:'
+      workplace: 'Workplace:'
       select_category: Select category
       sort: By name
   activerecord:
@@ -97,4 +98,4 @@ en:
       last: Last
       next: Next
       previous: Previous
-      truncate: ! ' '
+      truncate: ' '

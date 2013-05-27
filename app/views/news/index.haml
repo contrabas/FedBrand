@@ -8,7 +8,7 @@
 
   - News.main.where('news.id not in (?)', actual.map(&:id)).group_by(&:category).each do |category, category_news|
     %h2= category.name.mb_chars.upcase.to_s
-    .news-cats.get-gradient.content-news_block
+    .news-cats.get-gradient.content-news_block.items-3
       %section
         - category_news.first(3).each do |news|
           %article

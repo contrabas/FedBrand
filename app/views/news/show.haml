@@ -1,7 +1,7 @@
 %section.get-content_side.get-shadow.no-width_pad.get-news_content
   %h1= t 'pages.news.title'
   .get-gradient
-    %figure= image_tag @news.logo.url(:thumb) if @news.logo.url(:thumb)
+    %figure= image_tag @news.logo.url(:thumb), title: @news.alt if @news.logo.url(:thumb)
     .get-content_short
       %h2.title= @news.title
       %p= raw @news.content
