@@ -7,10 +7,22 @@ $ ->
     $('#get-rating_block #ratings').show()
     $('#get-rating_block #maximize').hide()
     $('#get-rating_block #minimize').show()
+  hidePotential = ->
+    $('#get-potential_block #potential').hide()
+    $('#get-potential_block #maximize').show()
+    $('#get-potential_block #minimize').hide()
+  showPotential = ->
+    $('#get-potential_block #potential').show()
+    $('#get-potential_block #maximize').hide()
+    $('#get-potential_block #minimize').show()
 
-  $('body').on 'click', '#maximize, #minimize', (e) ->
+  $('body #get-rating_block').on 'click', '#maximize, #minimize', (e) ->
     e.preventDefault()
     if $('#ratings:visible').length then hideRatings() else showRatings()
+
+  $('body #get-potential_block').on 'click', '#maximize, #minimize', (e) ->
+    e.preventDefault()
+    if $('#potential:visible').length then hidePotential() else showPotential()
 
   $("#partners-slider").jcarousel(
     vertical: true

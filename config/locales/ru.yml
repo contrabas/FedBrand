@@ -493,6 +493,10 @@ ru:
       workplace: 'Место работы:'
       select_category: Выберите направление
       sort: По алфавиту
+    potential:
+      title: ПОТЕНЦИАЛ РЕГИОНОВ
+      maximize: Развернуть
+      minimize: Свернуть
   views:
     pagination:
       first: Первая
